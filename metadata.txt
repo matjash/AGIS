@@ -18,8 +18,8 @@ about=EN: Plugin helps seting up GIS project for archaeologists or anyone else t
          Dostop do podatkov omogočata Ministrstvo za kulturo in Geodetska uprava RS. Za razvoj vtičnika je poskrbel Center za preventivno arheologijo, ZVKDS.
          
 
-tracker=https://github.com/matjash/AGIS/issues
-repository=https://github.com/matjash/AGIS
+tracker=https://github.com/PreventiveArchaeology/AGIS/issues
+repository=https://github.com/PreventiveArchaeology/AGIS
 # End of mandatory metadata
 
 # Recommended items:
@@ -31,7 +31,7 @@ changelog= v1.1: New menu "About", updated layer sources (eVRD, DTK5), new layer
 # Tags are comma separated with spaces allowed
 tags=python, archaeology, Slovenia
 
-homepage=https://github.com/matjash/AGIS
+homepage=https://github.com/PreventiveArchaeology/AGIS
 category=AGIS
 icon=icons/agis_logo.png
 # experimental flag
