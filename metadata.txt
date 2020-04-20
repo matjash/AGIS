@@ -1,0 +1,52 @@
+# This file contains metadata for your plugin.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=AGIS
+qgisMinimumVersion=3.0
+description=Archaeological GIS, toolbox for Slovenian Archaeologists.
+version=1.1
+author=Matjaž Mori, ZVKDS CPA
+email=matjaz.mori@gmail.com
+
+about=EN: Plugin helps seting up GIS project for archaeologists or anyone else that needs same layers for the area of Republic of Slovenia.
+         Data is provided by Slovenian Ministry of Culture and Surveying and Mapping Authority. 
+         Plugin was developed by Centre for Preventive Archeology, IPCH Slovenia.
+         
+         SI: Vtičnik je v pomoč ob vzpostavitvi GIS projekta za arheologe ali kogarkoli, ki potrebuje iste sloje za območje Republike Slovenije.
+         Dostop do podatkov omogočata Ministrstvo za kulturo in Geodetska uprava RS. Za razvoj vtičnika je poskrbel Center za preventivno arheologijo, ZVKDS.
+         
+
+tracker=https://github.com/matjash/AGIS/issues
+repository=https://github.com/matjash/AGIS
+# End of mandatory metadata
+
+# Recommended items:
+
+hasProcessingProvider=no
+# Uncomment the following line and add your changelog:
+changelog= v1.1: New menu "About", updated layer sources (eVRD, DTK5), new layer (RKD)
+
+# Tags are comma separated with spaces allowed
+tags=python, archaeology, Slovenia
+
+homepage=https://github.com/matjash/AGIS
+category=AGIS
+icon=icons/agis_logo.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
+# Since QGIS 3.8, a comma separated list of plugins to be installed
+# (or upgraded) can be specified.
+# Check the documentation for more information.
+# plugin_dependencies=
+
+Category of the plugin: Raster, Vector, Database or Web
+# category=
+
+# If the plugin can run on QGIS Server.
+server=False

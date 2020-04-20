@@ -1,0 +1,13 @@
+<RCC>
+	<qresource prefix="/plugins/agis" >
+        <file>icons/icon_links.png</file>
+				<file>icons/icon_load.png</file>
+				<file>icons/agis_logo.png</file>
+				<file>icons/agis_logo_small.png</file>
+				<file>icons/agis_small.png</file>
+				<file>icons/agis_toolbox.png</file>
+				<file>icons/loader_logo_small.png</file>				
+				<file>icons/strati_word_catalog.png</file>
+				<file>icons/CPA_logo_small.png</file>
+	</qresource>
+</RCC>
