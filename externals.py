@@ -22,7 +22,7 @@ def path(item):
     path = path[item]
     return path
 
-# Checks duplicates and returnes value error (not in use yet)
+# Checks duplicates and returnes value error (not used yet)
 """
 def checkDuplicates(features, name, feedback):
     list = []
