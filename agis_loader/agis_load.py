@@ -205,7 +205,7 @@ class ArheoloskiGisLoad:
 
         #Clean layers (On update use:  names = [layer.name() for layer in QgsProject.instance().mapLayers().values()] ; print (names)  )
         if self.dlg.clean.isChecked():
-            layers = ['AO_topo75_1880', 'AO_topo75_1914', 'Claustra Alpium Iuliarum', 'DOF050', 'DPK1000', 'DPK250', 'DPK500', 'DTK50_1950_1967', 'DTK50', 'DTK5', 'Državna meja Republike Slovenije', 'Evidenca arheoloških raziskav', 'Franciscejski kataster', 'Katalog najdišč', 'Katastrske občine', 'Naselja', 'Načrti najdišč', 'Načrti najdišč_poligoni', 'Občine', 'Parcele', 'RKD', 'SMAP', 'ZLS SVF', 'ZLS interpretacija', 'eVRD']
+            layers = ['AO_topo75_1880', 'AO_topo75_1914', 'Claustra Alpium Iuliarum', 'DOF050', 'DPK1000', 'DPK250', 'DPK500', 'DTK50_1950_1967', 'DTK50', 'DTK5', 'Državna meja Republike Slovenije', 'Evidenca arheoloških raziskav', 'Franciscejski kataster', 'Katalog najdišč', 'Katastrske občine', 'Naselja', 'Načrti najdišč', 'Načrti najdišč_poligoni', 'Občine', 'ZKP parcele', 'ZKN parcele', 'RKD', 'SMAP', 'ZLS SVF', 'ZLS interpretacija', 'eVRD']
             groups = ['Arheologija', 'Dediščina', 'Prostorske enote', 'Historične podlage', 'Podlage']
             try:
                 for layer in layers:
@@ -275,7 +275,11 @@ class ArheoloskiGisLoad:
 
             prostorske = styles_path/'Prostorske enote.qlr'
             QgsLayerDefinition().loadLayerDefinition(str(prostorske), QgsProject.instance(), prostorske_group)
-           
+
+            if access(self):
+                vlayer = postgis_connect(self, "public", "ZKN parcele", "geom", "fid")
+                QgsProject.instance().addMapLayer(vlayer, False) 
+                prostorske_group.insertChildNode(6, QgsLayerTreeLayer(vlayer))             
         else:
             self.iface.messageBar().pushMessage(self.tr("Ne nalagam Prostorskih enot!"), duration=2)       
 

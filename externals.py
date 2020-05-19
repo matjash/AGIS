@@ -7,7 +7,9 @@ from qgis.core import (QgsProject,
                        QgsDataSourceUri
                        )
 import psycopg2
+import base64
 
+u = base64.b64decode('Y3Bh')
 
 def path(item):
     path = {}
@@ -49,8 +51,8 @@ def value_error(id, value, feedback):
 def access(self):
     self.host = "majadb"
     self.database = "CPA_Analiza"
-    self.user = "cpa"
-    self.password = "cpa"
+    self.user = u.decode('utf')
+    self.password = u.decode('utf')
     self.port = "5432"
     try:
         conn = psycopg2.connect(host=self.host,port=self.port, database=self.database, user=self.user, password=self.password, connect_timeout=1 )
@@ -65,7 +67,6 @@ def data_access(self):
         return True
     else:
         return False
-
 
 
 # Get layer from CPA, ZVKDS database
