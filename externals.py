@@ -24,29 +24,6 @@ def path(item):
     path = path[item]
     return path
 
-# Checks duplicates and returnes value error (not used yet)
-"""
-def checkDuplicates(features, name, feedback):
-    list = []
-    for feature in features:
-        list.append(feature[name])
-    duplicates = 0
-    for element in list:
-        if list.count(element) > 1:
-            feedback.pushInfo(self.tr("%s %s se pojavi: %s - krat!" % (name, element, list.count(element))))
-            duplicates = duplicates + 1
-        else:
-            pass
-    if duplicates == 0:
-        feedback.pushInfo("Ni podvojenih %s" % name)
-    else:
-        raise ValueError
-
-def value_error(id, value, feedback):
-    feedback.reportError("Pri %s manjaka vrednost  %s!" % (id, value),False)
-    raise ValueError
-"""
-
 # Checks if connected to CPA, ZVKDS network
 def access(self):
     self.host = "majadb"
