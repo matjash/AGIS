@@ -35,6 +35,7 @@ from qgis.core import (QgsProject,
                        QgsLayerTreeLayer
 
                        )
+from qgis.gui import QgsAuthConfigSelect
 import tempfile
 import shutil
 
@@ -85,6 +86,10 @@ class ArheoloskiGisWorkLoader:
         self.dlg.buttonBox.button(QDialogButtonBox.Cancel).clicked.connect(self.dlg.close)
         self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.load_layers)
         self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.dlg.close)
+
+        self.a = self.dlg.mAuthConfigSelect.configId()
+        self.a = 'sdsa'        
+        #self.iface.messageBar().pushMessage(str(a))
 
         logo_path = path('icons')/'icon_work_loader.png'
         self.dlg.label_2.setPixmap(QPixmap(str(logo_path)))
@@ -183,10 +188,10 @@ class ArheoloskiGisWorkLoader:
 
    
     def load_layers(self):
+      
+        self.iface.messageBar().pushMessage(str(type(self.a)))
+        """
 
-
-
-        
         root = QgsProject.instance().layerTreeRoot()
         crs = QgsCoordinateReferenceSystem("EPSG:3794")
 
@@ -347,4 +352,4 @@ class ArheoloskiGisWorkLoader:
             if len(QgsProject.instance().mapLayersByName(layer)) != 0:
                 layer = QgsProject.instance().mapLayersByName(layer)[0]
                 root.findLayer(layer.id()).setItemVisibilityChecked(0)            
-
+        """
