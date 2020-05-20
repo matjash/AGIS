@@ -246,19 +246,19 @@ class ArheoloskiGisWorkLoader:
         if self.dlg.clean.isChecked():
             w_layers = [r[1] for r in table.getFeatures()]         
             groups = [self.tr('Delovni sloji')]
-            try:
-                for layer in QgsProject.instance().mapLayers():
-                    a = QgsProject.instance().mapLayersByName(layer)
-                    self.iface.messageBar().pushMessage(str(a))
-                    for i in  w_layers:  
-                        b = QgsProject.instance().mapLayersByName(i)        
-                        QgsProject.instance().removeMapLayer(b.id())
-                for group in groups:       
-                    for s in [child for child in root.children()]:
-                        if s.name() == group:
-                            root.removeChildNode(s)
-            except:
-                pass
+
+            for w in  w_layers:
+                for a in QgsProject.instance().mapLayersByName(w):
+                    try:
+                        QgsProject.instance().removeMapLayer(a.id())
+                    except:
+                        continue
+  
+            for group in groups:       
+                for s in [child for child in root.children()]:
+                    if s.name() == group:
+                        root.removeChildNode(s)
+       
         else:
             pass
 
