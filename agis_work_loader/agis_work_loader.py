@@ -32,13 +32,17 @@ from qgis.core import (QgsProject,
                        QgsVectorLayer,
                        QgsLayerDefinition,
                        QgsCoordinateReferenceSystem,
-                       QgsLayerTreeLayer
+                       QgsLayerTreeLayer,
+                       QgsDataSourceUri,
+                       QgsCredentials,
+                       QgsApplication,
+                       QgsAuthMethodConfig
 
                        )
 from qgis.gui import QgsAuthConfigSelect
 import tempfile
 import shutil
-
+import psycopg2
 
 # Initialize Qt resources from file resources.py
 from ..resources import *
@@ -47,9 +51,10 @@ from .agis_work_loader_dialog import ArheoloskiGisWorkLoaderDialog
 import os.path
 from pathlib import Path
 from ..externals import (path,
-                        access,
                         data_access,
-                        postgis_connect
+                        access,
+                        postgis_connect,
+                        parameters
                         )
 import tempfile
 import shutil
@@ -84,14 +89,10 @@ class ArheoloskiGisWorkLoader:
         self.dlg = ArheoloskiGisWorkLoaderDialog()
 
         self.dlg.buttonBox.button(QDialogButtonBox.Cancel).clicked.connect(self.dlg.close)
-        self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.load_layers)
+        self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.load_work_layers)
         self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.dlg.close)
-
-        self.a = self.dlg.mAuthConfigSelect.configId()
-        self.a = 'sdsa'        
-        #self.iface.messageBar().pushMessage(str(a))
-
-        logo_path = path('icons')/'icon_work_loader.png'
+    
+        logo_path = path('icons')/"CPA_logo_small.png"
         self.dlg.label_2.setPixmap(QPixmap(str(logo_path)))
         # Declare instance attributes
         self.actions = []
@@ -186,38 +187,72 @@ class ArheoloskiGisWorkLoader:
             pass
 
 
-   
-    def load_layers(self):
-      
-        self.iface.messageBar().pushMessage(str(type(self.a)))
-        """
 
-        root = QgsProject.instance().layerTreeRoot()
-        crs = QgsCoordinateReferenceSystem("EPSG:3794")
 
-        if access(self):
-            self.iface.messageBar().pushMessage(self.tr("Povezava s podatkovno bazo CPA uspešna.."))
-        else:
-            self.iface.messageBar().pushMessage(self.tr("Nalagam brez CPA slojev.."))
-
-        #To prevent folder locking of Plugin directory
-        try:
-            tmp = tempfile.mkdtemp()
-            src = path('qlrs')
-            shutil.rmtree(tmp)
-            shutil.copytree(str(src), tmp)
-            styles_path = Path(tmp)
-        except:
-            self.iface.messageBar().pushMessage(self.tr('Berem qlr iz mape vtičnika...'))
-
-        #Clean layers (On update use:  names = [layer.name() for layer in QgsProject.instance().mapLayers().values()] ; print (names)  )
-        if self.dlg.clean.isChecked():
-            layers = ['AO_topo75_1880', 'AO_topo75_1914', 'Claustra Alpium Iuliarum', 'DOF050', 'DPK1000', 'DPK250', 'DPK500', 'DTK50_1950_1967', 'DTK50', 'DTK5', 'Državna meja Republike Slovenije', 'Evidenca arheoloških raziskav', 'Franciscejski kataster', 'Katalog najdišč', 'Katastrske občine', 'Naselja', 'Načrti najdišč', 'Načrti najdišč_poligoni', 'Občine', 'ZKP parcele', 'ZKN parcele', 'RKD', 'SMAP', 'ZLS SVF', 'ZLS interpretacija', 'eVRD']
-            groups = ['Arheologija', 'Dediščina', 'Prostorske enote', 'Historične podlage', 'Podlage']
+    def load_work_layers(self):
+        
+        def check_conn(host, port, database, user, password):
             try:
-                for layer in layers:
-                    for b in QgsProject.instance().mapLayersByName(layer): 
-                         QgsProject.instance().removeMapLayer(str(b.id()))
+                conn = psycopg2.connect(host=host,port=port, database=database, user=user, password=password, connect_timeout=1)
+                conn.close()
+                self.iface.messageBar().pushMessage(self.tr('Povezava uspešna'))
+                return True
+            except:
+                self.iface.messageBar().pushMessage(self.tr('Povezava neuspešna, napačen uporabnik ali geslo!'))
+                return False
+
+        authcfg = self.dlg.mAuthConfigSelect.configId()
+        auth_mgr = QgsApplication.authManager()
+        auth_cfg = QgsAuthMethodConfig()
+        auth_mgr.loadAuthenticationConfig(authcfg, auth_cfg, True)
+        auth = auth_cfg.configMap()
+
+        uri = QgsDataSourceUri()
+        host = parameters(self)[0]
+        database =  parameters(self)[1]
+        port =  parameters(self)[4]
+                
+        root = QgsProject.instance().layerTreeRoot()
+
+
+        if authcfg is '':  
+            text = self.tr('Uporabljam javni dostop:')
+            uri.setConnection(host, port, database, None, None)
+            (success, user, passwd) = QgsCredentials.instance().get(text, parameters(self)[3],  parameters(self)[2])  
+            if success:
+                uri.setPassword(passwd)
+                uri.setUsername(user) 
+                check_conn(host, port, database, user, passwd)
+            else:
+                self.iface.messageBar().pushMessage(self.tr('Povezava neuspešna!'))
+        else:
+            uri.setConnection(host, port, database, None, None, authConfigId=authcfg)
+            check_conn(host, port, database, auth["username"], auth["password"])   
+        
+        uri.setDataSource("Delovno", "Delovni sloji", None, "", "id")
+        table = QgsVectorLayer(uri.uri(), self.tr("Delovni sloji"), "postgres")
+        if not table.isValid():
+           self.iface.messageBar().pushMessage(self.tr('Težave z dostopom.'))
+        
+
+        def load_wl(shema, table, geom, sql, fid):      
+            uri.setDataSource(shema, table, geom, sql, fid)
+            layer=QgsVectorLayer (uri .uri(False), table, "postgres")
+            return layer
+
+
+
+        #Clean layers
+        if self.dlg.clean.isChecked():
+            w_layers = [r[1] for r in table.getFeatures()]         
+            groups = [self.tr('Delovni sloji')]
+            try:
+                for layer in QgsProject.instance().mapLayers():
+                    a = QgsProject.instance().mapLayersByName(layer)
+                    self.iface.messageBar().pushMessage(str(a))
+                    for i in  w_layers:  
+                        b = QgsProject.instance().mapLayersByName(i)        
+                        QgsProject.instance().removeMapLayer(b.id())
                 for group in groups:       
                     for s in [child for child in root.children()]:
                         if s.name() == group:
@@ -227,14 +262,29 @@ class ArheoloskiGisWorkLoader:
         else:
             pass
 
-        #Load Arheologija layes group
+        if not root.findGroup(self.tr('Delovni sloji')):
+            w_group = root.addGroup(self.tr('Delovni sloji'))
 
-        if access(self):
-            if not root.findGroup(self.tr("Arheologija")):
-                arheo_group = root.addGroup(self.tr("Arheologija"))
-            else:
-                arheo_group = root.findGroup(self.tr("Arheologija"))
-            
+        layers_list = []
+        for f in table.getFeatures():
+            if f[3] != 'admin':
+                try:
+                    layer = load_wl(f[2], f[1], f[4], "", f[5])
+                    if layer.isValid():
+                        layers_list.append(layer)  
+                except:
+                    continue
+
+
+        for layer in layers_list:
+            QgsProject.instance().addMapLayer(layer) 
+            #w_group.insertChildNode(0, QgsLayerTreeLayer(layer))
+            myLayerNode = root.findLayer(layer.id())
+            myLayerNode.setExpanded(False)
+        
+        """
+        = root.findGroup(self.tr("Arheologija"))
+                    
             vlayer = postgis_connect(self, "public", "Katalog najdišč", "geom", "kid")
             QgsProject.instance().addMapLayer(vlayer, False)  
             arheo_group.insertChildNode(0, QgsLayerTreeLayer(vlayer))
