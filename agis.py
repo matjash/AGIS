@@ -92,6 +92,13 @@ class ArheoloskiGis:
         self.AGIS_Menu.addAction(self.Links_agis)
         self.Links_agis.triggered.connect(self.link)
 
+        if access(self):
+            self.work_loader_icon = str(path('icons')/'icon_work_loader.png')
+            self.Work_loader = QAction(QIcon(self.work_loader_icon),self.tr("Naloži delovne sloje"), self.iface.mainWindow())
+            self.AGIS_Menu.addAction(self.Work_loader)
+            self.Work_loader.triggered.connect(self.work_loader)
+
+
         self.about_icon = str(path('icons')/'agis_logo.png')
         self.About_agis = QAction(QIcon(self.about_icon),self.tr("O vtičniku"), self.iface.mainWindow())
         self.AGIS_Menu.addAction(self.About_agis)
@@ -99,11 +106,6 @@ class ArheoloskiGis:
 
         self.iface.mainWindow().menuBar().insertMenu(self.iface.firstRightStandardMenu().menuAction(), self.AGIS_Menu)
 
-        if access(self):
-            self.work_loader_icon = str(path('icons')/'icon_work_loader.png')
-            self.Work_loader = QAction(QIcon(self.work_loader_icon),self.tr("Naloži delovne sloje"), self.iface.mainWindow())
-            self.AGIS_Menu.addAction(self.Work_loader)
-            self.Work_loader.triggered.connect(self.work_loader)
 
 
 

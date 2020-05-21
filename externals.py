@@ -59,3 +59,13 @@ def postgis_connect(self, shema, tablename, geometry, id):
     uri.setKeyColumn(id)
     vlayer=QgsVectorLayer (uri.uri(False), tablename, "postgres")
     return vlayer
+
+def get_work_layers(self):
+    if access(self):
+        uri = QgsDataSourceUri()
+        uri.setConnection(self.host, self.port, self.database, self.user, self.user)  
+        uri.setDataSource("Delovno", "Delovni sloji", None, "", "id")
+        table = QgsVectorLayer(uri.uri(), self.tr("Delovni sloji"), "postgres")
+        if not table.isValid():
+            self.iface.messageBar().pushMessage(self.tr('Težave z dostopom.'))
+        return table

@@ -36,8 +36,8 @@ from qgis.core import (QgsProject,
                        QgsDataSourceUri,
                        QgsCredentials,
                        QgsApplication,
-                       QgsAuthMethodConfig
-
+                       QgsAuthMethodConfig,
+                       Qgis
                        )
 from qgis.gui import QgsAuthConfigSelect
 import tempfile
@@ -54,7 +54,8 @@ from ..externals import (path,
                         data_access,
                         access,
                         postgis_connect,
-                        parameters
+                        parameters,
+                        get_work_layers
                         )
 import tempfile
 import shutil
@@ -91,6 +92,8 @@ class ArheoloskiGisWorkLoader:
         self.dlg.buttonBox.button(QDialogButtonBox.Cancel).clicked.connect(self.dlg.close)
         self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.load_work_layers)
         self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.dlg.close)
+
+        self.dlg.remove_layers.clicked.connect(self.remove_layers)
     
         logo_path = path('icons')/"CPA_logo_small.png"
         self.dlg.label_2.setPixmap(QPixmap(str(logo_path)))
@@ -187,84 +190,95 @@ class ArheoloskiGisWorkLoader:
             pass
 
 
+    def remove_layers(self):
+        root = QgsProject.instance().layerTreeRoot()
+        table = get_work_layers(self)
+
+        w_layers = [r[1] for r in table.getFeatures()]         
+        groups = [self.tr('Delovni sloji')]
+        for w in  w_layers:
+            for a in QgsProject.instance().mapLayersByName(w):
+                try:
+                    QgsProject.instance().removeMapLayer(a.id())
+                except:
+                    continue
+        for group in groups:       
+            for s in [child for child in root.children()]:
+                if s.name() == group:
+                    try:
+                     root.removeChildNode(s)
+                    except:
+                        continue
+    
 
 
     def load_work_layers(self):
-        
+
         def check_conn(host, port, database, user, password):
             try:
                 conn = psycopg2.connect(host=host,port=port, database=database, user=user, password=password, connect_timeout=1)
                 conn.close()
-                self.iface.messageBar().pushMessage(self.tr('Povezava uspešna'))
+                #self.iface.messageBar().pushMessage(self.tr('Povezava uspešna'))
                 return True
             except:
-                self.iface.messageBar().pushMessage(self.tr('Povezava neuspešna, napačen uporabnik ali geslo!'))
+                #self.iface.messageBar().pushMessage(self.tr('Povezava neuspešna, napačen uporabnik ali geslo!'))
                 return False
 
+
+        host = parameters(self)[0]
+        database =  parameters(self)[1]
+        port =  parameters(self)[4]
+        table = get_work_layers(self)
+        uri = QgsDataSourceUri()
+        root = QgsProject.instance().layerTreeRoot()
+
+        #Input authentication
         authcfg = self.dlg.mAuthConfigSelect.configId()
         auth_mgr = QgsApplication.authManager()
         auth_cfg = QgsAuthMethodConfig()
         auth_mgr.loadAuthenticationConfig(authcfg, auth_cfg, True)
         auth = auth_cfg.configMap()
 
-        uri = QgsDataSourceUri()
-        host = parameters(self)[0]
-        database =  parameters(self)[1]
-        port =  parameters(self)[4]
-                
-        root = QgsProject.instance().layerTreeRoot()
+        # Input Username, password
+        user = self.dlg.user_input.text()
+        password = self.dlg.pass_input.text()
 
 
-        if authcfg is '':  
+        if check_conn(host, port, database, user, password):
+            user = user
+            password = password
+        elif authcfg is not '':
+            try:
+                check_conn(host, port, database, auth["username"], auth["password"])
+                user = auth["username"]
+                password = auth["password"]
+            except:
+                pass
+        else:
+            self.iface.messageBar().pushMessage(self.tr("Napačen uporabnik ali geslo."), self.tr("Potrdi za javni dostop."), level=Qgis.Critical)
             text = self.tr('Uporabljam javni dostop:')
             uri.setConnection(host, port, database, None, None)
             (success, user, passwd) = QgsCredentials.instance().get(text, parameters(self)[3],  parameters(self)[2])  
             if success:
-                uri.setPassword(passwd)
-                uri.setUsername(user) 
-                check_conn(host, port, database, user, passwd)
-            else:
-                self.iface.messageBar().pushMessage(self.tr('Povezava neuspešna!'))
-        else:
-            uri.setConnection(host, port, database, None, None, authConfigId=authcfg)
-            check_conn(host, port, database, auth["username"], auth["password"])   
-        
-        uri.setDataSource("Delovno", "Delovni sloji", None, "", "id")
-        table = QgsVectorLayer(uri.uri(), self.tr("Delovni sloji"), "postgres")
-        if not table.isValid():
-           self.iface.messageBar().pushMessage(self.tr('Težave z dostopom.'))
-        
+                if check_conn(host, port, database, user, passwd):
+                    user = user
+                    password = passwd  
+                else:
+                    check_conn(host, port, database, user, passwd) 
+                    self.iface.messageBar().pushMessage(self.tr('Povezava neuspešna, napačen uporabnik ali geslo!'))
 
-        def load_wl(shema, table, geom, sql, fid):      
+        #List of groups and layers
+        w_layers = [r[1] for r in table.getFeatures()]         
+        groups = [self.tr('Delovni sloji')]
+
+
+        def load_wl(shema, table, geom, sql, fid):     
+            uri.setConnection(host, port, database,user, password) 
             uri.setDataSource(shema, table, geom, sql, fid)
             layer=QgsVectorLayer (uri .uri(False), table, "postgres")
             return layer
 
-
-
-        #Clean layers
-        if self.dlg.clean.isChecked():
-            w_layers = [r[1] for r in table.getFeatures()]         
-            groups = [self.tr('Delovni sloji')]
-
-            for w in  w_layers:
-                for a in QgsProject.instance().mapLayersByName(w):
-                    try:
-                        QgsProject.instance().removeMapLayer(a.id())
-                    except:
-                        continue
-  
-            for group in groups:       
-                for s in [child for child in root.children()]:
-                    if s.name() == group:
-                        root.removeChildNode(s)
-       
-        else:
-            pass
-
-        if not root.findGroup(self.tr('Delovni sloji')):
-            w_group = root.addGroup(self.tr('Delovni sloji'))
-
+        #Populate list of accessible layers
         layers_list = []
         for f in table.getFeatures():
             if f[3] != 'admin':
@@ -275,131 +289,15 @@ class ArheoloskiGisWorkLoader:
                 except:
                     continue
 
+        if not root.findGroup(self.tr('Delovni sloji')) and len(layers_list) != 0:
+            w_group = root.addGroup(self.tr('Delovni sloji'))
+        else:
+            w_group = root.findGroup(self.tr('Delovni sloji'))
 
-        for layer in layers_list:
-            QgsProject.instance().addMapLayer(layer) 
-            #w_group.insertChildNode(0, QgsLayerTreeLayer(layer))
+        for current, layer in enumerate(layers_list):
+            QgsProject.instance().addMapLayer(layer, False)   
+            w_group.insertChildNode(current, QgsLayerTreeLayer(layer))
             myLayerNode = root.findLayer(layer.id())
             myLayerNode.setExpanded(False)
+          
         
-        """
-        = root.findGroup(self.tr("Arheologija"))
-                    
-            vlayer = postgis_connect(self, "public", "Katalog najdišč", "geom", "kid")
-            QgsProject.instance().addMapLayer(vlayer, False)  
-            arheo_group.insertChildNode(0, QgsLayerTreeLayer(vlayer))
-
-            vlayer = postgis_connect(self, "public", "Evidenca arheoloških raziskav", "geom", "id")
-            QgsProject.instance().addMapLayer(vlayer, False)   
-            arheo_group.insertChildNode(1, QgsLayerTreeLayer(vlayer)) 
-
-            arch_layers = ['Claustra Alpium Iuliarum', 'Načrti najdišč', 'Načrti najdišč_poligoni']
-            for layer in arch_layers:
-                vlayer = postgis_connect(self, "public", layer, "geom", "id")
-                QgsProject.instance().addMapLayer(vlayer, False)   
-                arheo_group.insertChildNode(2, QgsLayerTreeLayer(vlayer)) 
-            
-            arch_layers = ['SMAP', 'ZLS interpretacija']
-            for layer in arch_layers:
-                vlayer = postgis_connect(self, "public", layer, "geom", "gid")
-                QgsProject.instance().addMapLayer(vlayer, False) 
-                arheo_group.insertChildNode(7, QgsLayerTreeLayer(vlayer))  
-
-        else:
-                pass
-
-
-        #Load Dediščina layes group
-        if self.dlg.dediscina.isChecked():
-            if not root.findGroup(self.tr("Dediščina")):
-                dedi_group = root.addGroup(self.tr("Dediščina"))
-            else:
-                dedi_group = root.findGroup(self.tr("Dediščina"))
-
-            evrd = styles_path/'eVRD.qlr'
-            QgsLayerDefinition().loadLayerDefinition(str(evrd), QgsProject.instance(), dedi_group)
-
-            rkd = styles_path/'RKD.qlr'
-            QgsLayerDefinition().loadLayerDefinition(str(rkd), QgsProject.instance(), dedi_group)
-
-        #Load Prostorske enote layes group
-        if self.dlg.prostorske_enote.isChecked():
-            self.iface.messageBar().pushMessage(self.tr("Nalagam Prostoske enote..."))
-            if not root.findGroup(self.tr("Prostorske enote")):
-                prostorske_group = root.addGroup(self.tr("Prostorske enote"))
-            else:
-                prostorske_group = root.findGroup(self.tr("Prostorske enote"))
-
-            prostorske = styles_path/'Prostorske enote.qlr'
-            QgsLayerDefinition().loadLayerDefinition(str(prostorske), QgsProject.instance(), prostorske_group)
-
-            if access(self):
-                vlayer = postgis_connect(self, "public", "ZKN parcele", "geom", "fid")
-                QgsProject.instance().addMapLayer(vlayer, False) 
-                prostorske_group.insertChildNode(6, QgsLayerTreeLayer(vlayer))             
-        else:
-            self.iface.messageBar().pushMessage(self.tr("Ne nalagam Prostorskih enot!"), duration=2)       
-
-        #Load Historične podlage layes group
-        if self.dlg.historicnepodlage.isChecked():
-            self.iface.messageBar().pushMessage(self.tr("Nalagam Historične podlage..."))
-            if not root.findGroup(self.tr("Historične podlage")):
-                hist_group = root.addGroup(self.tr("Historične podlage"))
-            else:
-                hist_group = root.findGroup(self.tr("Historične podlage"))
-
-            histo = styles_path/'Historicne podlage.qlr'
-            QgsLayerDefinition().loadLayerDefinition(str(histo), QgsProject.instance(), hist_group)
-            hist_group.setExpanded(False)
-        else:
-            self.iface.messageBar().pushMessage(self.tr("Ne nalagam Historičnih podlag!"), duration=2)  
-
-        #Load podlage layes group
-        if self.dlg.c_podlage.isChecked():
-            self.iface.messageBar().pushMessage(self.tr("Nalagam podlage.."))
-            if not root.findGroup(self.tr("Podlage")):
-                podlage_group = root.addGroup(self.tr("Podlage"))
-            else:
-                podlage_group = root.findGroup(self.tr("Podlage"))
-
-            if data_access(self):
-                podlage_zls = styles_path/'ZLS 1.qlr'
-                QgsLayerDefinition().loadLayerDefinition(str(podlage_zls), QgsProject.instance(), podlage_group)
-            else:
-                pass
-
-            podlage_gurs = styles_path/'Podlage.qlr'
-            QgsLayerDefinition().loadLayerDefinition(str(podlage_gurs), QgsProject.instance(), podlage_group)
-
-        else:
-            self.iface.messageBar().pushMessage(self.tr("Ne nalagam podlag!"), duration=2)
-
-
-        QgsProject.instance().setCrs(crs)
-        self.iface.messageBar().pushMessage(self.tr("Nastavljam Državni kordinatni sistem D96/TM.."), duration=5)  
-
-        
-
-        if access(self):
-            #Set which layers should not be expanded
-            not_expanded = ['SMAP', 'ZLS interpretacija','Claustra Alpium Iuliarum', 'Načrti najdišč', 'Načrti najdišč_poligoni', 'Evidenca arheoloških raziskav', 'Katalog najdišč']
-            for layer in not_expanded:
-                if len(QgsProject.instance().mapLayersByName(layer)) != 0:
-                    layer = QgsProject.instance().mapLayersByName(layer)[0]
-                    myLayerNode = root.findLayer(layer.id())
-                    myLayerNode.setExpanded(False)
-
-            #toggle visibility
-            layers =['Claustra Alpium Iuliarum', 'Načrti najdišč', 'Načrti najdišč_poligoni', 'Evidenca arheoloških raziskav','SMAP', 'ZLS interpretacija']
-            for layer in layers:
-                if len(QgsProject.instance().mapLayersByName(layer)) != 0:
-                    layer = QgsProject.instance().mapLayersByName(layer)[0]
-                    root.findLayer(layer.id()).setItemVisibilityChecked(0)
-
-        #toggle visibility
-        layers =['RKD']
-        for layer in layers:
-            if len(QgsProject.instance().mapLayersByName(layer)) != 0:
-                layer = QgsProject.instance().mapLayersByName(layer)[0]
-                root.findLayer(layer.id()).setItemVisibilityChecked(0)            
-        """
