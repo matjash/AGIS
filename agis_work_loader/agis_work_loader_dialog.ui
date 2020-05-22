@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Naloži sloje</string>
+   <string>Naloži delovne sloje</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="topMargin">
