@@ -37,12 +37,15 @@ from qgis.core import (QgsProject,
                        QgsCredentials,
                        QgsApplication,
                        QgsAuthMethodConfig,
-                       Qgis
+                       Qgis,
+                       QgsVectorLayerJoinInfo,
+                       QgsEditorWidgetSetup
                        )
 from qgis.gui import QgsAuthConfigSelect
 import tempfile
 import shutil
 import psycopg2
+import re
 
 # Initialize Qt resources from file resources.py
 from ..resources import *
@@ -273,10 +276,52 @@ class ArheoloskiGisWorkLoader:
 
 
         def load_wl(shema, table, geom, sql, fid):     
+            if geom == '':
+                geom = None
             uri.setConnection(host, port, database,user, password) 
             uri.setDataSource(shema, table, geom, sql, fid)
             layer=QgsVectorLayer (uri .uri(False), table, "postgres")
             return layer
+      
+        #Attribute form config for layer ZLS Int
+        def field_to_value_relation(layer):
+            fields = layer.fields()
+            pattern = re.compile(r'Vrsta')
+            fields_vrsta = [field for field in fields if pattern.match(field.name())]
+            if len(fields_vrsta) > 0:
+                config = {'AllowMulti': False,
+                        'AllowNull': False,
+                        'FilterExpression': 'Sloj = current_value(\'Sloj\') and  \"Opombe\" =\'kategorije\'',
+                        'Key': 'Vrsta',
+                        'Layer': layer.id(),
+                        'NofColumns': 1,
+                        'OrderByValue': False,
+                        'UseCompleter': False,
+                        'Value': 'Vrsta'}
+                for field in fields_vrsta:
+                    field_idx = fields.indexOf(field.name())
+                    if field_idx >= 0:
+                        try:             
+                            widget_setup = QgsEditorWidgetSetup('ValueRelation',config)
+                            layer.setEditorWidgetSetup(field_idx, widget_setup) 
+                        except:
+                            pass
+                    else:
+                        return False
+            else:
+                return False
+            return True
+
+        #Join fields function
+        def field_join(t_layer, s_layer, t_field, s_field):
+            joinObject = QgsVectorLayerJoinInfo()
+            joinObject.setJoinFieldName(s_field)
+            joinObject.setTargetFieldName(t_field)
+            joinObject.setJoinLayerId(s_layer.id())
+            joinObject.setUsingMemoryCache(True)
+            joinObject.setJoinLayer(s_layer)
+            t_layer.addJoin(joinObject)
+
 
         #Populate list of accessible layers
         layers_list = []
@@ -294,10 +339,21 @@ class ArheoloskiGisWorkLoader:
         else:
             w_group = root.findGroup(self.tr('Delovni sloji'))
 
+        # load layers
         for current, layer in enumerate(layers_list):
-            QgsProject.instance().addMapLayer(layer, False)   
-            w_group.insertChildNode(current, QgsLayerTreeLayer(layer))
-            myLayerNode = root.findLayer(layer.id())
-            myLayerNode.setExpanded(False)
+            if layer.name() == 'Porocila za SHP':
+                ear_por = layer
+            else:
+                QgsProject.instance().addMapLayer(layer, False)   
+                w_group.insertChildNode(current, QgsLayerTreeLayer(layer))
+                myLayerNode = root.findLayer(layer.id())
+                myLayerNode.setExpanded(False)
+                if layer.name() == 'EAR_delovna':
+                    ear = layer
+                if layer.name() == 'ZLS Interpretacija_delovno':
+                    field_to_value_relation(layer)
+
+        QgsProject.instance().addMapLayer(ear_por,False)   
+        field_join(ear, ear_por, 'poseg_stev','poseg_stevilka_CPA')
           
-        
+                
