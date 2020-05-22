@@ -35,7 +35,7 @@ homepage=https://github.com/PreventiveArchaeology/AGIS
 category=AGIS
 icon=icons/agis_logo.png
 # experimental flag
-experimental=True
+experimental=False
 
 # deprecated flag (applies to the whole plugin, not just a single version)
 deprecated=False
