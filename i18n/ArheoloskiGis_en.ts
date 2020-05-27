@@ -2,29 +2,42 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en" sourcelanguage="sl_SI">
 <context>
+    <name></name>
+    <message>
+        <location filename="../externals.py" line="68"/>
+        <source>Delovni sloji</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../externals.py" line="70"/>
+        <source>Težave z dostopom.</source>
+        <translation type="unfinished">Trouble accessing CPA database.</translation>
+    </message>
+</context>
+<context>
     <name>ArheoloskiGis</name>
     <message>
-        <location filename="../agis.py" line="181"/>
+        <location filename="../agis.py" line="198"/>
         <source>AGIS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../agis.py" line="179"/>
-        <source>Nalo?i sloje</source>
-        <translation type="obsolete">Load layers</translation>
-    </message>
-    <message>
-        <location filename="../agis.py" line="90"/>
+        <location filename="../agis.py" line="91"/>
         <source>Uporabne povezave</source>
         <translation>Useful links</translation>
     </message>
     <message>
-        <location filename="../agis.py" line="185"/>
+        <location filename="../agis.py" line="209"/>
+        <source>Naloži delovne sloje</source>
+        <translation>Load work layers</translation>
+    </message>
+    <message>
+        <location filename="../agis.py" line="202"/>
         <source>Naloži sloje</source>
         <translation>Load layers</translation>
     </message>
     <message>
-        <location filename="../agis.py" line="188"/>
+        <location filename="../agis.py" line="205"/>
         <source>O vtičniku</source>
         <translation>About</translation>
     </message>
@@ -48,19 +61,14 @@
 <context>
     <name>ArheoloskiGisLoad</name>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="153"/>
+        <location filename="../agis_loader/agis_load.py" line="154"/>
         <source>AGIS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="165"/>
+        <location filename="../agis_loader/agis_load.py" line="166"/>
         <source>&amp;AGIS</source>
         <translation></translation>
-    </message>
-    <message>
-        <location filename="../agis_loader/agis_load.py" line="191"/>
-        <source>Povezava s podatkovno bazo CPA uspešna...</source>
-        <translation type="obsolete">Connection to CPA database sucessfull...</translation>
     </message>
     <message>
         <location filename="../agis_loader/agis_load.py" line="193"/>
@@ -68,37 +76,37 @@
         <translation type="obsolete">Loading without CPA layers...</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="203"/>
+        <location filename="../agis_loader/agis_load.py" line="204"/>
         <source>Berem qlr iz mape vti?nika...</source>
-        <translation type="obsolete">Reading qlr from plugin directory...</translation>
+        <translation type="obsolete">Reading qlr from plugin dir</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="229"/>
+        <location filename="../agis_loader/agis_load.py" line="238"/>
         <source>Arheologija</source>
         <translation>Arheologija</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="270"/>
+        <location filename="../agis_loader/agis_load.py" line="279"/>
         <source>Nalagam Prostoske enote...</source>
         <translation>Loading Administrative units layers...</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="274"/>
+        <location filename="../agis_loader/agis_load.py" line="283"/>
         <source>Prostorske enote</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="280"/>
+        <location filename="../agis_loader/agis_load.py" line="293"/>
         <source>Ne nalagam Prostorskih enot!</source>
         <translation>Not loading Administrative units!</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="273"/>
+        <location filename="../agis_loader/agis_load.py" line="284"/>
         <source>Nalagam Histori?ne podlage...</source>
         <translation type="obsolete">Loading Historical maps...</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="283"/>
+        <location filename="../agis_loader/agis_load.py" line="294"/>
         <source>Ne nalagam Histori?nih podlag!</source>
         <translation type="obsolete">Not loading historical maps!</translation>
     </message>
@@ -108,12 +116,12 @@
         <translation type="obsolete">Loading Base maps...</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="302"/>
+        <location filename="../agis_loader/agis_load.py" line="315"/>
         <source>Podlage</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="314"/>
+        <location filename="../agis_loader/agis_load.py" line="327"/>
         <source>Ne nalagam podlag!</source>
         <translation>Not loading Base maps!</translation>
     </message>
@@ -124,48 +132,101 @@
     </message>
     <message>
         <location filename="../agis_loader/agis_load.py" line="192"/>
-        <source>Povezava s podatkovno bazo CPA uspešna..</source>
-        <translation>Connection to CPA database sucessfull...</translation>
+        <source>Povezava s podatkovno bazo CPA uspe?na..</source>
+        <translation type="obsolete">Connection to CPA database sucessfull...</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="194"/>
+        <location filename="../agis_loader/agis_load.py" line="218"/>
         <source>Nalagam brez CPA slojev..</source>
         <translation>Loading without CPA layers...</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="204"/>
-        <source>Berem qlr iz mape vtičnika...</source>
-        <translation>Reading qlr from plugin dir</translation>
-    </message>
-    <message>
         <location filename="../agis_loader/agis_load.py" line="260"/>
-        <source>Dediščina</source>
-        <translation>Heritage</translation>
+        <source>Dedi???ina</source>
+        <translation type="obsolete">Heritage</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load.py" line="284"/>
-        <source>Nalagam Historične podlage...</source>
-        <translation>Loading Historical maps...</translation>
-    </message>
-    <message>
-        <location filename="../agis_loader/agis_load.py" line="288"/>
-        <source>Historične podlage</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../agis_loader/agis_load.py" line="294"/>
-        <source>Ne nalagam Historičnih podlag!</source>
-        <translation>Not loading historical maps!</translation>
-    </message>
-    <message>
-        <location filename="../agis_loader/agis_load.py" line="298"/>
+        <location filename="../agis_loader/agis_load.py" line="311"/>
         <source>Nalagam podlage..</source>
         <translation>Loading Base maps...</translation>
     </message>
     <message>
         <location filename="../agis_loader/agis_load.py" line="318"/>
+        <source>Nastavljam Dr?avni kordinatni sistem D96/TM..</source>
+        <translation type="obsolete">Setting project CRS to Slovenian D96/ TM...</translation>
+    </message>
+    <message>
+        <location filename="../agis_loader/agis_load.py" line="269"/>
+        <source>Dediščina</source>
+        <translation type="unfinished">Heritage</translation>
+    </message>
+    <message>
+        <location filename="../agis_loader/agis_load.py" line="301"/>
+        <source>Historične podlage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../agis_loader/agis_load.py" line="216"/>
+        <source>Povezava s podatkovno bazo CPA uspešna..</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../agis_loader/agis_load.py" line="228"/>
+        <source>Berem qlr iz mape vtičnika...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../agis_loader/agis_load.py" line="297"/>
+        <source>Nalagam Historične podlage...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../agis_loader/agis_load.py" line="307"/>
+        <source>Ne nalagam Historičnih podlag!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../agis_loader/agis_load.py" line="331"/>
         <source>Nastavljam Državni kordinatni sistem D96/TM..</source>
-        <translation>Setting project CRS to Slovenian D96/ TM...</translation>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ArheoloskiGisWorkLoader</name>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader.py" line="163"/>
+        <source>AGIS</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader.py" line="175"/>
+        <source>&amp;AGIS</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader.py" line="340"/>
+        <source>Delovni sloji</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader.py" line="261"/>
+        <source>Napačen uporabnik ali geslo.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader.py" line="261"/>
+        <source>Potrdi za javni dostop.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader.py" line="262"/>
+        <source>Uporabljam javni dostop:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader.py" line="271"/>
+        <source>Povezava neuspešna, napačen uporabnik ali geslo!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -181,29 +242,24 @@
         <translation>Base maps (DOF, DTK, ZLS)</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load_dialog.ui" line="63"/>
-        <source>Histori?ne podlage (Franciscejski kataster, AO topo)</source>
-        <translation type="obsolete">Historical maps (AO topo, AO Cadaster)</translation>
-    </message>
-    <message>
         <location filename="../agis_loader/agis_load_dialog.ui" line="73"/>
         <source>Historične podlage (Franciscejski kataster, AO topo)</source>
-        <translation>Historical maps (AO topo, AO Cadaster)</translation>
+        <translation type="unfinished">Historical maps (AO topo, AO Cadaster)</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load_dialog.ui" line="97"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Vklju?i skupine&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Include groups&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <location filename="../agis_loader/agis_load_dialog.ui" line="107"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Vključi skupine&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Include groups&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load_dialog.ui" line="114"/>
+        <location filename="../agis_work_loader/agis_work_loader_dialog.ui" line="36"/>
         <source>TextLabel</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../agis_loader/agis_load_dialog.ui" line="114"/>
-        <source>Iz projekta odstrani podvojene obstoje?e sloje</source>
-        <translation type="obsolete">Remove already existant layers</translation>
+        <location filename="../agis_loader/agis_load_dialog.ui" line="124"/>
+        <source>Odstrani AGIS sloje iz projekta</source>
+        <translation>Remove AGIS layers from project</translation>
     </message>
     <message>
         <location filename="../agis_links/agis_links_dialog.ui" line="14"/>
@@ -223,47 +279,37 @@
     <message>
         <location filename="../agis_links/agis_links_dialog.ui" line="87"/>
         <source>Mapire - Zbirka historičnih zemljevidov</source>
-        <translation>Mapire - Historical maps online</translation>
+        <translation type="unfinished">Mapire - Historical maps online</translation>
     </message>
     <message>
         <location filename="../agis_links/agis_links_dialog.ui" line="103"/>
         <source>GIS portal - Državni portal prostorskih podatkov in aplikacij</source>
-        <translation>GIS portal - National spatial data and aplications portal</translation>
+        <translation type="unfinished">GIS portal - National spatial data and aplications portal</translation>
     </message>
     <message>
         <location filename="../agis_links/agis_links_dialog.ui" line="116"/>
         <source>eVode - Dostop do podatkov zračnega laserskega snemanja Slovenije</source>
-        <translation>eVode - Slovenian LiDAR data</translation>
+        <translation type="unfinished">eVode - Slovenian LiDAR data</translation>
     </message>
     <message>
         <location filename="../agis_loader/agis_load_dialog.ui" line="47"/>
         <source>Dediščina (eVRD, RKD)</source>
-        <translation>Heritage</translation>
+        <translation type="unfinished">Heritage</translation>
     </message>
     <message>
         <location filename="../agis_loader/agis_load_dialog.ui" line="83"/>
         <source>Prostorske enote (Meja, Občine, Naselja, Zemljiški kataster)</source>
-        <translation>Administrative units layers (Settlements, Municipalities, Cadaster)</translation>
-    </message>
-    <message>
-        <location filename="../agis_loader/agis_load_dialog.ui" line="107"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Vključi skupine&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Include groups&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../agis_loader/agis_load_dialog.ui" line="124"/>
-        <source>Iz projekta odstrani podvojene obstoječe sloje</source>
-        <translation>Remove already existant layers</translation>
+        <translation type="unfinished">Administrative units layers (Settlements, Municipalities, Cadaster)</translation>
     </message>
     <message>
         <location filename="../about/agis_about_dialog.ui" line="14"/>
         <source>O vtičniku</source>
-        <translation>About</translation>
+        <translation type="unfinished">About</translation>
     </message>
     <message>
         <location filename="../about/agis_about_dialog.ui" line="47"/>
         <source>Sloje preko spletnih storitev omogočajo:</source>
-        <translation>WMS and WFS layers are provided by:</translation>
+        <translation type="unfinished">WMS and WFS layers are provided by:</translation>
     </message>
     <message>
         <location filename="../about/agis_about_dialog.ui" line="56"/>
@@ -304,7 +350,7 @@ p, li { white-space: pre-wrap; }
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;Spezialkarte der Oesterreichischen-ungarnischen Monarchie (1880 – 1885)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;Spezialkarte der Oesterreichischen-ungarnischen Monarchie (1880 â 1885)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
@@ -315,7 +361,7 @@ p, li { white-space: pre-wrap; }
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;Spezialkarte der Oesterreichischen-ungarnischen Monarchie (1910 – 1915)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;Spezialkarte der Oesterreichischen-ungarnischen Monarchie (1910 â 1915)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
@@ -374,7 +420,7 @@ p, li { white-space: pre-wrap; }
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor – Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor â Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;DPK1000 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
@@ -385,7 +431,7 @@ p, li { white-space: pre-wrap; }
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor – Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor â Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;DPK250 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
@@ -396,7 +442,7 @@ p, li { white-space: pre-wrap; }
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor – Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor â Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;DPK500 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
@@ -407,7 +453,7 @@ p, li { white-space: pre-wrap; }
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor – Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor â Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;DTK50 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
@@ -418,7 +464,7 @@ p, li { white-space: pre-wrap; }
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor – Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor â Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;DTK5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
@@ -429,7 +475,7 @@ p, li { white-space: pre-wrap; }
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor – Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor â Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Državna meja Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
@@ -440,18 +486,18 @@ p, li { white-space: pre-wrap; }
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor – Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor â Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Katastrske občine &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;Zemljiški kataster – katastrske občine&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;Zemljiški kataster â katastrske občine&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor – Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor â Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Naselja &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
@@ -462,7 +508,7 @@ p, li { white-space: pre-wrap; }
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor – Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor â Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Občine &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
@@ -473,24 +519,64 @@ p, li { white-space: pre-wrap; }
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor – Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor â Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Parcele &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;ZKP parcele &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;: &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;Zemljiški kataster – parcele&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;Zemljiškokatasterski prikaz - parcele&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt; font-weight:600;&quot;&gt;- &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor – Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:8pt;&quot;&gt;Ministrstvo za okolje in prostor â Geodetska uprava Republike Slovenije&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../about/agis_about_dialog.ui" line="312"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt; font-weight:400;&quot;&gt;Vtičnik je razvil in vzdržuje Center za preventivno arheologijo, ZVKDS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt; font-weight:400;&quot;&gt;Plugin was developed and is maintained by Centre for Preventive Archaeology, IPCHS.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt; font-weight:400;&quot;&gt;Plugin was developed and is maintained by Centre for Preventive Archaeology, IPCHS.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader_dialog.ui" line="14"/>
+        <source>Naloži delovne sloje</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader_dialog.ui" line="82"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#8c8c8c;&quot;&gt;Dostop do delovnih slojev je omogočen glede na uporabniške pravice.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#8c8c8c;&quot;&gt;Za dostop sta potrebna uporabniško ime in geslo, vendar je javni dostop omogočen tudi brez teh.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#8c8c8c;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader_dialog.ui" line="117"/>
+        <source>Prijava z uporabniškim imenom in geslom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader_dialog.ui" line="135"/>
+        <source>Geslo:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader_dialog.ui" line="142"/>
+        <source>Uporabnik:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader_dialog.ui" line="167"/>
+        <source>Prijava s shranjeno overitvijo</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader_dialog.ui" line="194"/>
+        <source>Odstrani delovne sloje iz projekta</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../agis_work_loader/agis_work_loader_dialog.ui" line="201"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Naloži delovne sloje iz podatkovne baze CPA&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

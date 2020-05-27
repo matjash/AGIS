@@ -100,7 +100,7 @@ class ArheoloskiGis:
 
 
         self.about_icon = str(path('icons')/'agis_logo.png')
-        self.About_agis = QAction(QIcon(self.about_icon),self.tr("O vtičniku"), self.iface.mainWindow())
+        self.About_agis = QAction(QIcon(self.about_icon),self.tr('O vtičniku'), self.iface.mainWindow())
         self.AGIS_Menu.addAction(self.About_agis)
         self.About_agis.triggered.connect(self.about)
 
