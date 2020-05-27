@@ -6,7 +6,7 @@
 name=AGIS
 qgisMinimumVersion=3.0
 description=Archaeological GIS, toolbox for Slovenian Archaeologists.
-version=1.1
+version=1.2
 author=Matjaž Mori, ZVKDS CPA
 email=matjaz.mori@gmail.com
 
@@ -26,7 +26,7 @@ repository=https://github.com/PreventiveArchaeology/AGIS
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-changelog= v1.1: New menu "About", updated layer sources (eVRD, DTK5), new layer (RKD)
+changelog= v1.2: Corrected cadaster layer name "ZKP parcele", new tool for loading internal IPCH layers, "Remove AGIS layers" buttun added; v1.1: New menu "About", updated layer sources (eVRD, DTK5), new layer (RKD)
 
 # Tags are comma separated with spaces allowed
 tags=python, archaeology, Slovenia
