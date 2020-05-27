@@ -119,12 +119,9 @@
     </widget>
    </item>
    <item row="3" column="0">
-    <widget class="QCheckBox" name="clean">
+    <widget class="QPushButton" name="remove_layers">
      <property name="text">
-      <string>Iz projekta odstrani podvojene obstoječe sloje</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
+      <string>Odstrani AGIS sloje iz projekta</string>
      </property>
     </widget>
    </item>

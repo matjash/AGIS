@@ -9,5 +9,6 @@
 				<file>icons/loader_logo_small.png</file>				
 				<file>icons/strati_word_catalog.png</file>
 				<file>icons/CPA_logo_small.png</file>
+				<file>icons/icon_work_loader.png</file>			
 	</qresource>
 </RCC>

@@ -7,7 +7,7 @@ from qgis.core import (QgsProject,
                        QgsDataSourceUri
                        )
 import psycopg2
-
+import base64
 
 def path(item):
     path = {}
@@ -22,43 +22,28 @@ def path(item):
     path = path[item]
     return path
 
-# Checks duplicates and returnes value error (not used yet)
-"""
-def checkDuplicates(features, name, feedback):
-    list = []
-    for feature in features:
-        list.append(feature[name])
-    duplicates = 0
-    for element in list:
-        if list.count(element) > 1:
-            feedback.pushInfo(self.tr("%s %s se pojavi: %s - krat!" % (name, element, list.count(element))))
-            duplicates = duplicates + 1
-        else:
-            pass
-    if duplicates == 0:
-        feedback.pushInfo("Ni podvojenih %s" % name)
-    else:
-        raise ValueError
-
-def value_error(id, value, feedback):
-    feedback.reportError("Pri %s manjaka vrednost  %s!" % (id, value),False)
-    raise ValueError
-"""
+def parameters(self):
+    in_params = ['bWFqYWRi','Q1BBX0FuYWxpemE=','Y3Bh','Y3Bh','NTQzMg==']
+    params = []
+    for par in in_params:
+        par = base64.b64decode(par).decode('utf')
+        params.append(par) 
+    return params
 
 # Checks if connected to CPA, ZVKDS network
 def access(self):
-    self.host = "majadb"
-    self.database = "CPA_Analiza"
-    self.user = "cpa"
-    self.password = "cpa"
-    self.port = "5432"
+    self.host = parameters(self)[0]
+    self.database =  parameters(self)[1]
+    self.user =  parameters(self)[2]
+    self.password =  parameters(self)[3]
+    self.port =  parameters(self)[4]
     try:
-        conn = psycopg2.connect(host=self.host,port=self.port, database=self.database, user=self.user, password=self.password, connect_timeout=1 )
+        conn = psycopg2.connect(host=self.host,port=self.port, database=self.database, user=self.user, password=self.password, connect_timeout=1)
         conn.close()
         return True
     except:
-        return False
-        
+        return False   
+
 def data_access(self):
     data_path = Path('V:/01 CPA - PODATKOVNE ZBIRKE/03 GIS CPA')
     if data_path.exists():
@@ -66,13 +51,21 @@ def data_access(self):
     else:
         return False
 
-
-
 # Get layer from CPA, ZVKDS database
 def postgis_connect(self, shema, tablename, geometry, id):
     uri = QgsDataSourceUri()
     uri.setConnection(self.host, self.port, self.database, self.user, self.user)  
     uri.setDataSource(shema, tablename, geometry)
     uri.setKeyColumn(id)
-    vlayer=QgsVectorLayer (uri .uri(False), tablename, "postgres")
+    vlayer=QgsVectorLayer (uri.uri(False), tablename, "postgres")
     return vlayer
+
+def get_work_layers(self):
+    if access(self):
+        uri = QgsDataSourceUri()
+        uri.setConnection(self.host, self.port, self.database, self.user, self.user)  
+        uri.setDataSource("Delovno", "Delovni sloji", None, "", "id")
+        table = QgsVectorLayer(uri.uri(), self.tr("Delovni sloji"), "postgres")
+        if not table.isValid():
+            self.iface.messageBar().pushMessage(self.tr('Težave z dostopom.'))
+        return table

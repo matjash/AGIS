@@ -32,7 +32,7 @@ from pathlib import Path
 # Initialize Qt resources from file resources.py
 from .resources import *
 
-from .externals import path
+from .externals import path, access
 
 #import processing provider
 #from .processing_provider.provider import Provider
@@ -41,6 +41,7 @@ from .externals import path
 from .agis_loader.agis_load import ArheoloskiGisLoad
 from .agis_links.agis_links import ArheoloskiGisLinks
 from .about.agis_about import ArheoloskiGisAbout
+from .agis_work_loader.agis_work_loader import ArheoloskiGisWorkLoader
 
 class ArheoloskiGis:
     """QGIS Plugin Implementation."""
@@ -91,12 +92,22 @@ class ArheoloskiGis:
         self.AGIS_Menu.addAction(self.Links_agis)
         self.Links_agis.triggered.connect(self.link)
 
+        if access(self):
+            self.work_loader_icon = str(path('icons')/'icon_work_loader.png')
+            self.Work_loader = QAction(QIcon(self.work_loader_icon),self.tr("Naloži delovne sloje"), self.iface.mainWindow())
+            self.AGIS_Menu.addAction(self.Work_loader)
+            self.Work_loader.triggered.connect(self.work_loader)
+
+
         self.about_icon = str(path('icons')/'agis_logo.png')
-        self.About_agis = QAction(QIcon(self.about_icon),self.tr("O vtičniku"), self.iface.mainWindow())
+        self.About_agis = QAction(QIcon(self.about_icon),self.tr('O vtičniku'), self.iface.mainWindow())
         self.AGIS_Menu.addAction(self.About_agis)
         self.About_agis.triggered.connect(self.about)
 
         self.iface.mainWindow().menuBar().insertMenu(self.iface.firstRightStandardMenu().menuAction(), self.AGIS_Menu)
+
+
+
 
         # Check if plugin was started the first time in current QGIS session
         # Must be set in initGui() to survive plugin reloads
@@ -159,7 +170,6 @@ class ArheoloskiGis:
 
         #QgsApplication.processingRegistry().addProvider(self.provider)
 
-        icon_path = str(path('icons')/'agis_logo.png')
 
         # will be set False in run()
         self.first_start = True
@@ -170,6 +180,13 @@ class ArheoloskiGis:
             callback=self.Loadagis,
             parent=self.iface.mainWindow())
 
+
+        if access(self):
+            self.add_action(
+                self.work_loader_icon,
+                text=self.tr('Naloži delovne sloje'),
+                callback=self.work_loader,
+                parent=self.iface.mainWindow())
 
 
     def unload(self):
@@ -188,7 +205,10 @@ class ArheoloskiGis:
             self.iface.removePluginMenu(
                 self.tr('O vtičniku'),
                 action)
-
+            if access(self):
+                self.iface.removePluginMenu(
+                self.tr('Naloži delovne sloje'),
+                action)
 
 
     def run(self):
@@ -209,5 +229,9 @@ class ArheoloskiGis:
 
     def about(self):
         ld = ArheoloskiGisAbout(self.iface)
+        ld.run()
+    
+    def work_loader(self):
+        ld = ArheoloskiGisWorkLoader(self.iface)
         ld.run()
 
