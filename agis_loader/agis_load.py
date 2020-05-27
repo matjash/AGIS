@@ -86,6 +86,7 @@ class ArheoloskiGisLoad:
         self.dlg.buttonBox.button(QDialogButtonBox.Cancel).clicked.connect(self.dlg.close)
         self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.load_layers)
         self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.dlg.close)
+        self.dlg.remove_layers.clicked.connect(self.remove_layers)
 
 
         logo_path = path('icons')/"loader_logo_small"
@@ -183,6 +184,29 @@ class ArheoloskiGisLoad:
             pass
 
 
+
+
+
+    def remove_layers(self):
+        root = QgsProject.instance().layerTreeRoot()
+        #Clean layers (On update use:  names = [layer.name() for layer in QgsProject.instance().mapLayers().values()] ; print (names)  ) 
+        layers = ['AO_topo75_1880', 'AO_topo75_1914', 'Claustra Alpium Iuliarum', 'DOF050', 'DPK1000', 'DPK250', 'DPK500', 'DTK50_1950_1967', 'DTK50', 'DTK5', 'Državna meja Republike Slovenije', 'Evidenca arheoloških raziskav', 'Franciscejski kataster', 'Katalog najdišč', 'Katastrske občine', 'Naselja', 'Načrti najdišč', 'Načrti najdišč_poligoni', 'Občine', 'ZKP parcele', 'ZKN parcele', 'RKD', 'SMAP', 'ZLS SVF', 'ZLS interpretacija', 'eVRD']
+        groups = ['Arheologija', 'Dediščina', 'Prostorske enote', 'Historične podlage', 'Podlage']
+       
+        for layer in layers:
+            for a in QgsProject.instance().mapLayersByName(layer):
+                try:
+                    QgsProject.instance().removeMapLayer(a.id())
+                except:
+                    continue
+        for group in groups:       
+            for s in [child for child in root.children()]:
+                if s.name() == group:
+                    try:
+                     root.removeChildNode(s)
+                    except:
+                        continue
+  
    
     def load_layers(self):
         root = QgsProject.instance().layerTreeRoot()
@@ -203,22 +227,7 @@ class ArheoloskiGisLoad:
         except:
             self.iface.messageBar().pushMessage(self.tr('Berem qlr iz mape vtičnika...'))
 
-        #Clean layers (On update use:  names = [layer.name() for layer in QgsProject.instance().mapLayers().values()] ; print (names)  )
-        if self.dlg.clean.isChecked():
-            layers = ['AO_topo75_1880', 'AO_topo75_1914', 'Claustra Alpium Iuliarum', 'DOF050', 'DPK1000', 'DPK250', 'DPK500', 'DTK50_1950_1967', 'DTK50', 'DTK5', 'Državna meja Republike Slovenije', 'Evidenca arheoloških raziskav', 'Franciscejski kataster', 'Katalog najdišč', 'Katastrske občine', 'Naselja', 'Načrti najdišč', 'Načrti najdišč_poligoni', 'Občine', 'ZKP parcele', 'ZKN parcele', 'RKD', 'SMAP', 'ZLS SVF', 'ZLS interpretacija', 'eVRD']
-            groups = ['Arheologija', 'Dediščina', 'Prostorske enote', 'Historične podlage', 'Podlage']
-            try:
-                for layer in layers:
-                    for b in QgsProject.instance().mapLayersByName(layer): 
-                         QgsProject.instance().removeMapLayer(str(b.id()))
-                for group in groups:       
-                    for s in [child for child in root.children()]:
-                        if s.name() == group:
-                            root.removeChildNode(s)
-            except:
-                pass
-        else:
-            pass
+
 
         #Load Arheologija layes group
 
