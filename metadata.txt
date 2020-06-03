@@ -6,16 +6,16 @@
 name=AGIS
 qgisMinimumVersion=3.0
 description=Archaeological GIS, toolbox for Slovenian Archaeologists.
-version=1.2
+version=1.3
 author=Matjaž Mori, ZVKDS CPA
 email=matjaz.mori@gmail.com
 
 about=EN: Plugin helps seting up GIS project for archaeologists or anyone else that needs same layers for the area of Republic of Slovenia.
-         Data is provided by Slovenian Ministry of Culture and Surveying and Mapping Authority. 
+         Data is provided by Slovenian Ministry of Culture, Surveying and Mapping Authority and Geological Survey of Slovenia. 
          Plugin was developed by Centre for Preventive Archeology, IPCH Slovenia.
          
          SI: Vtičnik je v pomoč ob vzpostavitvi GIS projekta za arheologe ali kogarkoli, ki potrebuje iste sloje za območje Republike Slovenije.
-         Dostop do podatkov omogočata Ministrstvo za kulturo in Geodetska uprava RS. Za razvoj vtičnika je poskrbel Center za preventivno arheologijo, ZVKDS.
+         Dostop do podatkov omogočata Ministrstvo za kulturo, Geodetska uprava RS in Geologški zavod Slovenije. Za razvoj vtičnika je poskrbel Center za preventivno arheologijo, ZVKDS.
          
 
 tracker=https://github.com/PreventiveArchaeology/AGIS/issues
@@ -26,10 +26,13 @@ repository=https://github.com/PreventiveArchaeology/AGIS
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-changelog= v1.2: Corrected cadaster layer name "ZKP parcele", new tool for loading internal IPCH layers, "Remove AGIS layers" buttun added; v1.1: New menu "About", updated layer sources (eVRD, DTK5), new layer (RKD)
+changelog= v1.3: Added layers Geological map of Slovenia and Public Infrastructure Cadastre;
+    v1.2: Corrected cadastre layer name "ZKP parcele", new tool for loading internal IPCH layers, "Remove AGIS layers" button added; 
+    v1.1: New menu "About", updated layer sources (eVRD, DTK5), new layer (RKD);
+    v1.0: First realease
 
 # Tags are comma separated with spaces allowed
-tags=python, archaeology, Slovenia
+tags=python, archaeology, Slovenia, geology, cadastre
 
 homepage=https://github.com/PreventiveArchaeology/AGIS
 category=AGIS

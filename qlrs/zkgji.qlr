@@ -1,0 +1,526 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group checked="Qt::Checked" name="" expanded="1">
+    <customproperties/>
+    <layer-tree-group checked="Qt::Unchecked" name="Gospodarska javna infrastruktura" expanded="0">
+      <customproperties/>
+      <layer-tree-layer providerKey="wms" checked="Qt::Checked" id="Električno_omrežje_fa101fbf_4478_4154_ba49_9a1368b523b6" name="Električno omrežje" expanded="1" source="contextualWMSLegend=0&amp;crs=EPSG:3794&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=inspire_us-net-el:US.ElectricityNetwork&amp;styles&amp;url=http://prostor4.gov.si/ows2-ins-m/wms?version%3D1.3.0">
+        <customproperties/>
+      </layer-tree-layer>
+      <layer-tree-layer providerKey="wms" checked="Qt::Checked" id="Kanalizacijsko_omrežje_d5ec3187_eb34_4045_9d3a_e2bb921783b1" name="Kanalizacijsko omrežje" expanded="0" source="contextualWMSLegend=0&amp;crs=EPSG:3794&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=inspire_us-net-sw:US.SewerNetwork&amp;styles&amp;url=http://prostor4.gov.si/ows2-ins-m/wms?version%3D1.3.0">
+        <customproperties/>
+      </layer-tree-layer>
+      <layer-tree-layer providerKey="wms" checked="Qt::Checked" id="Telekomunikacijsko_omrežje__26745bd2_6af5_411b_affa_bb13bcfb4877" name="Telekomunikacijsko omrežje " expanded="1" source="contextualWMSLegend=0&amp;crs=EPSG:3794&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=inspire_us-net-tc:US.TelecommunicationsNetwork&amp;styles&amp;url=http://prostor4.gov.si/ows2-ins-m/wms?version%3D1.3.0">
+        <customproperties/>
+      </layer-tree-layer>
+      <layer-tree-layer providerKey="wms" checked="Qt::Checked" id="Toplotno_omrežje_0426f8cf_5740_4e00_9c69_ef0d6392705d" name="Toplotno omrežje" expanded="1" source="contextualWMSLegend=0&amp;crs=EPSG:3794&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=inspire_us-net-th:US.ThermalNetwork&amp;styles&amp;url=http://prostor4.gov.si/ows2-ins-m/wms?version%3D1.3.0">
+        <customproperties/>
+      </layer-tree-layer>
+      <layer-tree-layer providerKey="wms" checked="Qt::Checked" id="Vodovodno_omrežje_bd464ff7_7963_42dd_ad15_78f633d2792f" name="Vodovodno omrežje" expanded="1" source="contextualWMSLegend=0&amp;crs=EPSG:3794&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=inspire_us-net-wa:US.WaterNetwork&amp;styles&amp;url=http://prostor4.gov.si/ows2-ins-m/wms?version%3D1.3.0">
+        <customproperties/>
+      </layer-tree-layer>
+    </layer-tree-group>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer minScale="1e+08" styleCategories="AllStyleCategories" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" type="raster" refreshOnNotifyMessage="" maxScale="0">
+      <extent>
+        <xmin>346128.47219452611170709</xmin>
+        <ymin>7632.89988927822560072</ymin>
+        <xmax>653330.78607439727056772</xmax>
+        <ymax>212437.58656307402998209</ymax>
+      </extent>
+      <id>Električno_omrežje_fa101fbf_4478_4154_ba49_9a1368b523b6</id>
+      <datasource>contextualWMSLegend=0&amp;crs=EPSG:3794&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=inspire_us-net-el:US.ElectricityNetwork&amp;styles&amp;url=http://prostor4.gov.si/ows2-ins-m/wms?version%3D1.3.0</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>Električno omrežje</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Slovenia"],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1751</srsid>
+          <srid>3794</srid>
+          <authid>EPSG:3794</authid>
+          <description>Slovenia 1996 / Slovene National Grid</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>true</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial dimensions="2" minz="0" minx="0" maxz="0" crs="" maxy="0" miny="0" maxx="0"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider>wms</provider>
+      <noData>
+        <noDataList useSrcNoData="0" bandNo="1"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <customproperties>
+        <property key="WMSBackgroundLayer" value="false"/>
+        <property key="WMSPublishDataSourceUrl" value="false"/>
+        <property key="embeddedWidgets/count" value="0"/>
+        <property key="identify/format" value="Html"/>
+      </customproperties>
+      <pipe>
+        <rasterrenderer opacity="1" band="1" type="singlebandcolordata" alphaBand="-1">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast contrast="-100" brightness="0"/>
+        <huesaturation colorizeGreen="0" grayscaleMode="1" colorizeBlue="0" colorizeRed="255" colorizeStrength="100" saturation="0" colorizeOn="1"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer minScale="1e+08" styleCategories="AllStyleCategories" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" type="raster" refreshOnNotifyMessage="" maxScale="0">
+      <extent>
+        <xmin>346128.47219452611170709</xmin>
+        <ymin>7632.89988927822560072</ymin>
+        <xmax>653330.78607439727056772</xmax>
+        <ymax>212437.58656307402998209</ymax>
+      </extent>
+      <id>Kanalizacijsko_omrežje_d5ec3187_eb34_4045_9d3a_e2bb921783b1</id>
+      <datasource>contextualWMSLegend=0&amp;crs=EPSG:3794&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=inspire_us-net-sw:US.SewerNetwork&amp;styles&amp;url=http://prostor4.gov.si/ows2-ins-m/wms?version%3D1.3.0</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>Kanalizacijsko omrežje</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Slovenia"],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1751</srsid>
+          <srid>3794</srid>
+          <authid>EPSG:3794</authid>
+          <description>Slovenia 1996 / Slovene National Grid</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>true</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider>wms</provider>
+      <noData>
+        <noDataList useSrcNoData="0" bandNo="1"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <customproperties>
+        <property key="identify/format" value="Html"/>
+      </customproperties>
+      <pipe>
+        <rasterrenderer opacity="1" band="1" type="singlebandcolordata" alphaBand="-1">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast contrast="-100" brightness="0"/>
+        <huesaturation colorizeGreen="0" grayscaleMode="0" colorizeBlue="255" colorizeRed="255" colorizeStrength="100" saturation="0" colorizeOn="1"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer minScale="1e+08" styleCategories="AllStyleCategories" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" type="raster" refreshOnNotifyMessage="" maxScale="0">
+      <extent>
+        <xmin>346128.47219452611170709</xmin>
+        <ymin>7632.89988927822560072</ymin>
+        <xmax>653330.78607439727056772</xmax>
+        <ymax>212437.58656307402998209</ymax>
+      </extent>
+      <id>Telekomunikacijsko_omrežje__26745bd2_6af5_411b_affa_bb13bcfb4877</id>
+      <datasource>contextualWMSLegend=0&amp;crs=EPSG:3794&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=inspire_us-net-tc:US.TelecommunicationsNetwork&amp;styles&amp;url=http://prostor4.gov.si/ows2-ins-m/wms?version%3D1.3.0</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>Telekomunikacijsko omrežje </layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Slovenia"],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1751</srsid>
+          <srid>3794</srid>
+          <authid>EPSG:3794</authid>
+          <description>Slovenia 1996 / Slovene National Grid</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>true</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial dimensions="2" minz="0" minx="0" maxz="0" crs="" maxy="0" miny="0" maxx="0"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider>wms</provider>
+      <noData>
+        <noDataList useSrcNoData="0" bandNo="1"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <customproperties>
+        <property key="WMSBackgroundLayer" value="false"/>
+        <property key="WMSPublishDataSourceUrl" value="false"/>
+        <property key="embeddedWidgets/count" value="0"/>
+        <property key="identify/format" value="Html"/>
+      </customproperties>
+      <pipe>
+        <rasterrenderer opacity="1" band="1" type="singlebandcolordata" alphaBand="-1">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast contrast="-100" brightness="0"/>
+        <huesaturation colorizeGreen="255" grayscaleMode="0" colorizeBlue="1" colorizeRed="18" colorizeStrength="100" saturation="0" colorizeOn="1"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer minScale="1e+08" styleCategories="AllStyleCategories" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" type="raster" refreshOnNotifyMessage="" maxScale="0">
+      <extent>
+        <xmin>346128.47219452611170709</xmin>
+        <ymin>7632.89988927822560072</ymin>
+        <xmax>653330.78607439727056772</xmax>
+        <ymax>212437.58656307402998209</ymax>
+      </extent>
+      <id>Toplotno_omrežje_0426f8cf_5740_4e00_9c69_ef0d6392705d</id>
+      <datasource>contextualWMSLegend=0&amp;crs=EPSG:3794&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=inspire_us-net-th:US.ThermalNetwork&amp;styles&amp;url=http://prostor4.gov.si/ows2-ins-m/wms?version%3D1.3.0</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>Toplotno omrežje</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Slovenia"],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1751</srsid>
+          <srid>3794</srid>
+          <authid>EPSG:3794</authid>
+          <description>Slovenia 1996 / Slovene National Grid</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>true</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial dimensions="2" minz="0" minx="0" maxz="0" crs="" maxy="0" miny="0" maxx="0"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider>wms</provider>
+      <noData>
+        <noDataList useSrcNoData="0" bandNo="1"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <customproperties>
+        <property key="WMSBackgroundLayer" value="false"/>
+        <property key="WMSPublishDataSourceUrl" value="false"/>
+        <property key="embeddedWidgets/count" value="0"/>
+        <property key="identify/format" value="Html"/>
+      </customproperties>
+      <pipe>
+        <rasterrenderer opacity="1" band="1" type="singlebandcolordata" alphaBand="-1">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast contrast="-100" brightness="0"/>
+        <huesaturation colorizeGreen="127" grayscaleMode="0" colorizeBlue="0" colorizeRed="255" colorizeStrength="100" saturation="0" colorizeOn="1"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer minScale="1e+08" styleCategories="AllStyleCategories" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" type="raster" refreshOnNotifyMessage="" maxScale="0">
+      <extent>
+        <xmin>346128.47219452611170709</xmin>
+        <ymin>7632.89988927822560072</ymin>
+        <xmax>653330.78607439727056772</xmax>
+        <ymax>212437.58656307402998209</ymax>
+      </extent>
+      <id>Vodovodno_omrežje_bd464ff7_7963_42dd_ad15_78f633d2792f</id>
+      <datasource>contextualWMSLegend=0&amp;crs=EPSG:3794&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=inspire_us-net-wa:US.WaterNetwork&amp;styles&amp;url=http://prostor4.gov.si/ows2-ins-m/wms?version%3D1.3.0</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>Vodovodno omrežje</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Slovenia"],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1751</srsid>
+          <srid>3794</srid>
+          <authid>EPSG:3794</authid>
+          <description>Slovenia 1996 / Slovene National Grid</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>true</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial dimensions="2" minz="0" minx="0" maxz="0" crs="" maxy="0" miny="0" maxx="0"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider>wms</provider>
+      <noData>
+        <noDataList useSrcNoData="0" bandNo="1"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <customproperties>
+        <property key="WMSBackgroundLayer" value="false"/>
+        <property key="WMSPublishDataSourceUrl" value="false"/>
+        <property key="embeddedWidgets/count" value="0"/>
+        <property key="identify/format" value="Html"/>
+      </customproperties>
+      <pipe>
+        <rasterrenderer opacity="1" band="1" type="singlebandcolordata" alphaBand="-1">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast contrast="-100" brightness="0"/>
+        <huesaturation colorizeGreen="16" grayscaleMode="0" colorizeBlue="202" colorizeRed="19" colorizeStrength="100" saturation="0" colorizeOn="1"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+  </maplayers>
+</qlr>
