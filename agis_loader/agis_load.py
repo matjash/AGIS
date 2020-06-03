@@ -190,8 +190,8 @@ class ArheoloskiGisLoad:
     def remove_layers(self):
         root = QgsProject.instance().layerTreeRoot()
         #Clean layers (On update use:  names = [layer.name() for layer in QgsProject.instance().mapLayers().values()] ; print (names)  ) 
-        layers = ['AO_topo75_1880', 'AO_topo75_1914', 'Claustra Alpium Iuliarum', 'DOF050', 'DPK1000', 'DPK250', 'DPK500', 'DTK50_1950_1967', 'DTK50', 'DTK5', 'Državna meja Republike Slovenije', 'Evidenca arheoloških raziskav', 'Franciscejski kataster', 'Katalog najdišč', 'Katastrske občine', 'Naselja', 'Načrti najdišč', 'Načrti najdišč_poligoni', 'Občine', 'ZKP parcele', 'ZKN parcele', 'RKD', 'SMAP', 'ZLS SVF', 'ZLS interpretacija', 'eVRD']
-        groups = ['Arheologija', 'Dediščina', 'Prostorske enote', 'Historične podlage', 'Podlage']
+        layers = ['Električno omrežje', 'Geologic age by colour, includes Fennoscandian Precambrian subdivisions', 'Kanalizacijsko omrežje', 'Lithology (Representative)', 'Telekomunikacijsko omrežje ', 'Toplotno omrežje', 'Vodovodno omrežje', 'AO_topo75_1880', 'AO_topo75_1914', 'Claustra Alpium Iuliarum', 'DOF050', 'DPK1000', 'DPK250', 'DPK500', 'DTK50_1950_1967', 'DTK50', 'DTK5', 'Državna meja Republike Slovenije', 'Evidenca arheoloških raziskav', 'Franciscejski kataster', 'Katalog najdišč', 'Katastrske občine', 'Naselja', 'Načrti najdišč', 'Načrti najdišč_poligoni', 'Občine', 'ZKP parcele', 'ZKN parcele', 'RKD', 'SMAP', 'ZLS SVF', 'ZLS interpretacija', 'eVRD']
+        groups = ['Arheologija', 'Dediščina', 'Prostorske enote', 'Historične podlage', 'Podlage' ]
        
         for layer in layers:
             for a in QgsProject.instance().mapLayersByName(layer):
@@ -288,7 +288,11 @@ class ArheoloskiGisLoad:
             if access(self):
                 vlayer = postgis_connect(self, "public", "ZKN parcele", "geom", "fid")
                 QgsProject.instance().addMapLayer(vlayer, False) 
-                prostorske_group.insertChildNode(6, QgsLayerTreeLayer(vlayer))             
+                prostorske_group.insertChildNode(6, QgsLayerTreeLayer(vlayer))   
+
+            zkgji = styles_path/'zkgji.qlr'
+            QgsLayerDefinition().loadLayerDefinition(str(zkgji), QgsProject.instance(), prostorske_group)
+                      
         else:
             self.iface.messageBar().pushMessage(self.tr("Ne nalagam Prostorskih enot!"), duration=2)       
 
@@ -313,6 +317,9 @@ class ArheoloskiGisLoad:
                 podlage_group = root.addGroup(self.tr("Podlage"))
             else:
                 podlage_group = root.findGroup(self.tr("Podlage"))
+
+            geology = styles_path/'Geološka karta.qlr'
+            QgsLayerDefinition().loadLayerDefinition(str(geology), QgsProject.instance(), podlage_group)
 
             if data_access(self):
                 podlage_zls = styles_path/'ZLS 1.qlr'
