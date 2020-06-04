@@ -42,7 +42,7 @@ from .agis_loader.agis_load import ArheoloskiGisLoad
 from .agis_links.agis_links import ArheoloskiGisLinks
 from .about.agis_about import ArheoloskiGisAbout
 from .agis_work_loader.agis_work_loader import ArheoloskiGisWorkLoader
-from .agis_search import ArheoloskiGisSearch
+#from .agis_search import ArheoloskiGisSearch
 
 class ArheoloskiGis:
     """QGIS Plugin Implementation."""
