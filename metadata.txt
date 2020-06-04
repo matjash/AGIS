@@ -6,7 +6,7 @@
 name=AGIS
 qgisMinimumVersion=3.0
 description=Archaeological GIS, toolbox for Slovenian Archaeologists.
-version=1.3
+version=1.3.9
 author=Matjaž Mori, ZVKDS CPA
 email=matjaz.mori@gmail.com
 
