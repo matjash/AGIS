@@ -341,22 +341,15 @@ class ArheoloskiGisWorkLoader:
 
         # load layers
         for current, layer in enumerate(layers_list):
-            if layer.name() == 'Porocila za SHP':
-                ear_por = layer
-                QgsProject.instance().addMapLayer(ear_por,False)   
-                field_join(ear, ear_por, 'poseg_stev','poseg_stevilka_CPA')
-            else:
-                QgsProject.instance().addMapLayer(layer, False)   
-                w_group.insertChildNode(current, QgsLayerTreeLayer(layer))
-                myLayerNode = root.findLayer(layer.id())
-                myLayerNode.setExpanded(False)
-                if layer.name() == 'EAR_delovna':
-                    ear = layer
-                if layer.name() == 'ZLS Interpretacija_delovno':
-                    field_to_value_relation(layer)
+            QgsProject.instance().addMapLayer(layer, False)   
+            w_group.insertChildNode(current, QgsLayerTreeLayer(layer))
+            myLayerNode = root.findLayer(layer.id())
+            myLayerNode.setExpanded(False)
+            if layer.name() == 'ZLS Interpretacija_delovno':
+                field_to_value_relation(layer)
 
         
-        QgsProject.instance().addMapLayer(ear_por,False)   
-        field_join(ear, ear_por, 'poseg_stev','poseg_stevilka_CPA')
+
+    
           
                 
