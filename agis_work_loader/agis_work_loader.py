@@ -347,9 +347,3 @@ class ArheoloskiGisWorkLoader:
             myLayerNode.setExpanded(False)
             if layer.name() == 'ZLS Interpretacija_delovno':
                 field_to_value_relation(layer)
-
-        
-
-    
-          
-                
