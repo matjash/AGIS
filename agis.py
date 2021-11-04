@@ -98,6 +98,11 @@ class ArheoloskiGis:
             self.AGIS_Menu.addAction(self.Work_loader)
             self.Work_loader.triggered.connect(self.work_loader)
 
+            self.arcanum_loader_icon = str(path('icons')/'icon_arcanum_loader.png')
+            self.Arcanum = QAction(QIcon(self.arcanum_loader_icon),self.tr("Arcanum"), self.iface.mainWindow())
+            #self.AGIS_Menu.addAction(self.Arcanum)
+            self.Arcanum.triggered.connect(self.arcanum)
+
 
         self.about_icon = str(path('icons')/'agis_logo.png')
         self.About_agis = QAction(QIcon(self.about_icon),self.tr('O vtičniku'), self.iface.mainWindow())
@@ -188,6 +193,11 @@ class ArheoloskiGis:
                 callback=self.work_loader,
                 parent=self.iface.mainWindow())
 
+        self.add_action(
+            self.arcanum_loader_icon,
+            text=self.tr('Arcanum'),
+            callback=self.arcanum,
+            parent=self.iface.mainWindow())
 
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
@@ -209,6 +219,10 @@ class ArheoloskiGis:
                 self.iface.removePluginMenu(
                 self.tr('Naloži delovne sloje'),
                 action)
+            if access(self):
+                self.iface.removePluginMenu(
+                self.tr('Arcanum'),
+                action)
 
 
     def run(self):
@@ -218,6 +232,9 @@ class ArheoloskiGis:
         if self.first_start == True:
             self.first_start = False
 
+
+    def arcanum(self):
+        ArheoloskiGisLinks.arcanum(self)
 
     def link(self):
         ld = ArheoloskiGisLinks(self.iface)
@@ -234,4 +251,6 @@ class ArheoloskiGis:
     def work_loader(self):
         ld = ArheoloskiGisWorkLoader(self.iface)
         ld.run()
+
+
 
