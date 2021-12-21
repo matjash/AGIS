@@ -39,7 +39,8 @@ from qgis.core import (QgsProject,
                        QgsAuthMethodConfig,
                        Qgis,
                        QgsVectorLayerJoinInfo,
-                       QgsEditorWidgetSetup
+                       QgsEditorWidgetSetup,
+                       QgsAuthManager
                        )
 from qgis.gui import QgsAuthConfigSelect
 import tempfile
@@ -235,6 +236,11 @@ class ArheoloskiGisWorkLoader:
         uri = QgsDataSourceUri()
         root = QgsProject.instance().layerTreeRoot()
 
+        self.host = parameters(self)[0]
+        self.database =  parameters(self)[1]
+        self.port =  parameters(self)[4]
+
+
         #Input authentication
         authcfg = self.dlg.mAuthConfigSelect.configId()
         auth_mgr = QgsApplication.authManager()
@@ -245,16 +251,29 @@ class ArheoloskiGisWorkLoader:
         # Input Username, password
         user = self.dlg.user_input.text()
         password = self.dlg.pass_input.text()
+        def auth_text(user, password):   
+            authMgr = QgsApplication.authManager()    
+            cfg = QgsAuthMethodConfig()
+            cfg.setName(user)
+            cfg.setMethod('Basic')
+            cfg.setConfig('username', user)
+            cfg.setConfig('password', password) 
+            authMgr.storeAuthenticationConfig(cfg)
+            return(cfg) 
 
+        aut_meth = 0 
 
-        if check_conn(host, port, database, user, password):
-            user = user
-            password = password
-        elif authcfg is not '':
+        if user:
+            check_conn(host, port, database, user, password)
+            self.iface.messageBar().pushMessage(self.tr('aaaa'))
+            authentication = auth_text(user, password)  
+            aut_meth = 1
+
+        elif auth_mgr:
+            self.iface.messageBar().pushMessage(self.tr('bbb'))
             try:
                 check_conn(host, port, database, auth["username"], auth["password"])
-                user = auth["username"]
-                password = auth["password"]
+                authentication = auth_cfg
             except:
                 pass
         else:
@@ -275,14 +294,19 @@ class ArheoloskiGisWorkLoader:
         groups = [self.tr('Delovni sloji')]
 
 
-        def load_wl(shema, table, geom, sql, fid):     
+
+        def load_wl(shema, table, geom, sql, fid):   
             if geom == '':
                 geom = None
-            uri.setConnection(host, port, database,user, password) 
+            uri.setConnection(self.host, self.port, self.database, "", "", QgsDataSourceUri.SslDisable,"")
+            uri.setAuthConfigId(authentication.id())
             uri.setDataSource(shema, table, geom, sql, fid)
             layer=QgsVectorLayer (uri .uri(False), table, "postgres")
             return layer
       
+
+
+
         #Attribute form config for layer ZLS Int
         def field_to_value_relation(layer):
             fields = layer.fields()
@@ -327,6 +351,7 @@ class ArheoloskiGisWorkLoader:
         layers_list = []
         for f in table.getFeatures():
             if f[3] != 'admin':
+                print(f[2])
                 try:
                     layer = load_wl(f[2], f[1], f[4], "", f[5])
                     if layer.isValid():
@@ -347,3 +372,7 @@ class ArheoloskiGisWorkLoader:
             myLayerNode.setExpanded(False)
             if layer.name() == 'ZLS Interpretacija_delovno':
                 field_to_value_relation(layer)
+        
+        if aut_meth == 1:
+            authMgr = QgsApplication.authManager()
+            authMgr.removeAuthenticationConfig(authentication.id())  
