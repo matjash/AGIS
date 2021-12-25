@@ -69,7 +69,7 @@ class ArheoloskiGisLinks:
         self.dlg.label_1.setPixmap(QPixmap(str(logo_path)))
         self.dlg.pushButton.clicked.connect(self.dlg.close)
 
-        self.dlg.mapire.clicked.connect(self.mapire)
+        self.dlg.mapire.clicked.connect(self.arcanum)
         self.dlg.e_vode.clicked.connect(self.evode)
         self.dlg.gis_portal.clicked.connect(self.gis_portal)
 
@@ -169,16 +169,17 @@ class ArheoloskiGisLinks:
 
     def initGui(self):
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
-        """
-        icon_path = ':/plugins/agis/icons/icon.png'
+        self.first_start = True
+        icon_path = ':/plugins/agis/icons/icon_arcanum_loader'
         self.add_action(
             icon_path,
-            text=self.tr(u'AGIS'),
+            text=self.tr(u'Arcanum'),
             callback=self.run,
             parent=self.iface.mainWindow())
-        """
+        
        # will be set False in run()
-        self.first_start = True
+        
+
 
 
     def unload(self):
@@ -192,17 +193,16 @@ class ArheoloskiGisLinks:
 
     def run(self):
         """Run method that performs all the real work"""
-
         # show the dialog
         self.dlg.show()
         # Run the dialog event loop
         self.dlg.exec_()
 
-    def mapire(self):
+    def arcanum(self):
         #Get bounding box and transform to WGS84 pseudo
         crsSrc = iface.mapCanvas().mapSettings().destinationCrs().authid()
         crsSrc = QgsCoordinateReferenceSystem(crsSrc)
-        crsDest = QgsCoordinateReferenceSystem(3857)
+        crsDest = QgsCoordinateReferenceSystem("EPSG:3857")
         transform = QgsCoordinateTransform(crsSrc, crsDest, QgsProject.instance())
         bbox = iface.mapCanvas().extent()
         e = transform.transformBoundingBox(bbox)

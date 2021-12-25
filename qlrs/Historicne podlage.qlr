@@ -1,39 +1,45 @@
 <!DOCTYPE qgis-layer-definition>
 <qlr>
-  <layer-tree-group checked="Qt::Checked" name="" expanded="1">
+  <layer-tree-group name="" checked="Qt::Checked" expanded="1">
     <customproperties/>
-    <layer-tree-layer providerKey="arcgismapserver" checked="Qt::Unchecked" id="francKat_a8e9c098_81b3_401b_2019100414553332211977" name="Franciscejski kataster" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/francKat_D48/MapServer' table=&quot;&quot; sql=" expanded="0">
+    <layer-tree-group name="Historične podlage" checked="Qt::Unchecked" expanded="0">
       <customproperties/>
-    </layer-tree-layer>
-    <layer-tree-layer providerKey="arcgismapserver" checked="Qt::Unchecked" id="AO_topo75_1914_a3d919a8_ac9f_4ea4_2019100414553332222119" name="AO_topo75_1914" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/AO_topo75_1914/MapServer' table=&quot;&quot; sql=" expanded="0">
-      <customproperties/>
-    </layer-tree-layer>
-    <layer-tree-layer providerKey="arcgismapserver" checked="Qt::Unchecked" id="AO_topo75_1880_1281a1de_4c27_4a65_2019100414553332210797" name="AO_topo75_1880" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/AO_topo75_1880/MapServer' table=&quot;&quot; sql=" expanded="0">
-      <customproperties/>
-    </layer-tree-layer>
-    <layer-tree-layer providerKey="arcgismapserver" checked="Qt::Unchecked" id="DTK50_1950_1967_9fff3408_77f5_4e1d_2019100414553332224234" name="DTK50_1950_1967" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/DTK50_1950_1967/MapServer' table=&quot;&quot; sql=" expanded="0">
-      <customproperties/>
-    </layer-tree-layer>
+      <layer-tree-layer name="DTK50 (1950-1967)" checked="Qt::Unchecked" patch_size="0,0" legend_exp="" legend_split_behavior="0" id="DTK50_1950_1967_fe18c201_e7e9_4e71_b990_6c9310a2f4c2" expanded="0" providerKey="arcgismapserver" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/DTK50_1950_1967/MapServer' table=&quot;&quot; sql=">
+        <customproperties/>
+      </layer-tree-layer>
+      <layer-tree-layer name="TK Kraljevine Italije 1:25.000 (1933 - 1943)" checked="Qt::Unchecked" patch_size="-1,-1" legend_exp="" legend_split_behavior="0" id="IGM25_906916d8_a6ab_47b1_94c0_c7346b64fdd8" expanded="1" providerKey="arcgismapserver" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/MK/IGM25/MapServer'">
+        <customproperties/>
+      </layer-tree-layer>
+      <layer-tree-layer name="Avstro - Ogrska 1:75.000 (1910 - 1915)" checked="Qt::Unchecked" patch_size="0,0" legend_exp="" legend_split_behavior="0" id="AO_topo75_1914_a025960d_577a_49d2_ad6a_18c374d55fe7" expanded="0" providerKey="arcgismapserver" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/AO_topo75_1914/MapServer' table=&quot;&quot; sql=">
+        <customproperties/>
+      </layer-tree-layer>
+      <layer-tree-layer name="Avstro - Ogrska 1:75.000 (1880-1885)" checked="Qt::Unchecked" patch_size="0,0" legend_exp="" legend_split_behavior="0" id="AO_topo75_1880_72bd72d9_808d_44f1_9b2c_fe2183d58875" expanded="0" providerKey="arcgismapserver" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/AO_topo75_1880/MapServer' table=&quot;&quot; sql=">
+        <customproperties/>
+      </layer-tree-layer>
+      <layer-tree-layer name="Franciscejski kataster" checked="Qt::Unchecked" patch_size="0,0" legend_exp="" legend_split_behavior="0" id="Franciscejski_kataster_89de56c0_9700_4ae7_abb4_862afcb937b0" expanded="0" providerKey="arcgismapserver" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/francKat_D48/MapServer' table=&quot;&quot; sql=">
+        <customproperties/>
+      </layer-tree-layer>
+    </layer-tree-group>
   </layer-tree-group>
   <maplayers>
-    <maplayer styleCategories="AllStyleCategories" refreshOnNotifyEnabled="0" autoRefreshTime="0" minScale="1e+08" autoRefreshEnabled="0" maxScale="0" type="raster" hasScaleBasedVisibilityFlag="0" refreshOnNotifyMessage="">
+    <maplayer type="raster" maxScale="0" styleCategories="AllStyleCategories" minScale="1e+08" refreshOnNotifyEnabled="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" autoRefreshTime="0" hasScaleBasedVisibilityFlag="0">
       <extent>
-        <xmin>376997.18359344080090523</xmin>
-        <ymin>32806.2502486128360033</ymin>
-        <xmax>600948.93366108555346727</xmax>
-        <ymax>171590.66029053274542093</ymax>
+        <xmin>367731.36799999978393316</xmin>
+        <ymin>7362.92600000090897083</ymin>
+        <xmax>633935.77550000045448542</xmax>
+        <ymax>210218.09999999962747097</ymax>
       </extent>
-      <id>francKat_a8e9c098_81b3_401b_2019100414553332211977</id>
-      <datasource> crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/francKat_D48/MapServer' table="" sql=</datasource>
+      <id>DTK50_1950_1967_fe18c201_e7e9_4e71_b990_6c9310a2f4c2</id>
+      <datasource> crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/DTK50_1950_1967/MapServer' table="" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
-      <timestamp>2020-02-28T08:06:47</timestamp>
-      <layername>Franciscejski kataster</layername>
+      <timestamp>2021-12-25T07:56:15</timestamp>
+      <layername>DTK50 (1950-1967)</layername>
       <srs>
         <spatialrefsys>
-          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Slovenia"],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +towgs84=476.08,125.947,417.81,4.610862,2.388137,-11.942335,9.896638 +units=m +no_defs</proj4>
+          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
           <srsid>27362</srsid>
           <srid>3912</srid>
           <authid>EPSG:3912</authid>
@@ -56,7 +62,7 @@
         <crs>
           <spatialrefsys>
             <wkt></wkt>
-            <proj4></proj4>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
             <srsid>0</srsid>
             <srid>0</srid>
             <authid></authid>
@@ -70,7 +76,7 @@
       </resourceMetadata>
       <provider>arcgismapserver</provider>
       <noData>
-        <noDataList useSrcNoData="0" bandNo="1"/>
+        <noDataList bandNo="1" useSrcNoData="0"/>
       </noData>
       <map-layer-style-manager current="default">
         <map-layer-style name="default"/>
@@ -80,11 +86,20 @@
         <Removable>1</Removable>
         <Searchable>1</Searchable>
       </flags>
+      <temporal enabled="0" fetchMode="0" mode="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
       <customproperties>
         <property key="identify/format" value="Feature"/>
       </customproperties>
       <pipe>
-        <rasterrenderer opacity="1" band="1" alphaBand="-1" type="singlebandcolordata">
+        <provider>
+          <resampling enabled="false" maxOversampling="2" zoomedOutResamplingMethod="nearestNeighbour" zoomedInResamplingMethod="nearestNeighbour"/>
+        </provider>
+        <rasterrenderer type="singlebandcolordata" opacity="1" alphaBand="-1" band="1" nodataColor="">
           <rasterTransparency/>
           <minMaxOrigin>
             <limits>None</limits>
@@ -95,30 +110,139 @@
             <stdDevFactor>2</stdDevFactor>
           </minMaxOrigin>
         </rasterrenderer>
-        <brightnesscontrast brightness="0" contrast="0"/>
-        <huesaturation colorizeStrength="100" colorizeOn="0" saturation="0" colorizeBlue="128" grayscaleMode="0" colorizeRed="255" colorizeGreen="128"/>
+        <brightnesscontrast brightness="0" contrast="0" gamma="1"/>
+        <huesaturation saturation="0" grayscaleMode="0" colorizeOn="0" colorizeStrength="100" colorizeGreen="128" colorizeRed="255" colorizeBlue="128"/>
         <rasterresampler maxOversampling="2"/>
+        <resamplingStage>resamplingFilter</resamplingStage>
       </pipe>
       <blendMode>0</blendMode>
     </maplayer>
-    <maplayer styleCategories="AllStyleCategories" refreshOnNotifyEnabled="0" autoRefreshTime="0" minScale="1e+08" autoRefreshEnabled="0" maxScale="0" type="raster" hasScaleBasedVisibilityFlag="0" refreshOnNotifyMessage="">
+    <maplayer type="raster" maxScale="0" styleCategories="AllStyleCategories" minScale="1e+08" refreshOnNotifyEnabled="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" autoRefreshTime="0" hasScaleBasedVisibilityFlag="0">
+      <extent>
+        <xmin>370068.65869999956339598</xmin>
+        <ymin>12563.97010000050067902</ymin>
+        <xmax>467450.46619999967515469</xmax>
+        <ymax>151813.80000000074505806</ymax>
+      </extent>
+      <id>IGM25_906916d8_a6ab_47b1_94c0_c7346b64fdd8</id>
+      <datasource> crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/MK/IGM25/MapServer'</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <timestamp>2021-12-25T08:23:43</timestamp>
+      <layername>TK Kraljevine Italije 1:25.000 (1933 - 1943)</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
+          <srsid>27362</srsid>
+          <srid>3912</srid>
+          <authid>EPSG:3912</authid>
+          <description>MGI 1901 / Slovene National Grid</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier>https://gisportal.gov.si/arcgis/rest/services/MK/IGM25/MapServer/0</identifier>
+        <parentidentifier>https://gisportal.gov.si/arcgis/rest/services/MK/IGM25/MapServer</parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title>IGM25</title>
+        <abstract></abstract>
+        <keywords vocabulary="keywords">
+          <keyword>IGM25</keyword>
+          <keyword>Ministrstvo za kulturo</keyword>
+          <keyword>Temeljne karte</keyword>
+          <keyword>historical maps</keyword>
+          <keyword>zgodovinske karte</keyword>
+          <keyword>Slovenija</keyword>
+          <keyword>Zemljepisni muzej GIAM ZRC SAZU</keyword>
+        </keywords>
+        <links>
+          <link name="Source" type="WWW:LINK" format="" mimeType="" size="" url="https://gisportal.gov.si/arcgis/rest/services/MK/IGM25/MapServer/0" description=""/>
+        </links>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
+            <srsid>27362</srsid>
+            <srid>3912</srid>
+            <authid>EPSG:3912</authid>
+            <description>MGI 1901 / Slovene National Grid</description>
+            <projectionacronym>tmerc</projectionacronym>
+            <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial miny="12563.97010000050067902" minz="0" maxy="151813.80000000074505806" dimensions="2" minx="370068.65869999956339598" maxz="0" crs="EPSG:3912" maxx="467450.46619999967515469"/>
+        </extent>
+      </resourceMetadata>
+      <provider>arcgismapserver</provider>
+      <noData>
+        <noDataList bandNo="1" useSrcNoData="0"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <temporal enabled="0" fetchMode="0" mode="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <customproperties>
+        <property key="identify/format" value="Feature"/>
+      </customproperties>
+      <pipe>
+        <provider>
+          <resampling enabled="false" maxOversampling="2" zoomedOutResamplingMethod="nearestNeighbour" zoomedInResamplingMethod="nearestNeighbour"/>
+        </provider>
+        <rasterrenderer type="singlebandcolordata" opacity="1" alphaBand="-1" band="1" nodataColor="">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast brightness="0" contrast="0" gamma="1"/>
+        <huesaturation saturation="0" grayscaleMode="0" colorizeOn="0" colorizeStrength="100" colorizeGreen="128" colorizeRed="255" colorizeBlue="128"/>
+        <rasterresampler maxOversampling="2"/>
+        <resamplingStage>resamplingFilter</resamplingStage>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer type="raster" maxScale="0" styleCategories="AllStyleCategories" minScale="1e+08" refreshOnNotifyEnabled="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" autoRefreshTime="0" hasScaleBasedVisibilityFlag="0">
       <extent>
         <xmin>369664.34360000025480986</xmin>
         <ymin>11552.49110000021755695</ymin>
         <xmax>641349.89030000008642673</xmax>
         <ymax>207833.98570000007748604</ymax>
       </extent>
-      <id>AO_topo75_1914_a3d919a8_ac9f_4ea4_2019100414553332222119</id>
+      <id>AO_topo75_1914_a025960d_577a_49d2_ad6a_18c374d55fe7</id>
       <datasource> crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/AO_topo75_1914/MapServer' table="" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
-      <timestamp>2020-02-28T08:06:38</timestamp>
-      <layername>AO_topo75_1914</layername>
+      <timestamp>2021-12-25T07:56:13</timestamp>
+      <layername>Avstro - Ogrska 1:75.000 (1910 - 1915)</layername>
       <srs>
         <spatialrefsys>
-          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Slovenia"],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +towgs84=476.08,125.947,417.81,4.610862,2.388137,-11.942335,9.896638 +units=m +no_defs</proj4>
+          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
           <srsid>27362</srsid>
           <srid>3912</srid>
           <authid>EPSG:3912</authid>
@@ -141,7 +265,7 @@
         <crs>
           <spatialrefsys>
             <wkt></wkt>
-            <proj4></proj4>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
             <srsid>0</srsid>
             <srid>0</srid>
             <authid></authid>
@@ -155,7 +279,7 @@
       </resourceMetadata>
       <provider>arcgismapserver</provider>
       <noData>
-        <noDataList useSrcNoData="0" bandNo="1"/>
+        <noDataList bandNo="1" useSrcNoData="0"/>
       </noData>
       <map-layer-style-manager current="default">
         <map-layer-style name="default"/>
@@ -165,11 +289,20 @@
         <Removable>1</Removable>
         <Searchable>1</Searchable>
       </flags>
+      <temporal enabled="0" fetchMode="0" mode="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
       <customproperties>
         <property key="identify/format" value="Feature"/>
       </customproperties>
       <pipe>
-        <rasterrenderer opacity="1" band="1" alphaBand="-1" type="singlebandcolordata">
+        <provider>
+          <resampling enabled="false" maxOversampling="2" zoomedOutResamplingMethod="nearestNeighbour" zoomedInResamplingMethod="nearestNeighbour"/>
+        </provider>
+        <rasterrenderer type="singlebandcolordata" opacity="1" alphaBand="-1" band="1" nodataColor="">
           <rasterTransparency/>
           <minMaxOrigin>
             <limits>None</limits>
@@ -180,30 +313,31 @@
             <stdDevFactor>2</stdDevFactor>
           </minMaxOrigin>
         </rasterrenderer>
-        <brightnesscontrast brightness="0" contrast="0"/>
-        <huesaturation colorizeStrength="100" colorizeOn="0" saturation="0" colorizeBlue="128" grayscaleMode="0" colorizeRed="255" colorizeGreen="128"/>
+        <brightnesscontrast brightness="0" contrast="0" gamma="1"/>
+        <huesaturation saturation="0" grayscaleMode="0" colorizeOn="0" colorizeStrength="100" colorizeGreen="128" colorizeRed="255" colorizeBlue="128"/>
         <rasterresampler maxOversampling="2"/>
+        <resamplingStage>resamplingFilter</resamplingStage>
       </pipe>
       <blendMode>0</blendMode>
     </maplayer>
-    <maplayer styleCategories="AllStyleCategories" refreshOnNotifyEnabled="0" autoRefreshTime="0" minScale="1e+08" autoRefreshEnabled="0" maxScale="0" type="raster" hasScaleBasedVisibilityFlag="0" refreshOnNotifyMessage="">
+    <maplayer type="raster" maxScale="0" styleCategories="AllStyleCategories" minScale="1e+08" refreshOnNotifyEnabled="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" autoRefreshTime="0" hasScaleBasedVisibilityFlag="0">
       <extent>
         <xmin>369663.31030000001192093</xmin>
         <ymin>11669.10490000061690807</ymin>
         <xmax>603146.09370000008493662</xmax>
         <ymax>207057.20879999920725822</ymax>
       </extent>
-      <id>AO_topo75_1880_1281a1de_4c27_4a65_2019100414553332210797</id>
+      <id>AO_topo75_1880_72bd72d9_808d_44f1_9b2c_fe2183d58875</id>
       <datasource> crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/AO_topo75_1880/MapServer' table="" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
-      <timestamp>2020-02-28T08:06:38</timestamp>
-      <layername>AO_topo75_1880</layername>
+      <timestamp>2021-12-25T07:56:14</timestamp>
+      <layername>Avstro - Ogrska 1:75.000 (1880-1885)</layername>
       <srs>
         <spatialrefsys>
-          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Slovenia"],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +towgs84=476.08,125.947,417.81,4.610862,2.388137,-11.942335,9.896638 +units=m +no_defs</proj4>
+          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
           <srsid>27362</srsid>
           <srid>3912</srid>
           <authid>EPSG:3912</authid>
@@ -226,7 +360,7 @@
         <crs>
           <spatialrefsys>
             <wkt></wkt>
-            <proj4></proj4>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
             <srsid>0</srsid>
             <srid>0</srid>
             <authid></authid>
@@ -240,7 +374,7 @@
       </resourceMetadata>
       <provider>arcgismapserver</provider>
       <noData>
-        <noDataList useSrcNoData="0" bandNo="1"/>
+        <noDataList bandNo="1" useSrcNoData="0"/>
       </noData>
       <map-layer-style-manager current="default">
         <map-layer-style name="default"/>
@@ -250,11 +384,20 @@
         <Removable>1</Removable>
         <Searchable>1</Searchable>
       </flags>
+      <temporal enabled="0" fetchMode="0" mode="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
       <customproperties>
         <property key="identify/format" value="Feature"/>
       </customproperties>
       <pipe>
-        <rasterrenderer opacity="1" band="1" alphaBand="-1" type="singlebandcolordata">
+        <provider>
+          <resampling enabled="false" maxOversampling="2" zoomedOutResamplingMethod="nearestNeighbour" zoomedInResamplingMethod="nearestNeighbour"/>
+        </provider>
+        <rasterrenderer type="singlebandcolordata" opacity="1" alphaBand="-1" band="1" nodataColor="">
           <rasterTransparency/>
           <minMaxOrigin>
             <limits>None</limits>
@@ -265,30 +408,31 @@
             <stdDevFactor>2</stdDevFactor>
           </minMaxOrigin>
         </rasterrenderer>
-        <brightnesscontrast brightness="0" contrast="0"/>
-        <huesaturation colorizeStrength="100" colorizeOn="0" saturation="0" colorizeBlue="128" grayscaleMode="0" colorizeRed="255" colorizeGreen="128"/>
+        <brightnesscontrast brightness="0" contrast="0" gamma="1"/>
+        <huesaturation saturation="0" grayscaleMode="0" colorizeOn="0" colorizeStrength="100" colorizeGreen="128" colorizeRed="255" colorizeBlue="128"/>
         <rasterresampler maxOversampling="2"/>
+        <resamplingStage>resamplingFilter</resamplingStage>
       </pipe>
       <blendMode>0</blendMode>
     </maplayer>
-    <maplayer styleCategories="AllStyleCategories" refreshOnNotifyEnabled="0" autoRefreshTime="0" minScale="1e+08" autoRefreshEnabled="0" maxScale="0" type="raster" hasScaleBasedVisibilityFlag="0" refreshOnNotifyMessage="">
+    <maplayer type="raster" maxScale="0" styleCategories="AllStyleCategories" minScale="1e+08" refreshOnNotifyEnabled="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" autoRefreshTime="0" hasScaleBasedVisibilityFlag="0">
       <extent>
-        <xmin>367731.36799999978393316</xmin>
-        <ymin>7362.92600000090897083</ymin>
-        <xmax>633935.77550000045448542</xmax>
-        <ymax>210218.09999999962747097</ymax>
+        <xmin>376997.18359344080090523</xmin>
+        <ymin>32806.2502486128360033</ymin>
+        <xmax>600948.93366108555346727</xmax>
+        <ymax>171590.66029053274542093</ymax>
       </extent>
-      <id>DTK50_1950_1967_9fff3408_77f5_4e1d_2019100414553332224234</id>
-      <datasource> crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/DTK50_1950_1967/MapServer' table="" sql=</datasource>
+      <id>Franciscejski_kataster_89de56c0_9700_4ae7_abb4_862afcb937b0</id>
+      <datasource> crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/francKat_D48/MapServer' table="" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
-      <timestamp>2020-02-28T08:06:38</timestamp>
-      <layername>DTK50_1950_1967</layername>
+      <timestamp>2021-12-25T07:56:13</timestamp>
+      <layername>Franciscejski kataster</layername>
       <srs>
         <spatialrefsys>
-          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Slovenia"],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +towgs84=476.08,125.947,417.81,4.610862,2.388137,-11.942335,9.896638 +units=m +no_defs</proj4>
+          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
           <srsid>27362</srsid>
           <srid>3912</srid>
           <authid>EPSG:3912</authid>
@@ -311,7 +455,7 @@
         <crs>
           <spatialrefsys>
             <wkt></wkt>
-            <proj4></proj4>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
             <srsid>0</srsid>
             <srid>0</srid>
             <authid></authid>
@@ -325,7 +469,7 @@
       </resourceMetadata>
       <provider>arcgismapserver</provider>
       <noData>
-        <noDataList useSrcNoData="0" bandNo="1"/>
+        <noDataList bandNo="1" useSrcNoData="0"/>
       </noData>
       <map-layer-style-manager current="default">
         <map-layer-style name="default"/>
@@ -335,11 +479,20 @@
         <Removable>1</Removable>
         <Searchable>1</Searchable>
       </flags>
+      <temporal enabled="0" fetchMode="0" mode="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
       <customproperties>
         <property key="identify/format" value="Feature"/>
       </customproperties>
       <pipe>
-        <rasterrenderer opacity="1" band="1" alphaBand="-1" type="singlebandcolordata">
+        <provider>
+          <resampling enabled="false" maxOversampling="2" zoomedOutResamplingMethod="nearestNeighbour" zoomedInResamplingMethod="nearestNeighbour"/>
+        </provider>
+        <rasterrenderer type="singlebandcolordata" opacity="1" alphaBand="-1" band="1" nodataColor="">
           <rasterTransparency/>
           <minMaxOrigin>
             <limits>None</limits>
@@ -350,9 +503,10 @@
             <stdDevFactor>2</stdDevFactor>
           </minMaxOrigin>
         </rasterrenderer>
-        <brightnesscontrast brightness="0" contrast="0"/>
-        <huesaturation colorizeStrength="100" colorizeOn="0" saturation="0" colorizeBlue="128" grayscaleMode="0" colorizeRed="255" colorizeGreen="128"/>
+        <brightnesscontrast brightness="0" contrast="0" gamma="1"/>
+        <huesaturation saturation="0" grayscaleMode="0" colorizeOn="0" colorizeStrength="100" colorizeGreen="128" colorizeRed="255" colorizeBlue="128"/>
         <rasterresampler maxOversampling="2"/>
+        <resamplingStage>resamplingFilter</resamplingStage>
       </pipe>
       <blendMode>0</blendMode>
     </maplayer>

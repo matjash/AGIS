@@ -70,8 +70,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>481</width>
-        <height>222</height>
+        <width>534</width>
+        <height>185</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -84,7 +84,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Mapire - Zbirka historičnih zemljevidov</string>
+          <string>Arcanum - Zbirka historičnih zemljevidov</string>
          </property>
         </widget>
        </item>

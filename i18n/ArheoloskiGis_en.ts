@@ -278,8 +278,8 @@
     </message>
     <message>
         <location filename="../agis_links/agis_links_dialog.ui" line="87"/>
-        <source>Mapire - Zbirka historičnih zemljevidov</source>
-        <translation type="unfinished">Mapire - Historical maps online</translation>
+        <source>Arcanum - Zbirka historičnih zemljevidov</source>
+        <translation type="unfinished">Arcanum - Historical maps online</translation>
     </message>
     <message>
         <location filename="../agis_links/agis_links_dialog.ui" line="103"/>
