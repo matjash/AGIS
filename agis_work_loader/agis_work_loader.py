@@ -374,3 +374,4 @@ class ArheoloskiGisWorkLoader:
         if aut_meth == 1:
             authMgr = QgsApplication.authManager()
             authMgr.removeAuthenticationConfig(authentication.id())  
+
