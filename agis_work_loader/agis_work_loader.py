@@ -265,12 +265,10 @@ class ArheoloskiGisWorkLoader:
 
         if user:
             check_conn(host, port, database, user, password)
-            self.iface.messageBar().pushMessage(self.tr('aaaa'))
             authentication = auth_text(user, password)  
             aut_meth = 1
 
         elif auth_mgr:
-            self.iface.messageBar().pushMessage(self.tr('bbb'))
             try:
                 check_conn(host, port, database, auth["username"], auth["password"])
                 authentication = auth_cfg
