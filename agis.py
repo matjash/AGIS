@@ -98,10 +98,12 @@ class ArheoloskiGis:
             self.AGIS_Menu.addAction(self.Work_loader)
             self.Work_loader.triggered.connect(self.work_loader)
 
-	self.arcanum_loader_icon = str(path('icons')/'icon_arcanum_loader.png')
-	self.Arcanum = QAction(QIcon(self.arcanum_loader_icon),self.tr("Arcanum"), self.iface.mainWindow())
-	#self.AGIS_Menu.addAction(self.Arcanum)
-	self.Arcanum.triggered.connect(self.arcanum)
+
+        self.arcanum_loader_icon = str(path('icons')/'icon_arcanum_loader.png')
+        self.Arcanum = QAction(QIcon(self.arcanum_loader_icon),self.tr("Arcanum"), self.iface.mainWindow())
+        #self.AGIS_Menu.addAction(self.Arcanum)
+        self.Arcanum.triggered.connect(self.arcanum)
+
 
 
         self.about_icon = str(path('icons')/'agis_logo.png')
