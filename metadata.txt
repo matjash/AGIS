@@ -26,7 +26,7 @@ repository=https://github.com/PreventiveArchaeology/AGIS
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-changelog= v1.4.0: Added Arcanum toolbar button  
+changelog= v1.4.0: Added Arcanum toolbar button and historical map IGM25. Updated layer sources for Public Infrastructure Cadastre
     v1.3.99: Updated RKD layer source and symbology;
     v1.3: Added layers Geological map of Slovenia and Public Infrastructure Cadastre;
     v1.2: Corrected cadastre layer name "ZKP parcele", new tool for loading internal IPCH layers, "Remove AGIS layers" button added; 
