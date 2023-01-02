@@ -81,19 +81,20 @@ class ArheoloskiGisLoad:
             QCoreApplication.installTranslator(self.translator)
 
         self.dlg = ArheoloskiGisLoadDialog()
-
-
-        self.dlg.buttonBox.button(QDialogButtonBox.Cancel).clicked.connect(self.dlg.close)
-        self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.load_layers)
-        self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.dlg.close)
-        self.dlg.remove_layers.clicked.connect(self.remove_layers)
-
+       
+        
+        #self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.load_layers)
+        #self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.dlg.close)
+        #self.dlg.remove_layers.clicked.connect(self.remove_layers)
+        self.dlg.button_box.rejected.connect(self.tab1_accepta)
 
         logo_path = path('icons')/"loader_logo_small"
-        self.dlg.label_2.setPixmap(QPixmap(str(logo_path)))
+        #self.dlg.label_2.setPixmap(QPixmap(str(logo_path)))
         # Declare instance attributes
         self.actions = []
         self.first_start = None
+
+        
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
@@ -168,23 +169,27 @@ class ArheoloskiGisLoad:
                 action)
             self.iface.removeToolBarIcon(action)
 
+    def tab1_accepta(self):
+        self.iface.messageBar().pushMessage('sagggggggggggg')
+        self.ww.close()
 
     def run(self):
         """Run method that performs all the real work"""
         if self.first_start == True:
             self.first_start = False
         # show the dialog
-        self.dlg.show()
-        # Run the dialog event loop
-        result = self.dlg.exec_()
+        
+        self.ww = self.dlg.window()
+        self.ww.show()
+        
+        super(ArheoloskiGisLoadDialog).__init__()
+        
+      
+
+      
+        #ss.rejected.connect(self.close_dialog)
+            
         # See if OK was pressed
-        if result:
-            # Do something useful here - delete the line containing pass and
-            # substitute with your code.
-            pass
-
-
-
 
 
     def remove_layers(self):
