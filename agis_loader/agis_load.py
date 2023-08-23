@@ -37,6 +37,7 @@ from qgis.core import (QgsProject,
                        )
 import tempfile
 import shutil
+import webbrowser
 
 
 # Initialize Qt resources from file resources.py
@@ -81,20 +82,19 @@ class ArheoloskiGisLoad:
             QCoreApplication.installTranslator(self.translator)
 
         self.dlg = ArheoloskiGisLoadDialog()
-       
-        
-        #self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.load_layers)
-        #self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.dlg.close)
-        #self.dlg.remove_layers.clicked.connect(self.remove_layers)
-        self.dlg.button_box.rejected.connect(self.tab1_accepta)
+
+
+        self.dlg.buttonBox.button(QDialogButtonBox.Cancel).clicked.connect(self.dlg.close)
+        self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.load_layers)
+        self.dlg.buttonBox.button(QDialogButtonBox.Ok).clicked.connect(self.dlg.close)
+        self.dlg.remove_layers.clicked.connect(self.remove_layers)
+        self.dlg.buy_kofi.clicked.connect(self.link_kofi)
 
         logo_path = path('icons')/"loader_logo_small"
-        #self.dlg.label_2.setPixmap(QPixmap(str(logo_path)))
+        self.dlg.label_2.setPixmap(QPixmap(str(logo_path)))
         # Declare instance attributes
         self.actions = []
         self.first_start = None
-
-        
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
@@ -169,34 +169,32 @@ class ArheoloskiGisLoad:
                 action)
             self.iface.removeToolBarIcon(action)
 
-    def tab1_accepta(self):
-        self.iface.messageBar().pushMessage('sagggggggggggg')
-        self.ww.close()
-
+    def link_kofi(self):
+        webbrowser.open('https://ko-fi.com/matjash')
+        
     def run(self):
         """Run method that performs all the real work"""
         if self.first_start == True:
             self.first_start = False
         # show the dialog
-        
-        self.ww = self.dlg.window()
-        self.ww.show()
-        
-        super(ArheoloskiGisLoadDialog).__init__()
-        
-      
-
-      
-        #ss.rejected.connect(self.close_dialog)
-            
+        self.dlg.show()
+        # Run the dialog event loop
+        result = self.dlg.exec_()
         # See if OK was pressed
+        if result:
+            # Do something useful here - delete the line containing pass and
+            # substitute with your code.
+            pass
+
+
+
 
 
     def remove_layers(self):
         root = QgsProject.instance().layerTreeRoot()
         #Clean layers (On update use:  names = [layer.name() for layer in QgsProject.instance().mapLayers().values()] ; print (names)  ) 
-        layers = ['Električno omrežje', 'Geologic age by colour, includes Fennoscandian Precambrian subdivisions', 'Kanalizacijsko omrežje', 'Lithology (Representative)', 'Telekomunikacijsko omrežje ', 'Toplotno omrežje', 'Vodovodno omrežje', 'AO_topo75_1880', 'AO_topo75_1914', 'Claustra Alpium Iuliarum', 'DOF050', 'DPK1000', 'DPK250', 'DPK500', 'DTK50_1950_1967', 'DTK50', 'DTK5', 'Državna meja Republike Slovenije', 'Evidenca arheoloških raziskav', 'Franciscejski kataster', 'Katalog najdišč', 'Katastrske občine', 'Naselja', 'Načrti najdišč', 'Načrti najdišč_poligoni', 'Občine', 'ZKP parcele', 'ZKN parcele', 'RKD', 'SMAP', 'ZLS SVF', 'ZLS interpretacija', 'eVRD']
-        groups = ['Arheologija', 'Dediščina', 'Prostorske enote', 'Historične podlage', 'Podlage' ]
+        layers = ['Vrste izvedenih arheoloških raziskav', 'Arheologija vloge', 'Arheološke raziskave v teku', 'Električno omrežje', 'Geologic age by colour, includes Fennoscandian Precambrian subdivisions', 'Kanalizacijsko omrežje', 'Lithology (Representative)', 'Telekomunikacijsko omrežje ', 'Toplotno omrežje', 'Vodovodno omrežje', 'AO_topo75_1880', 'AO_topo75_1914', 'Claustra Alpium Iuliarum', 'DOF050', 'DPK1000', 'DPK250', 'DPK500', 'DTK50_1950_1967', 'DTK50', 'DTK5', 'Državna meja Republike Slovenije', 'Evidenca arheoloških raziskav', 'Franciscejski kataster', 'Katalog najdišč', 'Katastrske občine', 'Naselja', 'Načrti najdišč', 'Načrti najdišč_poligoni', 'Občine', 'KN parcele', 'ZKN parcele', 'RNPD', 'SMAP', 'ZLS SVF', 'ZLS interpretacija', 'eVRD']
+        groups = ['Arheologija', 'eArheologija', 'Dediščina', 'Prostorske enote', 'Historične podlage', 'Podlage' ]
        
         for layer in layers:
             for a in QgsProject.instance().mapLayersByName(layer):
@@ -276,7 +274,7 @@ class ArheoloskiGisLoad:
             evrd = styles_path/'eVRD.qlr'
             QgsLayerDefinition().loadLayerDefinition(str(evrd), QgsProject.instance(), dedi_group)
 
-            rkd = styles_path/'RKD.qlr'
+            rkd = styles_path/'RNPD.qlr'
             QgsLayerDefinition().loadLayerDefinition(str(rkd), QgsProject.instance(), dedi_group)
 
         #Load Prostorske enote layes group
@@ -361,7 +359,7 @@ class ArheoloskiGisLoad:
                     root.findLayer(layer.id()).setItemVisibilityChecked(0)
 
         #toggle visibility
-        layers =['RKD']
+        layers =['RNPD']
         for layer in layers:
             if len(QgsProject.instance().mapLayersByName(layer)) != 0:
                 layer = QgsProject.instance().mapLayersByName(layer)[0]

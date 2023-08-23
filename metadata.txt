@@ -6,8 +6,8 @@
 name=AGIS
 qgisMinimumVersion=3.0
 description=Archaeological GIS, toolbox for Slovenian Archaeologists.
-version=1.4.9
-author=Matjaž Mori, ZVKDS CPA
+version=1.4.2
+author=Matjaž Mori
 email=matjaz.mori@gmail.com
 
 about=EN: Plugin helps seting up GIS project for archaeologists or anyone else that needs same layers for the area of Republic of Slovenia.
@@ -18,15 +18,17 @@ about=EN: Plugin helps seting up GIS project for archaeologists or anyone else t
          Dostop do podatkov omogočata Ministrstvo za kulturo, Geodetska uprava RS in Geologški zavod Slovenije. Za razvoj vtičnika je poskrbel Center za preventivno arheologijo, ZVKDS.
          
 
-tracker=https://github.com/PreventiveArchaeology/AGIS/issues
-repository=https://github.com/PreventiveArchaeology/AGIS
+tracker=https://github.com/matjash/AGIS/issues
+repository=https://github.com/matjash/AGIS
 # End of mandatory metadata
 
 # Recommended items:
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-changelog= v1.4.0: Added Arcanum toolbar button and historical map IGM25. Updated layer sources for Public Infrastructure Cadastre
+changelog= v1.4.2: Updated RNPD and eVRD layer sources, added eArheologija, updated cadastre layer;
+    v1.4.1: Updated RKD and eVRD layer source, added TTN5;
+    v1.4.0: Added Arcanum toolbar button and historical map IGM25. Updated layer sources for Public Infrastructure Cadastre
     v1.3.99: Updated RKD layer source and symbology;
     v1.3: Added layers Geological map of Slovenia and Public Infrastructure Cadastre;
     v1.2: Corrected cadastre layer name "ZKP parcele", new tool for loading internal IPCH layers, "Remove AGIS layers" button added; 
@@ -36,7 +38,7 @@ changelog= v1.4.0: Added Arcanum toolbar button and historical map IGM25. Update
 # Tags are comma separated with spaces allowed
 tags=python, archaeology, Slovenia, geology, cadastre
 
-homepage=https://github.com/PreventiveArchaeology/AGIS
+homepage=https://github.com/matjash/AGIS
 category=AGIS
 icon=icons/agis_logo.png
 # experimental flag
