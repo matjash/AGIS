@@ -12,10 +12,10 @@ email=matjaz.mori@gmail.com
 
 about=EN: Plugin helps seting up GIS project for archaeologists or anyone else that needs same layers for the area of Republic of Slovenia.
          Data is provided by Slovenian Ministry of Culture, Surveying and Mapping Authority and Geological Survey of Slovenia. 
-         Plugin was developed by Centre for Preventive Archeology, IPCH Slovenia.
+         Plugin was partially developed within my work at Centre for Preventive Archeology, IPCH Slovenia. It continues to be maintained on a voluntary basis.
          
          SI: Vtičnik je v pomoč ob vzpostavitvi GIS projekta za arheologe ali kogarkoli, ki potrebuje iste sloje za območje Republike Slovenije.
-         Dostop do podatkov omogočata Ministrstvo za kulturo, Geodetska uprava RS in Geologški zavod Slovenije. Za razvoj vtičnika je poskrbel Center za preventivno arheologijo, ZVKDS.
+         Dostop do podatkov omogočata Ministrstvo za kulturo, Geodetska uprava RS in Geologški zavod Slovenije. Sprva razvit v okviru Centra za preventivno arheologijo, ZVKDS, se vtičnik še naprej vzdržuje kot prostovoljni projekt.
          
 
 tracker=https://github.com/matjash/AGIS/issues
