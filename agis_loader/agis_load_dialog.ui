@@ -78,7 +78,7 @@
        <item>
         <widget class="QCheckBox" name="dediscina">
          <property name="text">
-          <string>Dediščina (eVRD, RKD)</string>
+          <string>Dediščina (eVRD, RNPD, eArheologija)</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -129,6 +129,51 @@
     <widget class="QPushButton" name="buy_kofi">
      <property name="enabled">
       <bool>true</bool>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>0</red>
+           <green>0</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>120</red>
+           <green>120</green>
+           <blue>120</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
      </property>
      <property name="text">
       <string notr="true">Buy a Coffee for matjash</string>
