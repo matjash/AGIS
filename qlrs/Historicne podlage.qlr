@@ -1,121 +1,116 @@
 <!DOCTYPE qgis-layer-definition>
 <qlr>
-  <layer-tree-group checked="Qt::Checked" expanded="1" name="">
+  <layer-tree-group expanded="1" groupLayer="" name="" checked="Qt::Checked">
     <customproperties>
       <Option/>
     </customproperties>
-    <layer-tree-layer id="TTN10_TTN5_26bbf033_35f3_422a_be9c_8f2d959dc39e" patch_size="-1,-1" checked="Qt::Unchecked" legend_split_behavior="0" providerKey="arcgismapserver" expanded="0" name="TTN10/TTN5 ( - 1996)" legend_exp="" source=" crs='EPSG:3912' format='PNG32' layer='1' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/Topo_GURS_B_D48/MapServer'">
+    <layer-tree-layer source=" crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='0' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/TTN/MapServer'" expanded="1" legend_split_behavior="0" id="TTN5_D96_ZDR_a0ac7013_dffc_4d33_ab01_75368a2cc558" patch_size="-1,-1" name="TTN10/TTN5 ( - 1996)" providerKey="arcgismapserver" checked="Qt::Unchecked" legend_exp="">
       <customproperties>
         <Option/>
       </customproperties>
     </layer-tree-layer>
-    <layer-tree-layer id="DTK50__1950_1967__2d5f9682_f68c_4ec1_b23c_375b87f829f8" patch_size="0,0" checked="Qt::Unchecked" legend_split_behavior="0" providerKey="arcgismapserver" expanded="0" name="DTK50 (1950-1967)" legend_exp="" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/DTK50_1950_1967/MapServer' table=&quot;&quot; sql=">
+    <layer-tree-layer source=" crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='1' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_FRANC_KATASTER/MapServer'" expanded="1" legend_split_behavior="0" id="Franciscejski_kataster__1823_1869__fd98d99d_8a0a_4a8b_940e_a1d068fe451b" patch_size="-1,-1" name="Franciscejski kataster (1823-1869)" providerKey="arcgismapserver" checked="Qt::Unchecked" legend_exp="">
       <customproperties>
         <Option/>
       </customproperties>
     </layer-tree-layer>
-    <layer-tree-layer id="Avstro___Ogrska_1_75_000__1910___1915__7f3866d7_9443_4bff_b1b3_62571e0e4941" patch_size="0,0" checked="Qt::Unchecked" legend_split_behavior="0" providerKey="arcgismapserver" expanded="0" name="Avstro - Ogrska 1:75.000 (1910 - 1915)" legend_exp="" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/AO_topo75_1914/MapServer' table=&quot;&quot; sql=">
+    <layer-tree-layer source=" crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='0' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_AO_75K_1880/MapServer'" expanded="1" legend_split_behavior="0" id="Spezialkarte_der_O_U_Monarchie_1_75K__1880_1885__d64884a0_ca51_4db4_8fc6_d5b68ee97cfb" patch_size="-1,-1" name="Spezialkarte der O-U Monarchie 1:75K (1880-1885)" providerKey="arcgismapserver" checked="Qt::Unchecked" legend_exp="">
       <customproperties>
         <Option/>
       </customproperties>
     </layer-tree-layer>
-    <layer-tree-layer id="Avstro___Ogrska_1_75_000__1880_1885__e54fd08b_8bab_4246_900a_1eef43a148a0" patch_size="0,0" checked="Qt::Unchecked" legend_split_behavior="0" providerKey="arcgismapserver" expanded="0" name="Avstro - Ogrska 1:75.000 (1880-1885)" legend_exp="" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/AO_topo75_1880/MapServer' table=&quot;&quot; sql=">
+    <layer-tree-layer source=" crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='0' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_AO_75K_1914/MapServer'" expanded="1" legend_split_behavior="0" id="Spezialkarte_der_O_U_Monarchie_1_75K__1914__393ed399_2086_4ca5_8614_03ab4b3c4caa" patch_size="-1,-1" name="Spezialkarte der O-U Monarchie 1:75K (1914)" providerKey="arcgismapserver" checked="Qt::Unchecked" legend_exp="">
       <customproperties>
         <Option/>
       </customproperties>
     </layer-tree-layer>
-    <layer-tree-layer id="Franciscejski_kataster_03ee9754_d444_446c_a16c_09934c57b05a" patch_size="0,0" checked="Qt::Unchecked" legend_split_behavior="0" providerKey="arcgismapserver" expanded="0" name="Franciscejski kataster" legend_exp="" source=" crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/francKat_D48/MapServer' table=&quot;&quot; sql=">
+    <layer-tree-layer source=" crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='0' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_IGM_25K_1930/MapServer'" expanded="1" legend_split_behavior="0" id="IGM_1_25K__1930__ba31ab94_3b7a_4f8a_bd00_39f1291c1fab" patch_size="-1,-1" name="IGM 1:25K (1930)" providerKey="arcgismapserver" checked="Qt::Unchecked" legend_exp="">
+      <customproperties>
+        <Option/>
+      </customproperties>
+    </layer-tree-layer>
+    <layer-tree-layer source=" crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='0' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_VGIB_25K_1930/MapServer'" expanded="1" legend_split_behavior="0" id="VGIB_1_25K__1930__3a093f6a_49dd_454e_9b02_4d33495a34fb" patch_size="-1,-1" name="VGIB 1:25K (1930)" providerKey="arcgismapserver" checked="Qt::Unchecked" legend_exp="">
+      <customproperties>
+        <Option/>
+      </customproperties>
+    </layer-tree-layer>
+    <layer-tree-layer source=" crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='0' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_VGIB_50K_1950/MapServer'" expanded="1" legend_split_behavior="0" id="VGIB_1_50K__1950__a2f7ee0e_da44_44de_9745_5ed899e3fd9b" patch_size="-1,-1" name="VGIB 1:50K (1950)" providerKey="arcgismapserver" checked="Qt::Unchecked" legend_exp="">
       <customproperties>
         <Option/>
       </customproperties>
     </layer-tree-layer>
   </layer-tree-group>
   <maplayers>
-    <maplayer refreshOnNotifyEnabled="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" hasScaleBasedVisibilityFlag="1" legendPlaceholderImage="" styleCategories="AllStyleCategories" minScale="14801" maxScale="0" type="raster" autoRefreshTime="0">
+    <maplayer minScale="15000" autoRefreshTime="0" refreshOnNotifyMessage="" autoRefreshEnabled="0" styleCategories="AllStyleCategories" maxScale="0" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="1" legendPlaceholderImage="" type="raster">
       <extent>
-        <xmin>380749.78830000013113022</xmin>
-        <ymin>27999.64860000088810921</ymin>
-        <xmax>626000.21059999987483025</xmax>
-        <ymax>193300.21169999986886978</ymax>
+        <xmin>380377.49830000009387732</xmin>
+        <ymin>28484.57489999942481518</ymin>
+        <xmax>625631.0835999995470047</xmax>
+        <ymax>193783.04169999994337559</ymax>
       </extent>
       <wgs84extent>
-        <xmin>13.43076394863280498</xmin>
-        <ymin>45.38500295987993383</ymin>
-        <xmax>16.64808904641027354</xmax>
-        <ymax>46.88358393834697324</ymax>
+        <xmin>13.43072904579449478</xmin>
+        <ymin>45.38503236618639392</ymin>
+        <xmax>16.64806214291756703</xmax>
+        <ymax>46.88355378579644395</ymax>
       </wgs84extent>
-      <id>TTN10_TTN5_26bbf033_35f3_422a_be9c_8f2d959dc39e</id>
-      <datasource> crs='EPSG:3912' format='PNG32' layer='1' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/Topo_GURS_B_D48/MapServer'</datasource>
+      <id>TTN5_D96_ZDR_a0ac7013_dffc_4d33_ab01_75368a2cc558</id>
+      <datasource> crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='0' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/TTN/MapServer'</datasource>
       <keywordList>
         <value></value>
       </keywordList>
-      <timestamp>2023-01-03T10:59:32</timestamp>
+      <timestamp>2023-08-29T06:42:08</timestamp>
       <layername>TTN10/TTN5 ( - 1996)</layername>
       <srs>
-        <spatialrefsys>
-          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
-          <srsid>27362</srsid>
-          <srid>3912</srid>
-          <authid>EPSG:3912</authid>
-          <description>MGI 1901 / Slovene National Grid</description>
+        <spatialrefsys nativeFormat="Wkt">
+          <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1751</srsid>
+          <srid>3794</srid>
+          <authid>EPSG:3794</authid>
+          <description>Slovenia 1996 / Slovene National Grid</description>
           <projectionacronym>tmerc</projectionacronym>
-          <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
           <geographicflag>false</geographicflag>
         </spatialrefsys>
       </srs>
       <resourceMetadata>
-        <identifier>https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/Topo_GURS_B_D48/MapServer/1</identifier>
-        <parentidentifier>https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/Topo_GURS_B_D48/MapServer</parentidentifier>
+        <identifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/TTN/MapServer/0</identifier>
+        <parentidentifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/TTN/MapServer</parentidentifier>
         <language></language>
         <type>dataset</type>
-        <title>TTN5_D48</title>
+        <title>TTN5_D96_ZDR</title>
         <abstract></abstract>
         <keywords vocabulary="keywords">
-          <keyword>pregledne karte</keyword>
-          <keyword>topografske karte</keyword>
-          <keyword>GURS</keyword>
+          <keyword>TTN</keyword>
+          <keyword>D96</keyword>
         </keywords>
-        <contact>
-          <name></name>
-          <organization></organization>
-          <position></position>
-          <voice></voice>
-          <fax></fax>
-          <email></email>
-          <role></role>
-        </contact>
         <links>
-          <link mimeType="" name="Source" format="" type="WWW:LINK" url="https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/Topo_GURS_B_D48/MapServer/1" description="" size=""/>
+          <link description="" format="" mimeType="" size="" url="https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/TTN/MapServer/0" name="Source" type="WWW:LINK"/>
         </links>
+        <dates/>
         <fees></fees>
         <encoding></encoding>
         <crs>
-          <spatialrefsys>
-            <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
-            <srsid>27362</srsid>
-            <srid>3912</srid>
-            <authid>EPSG:3912</authid>
-            <description>MGI 1901 / Slovene National Grid</description>
+          <spatialrefsys nativeFormat="Wkt">
+            <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+            <srsid>1751</srsid>
+            <srid>3794</srid>
+            <authid>EPSG:3794</authid>
+            <description>Slovenia 1996 / Slovene National Grid</description>
             <projectionacronym>tmerc</projectionacronym>
-            <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
+            <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
             <geographicflag>false</geographicflag>
           </spatialrefsys>
         </crs>
         <extent>
-          <spatial minx="380749.7883000000147149" dimensions="2" crs="EPSG:3912" miny="27999.64860000000044238" maxx="626000.21059999999124557" maxz="0" minz="0" maxy="193300.21170000001438893"/>
-          <temporal>
-            <period>
-              <start></start>
-              <end></end>
-            </period>
-          </temporal>
+          <spatial maxy="193783.04169999994337559" minx="380377.49830000009387732" minz="0" maxx="625631.0835999995470047" maxz="0" crs="EPSG:3794" dimensions="2" miny="28484.57489999942481518"/>
         </extent>
       </resourceMetadata>
       <provider>arcgismapserver</provider>
       <noData>
-        <noDataList useSrcNoData="0" bandNo="1"/>
+        <noDataList bandNo="1" useSrcNoData="0"/>
       </noData>
       <map-layer-style-manager current="default">
         <map-layer-style name="default"/>
@@ -127,12 +122,103 @@
         <Searchable>1</Searchable>
         <Private>0</Private>
       </flags>
-      <temporal fetchMode="0" enabled="0" mode="0">
+      <temporal enabled="0" mode="0" fetchMode="0">
         <fixedRange>
           <start></start>
           <end></end>
         </fixedRange>
       </temporal>
+      <elevation zoffset="0" enabled="0" symbology="Line" zscale="1" band="1">
+        <data-defined-properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </data-defined-properties>
+        <profileLineSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="line">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleLine" id="{29ddc96e-bead-4400-8ca1-9d1c7227c30c}" locked="0">
+              <Option type="Map">
+                <Option value="0" name="align_dash_pattern" type="QString"/>
+                <Option value="square" name="capstyle" type="QString"/>
+                <Option value="5;2" name="customdash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+                <Option value="MM" name="customdash_unit" type="QString"/>
+                <Option value="0" name="dash_pattern_offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+                <Option value="0" name="draw_inside_polygon" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="145,82,45,255" name="line_color" type="QString"/>
+                <Option value="solid" name="line_style" type="QString"/>
+                <Option value="0.6" name="line_width" type="QString"/>
+                <Option value="MM" name="line_width_unit" type="QString"/>
+                <Option value="0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="0" name="ring_filter" type="QString"/>
+                <Option value="0" name="trim_distance_end" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+                <Option value="0" name="trim_distance_start" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+                <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+                <Option value="0" name="use_custom_dash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileLineSymbol>
+        <profileFillSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="fill">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleFill" id="{fed22696-51f3-48d6-8af1-5ba233aa9844}" locked="0">
+              <Option type="Map">
+                <Option value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale" type="QString"/>
+                <Option value="145,82,45,255" name="color" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="35,35,35,255" name="outline_color" type="QString"/>
+                <Option value="no" name="outline_style" type="QString"/>
+                <Option value="0.26" name="outline_width" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="solid" name="style" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileFillSymbol>
+      </elevation>
       <customproperties>
         <Option type="Map">
           <Option value="false" name="WMSBackgroundLayer" type="QString"/>
@@ -141,6 +227,7 @@
           <Option value="Feature" name="identify/format" type="QString"/>
         </Option>
       </customproperties>
+      <mapTip></mapTip>
       <pipe-data-defined-properties>
         <Option type="Map">
           <Option value="" name="name" type="QString"/>
@@ -150,9 +237,9 @@
       </pipe-data-defined-properties>
       <pipe>
         <provider>
-          <resampling zoomedInResamplingMethod="nearestNeighbour" enabled="false" maxOversampling="2" zoomedOutResamplingMethod="nearestNeighbour"/>
+          <resampling enabled="false" zoomedOutResamplingMethod="nearestNeighbour" maxOversampling="2" zoomedInResamplingMethod="nearestNeighbour"/>
         </provider>
-        <rasterrenderer nodataColor="" band="1" opacity="0.469" type="singlebandcolordata" alphaBand="-1">
+        <rasterrenderer band="1" alphaBand="-1" nodataColor="" opacity="0.365" type="singlebandcolordata">
           <rasterTransparency/>
           <minMaxOrigin>
             <limits>None</limits>
@@ -163,74 +250,1166 @@
             <stdDevFactor>2</stdDevFactor>
           </minMaxOrigin>
         </rasterrenderer>
-        <brightnesscontrast gamma="1" brightness="0" contrast="0"/>
-        <huesaturation invertColors="0" colorizeOn="0" colorizeStrength="100" colorizeBlue="128" colorizeRed="255" saturation="0" colorizeGreen="128" grayscaleMode="0"/>
+        <brightnesscontrast gamma="1.02" contrast="58" brightness="13"/>
+        <huesaturation colorizeStrength="100" grayscaleMode="0" colorizeBlue="128" colorizeOn="0" colorizeRed="255" colorizeGreen="128" saturation="-23" invertColors="0"/>
         <rasterresampler maxOversampling="2"/>
         <resamplingStage>resamplingFilter</resamplingStage>
       </pipe>
       <blendMode>0</blendMode>
     </maplayer>
-    <maplayer refreshOnNotifyEnabled="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" hasScaleBasedVisibilityFlag="0" legendPlaceholderImage="" styleCategories="AllStyleCategories" minScale="1e+08" maxScale="0" type="raster" autoRefreshTime="0">
+    <maplayer minScale="1e+08" autoRefreshTime="0" refreshOnNotifyMessage="" autoRefreshEnabled="0" styleCategories="AllStyleCategories" maxScale="0" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" legendPlaceholderImage="" type="raster">
       <extent>
-        <xmin>367731.36799999978393316</xmin>
-        <ymin>7362.92600000090897083</ymin>
+        <xmin>376623.67169999983161688</xmin>
+        <ymin>33288.39000000059604645</ymin>
+        <xmax>600581.34179999958723783</xmax>
+        <ymax>172079.83000000007450581</ymax>
+      </extent>
+      <wgs84extent>
+        <xmin>13.38734250540022686</xmin>
+        <ymin>45.42864424236065446</ymin>
+        <xmax>16.31479233399496565</xmax>
+        <ymax>46.68830396737206456</ymax>
+      </wgs84extent>
+      <id>Franciscejski_kataster__1823_1869__fd98d99d_8a0a_4a8b_940e_a1d068fe451b</id>
+      <datasource> crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='1' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_FRANC_KATASTER/MapServer'</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <timestamp>2023-08-29T06:35:21</timestamp>
+      <layername>Franciscejski kataster (1823-1869)</layername>
+      <srs>
+        <spatialrefsys nativeFormat="Wkt">
+          <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1751</srsid>
+          <srid>3794</srid>
+          <authid>EPSG:3794</authid>
+          <description>Slovenia 1996 / Slovene National Grid</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_FRANC_KATASTER/MapServer/1</identifier>
+        <parentidentifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_FRANC_KATASTER/MapServer</parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title>franc_kataster</title>
+        <abstract></abstract>
+        <keywords vocabulary="keywords">
+          <keyword>franciscejski kataster</keyword>
+          <keyword>MK</keyword>
+        </keywords>
+        <links>
+          <link description="" format="" mimeType="" size="" url="https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_FRANC_KATASTER/MapServer/1" name="Source" type="WWW:LINK"/>
+        </links>
+        <dates/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys nativeFormat="Wkt">
+            <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+            <srsid>1751</srsid>
+            <srid>3794</srid>
+            <authid>EPSG:3794</authid>
+            <description>Slovenia 1996 / Slovene National Grid</description>
+            <projectionacronym>tmerc</projectionacronym>
+            <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial maxy="172079.83000000007450581" minx="376623.67169999983161688" minz="0" maxx="600581.34179999958723783" maxz="0" crs="EPSG:3794" dimensions="2" miny="33288.39000000059604645"/>
+        </extent>
+      </resourceMetadata>
+      <provider>arcgismapserver</provider>
+      <noData>
+        <noDataList bandNo="1" useSrcNoData="0"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <metadataUrls/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <temporal enabled="0" mode="0" fetchMode="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <elevation zoffset="0" enabled="0" symbology="Line" zscale="1" band="1">
+        <data-defined-properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </data-defined-properties>
+        <profileLineSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="line">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleLine" id="{a8a59620-5c28-4171-89e2-8c7ada7a695f}" locked="0">
+              <Option type="Map">
+                <Option value="0" name="align_dash_pattern" type="QString"/>
+                <Option value="square" name="capstyle" type="QString"/>
+                <Option value="5;2" name="customdash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+                <Option value="MM" name="customdash_unit" type="QString"/>
+                <Option value="0" name="dash_pattern_offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+                <Option value="0" name="draw_inside_polygon" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="196,60,57,255" name="line_color" type="QString"/>
+                <Option value="solid" name="line_style" type="QString"/>
+                <Option value="0.6" name="line_width" type="QString"/>
+                <Option value="MM" name="line_width_unit" type="QString"/>
+                <Option value="0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="0" name="ring_filter" type="QString"/>
+                <Option value="0" name="trim_distance_end" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+                <Option value="0" name="trim_distance_start" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+                <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+                <Option value="0" name="use_custom_dash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileLineSymbol>
+        <profileFillSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="fill">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleFill" id="{7095d1a3-23e4-4c8c-8f92-ed53aa61c60d}" locked="0">
+              <Option type="Map">
+                <Option value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale" type="QString"/>
+                <Option value="196,60,57,255" name="color" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="35,35,35,255" name="outline_color" type="QString"/>
+                <Option value="no" name="outline_style" type="QString"/>
+                <Option value="0.26" name="outline_width" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="solid" name="style" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileFillSymbol>
+      </elevation>
+      <customproperties>
+        <Option type="Map">
+          <Option value="Feature" name="identify/format" type="QString"/>
+        </Option>
+      </customproperties>
+      <mapTip></mapTip>
+      <pipe-data-defined-properties>
+        <Option type="Map">
+          <Option value="" name="name" type="QString"/>
+          <Option name="properties"/>
+          <Option value="collection" name="type" type="QString"/>
+        </Option>
+      </pipe-data-defined-properties>
+      <pipe>
+        <provider>
+          <resampling enabled="false" zoomedOutResamplingMethod="nearestNeighbour" maxOversampling="2" zoomedInResamplingMethod="nearestNeighbour"/>
+        </provider>
+        <rasterrenderer band="1" alphaBand="-1" nodataColor="" opacity="1" type="singlebandcolordata">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast gamma="1" contrast="0" brightness="0"/>
+        <huesaturation colorizeStrength="100" grayscaleMode="0" colorizeBlue="128" colorizeOn="0" colorizeRed="255" colorizeGreen="128" saturation="0" invertColors="0"/>
+        <rasterresampler maxOversampling="2"/>
+        <resamplingStage>resamplingFilter</resamplingStage>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer minScale="1e+08" autoRefreshTime="0" refreshOnNotifyMessage="" autoRefreshEnabled="0" styleCategories="AllStyleCategories" maxScale="0" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" legendPlaceholderImage="" type="raster">
+      <extent>
+        <xmin>369647.52419999986886978</xmin>
+        <ymin>12177.16620000079274178</ymin>
+        <xmax>603160.24870000034570694</xmax>
+        <ymax>207587.14589999988675117</ymax>
+      </extent>
+      <wgs84extent>
+        <xmin>13.28607238933058632</xmin>
+        <ymin>45.23748558741936421</ymin>
+        <xmax>16.3565092452659222</xmax>
+        <ymax>47.00774434753640918</ymax>
+      </wgs84extent>
+      <id>Spezialkarte_der_O_U_Monarchie_1_75K__1880_1885__d64884a0_ca51_4db4_8fc6_d5b68ee97cfb</id>
+      <datasource> crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='0' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_AO_75K_1880/MapServer'</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <timestamp>2023-08-29T06:35:21</timestamp>
+      <layername>Spezialkarte der O-U Monarchie 1:75K (1880-1885)</layername>
+      <srs>
+        <spatialrefsys nativeFormat="Wkt">
+          <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1751</srsid>
+          <srid>3794</srid>
+          <authid>EPSG:3794</authid>
+          <description>Slovenia 1996 / Slovene National Grid</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_AO_75K_1880/MapServer/0</identifier>
+        <parentidentifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_AO_75K_1880/MapServer</parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title>AO_75K_1880</title>
+        <abstract></abstract>
+        <keywords vocabulary="keywords">
+          <keyword>1880</keyword>
+          <keyword>Ministrstvo za kulturo</keyword>
+          <keyword>Temeljne karte</keyword>
+          <keyword>historical maps</keyword>
+          <keyword>zgodovinske karte</keyword>
+          <keyword>Slovenija</keyword>
+          <keyword>Narodna in univerzitetna knjižnica</keyword>
+          <keyword>NUK</keyword>
+        </keywords>
+        <links>
+          <link description="" format="" mimeType="" size="" url="https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_AO_75K_1880/MapServer/0" name="Source" type="WWW:LINK"/>
+        </links>
+        <dates/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys nativeFormat="Wkt">
+            <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+            <srsid>1751</srsid>
+            <srid>3794</srid>
+            <authid>EPSG:3794</authid>
+            <description>Slovenia 1996 / Slovene National Grid</description>
+            <projectionacronym>tmerc</projectionacronym>
+            <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial maxy="207587.14589999988675117" minx="369647.52419999986886978" minz="0" maxx="603160.24870000034570694" maxz="0" crs="EPSG:3794" dimensions="2" miny="12177.16620000079274178"/>
+        </extent>
+      </resourceMetadata>
+      <provider>arcgismapserver</provider>
+      <noData>
+        <noDataList bandNo="1" useSrcNoData="0"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <metadataUrls/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <temporal enabled="0" mode="0" fetchMode="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <elevation zoffset="0" enabled="0" symbology="Line" zscale="1" band="1">
+        <data-defined-properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </data-defined-properties>
+        <profileLineSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="line">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleLine" id="{ee600a0b-e9b4-4cb5-b937-38979c1f4259}" locked="0">
+              <Option type="Map">
+                <Option value="0" name="align_dash_pattern" type="QString"/>
+                <Option value="square" name="capstyle" type="QString"/>
+                <Option value="5;2" name="customdash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+                <Option value="MM" name="customdash_unit" type="QString"/>
+                <Option value="0" name="dash_pattern_offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+                <Option value="0" name="draw_inside_polygon" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="225,89,137,255" name="line_color" type="QString"/>
+                <Option value="solid" name="line_style" type="QString"/>
+                <Option value="0.6" name="line_width" type="QString"/>
+                <Option value="MM" name="line_width_unit" type="QString"/>
+                <Option value="0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="0" name="ring_filter" type="QString"/>
+                <Option value="0" name="trim_distance_end" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+                <Option value="0" name="trim_distance_start" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+                <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+                <Option value="0" name="use_custom_dash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileLineSymbol>
+        <profileFillSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="fill">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleFill" id="{5d398a2e-70e7-404f-a41a-993032c25c7f}" locked="0">
+              <Option type="Map">
+                <Option value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale" type="QString"/>
+                <Option value="225,89,137,255" name="color" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="35,35,35,255" name="outline_color" type="QString"/>
+                <Option value="no" name="outline_style" type="QString"/>
+                <Option value="0.26" name="outline_width" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="solid" name="style" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileFillSymbol>
+      </elevation>
+      <customproperties>
+        <Option type="Map">
+          <Option value="Feature" name="identify/format" type="QString"/>
+        </Option>
+      </customproperties>
+      <mapTip></mapTip>
+      <pipe-data-defined-properties>
+        <Option type="Map">
+          <Option value="" name="name" type="QString"/>
+          <Option name="properties"/>
+          <Option value="collection" name="type" type="QString"/>
+        </Option>
+      </pipe-data-defined-properties>
+      <pipe>
+        <provider>
+          <resampling enabled="false" zoomedOutResamplingMethod="nearestNeighbour" maxOversampling="2" zoomedInResamplingMethod="nearestNeighbour"/>
+        </provider>
+        <rasterrenderer band="1" alphaBand="-1" nodataColor="" opacity="1" type="singlebandcolordata">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast gamma="1" contrast="0" brightness="0"/>
+        <huesaturation colorizeStrength="100" grayscaleMode="0" colorizeBlue="128" colorizeOn="0" colorizeRed="255" colorizeGreen="128" saturation="0" invertColors="0"/>
+        <rasterresampler maxOversampling="2"/>
+        <resamplingStage>resamplingFilter</resamplingStage>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer minScale="1e+08" autoRefreshTime="0" refreshOnNotifyMessage="" autoRefreshEnabled="0" styleCategories="AllStyleCategories" maxScale="0" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" legendPlaceholderImage="" type="raster">
+      <extent>
+        <xmin>369648.55759999994188547</xmin>
+        <ymin>12054.24840000085532665</ymin>
+        <xmax>641372.14209999982267618</xmax>
+        <ymax>208364.01720000058412552</ymax>
+      </extent>
+      <wgs84extent>
+        <xmin>13.28586251437981325</xmin>
+        <ymin>45.23425388974509076</ymin>
+        <xmax>16.8589859583386783</xmax>
+        <ymax>47.01473057954933665</ymax>
+      </wgs84extent>
+      <id>Spezialkarte_der_O_U_Monarchie_1_75K__1914__393ed399_2086_4ca5_8614_03ab4b3c4caa</id>
+      <datasource> crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='0' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_AO_75K_1914/MapServer'</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <timestamp>2023-08-29T06:35:21</timestamp>
+      <layername>Spezialkarte der O-U Monarchie 1:75K (1914)</layername>
+      <srs>
+        <spatialrefsys nativeFormat="Wkt">
+          <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1751</srsid>
+          <srid>3794</srid>
+          <authid>EPSG:3794</authid>
+          <description>Slovenia 1996 / Slovene National Grid</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_AO_75K_1914/MapServer/0</identifier>
+        <parentidentifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_AO_75K_1914/MapServer</parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title>AO_75K_1914</title>
+        <abstract></abstract>
+        <keywords vocabulary="keywords">
+          <keyword>1914</keyword>
+          <keyword>Ministrstvo za kulturo</keyword>
+          <keyword>Temeljne karte</keyword>
+          <keyword>historical maps</keyword>
+          <keyword>zgodovinske karte</keyword>
+          <keyword>Slovenija</keyword>
+          <keyword>Narodna in univerzitetna knjižnica</keyword>
+          <keyword>NUK</keyword>
+        </keywords>
+        <links>
+          <link description="" format="" mimeType="" size="" url="https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_AO_75K_1914/MapServer/0" name="Source" type="WWW:LINK"/>
+        </links>
+        <dates/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys nativeFormat="Wkt">
+            <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+            <srsid>1751</srsid>
+            <srid>3794</srid>
+            <authid>EPSG:3794</authid>
+            <description>Slovenia 1996 / Slovene National Grid</description>
+            <projectionacronym>tmerc</projectionacronym>
+            <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial maxy="208364.01720000058412552" minx="369648.55759999994188547" minz="0" maxx="641372.14209999982267618" maxz="0" crs="EPSG:3794" dimensions="2" miny="12054.24840000085532665"/>
+        </extent>
+      </resourceMetadata>
+      <provider>arcgismapserver</provider>
+      <noData>
+        <noDataList bandNo="1" useSrcNoData="0"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <metadataUrls/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <temporal enabled="0" mode="0" fetchMode="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <elevation zoffset="0" enabled="0" symbology="Line" zscale="1" band="1">
+        <data-defined-properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </data-defined-properties>
+        <profileLineSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="line">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleLine" id="{c27276e9-27e3-46e9-a9f6-43da5620e817}" locked="0">
+              <Option type="Map">
+                <Option value="0" name="align_dash_pattern" type="QString"/>
+                <Option value="square" name="capstyle" type="QString"/>
+                <Option value="5;2" name="customdash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+                <Option value="MM" name="customdash_unit" type="QString"/>
+                <Option value="0" name="dash_pattern_offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+                <Option value="0" name="draw_inside_polygon" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="229,182,54,255" name="line_color" type="QString"/>
+                <Option value="solid" name="line_style" type="QString"/>
+                <Option value="0.6" name="line_width" type="QString"/>
+                <Option value="MM" name="line_width_unit" type="QString"/>
+                <Option value="0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="0" name="ring_filter" type="QString"/>
+                <Option value="0" name="trim_distance_end" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+                <Option value="0" name="trim_distance_start" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+                <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+                <Option value="0" name="use_custom_dash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileLineSymbol>
+        <profileFillSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="fill">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleFill" id="{8dfe3ddb-c7ee-46ad-b9c6-e7c668bac935}" locked="0">
+              <Option type="Map">
+                <Option value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale" type="QString"/>
+                <Option value="229,182,54,255" name="color" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="35,35,35,255" name="outline_color" type="QString"/>
+                <Option value="no" name="outline_style" type="QString"/>
+                <Option value="0.26" name="outline_width" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="solid" name="style" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileFillSymbol>
+      </elevation>
+      <customproperties>
+        <Option type="Map">
+          <Option value="Feature" name="identify/format" type="QString"/>
+        </Option>
+      </customproperties>
+      <mapTip></mapTip>
+      <pipe-data-defined-properties>
+        <Option type="Map">
+          <Option value="" name="name" type="QString"/>
+          <Option name="properties"/>
+          <Option value="collection" name="type" type="QString"/>
+        </Option>
+      </pipe-data-defined-properties>
+      <pipe>
+        <provider>
+          <resampling enabled="false" zoomedOutResamplingMethod="nearestNeighbour" maxOversampling="2" zoomedInResamplingMethod="nearestNeighbour"/>
+        </provider>
+        <rasterrenderer band="1" alphaBand="-1" nodataColor="" opacity="1" type="singlebandcolordata">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast gamma="1" contrast="0" brightness="0"/>
+        <huesaturation colorizeStrength="100" grayscaleMode="0" colorizeBlue="128" colorizeOn="0" colorizeRed="255" colorizeGreen="128" saturation="0" invertColors="0"/>
+        <rasterresampler maxOversampling="2"/>
+        <resamplingStage>resamplingFilter</resamplingStage>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer minScale="1e+08" autoRefreshTime="0" refreshOnNotifyMessage="" autoRefreshEnabled="0" styleCategories="AllStyleCategories" maxScale="0" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" legendPlaceholderImage="" type="raster">
+      <extent>
+        <xmin>369695.68580000009387732</xmin>
+        <ymin>13071.1157000008970499</ymin>
+        <xmax>467080.38769999984651804</xmax>
+        <ymax>152302.59080000035464764</ymax>
+      </extent>
+      <wgs84extent>
+        <xmin>13.30238910908025929</xmin>
+        <ymin>45.24553563303223314</ymin>
+        <xmax>14.5805667548847353</xmax>
+        <ymax>46.50957556826059403</ymax>
+      </wgs84extent>
+      <id>IGM_1_25K__1930__ba31ab94_3b7a_4f8a_bd00_39f1291c1fab</id>
+      <datasource> crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='0' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_IGM_25K_1930/MapServer'</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <timestamp>2023-08-29T06:35:21</timestamp>
+      <layername>IGM 1:25K (1930)</layername>
+      <srs>
+        <spatialrefsys nativeFormat="Wkt">
+          <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1751</srsid>
+          <srid>3794</srid>
+          <authid>EPSG:3794</authid>
+          <description>Slovenia 1996 / Slovene National Grid</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_IGM_25K_1930/MapServer/0</identifier>
+        <parentidentifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_IGM_25K_1930/MapServer</parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title>IGM_25K_1930</title>
+        <abstract></abstract>
+        <keywords vocabulary="keywords">
+          <keyword>D96</keyword>
+          <keyword>MK</keyword>
+          <keyword>IGM</keyword>
+          <keyword>1930</keyword>
+        </keywords>
+        <links>
+          <link description="" format="" mimeType="" size="" url="https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_IGM_25K_1930/MapServer/0" name="Source" type="WWW:LINK"/>
+        </links>
+        <dates/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys nativeFormat="Wkt">
+            <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+            <srsid>1751</srsid>
+            <srid>3794</srid>
+            <authid>EPSG:3794</authid>
+            <description>Slovenia 1996 / Slovene National Grid</description>
+            <projectionacronym>tmerc</projectionacronym>
+            <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial maxy="152302.59080000035464764" minx="369695.68580000009387732" minz="0" maxx="467080.38769999984651804" maxz="0" crs="EPSG:3794" dimensions="2" miny="13071.1157000008970499"/>
+        </extent>
+      </resourceMetadata>
+      <provider>arcgismapserver</provider>
+      <noData>
+        <noDataList bandNo="1" useSrcNoData="0"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <metadataUrls/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <temporal enabled="0" mode="0" fetchMode="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <elevation zoffset="0" enabled="0" symbology="Line" zscale="1" band="1">
+        <data-defined-properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </data-defined-properties>
+        <profileLineSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="line">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleLine" id="{72488043-a67c-4a1f-92ff-4c028bc42cee}" locked="0">
+              <Option type="Map">
+                <Option value="0" name="align_dash_pattern" type="QString"/>
+                <Option value="square" name="capstyle" type="QString"/>
+                <Option value="5;2" name="customdash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+                <Option value="MM" name="customdash_unit" type="QString"/>
+                <Option value="0" name="dash_pattern_offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+                <Option value="0" name="draw_inside_polygon" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="145,82,45,255" name="line_color" type="QString"/>
+                <Option value="solid" name="line_style" type="QString"/>
+                <Option value="0.6" name="line_width" type="QString"/>
+                <Option value="MM" name="line_width_unit" type="QString"/>
+                <Option value="0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="0" name="ring_filter" type="QString"/>
+                <Option value="0" name="trim_distance_end" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+                <Option value="0" name="trim_distance_start" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+                <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+                <Option value="0" name="use_custom_dash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileLineSymbol>
+        <profileFillSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="fill">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleFill" id="{ec731467-af65-478a-8eab-d1bd3f73e8a0}" locked="0">
+              <Option type="Map">
+                <Option value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale" type="QString"/>
+                <Option value="145,82,45,255" name="color" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="35,35,35,255" name="outline_color" type="QString"/>
+                <Option value="no" name="outline_style" type="QString"/>
+                <Option value="0.26" name="outline_width" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="solid" name="style" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileFillSymbol>
+      </elevation>
+      <customproperties>
+        <Option type="Map">
+          <Option value="Feature" name="identify/format" type="QString"/>
+        </Option>
+      </customproperties>
+      <mapTip></mapTip>
+      <pipe-data-defined-properties>
+        <Option type="Map">
+          <Option value="" name="name" type="QString"/>
+          <Option name="properties"/>
+          <Option value="collection" name="type" type="QString"/>
+        </Option>
+      </pipe-data-defined-properties>
+      <pipe>
+        <provider>
+          <resampling enabled="false" zoomedOutResamplingMethod="nearestNeighbour" maxOversampling="2" zoomedInResamplingMethod="nearestNeighbour"/>
+        </provider>
+        <rasterrenderer band="1" alphaBand="-1" nodataColor="" opacity="1" type="singlebandcolordata">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast gamma="1" contrast="0" brightness="0"/>
+        <huesaturation colorizeStrength="100" grayscaleMode="0" colorizeBlue="128" colorizeOn="0" colorizeRed="255" colorizeGreen="128" saturation="0" invertColors="0"/>
+        <rasterresampler maxOversampling="2"/>
+        <resamplingStage>resamplingFilter</resamplingStage>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer minScale="1e+08" autoRefreshTime="0" refreshOnNotifyMessage="" autoRefreshEnabled="0" styleCategories="AllStyleCategories" maxScale="0" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" legendPlaceholderImage="" type="raster">
+      <extent>
+        <xmin>390973.09939999971538782</xmin>
+        <ymin>12235.92019999958574772</ymin>
+        <xmax>631783.51240000035613775</xmax>
+        <ymax>194047.73179999925196171</ymax>
+      </extent>
+      <wgs84extent>
+        <xmin>13.56961800604995716</xmin>
+        <ymin>45.23774770733147932</ymin>
+        <xmax>16.72881110460700782</xmax>
+        <ymax>46.88593878168888551</ymax>
+      </wgs84extent>
+      <id>VGIB_1_25K__1930__3a093f6a_49dd_454e_9b02_4d33495a34fb</id>
+      <datasource> crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='0' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_VGIB_25K_1930/MapServer'</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <timestamp>2023-08-29T06:35:22</timestamp>
+      <layername>VGIB 1:25K (1930)</layername>
+      <srs>
+        <spatialrefsys nativeFormat="Wkt">
+          <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1751</srsid>
+          <srid>3794</srid>
+          <authid>EPSG:3794</authid>
+          <description>Slovenia 1996 / Slovene National Grid</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_VGIB_25K_1930/MapServer/0</identifier>
+        <parentidentifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_VGIB_25K_1930/MapServer</parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title>VGIB_25K_1930</title>
+        <abstract></abstract>
+        <keywords vocabulary="keywords">
+          <keyword>D96</keyword>
+          <keyword>MK</keyword>
+          <keyword>VGIB</keyword>
+          <keyword>1930</keyword>
+        </keywords>
+        <links>
+          <link description="" format="" mimeType="" size="" url="https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_VGIB_25K_1930/MapServer/0" name="Source" type="WWW:LINK"/>
+        </links>
+        <dates/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys nativeFormat="Wkt">
+            <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+            <srsid>1751</srsid>
+            <srid>3794</srid>
+            <authid>EPSG:3794</authid>
+            <description>Slovenia 1996 / Slovene National Grid</description>
+            <projectionacronym>tmerc</projectionacronym>
+            <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial maxy="194047.73179999925196171" minx="390973.09939999971538782" minz="0" maxx="631783.51240000035613775" maxz="0" crs="EPSG:3794" dimensions="2" miny="12235.92019999958574772"/>
+        </extent>
+      </resourceMetadata>
+      <provider>arcgismapserver</provider>
+      <noData>
+        <noDataList bandNo="1" useSrcNoData="0"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <metadataUrls/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+        <Private>0</Private>
+      </flags>
+      <temporal enabled="0" mode="0" fetchMode="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <elevation zoffset="0" enabled="0" symbology="Line" zscale="1" band="1">
+        <data-defined-properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </data-defined-properties>
+        <profileLineSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="line">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleLine" id="{4c6549c6-1be2-4526-bc30-ba9c3224cba6}" locked="0">
+              <Option type="Map">
+                <Option value="0" name="align_dash_pattern" type="QString"/>
+                <Option value="square" name="capstyle" type="QString"/>
+                <Option value="5;2" name="customdash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+                <Option value="MM" name="customdash_unit" type="QString"/>
+                <Option value="0" name="dash_pattern_offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+                <Option value="0" name="draw_inside_polygon" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="125,139,143,255" name="line_color" type="QString"/>
+                <Option value="solid" name="line_style" type="QString"/>
+                <Option value="0.6" name="line_width" type="QString"/>
+                <Option value="MM" name="line_width_unit" type="QString"/>
+                <Option value="0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="0" name="ring_filter" type="QString"/>
+                <Option value="0" name="trim_distance_end" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+                <Option value="0" name="trim_distance_start" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+                <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+                <Option value="0" name="use_custom_dash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileLineSymbol>
+        <profileFillSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="fill">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleFill" id="{f5fe6ffc-428e-4cfc-aa40-e0da2f8fe5f6}" locked="0">
+              <Option type="Map">
+                <Option value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale" type="QString"/>
+                <Option value="125,139,143,255" name="color" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="35,35,35,255" name="outline_color" type="QString"/>
+                <Option value="no" name="outline_style" type="QString"/>
+                <Option value="0.26" name="outline_width" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="solid" name="style" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileFillSymbol>
+      </elevation>
+      <customproperties>
+        <Option type="Map">
+          <Option value="Feature" name="identify/format" type="QString"/>
+        </Option>
+      </customproperties>
+      <mapTip></mapTip>
+      <pipe-data-defined-properties>
+        <Option type="Map">
+          <Option value="" name="name" type="QString"/>
+          <Option name="properties"/>
+          <Option value="collection" name="type" type="QString"/>
+        </Option>
+      </pipe-data-defined-properties>
+      <pipe>
+        <provider>
+          <resampling enabled="false" zoomedOutResamplingMethod="nearestNeighbour" maxOversampling="2" zoomedInResamplingMethod="nearestNeighbour"/>
+        </provider>
+        <rasterrenderer band="1" alphaBand="-1" nodataColor="" opacity="1" type="singlebandcolordata">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast gamma="1" contrast="0" brightness="0"/>
+        <huesaturation colorizeStrength="100" grayscaleMode="0" colorizeBlue="128" colorizeOn="0" colorizeRed="255" colorizeGreen="128" saturation="0" invertColors="0"/>
+        <rasterresampler maxOversampling="2"/>
+        <resamplingStage>resamplingFilter</resamplingStage>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer minScale="1e+08" autoRefreshTime="0" refreshOnNotifyMessage="" autoRefreshEnabled="0" styleCategories="AllStyleCategories" maxScale="0" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" legendPlaceholderImage="" type="raster">
+      <extent>
+        <xmin>367715.34169999975711107</xmin>
+        <ymin>7870.19849999994039536</ymin>
         <xmax>633935.77550000045448542</xmax>
-        <ymax>210218.09999999962747097</ymax>
+        <ymax>210748.39499999955296516</ymax>
       </extent>
       <wgs84extent>
-        <xmin>13.25512370090141268</xmin>
-        <ymin>45.1979088225213701</ymin>
-        <xmax>16.75712054939825535</xmax>
-        <ymax>47.03578814318650103</ymax>
+        <xmin>13.25975588244967085</xmin>
+        <ymin>45.1980724260158766</ymin>
+        <xmax>16.76195459977063251</xmax>
+        <ymax>47.03618253688950546</ymax>
       </wgs84extent>
-      <id>DTK50__1950_1967__2d5f9682_f68c_4ec1_b23c_375b87f829f8</id>
-      <datasource> crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/DTK50_1950_1967/MapServer' table="" sql=</datasource>
+      <id>VGIB_1_50K__1950__a2f7ee0e_da44_44de_9745_5ed899e3fd9b</id>
+      <datasource> crs='EPSG:3794' crs='EPSG:3794' format='PNG32' layer='0' url='https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_VGIB_50K_1950/MapServer'</datasource>
       <keywordList>
         <value></value>
       </keywordList>
-      <timestamp>2023-01-03T10:56:23</timestamp>
-      <layername>DTK50 (1950-1967)</layername>
+      <timestamp>2023-08-29T06:35:22</timestamp>
+      <layername>VGIB 1:50K (1950)</layername>
       <srs>
-        <spatialrefsys>
-          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
-          <srsid>27362</srsid>
-          <srid>3912</srid>
-          <authid>EPSG:3912</authid>
-          <description>MGI 1901 / Slovene National Grid</description>
+        <spatialrefsys nativeFormat="Wkt">
+          <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>1751</srsid>
+          <srid>3794</srid>
+          <authid>EPSG:3794</authid>
+          <description>Slovenia 1996 / Slovene National Grid</description>
           <projectionacronym>tmerc</projectionacronym>
-          <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
           <geographicflag>false</geographicflag>
         </spatialrefsys>
       </srs>
       <resourceMetadata>
-        <identifier></identifier>
-        <parentidentifier></parentidentifier>
+        <identifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_VGIB_50K_1950/MapServer/0</identifier>
+        <parentidentifier>https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_VGIB_50K_1950/MapServer</parentidentifier>
         <language></language>
-        <type></type>
-        <title></title>
+        <type>dataset</type>
+        <title>VGIB_50K_1950</title>
         <abstract></abstract>
-        <links/>
+        <keywords vocabulary="keywords">
+          <keyword>D96</keyword>
+          <keyword>MK</keyword>
+          <keyword>VGIB</keyword>
+          <keyword>1950</keyword>
+        </keywords>
+        <links>
+          <link description="" format="" mimeType="" size="" url="https://geohub.gov.si/ags/rest/services/TEMELJNE_KARTE/MK_VGIB_50K_1950/MapServer/0" name="Source" type="WWW:LINK"/>
+        </links>
+        <dates/>
         <fees></fees>
         <encoding></encoding>
         <crs>
-          <spatialrefsys>
-            <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
-            <srsid>27362</srsid>
-            <srid>3912</srid>
-            <authid>EPSG:3912</authid>
-            <description>MGI 1901 / Slovene National Grid</description>
+          <spatialrefsys nativeFormat="Wkt">
+            <wkt>PROJCRS["Slovenia 1996 / Slovene National Grid",BASEGEOGCRS["Slovenia 1996",DATUM["Slovenia Geodetic Datum 1996",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4765]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3794]]</wkt>
+            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+            <srsid>1751</srsid>
+            <srid>3794</srid>
+            <authid>EPSG:3794</authid>
+            <description>Slovenia 1996 / Slovene National Grid</description>
             <projectionacronym>tmerc</projectionacronym>
-            <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
+            <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
             <geographicflag>false</geographicflag>
           </spatialrefsys>
         </crs>
-        <extent/>
+        <extent>
+          <spatial maxy="210748.39499999955296516" minx="367715.34169999975711107" minz="0" maxx="633935.77550000045448542" maxz="0" crs="EPSG:3794" dimensions="2" miny="7870.19849999994039536"/>
+        </extent>
       </resourceMetadata>
       <provider>arcgismapserver</provider>
       <noData>
-        <noDataList useSrcNoData="0" bandNo="1"/>
+        <noDataList bandNo="1" useSrcNoData="0"/>
       </noData>
       <map-layer-style-manager current="default">
         <map-layer-style name="default"/>
@@ -242,17 +1421,109 @@
         <Searchable>1</Searchable>
         <Private>0</Private>
       </flags>
-      <temporal fetchMode="0" enabled="0" mode="0">
+      <temporal enabled="0" mode="0" fetchMode="0">
         <fixedRange>
           <start></start>
           <end></end>
         </fixedRange>
       </temporal>
+      <elevation zoffset="0" enabled="0" symbology="Line" zscale="1" band="1">
+        <data-defined-properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </data-defined-properties>
+        <profileLineSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="line">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleLine" id="{89435e3a-b0f6-4a27-8597-abd1f3d7b857}" locked="0">
+              <Option type="Map">
+                <Option value="0" name="align_dash_pattern" type="QString"/>
+                <Option value="square" name="capstyle" type="QString"/>
+                <Option value="5;2" name="customdash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+                <Option value="MM" name="customdash_unit" type="QString"/>
+                <Option value="0" name="dash_pattern_offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+                <Option value="0" name="draw_inside_polygon" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="133,182,111,255" name="line_color" type="QString"/>
+                <Option value="solid" name="line_style" type="QString"/>
+                <Option value="0.6" name="line_width" type="QString"/>
+                <Option value="MM" name="line_width_unit" type="QString"/>
+                <Option value="0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="0" name="ring_filter" type="QString"/>
+                <Option value="0" name="trim_distance_end" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+                <Option value="0" name="trim_distance_start" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+                <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+                <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+                <Option value="0" name="use_custom_dash" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileLineSymbol>
+        <profileFillSymbol>
+          <symbol clip_to_extent="1" alpha="1" force_rhr="0" frame_rate="10" name="" is_animated="0" type="fill">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer enabled="1" pass="0" class="SimpleFill" id="{eef30fea-5253-40f6-b9ad-b66fe11b4965}" locked="0">
+              <Option type="Map">
+                <Option value="3x:0,0,0,0,0,0" name="border_width_map_unit_scale" type="QString"/>
+                <Option value="133,182,111,255" name="color" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="35,35,35,255" name="outline_color" type="QString"/>
+                <Option value="no" name="outline_style" type="QString"/>
+                <Option value="0.26" name="outline_width" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="solid" name="style" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </profileFillSymbol>
+      </elevation>
       <customproperties>
         <Option type="Map">
           <Option value="Feature" name="identify/format" type="QString"/>
         </Option>
       </customproperties>
+      <mapTip></mapTip>
       <pipe-data-defined-properties>
         <Option type="Map">
           <Option value="" name="name" type="QString"/>
@@ -262,9 +1533,9 @@
       </pipe-data-defined-properties>
       <pipe>
         <provider>
-          <resampling zoomedInResamplingMethod="nearestNeighbour" enabled="false" maxOversampling="2" zoomedOutResamplingMethod="nearestNeighbour"/>
+          <resampling enabled="false" zoomedOutResamplingMethod="nearestNeighbour" maxOversampling="2" zoomedInResamplingMethod="nearestNeighbour"/>
         </provider>
-        <rasterrenderer nodataColor="" band="1" opacity="1" type="singlebandcolordata" alphaBand="-1">
+        <rasterrenderer band="1" alphaBand="-1" nodataColor="" opacity="1" type="singlebandcolordata">
           <rasterTransparency/>
           <minMaxOrigin>
             <limits>None</limits>
@@ -275,344 +1546,8 @@
             <stdDevFactor>2</stdDevFactor>
           </minMaxOrigin>
         </rasterrenderer>
-        <brightnesscontrast gamma="1" brightness="0" contrast="0"/>
-        <huesaturation invertColors="0" colorizeOn="0" colorizeStrength="100" colorizeBlue="128" colorizeRed="255" saturation="0" colorizeGreen="128" grayscaleMode="0"/>
-        <rasterresampler maxOversampling="2"/>
-        <resamplingStage>resamplingFilter</resamplingStage>
-      </pipe>
-      <blendMode>0</blendMode>
-    </maplayer>
-    <maplayer refreshOnNotifyEnabled="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" hasScaleBasedVisibilityFlag="0" legendPlaceholderImage="" styleCategories="AllStyleCategories" minScale="1e+08" maxScale="0" type="raster" autoRefreshTime="0">
-      <extent>
-        <xmin>369664.34360000025480986</xmin>
-        <ymin>11552.49110000021755695</ymin>
-        <xmax>641349.89030000008642673</xmax>
-        <ymax>207833.98570000007748604</ymax>
-      </extent>
-      <wgs84extent>
-        <xmin>13.28122817484168472</xmin>
-        <ymin>45.23414707980519722</ymin>
-        <xmax>16.85386108603799471</xmax>
-        <ymax>47.01433868624004475</ymax>
-      </wgs84extent>
-      <id>Avstro___Ogrska_1_75_000__1910___1915__7f3866d7_9443_4bff_b1b3_62571e0e4941</id>
-      <datasource> crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/AO_topo75_1914/MapServer' table="" sql=</datasource>
-      <keywordList>
-        <value></value>
-      </keywordList>
-      <timestamp>2023-01-03T10:56:24</timestamp>
-      <layername>Avstro - Ogrska 1:75.000 (1910 - 1915)</layername>
-      <srs>
-        <spatialrefsys>
-          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
-          <srsid>27362</srsid>
-          <srid>3912</srid>
-          <authid>EPSG:3912</authid>
-          <description>MGI 1901 / Slovene National Grid</description>
-          <projectionacronym>tmerc</projectionacronym>
-          <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
-          <geographicflag>false</geographicflag>
-        </spatialrefsys>
-      </srs>
-      <resourceMetadata>
-        <identifier></identifier>
-        <parentidentifier></parentidentifier>
-        <language></language>
-        <type></type>
-        <title></title>
-        <abstract></abstract>
-        <links/>
-        <fees></fees>
-        <encoding></encoding>
-        <crs>
-          <spatialrefsys>
-            <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
-            <srsid>27362</srsid>
-            <srid>3912</srid>
-            <authid>EPSG:3912</authid>
-            <description>MGI 1901 / Slovene National Grid</description>
-            <projectionacronym>tmerc</projectionacronym>
-            <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
-            <geographicflag>false</geographicflag>
-          </spatialrefsys>
-        </crs>
-        <extent/>
-      </resourceMetadata>
-      <provider>arcgismapserver</provider>
-      <noData>
-        <noDataList useSrcNoData="0" bandNo="1"/>
-      </noData>
-      <map-layer-style-manager current="default">
-        <map-layer-style name="default"/>
-      </map-layer-style-manager>
-      <metadataUrls/>
-      <flags>
-        <Identifiable>1</Identifiable>
-        <Removable>1</Removable>
-        <Searchable>1</Searchable>
-        <Private>0</Private>
-      </flags>
-      <temporal fetchMode="0" enabled="0" mode="0">
-        <fixedRange>
-          <start></start>
-          <end></end>
-        </fixedRange>
-      </temporal>
-      <customproperties>
-        <Option type="Map">
-          <Option value="Feature" name="identify/format" type="QString"/>
-        </Option>
-      </customproperties>
-      <pipe-data-defined-properties>
-        <Option type="Map">
-          <Option value="" name="name" type="QString"/>
-          <Option name="properties"/>
-          <Option value="collection" name="type" type="QString"/>
-        </Option>
-      </pipe-data-defined-properties>
-      <pipe>
-        <provider>
-          <resampling zoomedInResamplingMethod="nearestNeighbour" enabled="false" maxOversampling="2" zoomedOutResamplingMethod="nearestNeighbour"/>
-        </provider>
-        <rasterrenderer nodataColor="" band="1" opacity="1" type="singlebandcolordata" alphaBand="-1">
-          <rasterTransparency/>
-          <minMaxOrigin>
-            <limits>None</limits>
-            <extent>WholeRaster</extent>
-            <statAccuracy>Estimated</statAccuracy>
-            <cumulativeCutLower>0.02</cumulativeCutLower>
-            <cumulativeCutUpper>0.98</cumulativeCutUpper>
-            <stdDevFactor>2</stdDevFactor>
-          </minMaxOrigin>
-        </rasterrenderer>
-        <brightnesscontrast gamma="1" brightness="0" contrast="0"/>
-        <huesaturation invertColors="0" colorizeOn="0" colorizeStrength="100" colorizeBlue="128" colorizeRed="255" saturation="0" colorizeGreen="128" grayscaleMode="0"/>
-        <rasterresampler maxOversampling="2"/>
-        <resamplingStage>resamplingFilter</resamplingStage>
-      </pipe>
-      <blendMode>0</blendMode>
-    </maplayer>
-    <maplayer refreshOnNotifyEnabled="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" hasScaleBasedVisibilityFlag="0" legendPlaceholderImage="" styleCategories="AllStyleCategories" minScale="1e+08" maxScale="0" type="raster" autoRefreshTime="0">
-      <extent>
-        <xmin>369663.31030000001192093</xmin>
-        <ymin>11669.10490000061690807</ymin>
-        <xmax>603146.09370000008493662</xmax>
-        <ymax>207057.20879999920725822</ymax>
-      </extent>
-      <wgs84extent>
-        <xmin>13.2814383659715336</xmin>
-        <ymin>45.23723490808671244</ymin>
-        <xmax>16.35148910073717232</xmax>
-        <ymax>47.00735267406017215</ymax>
-      </wgs84extent>
-      <id>Avstro___Ogrska_1_75_000__1880_1885__e54fd08b_8bab_4246_900a_1eef43a148a0</id>
-      <datasource> crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/AO_topo75_1880/MapServer' table="" sql=</datasource>
-      <keywordList>
-        <value></value>
-      </keywordList>
-      <timestamp>2023-01-03T10:56:24</timestamp>
-      <layername>Avstro - Ogrska 1:75.000 (1880-1885)</layername>
-      <srs>
-        <spatialrefsys>
-          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
-          <srsid>27362</srsid>
-          <srid>3912</srid>
-          <authid>EPSG:3912</authid>
-          <description>MGI 1901 / Slovene National Grid</description>
-          <projectionacronym>tmerc</projectionacronym>
-          <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
-          <geographicflag>false</geographicflag>
-        </spatialrefsys>
-      </srs>
-      <resourceMetadata>
-        <identifier></identifier>
-        <parentidentifier></parentidentifier>
-        <language></language>
-        <type></type>
-        <title></title>
-        <abstract></abstract>
-        <links/>
-        <fees></fees>
-        <encoding></encoding>
-        <crs>
-          <spatialrefsys>
-            <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
-            <srsid>27362</srsid>
-            <srid>3912</srid>
-            <authid>EPSG:3912</authid>
-            <description>MGI 1901 / Slovene National Grid</description>
-            <projectionacronym>tmerc</projectionacronym>
-            <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
-            <geographicflag>false</geographicflag>
-          </spatialrefsys>
-        </crs>
-        <extent/>
-      </resourceMetadata>
-      <provider>arcgismapserver</provider>
-      <noData>
-        <noDataList useSrcNoData="0" bandNo="1"/>
-      </noData>
-      <map-layer-style-manager current="default">
-        <map-layer-style name="default"/>
-      </map-layer-style-manager>
-      <metadataUrls/>
-      <flags>
-        <Identifiable>1</Identifiable>
-        <Removable>1</Removable>
-        <Searchable>1</Searchable>
-        <Private>0</Private>
-      </flags>
-      <temporal fetchMode="0" enabled="0" mode="0">
-        <fixedRange>
-          <start></start>
-          <end></end>
-        </fixedRange>
-      </temporal>
-      <customproperties>
-        <Option type="Map">
-          <Option value="Feature" name="identify/format" type="QString"/>
-        </Option>
-      </customproperties>
-      <pipe-data-defined-properties>
-        <Option type="Map">
-          <Option value="" name="name" type="QString"/>
-          <Option name="properties"/>
-          <Option value="collection" name="type" type="QString"/>
-        </Option>
-      </pipe-data-defined-properties>
-      <pipe>
-        <provider>
-          <resampling zoomedInResamplingMethod="nearestNeighbour" enabled="false" maxOversampling="2" zoomedOutResamplingMethod="nearestNeighbour"/>
-        </provider>
-        <rasterrenderer nodataColor="" band="1" opacity="1" type="singlebandcolordata" alphaBand="-1">
-          <rasterTransparency/>
-          <minMaxOrigin>
-            <limits>None</limits>
-            <extent>WholeRaster</extent>
-            <statAccuracy>Estimated</statAccuracy>
-            <cumulativeCutLower>0.02</cumulativeCutLower>
-            <cumulativeCutUpper>0.98</cumulativeCutUpper>
-            <stdDevFactor>2</stdDevFactor>
-          </minMaxOrigin>
-        </rasterrenderer>
-        <brightnesscontrast gamma="1" brightness="0" contrast="0"/>
-        <huesaturation invertColors="0" colorizeOn="0" colorizeStrength="100" colorizeBlue="128" colorizeRed="255" saturation="0" colorizeGreen="128" grayscaleMode="0"/>
-        <rasterresampler maxOversampling="2"/>
-        <resamplingStage>resamplingFilter</resamplingStage>
-      </pipe>
-      <blendMode>0</blendMode>
-    </maplayer>
-    <maplayer refreshOnNotifyEnabled="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" hasScaleBasedVisibilityFlag="0" legendPlaceholderImage="" styleCategories="AllStyleCategories" minScale="1e+08" maxScale="0" type="raster" autoRefreshTime="0">
-      <extent>
-        <xmin>376997.18359344080090523</xmin>
-        <ymin>32806.2502486128360033</ymin>
-        <xmax>600948.93366108555346727</xmax>
-        <ymax>171590.66029053274542093</ymax>
-      </extent>
-      <wgs84extent>
-        <xmin>13.38738721255127651</xmin>
-        <ymin>45.42869367206389342</ymin>
-        <xmax>16.31478768471386331</xmax>
-        <ymax>46.68827649153001857</ymax>
-      </wgs84extent>
-      <id>Franciscejski_kataster_03ee9754_d444_446c_a16c_09934c57b05a</id>
-      <datasource> crs='EPSG:3912' format='PNG32' layer='0' url='https://gisportal.gov.si/arcgis/rest/services/TEMELJNE_KARTE/francKat_D48/MapServer' table="" sql=</datasource>
-      <keywordList>
-        <value></value>
-      </keywordList>
-      <timestamp>2023-01-03T10:56:24</timestamp>
-      <layername>Franciscejski kataster</layername>
-      <srs>
-        <spatialrefsys>
-          <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-          <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
-          <srsid>27362</srsid>
-          <srid>3912</srid>
-          <authid>EPSG:3912</authid>
-          <description>MGI 1901 / Slovene National Grid</description>
-          <projectionacronym>tmerc</projectionacronym>
-          <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
-          <geographicflag>false</geographicflag>
-        </spatialrefsys>
-      </srs>
-      <resourceMetadata>
-        <identifier></identifier>
-        <parentidentifier></parentidentifier>
-        <language></language>
-        <type></type>
-        <title></title>
-        <abstract></abstract>
-        <links/>
-        <fees></fees>
-        <encoding></encoding>
-        <crs>
-          <spatialrefsys>
-            <wkt>PROJCRS["MGI 1901 / Slovene National Grid",BASEGEOGCRS["MGI 1901",DATUM["MGI 1901",ELLIPSOID["Bessel 1841",6377397.155,299.1528128,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",3906]],CONVERSION["Slovene National Grid",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",15,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9999,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",-5000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (Y)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (X)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Cadastre, engineering survey, topographic mapping (large and medium scale)."],AREA["Slovenia - onshore and offshore."],BBOX[45.42,13.38,46.88,16.61]],ID["EPSG",3912]]</wkt>
-            <proj4>+proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000 +ellps=bessel +units=m +no_defs</proj4>
-            <srsid>27362</srsid>
-            <srid>3912</srid>
-            <authid>EPSG:3912</authid>
-            <description>MGI 1901 / Slovene National Grid</description>
-            <projectionacronym>tmerc</projectionacronym>
-            <ellipsoidacronym>EPSG:7004</ellipsoidacronym>
-            <geographicflag>false</geographicflag>
-          </spatialrefsys>
-        </crs>
-        <extent/>
-      </resourceMetadata>
-      <provider>arcgismapserver</provider>
-      <noData>
-        <noDataList useSrcNoData="0" bandNo="1"/>
-      </noData>
-      <map-layer-style-manager current="default">
-        <map-layer-style name="default"/>
-      </map-layer-style-manager>
-      <metadataUrls/>
-      <flags>
-        <Identifiable>1</Identifiable>
-        <Removable>1</Removable>
-        <Searchable>1</Searchable>
-        <Private>0</Private>
-      </flags>
-      <temporal fetchMode="0" enabled="0" mode="0">
-        <fixedRange>
-          <start></start>
-          <end></end>
-        </fixedRange>
-      </temporal>
-      <customproperties>
-        <Option type="Map">
-          <Option value="Feature" name="identify/format" type="QString"/>
-        </Option>
-      </customproperties>
-      <pipe-data-defined-properties>
-        <Option type="Map">
-          <Option value="" name="name" type="QString"/>
-          <Option name="properties"/>
-          <Option value="collection" name="type" type="QString"/>
-        </Option>
-      </pipe-data-defined-properties>
-      <pipe>
-        <provider>
-          <resampling zoomedInResamplingMethod="nearestNeighbour" enabled="false" maxOversampling="2" zoomedOutResamplingMethod="nearestNeighbour"/>
-        </provider>
-        <rasterrenderer nodataColor="" band="1" opacity="1" type="singlebandcolordata" alphaBand="-1">
-          <rasterTransparency/>
-          <minMaxOrigin>
-            <limits>None</limits>
-            <extent>WholeRaster</extent>
-            <statAccuracy>Estimated</statAccuracy>
-            <cumulativeCutLower>0.02</cumulativeCutLower>
-            <cumulativeCutUpper>0.98</cumulativeCutUpper>
-            <stdDevFactor>2</stdDevFactor>
-          </minMaxOrigin>
-        </rasterrenderer>
-        <brightnesscontrast gamma="1" brightness="0" contrast="0"/>
-        <huesaturation invertColors="0" colorizeOn="0" colorizeStrength="100" colorizeBlue="128" colorizeRed="255" saturation="0" colorizeGreen="128" grayscaleMode="0"/>
+        <brightnesscontrast gamma="1" contrast="0" brightness="0"/>
+        <huesaturation colorizeStrength="100" grayscaleMode="0" colorizeBlue="128" colorizeOn="0" colorizeRed="255" colorizeGreen="128" saturation="0" invertColors="0"/>
         <rasterresampler maxOversampling="2"/>
         <resamplingStage>resamplingFilter</resamplingStage>
       </pipe>

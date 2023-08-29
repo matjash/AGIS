@@ -1,19 +1,19 @@
 <!DOCTYPE qgis-layer-definition>
 <qlr>
-  <layer-tree-group checked="Qt::Checked" groupLayer="" name="" expanded="1">
+  <layer-tree-group name="" expanded="1" checked="Qt::Checked" groupLayer="">
     <customproperties>
       <Option/>
     </customproperties>
-    <layer-tree-layer patch_size="-1,-1" checked="Qt::Checked" providerKey="arcgisfeatureserver" source=" crs='EPSG:3794' url='https://geohub.gov.si/ags/rest/services/MK/MK_RNPD/MapServer/3641'" legend_split_behavior="0" name="RNPD" legend_exp="" id="RNPD_VSE_69a3744a_3bf9_49a8_961e_30b5a4527875" expanded="1">
+    <layer-tree-layer source=" crs='EPSG:3794' url='https://geohub.gov.si/ags/rest/services/MK/MK_RNPD/MapServer/3641'" name="RNPD" expanded="0" checked="Qt::Unchecked" legend_split_behavior="0" legend_exp="" id="RNPD_f065b46e_95a4_48ab_b16a_bcae5d197579" providerKey="arcgisfeatureserver" patch_size="-1,-1">
       <customproperties>
         <Option type="Map">
-          <Option type="int" name="showFeatureCount" value="1"/>
+          <Option type="int" name="showFeatureCount" value="0"/>
         </Option>
       </customproperties>
     </layer-tree-layer>
   </layer-tree-group>
   <maplayers>
-    <maplayer autoRefreshEnabled="0" simplifyAlgorithm="0" geometry="Polygon" simplifyLocal="1" simplifyDrawingTol="2" autoRefreshTime="0" simplifyMaxScale="5000" styleCategories="AllStyleCategories" refreshOnNotifyMessage="" maxScale="0" symbologyReferenceScale="-1" hasScaleBasedVisibilityFlag="0" wkbType="MultiPolygon" minScale="100000000" readOnly="0" labelsEnabled="1" type="vector" legendPlaceholderImage="" simplifyDrawingHints="3" refreshOnNotifyEnabled="0">
+    <maplayer minScale="100000000" labelsEnabled="1" simplifyDrawingHints="3" maxScale="0" styleCategories="AllStyleCategories" simplifyDrawingTol="2" wkbType="MultiPolygon" autoRefreshEnabled="0" refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" symbologyReferenceScale="-1" legendPlaceholderImage="" autoRefreshTime="0" simplifyMaxScale="5000" simplifyLocal="1" geometry="Polygon" type="vector" simplifyAlgorithm="0" readOnly="0">
       <extent>
         <xmin>-5122450.17161471024155617</xmin>
         <ymin>-15000964.53265511058270931</ymin>
@@ -26,7 +26,7 @@
         <xmax>104.99999100759985993</xmax>
         <ymax>87.81169440765782497</ymax>
       </wgs84extent>
-      <id>RNPD_VSE_69a3744a_3bf9_49a8_961e_30b5a4527875</id>
+      <id>RNPD_f065b46e_95a4_48ab_b16a_bcae5d197579</id>
       <datasource> crs='EPSG:3794' url='https://geohub.gov.si/ags/rest/services/MK/MK_RNPD/MapServer/3641'</datasource>
       <keywordList>
         <value></value>
@@ -62,8 +62,9 @@
           <role></role>
         </contact>
         <links>
-          <link type="WWW:LINK" size="" url="https://geohub.gov.si/ags/rest/services/MK/MK_RNPD/MapServer/3641" description="" mimeType="" format="" name="Source"/>
+          <link url="https://geohub.gov.si/ags/rest/services/MK/MK_RNPD/MapServer/3641" name="Source" type="WWW:LINK" size="" description="" format="" mimeType=""/>
         </links>
+        <dates/>
         <fees></fees>
         <encoding></encoding>
         <crs>
@@ -80,7 +81,7 @@
           </spatialrefsys>
         </crs>
         <extent>
-          <spatial minz="0" maxx="6122450.17160000000149012" minx="-5122450.17160000000149012" maxy="5000964.53270000033080578" maxz="0" miny="-15000964.53270000033080578" dimensions="2" crs="EPSG:3794"/>
+          <spatial miny="-15000964.53270000033080578" maxz="0" maxy="5000964.53270000033080578" minz="0" dimensions="2" crs="EPSG:3794" minx="-5122450.17160000000149012" maxx="6122450.17160000000149012"/>
           <temporal>
             <period>
               <start></start>
@@ -105,13 +106,13 @@
         <Searchable>1</Searchable>
         <Private>0</Private>
       </flags>
-      <temporal enabled="0" endExpression="" durationField="" endField="" mode="0" startField="" limitMode="0" startExpression="" fixedDuration="0" durationUnit="min" accumulate="0">
+      <temporal limitMode="0" startExpression="" fixedDuration="0" endField="" durationField="" durationUnit="min" enabled="0" startField="" accumulate="0" endExpression="" mode="0">
         <fixedRange>
           <start></start>
           <end></end>
         </fixedRange>
       </temporal>
-      <elevation zoffset="0" type="IndividualFeatures" extrusionEnabled="0" zscale="1" extrusion="0" symbology="Line" binding="Centroid" showMarkerSymbolInSurfacePlots="0" clamping="Terrain" respectLayerSymbol="1">
+      <elevation respectLayerSymbol="1" type="IndividualFeatures" extrusionEnabled="0" clamping="Terrain" extrusion="0" zoffset="0" binding="Centroid" symbology="Line" showMarkerSymbolInSurfacePlots="0" zscale="1">
         <data-defined-properties>
           <Option type="Map">
             <Option type="QString" name="name" value=""/>
@@ -120,7 +121,7 @@
           </Option>
         </data-defined-properties>
         <profileLineSymbol>
-          <symbol type="line" frame_rate="10" force_rhr="0" is_animated="0" name="" alpha="1" clip_to_extent="1">
+          <symbol is_animated="0" alpha="1" clip_to_extent="1" type="line" name="" frame_rate="10" force_rhr="0">
             <data_defined_properties>
               <Option type="Map">
                 <Option type="QString" name="name" value=""/>
@@ -128,7 +129,7 @@
                 <Option type="QString" name="type" value="collection"/>
               </Option>
             </data_defined_properties>
-            <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+            <layer pass="0" enabled="1" id="{1adf3da8-147c-4c2c-930e-79488b4baefd}" class="SimpleLine" locked="0">
               <Option type="Map">
                 <Option type="QString" name="align_dash_pattern" value="0"/>
                 <Option type="QString" name="capstyle" value="square"/>
@@ -169,7 +170,7 @@
           </symbol>
         </profileLineSymbol>
         <profileFillSymbol>
-          <symbol type="fill" frame_rate="10" force_rhr="0" is_animated="0" name="" alpha="1" clip_to_extent="1">
+          <symbol is_animated="0" alpha="1" clip_to_extent="1" type="fill" name="" frame_rate="10" force_rhr="0">
             <data_defined_properties>
               <Option type="Map">
                 <Option type="QString" name="name" value=""/>
@@ -177,7 +178,7 @@
                 <Option type="QString" name="type" value="collection"/>
               </Option>
             </data_defined_properties>
-            <layer enabled="1" pass="0" class="SimpleFill" locked="0">
+            <layer pass="0" enabled="1" id="{2753390b-a2b8-4e4e-9147-18624fc5cfc7}" class="SimpleFill" locked="0">
               <Option type="Map">
                 <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
                 <Option type="QString" name="color" value="213,180,60,255"/>
@@ -202,7 +203,7 @@
           </symbol>
         </profileFillSymbol>
         <profileMarkerSymbol>
-          <symbol type="marker" frame_rate="10" force_rhr="0" is_animated="0" name="" alpha="1" clip_to_extent="1">
+          <symbol is_animated="0" alpha="1" clip_to_extent="1" type="marker" name="" frame_rate="10" force_rhr="0">
             <data_defined_properties>
               <Option type="Map">
                 <Option type="QString" name="name" value=""/>
@@ -210,7 +211,7 @@
                 <Option type="QString" name="type" value="collection"/>
               </Option>
             </data_defined_properties>
-            <layer enabled="1" pass="0" class="SimpleMarker" locked="0">
+            <layer pass="0" enabled="1" id="{c51d8c84-d75a-4cb8-9b5e-2bb58e68a28e}" class="SimpleMarker" locked="0">
               <Option type="Map">
                 <Option type="QString" name="angle" value="0"/>
                 <Option type="QString" name="cap_style" value="square"/>
@@ -243,14 +244,14 @@
           </symbol>
         </profileMarkerSymbol>
       </elevation>
-      <renderer-v2 type="RuleRenderer" enableorderby="0" symbollevels="0" forceraster="0" referencescale="-1">
+      <renderer-v2 type="RuleRenderer" referencescale="-1" symbollevels="0" forceraster="0" enableorderby="0">
         <rules key="{15a7041d-f77d-42f8-9d68-a75f3cb7f8f2}">
-          <rule label="Dediščina - Arheološka dediščina" filter="&quot;TIP&quot; = 'arheološka dediščina' and  &quot;KATEGORIJA_REZIMA&quot;  NOT IN ( 'dokumentarno (arhivsko) varstvo', 'predlog', 'ostalo')" symbol="0" key="{5a5aa84f-c013-4837-8ee9-baf6a53c6e62}"/>
-          <rule label="Ostala dediščina" filter="ELSE" symbol="1" key="{f0eed17a-d5a1-47b6-a63e-74283db6c480}"/>
-          <rule label="Dokumentarno (arhivsko) varstvo" filter=" &quot;KATEGORIJA_REZIMA&quot;  in ( 'dokumentarno (arhivsko) varstvo','ostalo')" symbol="2" key="{02b29c65-832a-44e2-af7f-a959b7829c35}"/>
+          <rule key="{5a5aa84f-c013-4837-8ee9-baf6a53c6e62}" filter="&quot;TIP&quot; = 'arheološka dediščina' and  &quot;KATEGORIJA_REZIMA&quot;  NOT IN ( 'dokumentarno (arhivsko) varstvo', 'predlog', 'ostalo')" symbol="0" label="Dediščina - Arheološka dediščina"/>
+          <rule key="{f0eed17a-d5a1-47b6-a63e-74283db6c480}" filter="ELSE" symbol="1" label="Ostala dediščina"/>
+          <rule key="{02b29c65-832a-44e2-af7f-a959b7829c35}" filter=" &quot;KATEGORIJA_REZIMA&quot;  in ( 'dokumentarno (arhivsko) varstvo','ostalo')" symbol="2" label="Dokumentarno (arhivsko) varstvo"/>
         </rules>
         <symbols>
-          <symbol type="fill" frame_rate="10" force_rhr="0" is_animated="0" name="0" alpha="0.708" clip_to_extent="1">
+          <symbol is_animated="0" alpha="0.708" clip_to_extent="1" type="fill" name="0" frame_rate="10" force_rhr="0">
             <data_defined_properties>
               <Option type="Map">
                 <Option type="QString" name="name" value=""/>
@@ -258,7 +259,7 @@
                 <Option type="QString" name="type" value="collection"/>
               </Option>
             </data_defined_properties>
-            <layer enabled="1" pass="0" class="SimpleFill" locked="0">
+            <layer pass="0" enabled="1" id="{97661931-15cc-48a1-88cd-aca3cb485b10}" class="SimpleFill" locked="0">
               <Option type="Map">
                 <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
                 <Option type="QString" name="color" value="202,226,255,255"/>
@@ -281,7 +282,7 @@
               </data_defined_properties>
             </layer>
           </symbol>
-          <symbol type="fill" frame_rate="10" force_rhr="0" is_animated="0" name="1" alpha="0.506" clip_to_extent="1">
+          <symbol is_animated="0" alpha="0.506" clip_to_extent="1" type="fill" name="1" frame_rate="10" force_rhr="0">
             <data_defined_properties>
               <Option type="Map">
                 <Option type="QString" name="name" value=""/>
@@ -289,7 +290,7 @@
                 <Option type="QString" name="type" value="collection"/>
               </Option>
             </data_defined_properties>
-            <layer enabled="1" pass="0" class="SimpleFill" locked="0">
+            <layer pass="0" enabled="1" id="{b1ba6be8-ff58-4fed-97ea-c35ac9331c56}" class="SimpleFill" locked="0">
               <Option type="Map">
                 <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
                 <Option type="QString" name="color" value="255,255,190,255"/>
@@ -312,7 +313,7 @@
               </data_defined_properties>
             </layer>
           </symbol>
-          <symbol type="fill" frame_rate="10" force_rhr="0" is_animated="0" name="2" alpha="1" clip_to_extent="1">
+          <symbol is_animated="0" alpha="1" clip_to_extent="1" type="fill" name="2" frame_rate="10" force_rhr="0">
             <data_defined_properties>
               <Option type="Map">
                 <Option type="QString" name="name" value=""/>
@@ -320,7 +321,7 @@
                 <Option type="QString" name="type" value="collection"/>
               </Option>
             </data_defined_properties>
-            <layer enabled="1" pass="0" class="SimpleFill" locked="0">
+            <layer pass="0" enabled="1" id="{8820af1e-603a-4bdc-bbc0-0652d488bcce}" class="SimpleFill" locked="0">
               <Option type="Map">
                 <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
                 <Option type="QString" name="color" value="0,0,0,0"/>
@@ -347,14 +348,14 @@
       </renderer-v2>
       <labeling type="rule-based">
         <rules key="{c397188d-66d1-4f36-a967-5a72bf3f9998}">
-          <rule description="arheološka" filter="&quot;TIP&quot; = 'arheološka dediščina' and  &quot;KATEGORIJA_REZIMA&quot;  NOT IN ( 'dokumentarno (arhivsko) varstvo', 'predlog', 'ostalo')" scalemindenom="1000" scalemaxdenom="100000" key="{c91d8356-91b3-4961-b5fc-60b4f2f6e10e}">
+          <rule key="{c91d8356-91b3-4961-b5fc-60b4f2f6e10e}" filter="&quot;TIP&quot; = 'arheološka dediščina' and  &quot;KATEGORIJA_REZIMA&quot;  NOT IN ( 'dokumentarno (arhivsko) varstvo', 'predlog', 'ostalo')" scalemindenom="1000" description="arheološka" scalemaxdenom="100000">
             <settings calloutType="simple">
-              <text-style fontSize="8" useSubstitutions="0" fontFamily="MS Shell Dlg 2" textColor="0,112,255,255" fontWordSpacing="0" forcedBold="0" legendString="Aa" isExpression="1" allowHtml="0" fieldName="&quot;EID&quot; || ' - '   ||   &quot;IME&quot; " fontKerning="1" fontUnderline="0" fontLetterSpacing="0" fontWeight="50" namedStyle="Navadno" fontItalic="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" forcedItalic="0" previewBkgrdColor="255,255,255,255" multilineHeightUnit="Percentage" textOpacity="0.79599999999999993" blendMode="0" multilineHeight="1" fontStrikeout="0" textOrientation="horizontal" capitalization="0" fontSizeUnit="Point">
+              <text-style fontWordSpacing="0" previewBkgrdColor="255,255,255,255" multilineHeight="1" blendMode="0" textColor="0,112,255,255" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontUnderline="0" fontKerning="1" capitalization="0" fontSizeUnit="Point" legendString="Aa" fontSize="8" fontItalic="0" forcedBold="0" isExpression="1" fontLetterSpacing="0" namedStyle="Navadno" fieldName="&quot;EID&quot; || ' - '   ||   &quot;IME&quot; " useSubstitutions="0" fontWeight="50" textOrientation="horizontal" forcedItalic="0" textOpacity="0.79599999999999993" fontFamily="MS Shell Dlg 2" allowHtml="0" fontStrikeout="0" multilineHeightUnit="Percentage">
                 <families/>
-                <text-buffer bufferColor="255,255,255,255" bufferBlendMode="0" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferSize="1" bufferNoFill="1" bufferSizeUnits="MM" bufferJoinStyle="128" bufferDraw="0" bufferOpacity="1"/>
-                <text-mask maskEnabled="0" maskJoinStyle="128" maskedSymbolLayers="" maskOpacity="1" maskSizeMapUnitScale="3x:0,0,0,0,0,0" maskType="0" maskSizeUnits="MM" maskSize="0"/>
-                <background shapeOpacity="1" shapeType="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidth="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeBorderColor="128,128,128,255" shapeSizeX="0" shapeRotationType="0" shapeDraw="0" shapeRadiiY="0" shapeRadiiX="0" shapeRadiiUnit="MM" shapeSizeY="0" shapeOffsetX="0" shapeSVGFile="" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeSizeUnit="MM" shapeBlendMode="0" shapeRotation="0" shapeSizeType="0" shapeOffsetY="0" shapeJoinStyle="64" shapeOffsetUnit="MM" shapeFillColor="255,255,255,255" shapeBorderWidthUnit="MM" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0">
-                  <symbol type="marker" frame_rate="10" force_rhr="0" is_animated="0" name="markerSymbol" alpha="1" clip_to_extent="1">
+                <text-buffer bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferSizeUnits="MM" bufferBlendMode="0" bufferDraw="0" bufferJoinStyle="128" bufferOpacity="1" bufferColor="255,255,255,255" bufferSize="1" bufferNoFill="1"/>
+                <text-mask maskSizeUnits="MM" maskSize="0" maskType="0" maskSizeMapUnitScale="3x:0,0,0,0,0,0" maskJoinStyle="128" maskedSymbolLayers="" maskOpacity="1" maskEnabled="0"/>
+                <background shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidthUnit="MM" shapeDraw="0" shapeOffsetX="0" shapeRotationType="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeSizeType="0" shapeBorderWidth="0" shapeOpacity="1" shapeOffsetY="0" shapeSizeX="0" shapeJoinStyle="64" shapeRadiiX="0" shapeBorderColor="128,128,128,255" shapeType="0" shapeFillColor="255,255,255,255" shapeRadiiUnit="MM" shapeSVGFile="" shapeBlendMode="0" shapeSizeY="0" shapeSizeUnit="MM" shapeRadiiY="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeRotation="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM">
+                  <symbol is_animated="0" alpha="1" clip_to_extent="1" type="marker" name="markerSymbol" frame_rate="10" force_rhr="0">
                     <data_defined_properties>
                       <Option type="Map">
                         <Option type="QString" name="name" value=""/>
@@ -362,7 +363,7 @@
                         <Option type="QString" name="type" value="collection"/>
                       </Option>
                     </data_defined_properties>
-                    <layer enabled="1" pass="0" class="SimpleMarker" locked="0">
+                    <layer pass="0" enabled="1" id="" class="SimpleMarker" locked="0">
                       <Option type="Map">
                         <Option type="QString" name="angle" value="0"/>
                         <Option type="QString" name="cap_style" value="square"/>
@@ -393,7 +394,7 @@
                       </data_defined_properties>
                     </layer>
                   </symbol>
-                  <symbol type="fill" frame_rate="10" force_rhr="0" is_animated="0" name="fillSymbol" alpha="1" clip_to_extent="1">
+                  <symbol is_animated="0" alpha="1" clip_to_extent="1" type="fill" name="fillSymbol" frame_rate="10" force_rhr="0">
                     <data_defined_properties>
                       <Option type="Map">
                         <Option type="QString" name="name" value=""/>
@@ -401,7 +402,7 @@
                         <Option type="QString" name="type" value="collection"/>
                       </Option>
                     </data_defined_properties>
-                    <layer enabled="1" pass="0" class="SimpleFill" locked="0">
+                    <layer pass="0" enabled="1" id="" class="SimpleFill" locked="0">
                       <Option type="Map">
                         <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
                         <Option type="QString" name="color" value="255,255,255,255"/>
@@ -425,7 +426,7 @@
                     </layer>
                   </symbol>
                 </background>
-                <shadow shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOpacity="0.69999999999999996" shadowRadius="1.5" shadowUnder="0" shadowOffsetDist="1" shadowColor="0,0,0,255" shadowOffsetGlobal="1" shadowDraw="0" shadowOffsetUnit="MM" shadowRadiusAlphaOnly="0" shadowOffsetAngle="135" shadowRadiusUnit="MM" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowBlendMode="6" shadowScale="100"/>
+                <shadow shadowScale="100" shadowRadiusUnit="MM" shadowColor="0,0,0,255" shadowOffsetAngle="135" shadowBlendMode="6" shadowOffsetDist="1" shadowOffsetUnit="MM" shadowRadiusAlphaOnly="0" shadowDraw="0" shadowUnder="0" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowRadius="1.5" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowOpacity="0.69999999999999996"/>
                 <dd_properties>
                   <Option type="Map">
                     <Option type="QString" name="name" value=""/>
@@ -435,9 +436,9 @@
                 </dd_properties>
                 <substitutions/>
               </text-style>
-              <text-format plussign="0" placeDirectionSymbol="0" decimals="3" rightDirectionSymbol=">" useMaxLineLengthForAutoWrap="1" autoWrapLength="0" leftDirectionSymbol="&lt;" wrapChar="" reverseDirectionSymbol="0" multilineAlign="0" addDirectionSymbol="0" formatNumbers="0"/>
-              <placement priority="5" polygonPlacementFlags="2" overrunDistanceMapUnitScale="3x:0,0,0,0,0,0" rotationUnit="AngleDegrees" overlapHandling="AllowOverlapIfRequired" placement="0" rotationAngle="0" centroidInside="0" preserveRotation="1" overrunDistanceUnit="MM" centroidWhole="0" lineAnchorPercent="0.5" layerType="PolygonGeometry" repeatDistanceUnits="MM" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" yOffset="0" placementFlags="10" maxCurvedCharAngleIn="25" distUnits="MM" fitInPolygonOnly="0" repeatDistance="0" geometryGeneratorType="PointGeometry" xOffset="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" overrunDistance="0" quadOffset="4" offsetUnits="MM" allowDegraded="1" geometryGenerator="" dist="0" geometryGeneratorEnabled="0" lineAnchorTextPoint="CenterOfText" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" maxCurvedCharAngleOut="-25" lineAnchorClipping="0" offsetType="0" distMapUnitScale="3x:0,0,0,0,0,0" lineAnchorType="0"/>
-              <rendering maxNumLabels="50" scaleMin="0" zIndex="0" limitNumLabels="1" obstacle="1" scaleMax="0" upsidedownLabels="0" fontMaxPixelSize="10000" labelPerPart="0" unplacedVisibility="0" drawLabels="1" minFeatureSize="0" fontMinPixelSize="3" obstacleType="0" obstacleFactor="1" scaleVisibility="0" fontLimitPixelSize="0" mergeLines="0"/>
+              <text-format formatNumbers="0" autoWrapLength="0" multilineAlign="0" plussign="0" rightDirectionSymbol=">" placeDirectionSymbol="0" decimals="3" wrapChar="" addDirectionSymbol="0" useMaxLineLengthForAutoWrap="1" reverseDirectionSymbol="0" leftDirectionSymbol="&lt;"/>
+              <placement geometryGeneratorEnabled="0" lineAnchorType="0" distMapUnitScale="3x:0,0,0,0,0,0" dist="0" offsetType="0" maxCurvedCharAngleIn="25" centroidWhole="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" overlapHandling="AllowOverlapIfRequired" preserveRotation="1" polygonPlacementFlags="2" placementFlags="10" geometryGenerator="" layerType="PolygonGeometry" overrunDistanceUnit="MM" lineAnchorTextPoint="CenterOfText" repeatDistanceUnits="MM" repeatDistance="0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" geometryGeneratorType="PointGeometry" lineAnchorClipping="0" rotationAngle="0" overrunDistance="0" yOffset="0" lineAnchorPercent="0.5" priority="5" rotationUnit="AngleDegrees" centroidInside="0" maxCurvedCharAngleOut="-25" quadOffset="4" allowDegraded="1" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" placement="0" distUnits="MM" xOffset="0" fitInPolygonOnly="0" offsetUnits="MM" overrunDistanceMapUnitScale="3x:0,0,0,0,0,0"/>
+              <rendering labelPerPart="0" upsidedownLabels="0" drawLabels="1" unplacedVisibility="0" limitNumLabels="1" maxNumLabels="50" obstacleFactor="1" fontLimitPixelSize="0" fontMaxPixelSize="10000" zIndex="0" minFeatureSize="0" mergeLines="0" obstacleType="0" fontMinPixelSize="3" scaleVisibility="0" scaleMax="0" obstacle="1" scaleMin="0"/>
               <dd_properties>
                 <Option type="Map">
                   <Option type="QString" name="name" value=""/>
@@ -457,7 +458,7 @@
                   <Option type="bool" name="drawToAllParts" value="false"/>
                   <Option type="QString" name="enabled" value="0"/>
                   <Option type="QString" name="labelAnchorPoint" value="point_on_exterior"/>
-                  <Option type="QString" name="lineSymbol" value="&lt;symbol type=&quot;line&quot; frame_rate=&quot;10&quot; force_rhr=&quot;0&quot; is_animated=&quot;0&quot; name=&quot;symbol&quot; alpha=&quot;1&quot; clip_to_extent=&quot;1&quot;>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;name&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;type&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;layer enabled=&quot;1&quot; pass=&quot;0&quot; class=&quot;SimpleLine&quot; locked=&quot;0&quot;>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;align_dash_pattern&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;capstyle&quot; value=&quot;square&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash&quot; value=&quot;5;2&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;draw_inside_polygon&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;joinstyle&quot; value=&quot;bevel&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_color&quot; value=&quot;60,60,60,255&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_style&quot; value=&quot;solid&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_width&quot; value=&quot;0.3&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_width_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;ring_filter&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;tweak_dash_pattern_on_corners&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;use_custom_dash&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;width_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;/Option>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;name&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;type&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;/layer>&lt;/symbol>"/>
+                  <Option type="QString" name="lineSymbol" value="&lt;symbol is_animated=&quot;0&quot; alpha=&quot;1&quot; clip_to_extent=&quot;1&quot; type=&quot;line&quot; name=&quot;symbol&quot; frame_rate=&quot;10&quot; force_rhr=&quot;0&quot;>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;name&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;type&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;layer pass=&quot;0&quot; enabled=&quot;1&quot; id=&quot;{40ab1315-1d26-4a53-a5c9-68e63478270d}&quot; class=&quot;SimpleLine&quot; locked=&quot;0&quot;>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;align_dash_pattern&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;capstyle&quot; value=&quot;square&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash&quot; value=&quot;5;2&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;draw_inside_polygon&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;joinstyle&quot; value=&quot;bevel&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_color&quot; value=&quot;60,60,60,255&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_style&quot; value=&quot;solid&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_width&quot; value=&quot;0.3&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_width_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;ring_filter&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;tweak_dash_pattern_on_corners&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;use_custom_dash&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;width_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;/Option>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;name&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;type&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;/layer>&lt;/symbol>"/>
                   <Option type="double" name="minLength" value="0"/>
                   <Option type="QString" name="minLengthMapUnitScale" value="3x:0,0,0,0,0,0"/>
                   <Option type="QString" name="minLengthUnit" value="MM"/>
@@ -471,14 +472,14 @@
               </callout>
             </settings>
           </rule>
-          <rule description="dokumentarno (arhivsko) varstvo" filter=" &quot;KATEGORIJA_REZIMA&quot;  in ( 'dokumentarno (arhivsko) varstvo','ostalo')" scalemindenom="1000" scalemaxdenom="100000" key="{e050ea50-2eb6-4c44-9e43-f979ecc6cbbe}">
+          <rule key="{e050ea50-2eb6-4c44-9e43-f979ecc6cbbe}" filter=" &quot;KATEGORIJA_REZIMA&quot;  in ( 'dokumentarno (arhivsko) varstvo','ostalo')" scalemindenom="1000" description="dokumentarno (arhivsko) varstvo" scalemaxdenom="100000">
             <settings calloutType="simple">
-              <text-style fontSize="8" useSubstitutions="0" fontFamily="MS Shell Dlg 2" textColor="156,156,156,255" fontWordSpacing="0" forcedBold="0" legendString="Aa" isExpression="1" allowHtml="0" fieldName="&quot;EID&quot; || ' - '   ||   &quot;IME&quot; " fontKerning="1" fontUnderline="0" fontLetterSpacing="0" fontWeight="50" namedStyle="Navadno" fontItalic="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" forcedItalic="0" previewBkgrdColor="255,255,255,255" multilineHeightUnit="Percentage" textOpacity="1" blendMode="0" multilineHeight="1" fontStrikeout="0" textOrientation="horizontal" capitalization="0" fontSizeUnit="Point">
+              <text-style fontWordSpacing="0" previewBkgrdColor="255,255,255,255" multilineHeight="1" blendMode="0" textColor="156,156,156,255" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontUnderline="0" fontKerning="1" capitalization="0" fontSizeUnit="Point" legendString="Aa" fontSize="8" fontItalic="0" forcedBold="0" isExpression="1" fontLetterSpacing="0" namedStyle="Navadno" fieldName="&quot;EID&quot; || ' - '   ||   &quot;IME&quot; " useSubstitutions="0" fontWeight="50" textOrientation="horizontal" forcedItalic="0" textOpacity="1" fontFamily="MS Shell Dlg 2" allowHtml="0" fontStrikeout="0" multilineHeightUnit="Percentage">
                 <families/>
-                <text-buffer bufferColor="255,255,255,255" bufferBlendMode="0" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferSize="1" bufferNoFill="1" bufferSizeUnits="MM" bufferJoinStyle="128" bufferDraw="0" bufferOpacity="1"/>
-                <text-mask maskEnabled="0" maskJoinStyle="128" maskedSymbolLayers="" maskOpacity="1" maskSizeMapUnitScale="3x:0,0,0,0,0,0" maskType="0" maskSizeUnits="MM" maskSize="0"/>
-                <background shapeOpacity="1" shapeType="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidth="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeBorderColor="128,128,128,255" shapeSizeX="0" shapeRotationType="0" shapeDraw="0" shapeRadiiY="0" shapeRadiiX="0" shapeRadiiUnit="MM" shapeSizeY="0" shapeOffsetX="0" shapeSVGFile="" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeSizeUnit="MM" shapeBlendMode="0" shapeRotation="0" shapeSizeType="0" shapeOffsetY="0" shapeJoinStyle="64" shapeOffsetUnit="MM" shapeFillColor="255,255,255,255" shapeBorderWidthUnit="MM" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0">
-                  <symbol type="marker" frame_rate="10" force_rhr="0" is_animated="0" name="markerSymbol" alpha="1" clip_to_extent="1">
+                <text-buffer bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferSizeUnits="MM" bufferBlendMode="0" bufferDraw="0" bufferJoinStyle="128" bufferOpacity="1" bufferColor="255,255,255,255" bufferSize="1" bufferNoFill="1"/>
+                <text-mask maskSizeUnits="MM" maskSize="0" maskType="0" maskSizeMapUnitScale="3x:0,0,0,0,0,0" maskJoinStyle="128" maskedSymbolLayers="" maskOpacity="1" maskEnabled="0"/>
+                <background shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidthUnit="MM" shapeDraw="0" shapeOffsetX="0" shapeRotationType="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeSizeType="0" shapeBorderWidth="0" shapeOpacity="1" shapeOffsetY="0" shapeSizeX="0" shapeJoinStyle="64" shapeRadiiX="0" shapeBorderColor="128,128,128,255" shapeType="0" shapeFillColor="255,255,255,255" shapeRadiiUnit="MM" shapeSVGFile="" shapeBlendMode="0" shapeSizeY="0" shapeSizeUnit="MM" shapeRadiiY="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeRotation="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM">
+                  <symbol is_animated="0" alpha="1" clip_to_extent="1" type="marker" name="markerSymbol" frame_rate="10" force_rhr="0">
                     <data_defined_properties>
                       <Option type="Map">
                         <Option type="QString" name="name" value=""/>
@@ -486,7 +487,7 @@
                         <Option type="QString" name="type" value="collection"/>
                       </Option>
                     </data_defined_properties>
-                    <layer enabled="1" pass="0" class="SimpleMarker" locked="0">
+                    <layer pass="0" enabled="1" id="" class="SimpleMarker" locked="0">
                       <Option type="Map">
                         <Option type="QString" name="angle" value="0"/>
                         <Option type="QString" name="cap_style" value="square"/>
@@ -517,7 +518,7 @@
                       </data_defined_properties>
                     </layer>
                   </symbol>
-                  <symbol type="fill" frame_rate="10" force_rhr="0" is_animated="0" name="fillSymbol" alpha="1" clip_to_extent="1">
+                  <symbol is_animated="0" alpha="1" clip_to_extent="1" type="fill" name="fillSymbol" frame_rate="10" force_rhr="0">
                     <data_defined_properties>
                       <Option type="Map">
                         <Option type="QString" name="name" value=""/>
@@ -525,7 +526,7 @@
                         <Option type="QString" name="type" value="collection"/>
                       </Option>
                     </data_defined_properties>
-                    <layer enabled="1" pass="0" class="SimpleFill" locked="0">
+                    <layer pass="0" enabled="1" id="" class="SimpleFill" locked="0">
                       <Option type="Map">
                         <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
                         <Option type="QString" name="color" value="255,255,255,255"/>
@@ -549,7 +550,7 @@
                     </layer>
                   </symbol>
                 </background>
-                <shadow shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOpacity="0.69999999999999996" shadowRadius="1.5" shadowUnder="0" shadowOffsetDist="1" shadowColor="0,0,0,255" shadowOffsetGlobal="1" shadowDraw="0" shadowOffsetUnit="MM" shadowRadiusAlphaOnly="0" shadowOffsetAngle="135" shadowRadiusUnit="MM" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowBlendMode="6" shadowScale="100"/>
+                <shadow shadowScale="100" shadowRadiusUnit="MM" shadowColor="0,0,0,255" shadowOffsetAngle="135" shadowBlendMode="6" shadowOffsetDist="1" shadowOffsetUnit="MM" shadowRadiusAlphaOnly="0" shadowDraw="0" shadowUnder="0" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowRadius="1.5" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowOpacity="0.69999999999999996"/>
                 <dd_properties>
                   <Option type="Map">
                     <Option type="QString" name="name" value=""/>
@@ -559,9 +560,9 @@
                 </dd_properties>
                 <substitutions/>
               </text-style>
-              <text-format plussign="0" placeDirectionSymbol="0" decimals="3" rightDirectionSymbol=">" useMaxLineLengthForAutoWrap="1" autoWrapLength="0" leftDirectionSymbol="&lt;" wrapChar="" reverseDirectionSymbol="0" multilineAlign="0" addDirectionSymbol="0" formatNumbers="0"/>
-              <placement priority="5" polygonPlacementFlags="2" overrunDistanceMapUnitScale="3x:0,0,0,0,0,0" rotationUnit="AngleDegrees" overlapHandling="AllowOverlapIfRequired" placement="0" rotationAngle="0" centroidInside="0" preserveRotation="1" overrunDistanceUnit="MM" centroidWhole="0" lineAnchorPercent="0.5" layerType="PolygonGeometry" repeatDistanceUnits="MM" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" yOffset="0" placementFlags="10" maxCurvedCharAngleIn="25" distUnits="MM" fitInPolygonOnly="0" repeatDistance="0" geometryGeneratorType="PointGeometry" xOffset="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" overrunDistance="0" quadOffset="4" offsetUnits="MM" allowDegraded="1" geometryGenerator="" dist="0" geometryGeneratorEnabled="0" lineAnchorTextPoint="CenterOfText" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" maxCurvedCharAngleOut="-25" lineAnchorClipping="0" offsetType="0" distMapUnitScale="3x:0,0,0,0,0,0" lineAnchorType="0"/>
-              <rendering maxNumLabels="50" scaleMin="0" zIndex="0" limitNumLabels="1" obstacle="1" scaleMax="0" upsidedownLabels="0" fontMaxPixelSize="10000" labelPerPart="0" unplacedVisibility="0" drawLabels="1" minFeatureSize="0" fontMinPixelSize="3" obstacleType="0" obstacleFactor="1" scaleVisibility="0" fontLimitPixelSize="0" mergeLines="0"/>
+              <text-format formatNumbers="0" autoWrapLength="0" multilineAlign="0" plussign="0" rightDirectionSymbol=">" placeDirectionSymbol="0" decimals="3" wrapChar="" addDirectionSymbol="0" useMaxLineLengthForAutoWrap="1" reverseDirectionSymbol="0" leftDirectionSymbol="&lt;"/>
+              <placement geometryGeneratorEnabled="0" lineAnchorType="0" distMapUnitScale="3x:0,0,0,0,0,0" dist="0" offsetType="0" maxCurvedCharAngleIn="25" centroidWhole="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" overlapHandling="AllowOverlapIfRequired" preserveRotation="1" polygonPlacementFlags="2" placementFlags="10" geometryGenerator="" layerType="PolygonGeometry" overrunDistanceUnit="MM" lineAnchorTextPoint="CenterOfText" repeatDistanceUnits="MM" repeatDistance="0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" geometryGeneratorType="PointGeometry" lineAnchorClipping="0" rotationAngle="0" overrunDistance="0" yOffset="0" lineAnchorPercent="0.5" priority="5" rotationUnit="AngleDegrees" centroidInside="0" maxCurvedCharAngleOut="-25" quadOffset="4" allowDegraded="1" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" placement="0" distUnits="MM" xOffset="0" fitInPolygonOnly="0" offsetUnits="MM" overrunDistanceMapUnitScale="3x:0,0,0,0,0,0"/>
+              <rendering labelPerPart="0" upsidedownLabels="0" drawLabels="1" unplacedVisibility="0" limitNumLabels="1" maxNumLabels="50" obstacleFactor="1" fontLimitPixelSize="0" fontMaxPixelSize="10000" zIndex="0" minFeatureSize="0" mergeLines="0" obstacleType="0" fontMinPixelSize="3" scaleVisibility="0" scaleMax="0" obstacle="1" scaleMin="0"/>
               <dd_properties>
                 <Option type="Map">
                   <Option type="QString" name="name" value=""/>
@@ -581,7 +582,7 @@
                   <Option type="bool" name="drawToAllParts" value="false"/>
                   <Option type="QString" name="enabled" value="0"/>
                   <Option type="QString" name="labelAnchorPoint" value="point_on_exterior"/>
-                  <Option type="QString" name="lineSymbol" value="&lt;symbol type=&quot;line&quot; frame_rate=&quot;10&quot; force_rhr=&quot;0&quot; is_animated=&quot;0&quot; name=&quot;symbol&quot; alpha=&quot;1&quot; clip_to_extent=&quot;1&quot;>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;name&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;type&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;layer enabled=&quot;1&quot; pass=&quot;0&quot; class=&quot;SimpleLine&quot; locked=&quot;0&quot;>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;align_dash_pattern&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;capstyle&quot; value=&quot;square&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash&quot; value=&quot;5;2&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;draw_inside_polygon&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;joinstyle&quot; value=&quot;bevel&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_color&quot; value=&quot;60,60,60,255&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_style&quot; value=&quot;solid&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_width&quot; value=&quot;0.3&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_width_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;ring_filter&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;tweak_dash_pattern_on_corners&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;use_custom_dash&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;width_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;/Option>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;name&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;type&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;/layer>&lt;/symbol>"/>
+                  <Option type="QString" name="lineSymbol" value="&lt;symbol is_animated=&quot;0&quot; alpha=&quot;1&quot; clip_to_extent=&quot;1&quot; type=&quot;line&quot; name=&quot;symbol&quot; frame_rate=&quot;10&quot; force_rhr=&quot;0&quot;>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;name&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;type&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;layer pass=&quot;0&quot; enabled=&quot;1&quot; id=&quot;{cd837a0b-ec90-415e-8e7b-247ec0a7b8be}&quot; class=&quot;SimpleLine&quot; locked=&quot;0&quot;>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;align_dash_pattern&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;capstyle&quot; value=&quot;square&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash&quot; value=&quot;5;2&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;draw_inside_polygon&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;joinstyle&quot; value=&quot;bevel&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_color&quot; value=&quot;60,60,60,255&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_style&quot; value=&quot;solid&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_width&quot; value=&quot;0.3&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_width_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;ring_filter&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;tweak_dash_pattern_on_corners&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;use_custom_dash&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;width_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;/Option>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;name&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;type&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;/layer>&lt;/symbol>"/>
                   <Option type="double" name="minLength" value="0"/>
                   <Option type="QString" name="minLengthMapUnitScale" value="3x:0,0,0,0,0,0"/>
                   <Option type="QString" name="minLengthUnit" value="MM"/>
@@ -595,14 +596,14 @@
               </callout>
             </settings>
           </rule>
-          <rule description="Ostala dediščina" filter="ELSE" scalemindenom="1000" scalemaxdenom="100000" key="{b3099a77-e501-40a2-b0c8-d54b7f185686}">
+          <rule key="{b3099a77-e501-40a2-b0c8-d54b7f185686}" filter="ELSE" scalemindenom="1000" description="Ostala dediščina" scalemaxdenom="100000">
             <settings calloutType="simple">
-              <text-style fontSize="8" useSubstitutions="0" fontFamily="MS Shell Dlg 2" textColor="115,76,0,255" fontWordSpacing="0" forcedBold="0" legendString="Aa" isExpression="1" allowHtml="0" fieldName="&quot;EID&quot; || ' - '   ||   &quot;IME&quot; " fontKerning="1" fontUnderline="0" fontLetterSpacing="0" fontWeight="50" namedStyle="Regular" fontItalic="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" forcedItalic="0" previewBkgrdColor="255,255,255,255" multilineHeightUnit="Percentage" textOpacity="1" blendMode="0" multilineHeight="1" fontStrikeout="0" textOrientation="horizontal" capitalization="0" fontSizeUnit="Point">
+              <text-style fontWordSpacing="0" previewBkgrdColor="255,255,255,255" multilineHeight="1" blendMode="0" textColor="115,76,0,255" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontUnderline="0" fontKerning="1" capitalization="0" fontSizeUnit="Point" legendString="Aa" fontSize="8" fontItalic="0" forcedBold="0" isExpression="1" fontLetterSpacing="0" namedStyle="Regular" fieldName="&quot;EID&quot; || ' - '   ||   &quot;IME&quot; " useSubstitutions="0" fontWeight="50" textOrientation="horizontal" forcedItalic="0" textOpacity="1" fontFamily="MS Shell Dlg 2" allowHtml="0" fontStrikeout="0" multilineHeightUnit="Percentage">
                 <families/>
-                <text-buffer bufferColor="255,255,255,255" bufferBlendMode="0" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferSize="1" bufferNoFill="1" bufferSizeUnits="MM" bufferJoinStyle="128" bufferDraw="0" bufferOpacity="1"/>
-                <text-mask maskEnabled="0" maskJoinStyle="128" maskedSymbolLayers="" maskOpacity="1" maskSizeMapUnitScale="3x:0,0,0,0,0,0" maskType="0" maskSizeUnits="MM" maskSize="0"/>
-                <background shapeOpacity="1" shapeType="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidth="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeBorderColor="128,128,128,255" shapeSizeX="0" shapeRotationType="0" shapeDraw="0" shapeRadiiY="0" shapeRadiiX="0" shapeRadiiUnit="MM" shapeSizeY="0" shapeOffsetX="0" shapeSVGFile="" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeSizeUnit="MM" shapeBlendMode="0" shapeRotation="0" shapeSizeType="0" shapeOffsetY="0" shapeJoinStyle="64" shapeOffsetUnit="MM" shapeFillColor="255,255,255,255" shapeBorderWidthUnit="MM" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0">
-                  <symbol type="marker" frame_rate="10" force_rhr="0" is_animated="0" name="markerSymbol" alpha="1" clip_to_extent="1">
+                <text-buffer bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferSizeUnits="MM" bufferBlendMode="0" bufferDraw="0" bufferJoinStyle="128" bufferOpacity="1" bufferColor="255,255,255,255" bufferSize="1" bufferNoFill="1"/>
+                <text-mask maskSizeUnits="MM" maskSize="0" maskType="0" maskSizeMapUnitScale="3x:0,0,0,0,0,0" maskJoinStyle="128" maskedSymbolLayers="" maskOpacity="1" maskEnabled="0"/>
+                <background shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidthUnit="MM" shapeDraw="0" shapeOffsetX="0" shapeRotationType="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeSizeType="0" shapeBorderWidth="0" shapeOpacity="1" shapeOffsetY="0" shapeSizeX="0" shapeJoinStyle="64" shapeRadiiX="0" shapeBorderColor="128,128,128,255" shapeType="0" shapeFillColor="255,255,255,255" shapeRadiiUnit="MM" shapeSVGFile="" shapeBlendMode="0" shapeSizeY="0" shapeSizeUnit="MM" shapeRadiiY="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeRotation="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM">
+                  <symbol is_animated="0" alpha="1" clip_to_extent="1" type="marker" name="markerSymbol" frame_rate="10" force_rhr="0">
                     <data_defined_properties>
                       <Option type="Map">
                         <Option type="QString" name="name" value=""/>
@@ -610,7 +611,7 @@
                         <Option type="QString" name="type" value="collection"/>
                       </Option>
                     </data_defined_properties>
-                    <layer enabled="1" pass="0" class="SimpleMarker" locked="0">
+                    <layer pass="0" enabled="1" id="" class="SimpleMarker" locked="0">
                       <Option type="Map">
                         <Option type="QString" name="angle" value="0"/>
                         <Option type="QString" name="cap_style" value="square"/>
@@ -641,7 +642,7 @@
                       </data_defined_properties>
                     </layer>
                   </symbol>
-                  <symbol type="fill" frame_rate="10" force_rhr="0" is_animated="0" name="fillSymbol" alpha="1" clip_to_extent="1">
+                  <symbol is_animated="0" alpha="1" clip_to_extent="1" type="fill" name="fillSymbol" frame_rate="10" force_rhr="0">
                     <data_defined_properties>
                       <Option type="Map">
                         <Option type="QString" name="name" value=""/>
@@ -649,7 +650,7 @@
                         <Option type="QString" name="type" value="collection"/>
                       </Option>
                     </data_defined_properties>
-                    <layer enabled="1" pass="0" class="SimpleFill" locked="0">
+                    <layer pass="0" enabled="1" id="" class="SimpleFill" locked="0">
                       <Option type="Map">
                         <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
                         <Option type="QString" name="color" value="255,255,255,255"/>
@@ -673,7 +674,7 @@
                     </layer>
                   </symbol>
                 </background>
-                <shadow shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOpacity="0.69999999999999996" shadowRadius="1.5" shadowUnder="0" shadowOffsetDist="1" shadowColor="0,0,0,255" shadowOffsetGlobal="1" shadowDraw="0" shadowOffsetUnit="MM" shadowRadiusAlphaOnly="0" shadowOffsetAngle="135" shadowRadiusUnit="MM" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowBlendMode="6" shadowScale="100"/>
+                <shadow shadowScale="100" shadowRadiusUnit="MM" shadowColor="0,0,0,255" shadowOffsetAngle="135" shadowBlendMode="6" shadowOffsetDist="1" shadowOffsetUnit="MM" shadowRadiusAlphaOnly="0" shadowDraw="0" shadowUnder="0" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetGlobal="1" shadowRadius="1.5" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowOpacity="0.69999999999999996"/>
                 <dd_properties>
                   <Option type="Map">
                     <Option type="QString" name="name" value=""/>
@@ -683,9 +684,9 @@
                 </dd_properties>
                 <substitutions/>
               </text-style>
-              <text-format plussign="0" placeDirectionSymbol="0" decimals="3" rightDirectionSymbol=">" useMaxLineLengthForAutoWrap="1" autoWrapLength="0" leftDirectionSymbol="&lt;" wrapChar="" reverseDirectionSymbol="0" multilineAlign="4294967295" addDirectionSymbol="0" formatNumbers="0"/>
-              <placement priority="5" polygonPlacementFlags="2" overrunDistanceMapUnitScale="3x:0,0,0,0,0,0" rotationUnit="AngleDegrees" overlapHandling="AllowOverlapIfRequired" placement="0" rotationAngle="0" centroidInside="0" preserveRotation="1" overrunDistanceUnit="MM" centroidWhole="0" lineAnchorPercent="0.5" layerType="PolygonGeometry" repeatDistanceUnits="MM" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" yOffset="0" placementFlags="10" maxCurvedCharAngleIn="25" distUnits="MM" fitInPolygonOnly="0" repeatDistance="0" geometryGeneratorType="PointGeometry" xOffset="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" overrunDistance="0" quadOffset="4" offsetUnits="MM" allowDegraded="1" geometryGenerator="" dist="0" geometryGeneratorEnabled="0" lineAnchorTextPoint="CenterOfText" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" maxCurvedCharAngleOut="-25" lineAnchorClipping="0" offsetType="0" distMapUnitScale="3x:0,0,0,0,0,0" lineAnchorType="0"/>
-              <rendering maxNumLabels="50" scaleMin="0" zIndex="0" limitNumLabels="1" obstacle="1" scaleMax="0" upsidedownLabels="0" fontMaxPixelSize="10000" labelPerPart="0" unplacedVisibility="0" drawLabels="1" minFeatureSize="0" fontMinPixelSize="3" obstacleType="0" obstacleFactor="1" scaleVisibility="0" fontLimitPixelSize="0" mergeLines="0"/>
+              <text-format formatNumbers="0" autoWrapLength="0" multilineAlign="4294967295" plussign="0" rightDirectionSymbol=">" placeDirectionSymbol="0" decimals="3" wrapChar="" addDirectionSymbol="0" useMaxLineLengthForAutoWrap="1" reverseDirectionSymbol="0" leftDirectionSymbol="&lt;"/>
+              <placement geometryGeneratorEnabled="0" lineAnchorType="0" distMapUnitScale="3x:0,0,0,0,0,0" dist="0" offsetType="0" maxCurvedCharAngleIn="25" centroidWhole="0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" overlapHandling="AllowOverlapIfRequired" preserveRotation="1" polygonPlacementFlags="2" placementFlags="10" geometryGenerator="" layerType="PolygonGeometry" overrunDistanceUnit="MM" lineAnchorTextPoint="CenterOfText" repeatDistanceUnits="MM" repeatDistance="0" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" geometryGeneratorType="PointGeometry" lineAnchorClipping="0" rotationAngle="0" overrunDistance="0" yOffset="0" lineAnchorPercent="0.5" priority="5" rotationUnit="AngleDegrees" centroidInside="0" maxCurvedCharAngleOut="-25" quadOffset="4" allowDegraded="1" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" placement="0" distUnits="MM" xOffset="0" fitInPolygonOnly="0" offsetUnits="MM" overrunDistanceMapUnitScale="3x:0,0,0,0,0,0"/>
+              <rendering labelPerPart="0" upsidedownLabels="0" drawLabels="1" unplacedVisibility="0" limitNumLabels="1" maxNumLabels="50" obstacleFactor="1" fontLimitPixelSize="0" fontMaxPixelSize="10000" zIndex="0" minFeatureSize="0" mergeLines="0" obstacleType="0" fontMinPixelSize="3" scaleVisibility="0" scaleMax="0" obstacle="1" scaleMin="0"/>
               <dd_properties>
                 <Option type="Map">
                   <Option type="QString" name="name" value=""/>
@@ -705,7 +706,7 @@
                   <Option type="bool" name="drawToAllParts" value="false"/>
                   <Option type="QString" name="enabled" value="0"/>
                   <Option type="QString" name="labelAnchorPoint" value="point_on_exterior"/>
-                  <Option type="QString" name="lineSymbol" value="&lt;symbol type=&quot;line&quot; frame_rate=&quot;10&quot; force_rhr=&quot;0&quot; is_animated=&quot;0&quot; name=&quot;symbol&quot; alpha=&quot;1&quot; clip_to_extent=&quot;1&quot;>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;name&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;type&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;layer enabled=&quot;1&quot; pass=&quot;0&quot; class=&quot;SimpleLine&quot; locked=&quot;0&quot;>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;align_dash_pattern&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;capstyle&quot; value=&quot;square&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash&quot; value=&quot;5;2&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;draw_inside_polygon&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;joinstyle&quot; value=&quot;bevel&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_color&quot; value=&quot;60,60,60,255&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_style&quot; value=&quot;solid&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_width&quot; value=&quot;0.3&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_width_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;ring_filter&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;tweak_dash_pattern_on_corners&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;use_custom_dash&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;width_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;/Option>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;name&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;type&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;/layer>&lt;/symbol>"/>
+                  <Option type="QString" name="lineSymbol" value="&lt;symbol is_animated=&quot;0&quot; alpha=&quot;1&quot; clip_to_extent=&quot;1&quot; type=&quot;line&quot; name=&quot;symbol&quot; frame_rate=&quot;10&quot; force_rhr=&quot;0&quot;>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;name&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;type&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;layer pass=&quot;0&quot; enabled=&quot;1&quot; id=&quot;{e95f7cce-6299-4bc0-ac1a-08658606ffc0}&quot; class=&quot;SimpleLine&quot; locked=&quot;0&quot;>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;align_dash_pattern&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;capstyle&quot; value=&quot;square&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash&quot; value=&quot;5;2&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;customdash_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;dash_pattern_offset_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;draw_inside_polygon&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;joinstyle&quot; value=&quot;bevel&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_color&quot; value=&quot;60,60,60,255&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_style&quot; value=&quot;solid&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_width&quot; value=&quot;0.3&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;line_width_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;offset_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;ring_filter&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_end_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;trim_distance_start_unit&quot; value=&quot;MM&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;tweak_dash_pattern_on_corners&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;use_custom_dash&quot; value=&quot;0&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;width_map_unit_scale&quot; value=&quot;3x:0,0,0,0,0,0&quot;/>&lt;/Option>&lt;data_defined_properties>&lt;Option type=&quot;Map&quot;>&lt;Option type=&quot;QString&quot; name=&quot;name&quot; value=&quot;&quot;/>&lt;Option name=&quot;properties&quot;/>&lt;Option type=&quot;QString&quot; name=&quot;type&quot; value=&quot;collection&quot;/>&lt;/Option>&lt;/data_defined_properties>&lt;/layer>&lt;/symbol>"/>
                   <Option type="double" name="minLength" value="0"/>
                   <Option type="QString" name="minLengthMapUnitScale" value="3x:0,0,0,0,0,0"/>
                   <Option type="QString" name="minLengthUnit" value="MM"/>
@@ -727,19 +728,19 @@
             <Option type="QString" value="id"/>
           </Option>
           <Option type="QString" name="embeddedWidgets/count" value="0"/>
-          <Option name="variableNames"/>
-          <Option name="variableValues"/>
+          <Option type="invalid" name="variableNames"/>
+          <Option type="invalid" name="variableValues"/>
         </Option>
       </customproperties>
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
       <layerOpacity>1</layerOpacity>
       <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
-        <DiagramCategory height="15" opacity="1" lineSizeScale="3x:0,0,0,0,0,0" diagramOrientation="Up" scaleBasedVisibility="0" sizeScale="3x:0,0,0,0,0,0" maxScaleDenominator="1e+08" direction="1" backgroundColor="#ffffff" width="15" spacingUnit="MM" scaleDependency="Area" rotationOffset="270" spacing="0" penAlpha="255" showAxis="0" penWidth="0" spacingUnitScale="3x:0,0,0,0,0,0" sizeType="MM" labelPlacementMethod="XHeight" penColor="#000000" minimumSize="0" lineSizeType="MM" minScaleDenominator="0" enabled="0" barWidth="5" backgroundAlpha="255">
-          <fontProperties description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
-          <attribute color="#000000" label="" field="" colorOpacity="1"/>
+        <DiagramCategory penAlpha="255" width="15" lineSizeScale="3x:0,0,0,0,0,0" rotationOffset="270" minimumSize="0" showAxis="0" labelPlacementMethod="XHeight" spacingUnitScale="3x:0,0,0,0,0,0" scaleBasedVisibility="0" penWidth="0" scaleDependency="Area" sizeScale="3x:0,0,0,0,0,0" minScaleDenominator="0" direction="1" sizeType="MM" barWidth="5" penColor="#000000" diagramOrientation="Up" height="15" spacingUnit="MM" backgroundAlpha="255" lineSizeType="MM" enabled="0" opacity="1" backgroundColor="#ffffff" spacing="0" maxScaleDenominator="1e+08">
+          <fontProperties italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
+          <attribute field="" label="" color="#000000" colorOpacity="1"/>
           <axisSymbol>
-            <symbol type="line" frame_rate="10" force_rhr="0" is_animated="0" name="" alpha="1" clip_to_extent="1">
+            <symbol is_animated="0" alpha="1" clip_to_extent="1" type="line" name="" frame_rate="10" force_rhr="0">
               <data_defined_properties>
                 <Option type="Map">
                   <Option type="QString" name="name" value=""/>
@@ -747,7 +748,7 @@
                   <Option type="QString" name="type" value="collection"/>
                 </Option>
               </data_defined_properties>
-              <layer enabled="1" pass="0" class="SimpleLine" locked="0">
+              <layer pass="0" enabled="1" id="{22e4bcad-ee96-44c4-a712-4d4af9802917}" class="SimpleLine" locked="0">
                 <Option type="Map">
                   <Option type="QString" name="align_dash_pattern" value="0"/>
                   <Option type="QString" name="capstyle" value="square"/>
@@ -789,7 +790,7 @@
           </axisSymbol>
         </DiagramCategory>
       </SingleCategoryDiagramRenderer>
-      <DiagramLayerSettings showAll="1" dist="0" zIndex="0" linePlacementFlags="18" priority="0" obstacle="0" placement="1">
+      <DiagramLayerSettings dist="0" obstacle="0" showAll="1" placement="1" priority="0" zIndex="0" linePlacementFlags="18">
         <properties>
           <Option type="Map">
             <Option type="QString" name="name" value=""/>
@@ -798,7 +799,7 @@
           </Option>
         </properties>
       </DiagramLayerSettings>
-      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+      <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
         <activeChecks/>
         <checkConfiguration type="Map">
           <Option type="Map" name="QgsGeometryGapCheck">
@@ -811,7 +812,7 @@
       <legend type="default-vector" showLabelLegend="0"/>
       <referencedLayers/>
       <fieldConfiguration>
-        <field name="ESD" configurationFlags="None">
+        <field configurationFlags="None" name="ESD">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -821,7 +822,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="OBJECTID" configurationFlags="None">
+        <field configurationFlags="None" name="OBJECTID">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -831,7 +832,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="EID" configurationFlags="None">
+        <field configurationFlags="None" name="EID">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -841,7 +842,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="IME" configurationFlags="None">
+        <field configurationFlags="None" name="IME">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -851,7 +852,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="SINONIMI" configurationFlags="None">
+        <field configurationFlags="None" name="SINONIMI">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -861,7 +862,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="ZVRST" configurationFlags="None">
+        <field configurationFlags="None" name="ZVRST">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -871,7 +872,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="PODZVRSTI" configurationFlags="None">
+        <field configurationFlags="None" name="PODZVRSTI">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -881,7 +882,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="TIP" configurationFlags="None">
+        <field configurationFlags="None" name="TIP">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -891,7 +892,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="OBSEG" configurationFlags="None">
+        <field configurationFlags="None" name="OBSEG">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -901,7 +902,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="STROKOVNA_PODROCJA" configurationFlags="None">
+        <field configurationFlags="None" name="STROKOVNA_PODROCJA">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -911,7 +912,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="PRISTOJNE_OE" configurationFlags="None">
+        <field configurationFlags="None" name="PRISTOJNE_OE">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -921,7 +922,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="TIPOLOSKA_GESLA" configurationFlags="None">
+        <field configurationFlags="None" name="TIPOLOSKA_GESLA">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -931,7 +932,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="KRATEK_OPIS" configurationFlags="None">
+        <field configurationFlags="None" name="KRATEK_OPIS">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -941,7 +942,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="DOLG_OPIS" configurationFlags="None">
+        <field configurationFlags="None" name="DOLG_OPIS">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -951,7 +952,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="AVTORJI" configurationFlags="None">
+        <field configurationFlags="None" name="AVTORJI">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -961,7 +962,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="DATACIJE" configurationFlags="None">
+        <field configurationFlags="None" name="DATACIJE">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -971,7 +972,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="NASELJE" configurationFlags="None">
+        <field configurationFlags="None" name="NASELJE">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -981,7 +982,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="OBCINA" configurationFlags="None">
+        <field configurationFlags="None" name="OBCINA">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -991,7 +992,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="KOORDINATE" configurationFlags="None">
+        <field configurationFlags="None" name="KOORDINATE">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1001,7 +1002,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="POVRSINA" configurationFlags="None">
+        <field configurationFlags="None" name="POVRSINA">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1011,7 +1012,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="MEJA" configurationFlags="None">
+        <field configurationFlags="None" name="MEJA">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1021,7 +1022,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="OPIS_LOKACIJE" configurationFlags="None">
+        <field configurationFlags="None" name="OPIS_LOKACIJE">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1031,7 +1032,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="KATEGORIJA_REZIMA" configurationFlags="None">
+        <field configurationFlags="None" name="KATEGORIJA_REZIMA">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1041,7 +1042,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="VARSTVENE_USMERITVE" configurationFlags="None">
+        <field configurationFlags="None" name="VARSTVENE_USMERITVE">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1051,7 +1052,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="MEDNARODNO_VARSTVO" configurationFlags="None">
+        <field configurationFlags="None" name="MEDNARODNO_VARSTVO">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1061,7 +1062,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="FOTOGRAFIJA_IME" configurationFlags="None">
+        <field configurationFlags="None" name="FOTOGRAFIJA_IME">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1071,7 +1072,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="FOTOGRAFIJA_VIR" configurationFlags="None">
+        <field configurationFlags="None" name="FOTOGRAFIJA_VIR">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1081,7 +1082,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="FOTOGRAFIJA_OPIS" configurationFlags="None">
+        <field configurationFlags="None" name="FOTOGRAFIJA_OPIS">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1091,7 +1092,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="FOTOGRAFIJA_KRAJ" configurationFlags="None">
+        <field configurationFlags="None" name="FOTOGRAFIJA_KRAJ">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1101,7 +1102,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="FOTOGRAFIJA_LETO" configurationFlags="None">
+        <field configurationFlags="None" name="FOTOGRAFIJA_LETO">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1111,7 +1112,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="FOTOGRAFIJA_AVTOR" configurationFlags="None">
+        <field configurationFlags="None" name="FOTOGRAFIJA_AVTOR">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1121,7 +1122,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="DATUM_VPISA" configurationFlags="None">
+        <field configurationFlags="None" name="DATUM_VPISA">
           <editWidget type="DateTime">
             <config>
               <Option type="Map">
@@ -1134,7 +1135,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="DATUM_ZADNJE_SPREMEMBE" configurationFlags="None">
+        <field configurationFlags="None" name="DATUM_ZADNJE_SPREMEMBE">
           <editWidget type="DateTime">
             <config>
               <Option type="Map">
@@ -1147,7 +1148,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="DATUM_IZBRISA" configurationFlags="None">
+        <field configurationFlags="None" name="DATUM_IZBRISA">
           <editWidget type="DateTime">
             <config>
               <Option type="Map">
@@ -1160,7 +1161,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="STATUS_ENOTE" configurationFlags="None">
+        <field configurationFlags="None" name="STATUS_ENOTE">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1170,7 +1171,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="MATERIALI_STENE" configurationFlags="None">
+        <field configurationFlags="None" name="MATERIALI_STENE">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1180,7 +1181,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="MATERIALI_STREHA" configurationFlags="None">
+        <field configurationFlags="None" name="MATERIALI_STREHA">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1190,7 +1191,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="MATERIALI_OSTALO" configurationFlags="None">
+        <field configurationFlags="None" name="MATERIALI_OSTALO">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1200,7 +1201,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="TEHNIKE" configurationFlags="None">
+        <field configurationFlags="None" name="TEHNIKE">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1210,7 +1211,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="ENOTA_ID" configurationFlags="None">
+        <field configurationFlags="None" name="ENOTA_ID">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1220,7 +1221,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="OSNOVNIPOD" configurationFlags="None">
+        <field configurationFlags="None" name="OSNOVNIPOD">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1230,7 +1231,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="ISKALNO_POLJE" configurationFlags="None">
+        <field configurationFlags="None" name="ISKALNO_POLJE">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1240,7 +1241,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="STEVILKA_OT_O1" configurationFlags="None">
+        <field configurationFlags="None" name="STEVILKA_OT_O1">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1250,7 +1251,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="PRIKAZ_SPLET_L" configurationFlags="None">
+        <field configurationFlags="None" name="PRIKAZ_SPLET_L">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1260,14 +1261,14 @@
             </config>
           </editWidget>
         </field>
-        <field name="SE_ANNO_CAD_DATA" configurationFlags="None">
+        <field configurationFlags="None" name="SE_ANNO_CAD_DATA">
           <editWidget type="Binary">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
-        <field name="VARSTVO" configurationFlags="None">
+        <field configurationFlags="None" name="VARSTVO">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1277,7 +1278,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="KF" configurationFlags="None">
+        <field configurationFlags="None" name="KF">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1287,7 +1288,7 @@
             </config>
           </editWidget>
         </field>
-        <field name="RKD_EID_LINK" configurationFlags="None">
+        <field configurationFlags="None" name="RKD_EID_LINK">
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
@@ -1299,260 +1300,310 @@
         </field>
       </fieldConfiguration>
       <aliases>
-        <alias field="ESD" name="" index="0"/>
-        <alias field="OBJECTID" name="" index="1"/>
-        <alias field="EID" name="" index="2"/>
-        <alias field="IME" name="" index="3"/>
-        <alias field="SINONIMI" name="" index="4"/>
-        <alias field="ZVRST" name="" index="5"/>
-        <alias field="PODZVRSTI" name="" index="6"/>
-        <alias field="TIP" name="" index="7"/>
-        <alias field="OBSEG" name="" index="8"/>
-        <alias field="STROKOVNA_PODROCJA" name="" index="9"/>
-        <alias field="PRISTOJNE_OE" name="" index="10"/>
-        <alias field="TIPOLOSKA_GESLA" name="" index="11"/>
-        <alias field="KRATEK_OPIS" name="" index="12"/>
-        <alias field="DOLG_OPIS" name="" index="13"/>
-        <alias field="AVTORJI" name="" index="14"/>
-        <alias field="DATACIJE" name="" index="15"/>
-        <alias field="NASELJE" name="" index="16"/>
-        <alias field="OBCINA" name="" index="17"/>
-        <alias field="KOORDINATE" name="" index="18"/>
-        <alias field="POVRSINA" name="" index="19"/>
-        <alias field="MEJA" name="" index="20"/>
-        <alias field="OPIS_LOKACIJE" name="" index="21"/>
-        <alias field="KATEGORIJA_REZIMA" name="" index="22"/>
-        <alias field="VARSTVENE_USMERITVE" name="" index="23"/>
-        <alias field="MEDNARODNO_VARSTVO" name="" index="24"/>
-        <alias field="FOTOGRAFIJA_IME" name="" index="25"/>
-        <alias field="FOTOGRAFIJA_VIR" name="" index="26"/>
-        <alias field="FOTOGRAFIJA_OPIS" name="" index="27"/>
-        <alias field="FOTOGRAFIJA_KRAJ" name="" index="28"/>
-        <alias field="FOTOGRAFIJA_LETO" name="" index="29"/>
-        <alias field="FOTOGRAFIJA_AVTOR" name="" index="30"/>
-        <alias field="DATUM_VPISA" name="" index="31"/>
-        <alias field="DATUM_ZADNJE_SPREMEMBE" name="" index="32"/>
-        <alias field="DATUM_IZBRISA" name="" index="33"/>
-        <alias field="STATUS_ENOTE" name="" index="34"/>
-        <alias field="MATERIALI_STENE" name="" index="35"/>
-        <alias field="MATERIALI_STREHA" name="" index="36"/>
-        <alias field="MATERIALI_OSTALO" name="" index="37"/>
-        <alias field="TEHNIKE" name="" index="38"/>
-        <alias field="ENOTA_ID" name="" index="39"/>
-        <alias field="OSNOVNIPOD" name="" index="40"/>
-        <alias field="ISKALNO_POLJE" name="" index="41"/>
-        <alias field="STEVILKA_OT_O1" name="" index="42"/>
-        <alias field="PRIKAZ_SPLET_L" name="" index="43"/>
-        <alias field="SE_ANNO_CAD_DATA" name="" index="44"/>
-        <alias field="VARSTVO" name="" index="45"/>
-        <alias field="KF" name="" index="46"/>
-        <alias field="RKD_EID_LINK" name="" index="47"/>
+        <alias name="" field="ESD" index="0"/>
+        <alias name="" field="OBJECTID" index="1"/>
+        <alias name="" field="EID" index="2"/>
+        <alias name="" field="IME" index="3"/>
+        <alias name="" field="SINONIMI" index="4"/>
+        <alias name="" field="ZVRST" index="5"/>
+        <alias name="" field="PODZVRSTI" index="6"/>
+        <alias name="" field="TIP" index="7"/>
+        <alias name="" field="OBSEG" index="8"/>
+        <alias name="" field="STROKOVNA_PODROCJA" index="9"/>
+        <alias name="" field="PRISTOJNE_OE" index="10"/>
+        <alias name="" field="TIPOLOSKA_GESLA" index="11"/>
+        <alias name="" field="KRATEK_OPIS" index="12"/>
+        <alias name="" field="DOLG_OPIS" index="13"/>
+        <alias name="" field="AVTORJI" index="14"/>
+        <alias name="" field="DATACIJE" index="15"/>
+        <alias name="" field="NASELJE" index="16"/>
+        <alias name="" field="OBCINA" index="17"/>
+        <alias name="" field="KOORDINATE" index="18"/>
+        <alias name="" field="POVRSINA" index="19"/>
+        <alias name="" field="MEJA" index="20"/>
+        <alias name="" field="OPIS_LOKACIJE" index="21"/>
+        <alias name="" field="KATEGORIJA_REZIMA" index="22"/>
+        <alias name="" field="VARSTVENE_USMERITVE" index="23"/>
+        <alias name="" field="MEDNARODNO_VARSTVO" index="24"/>
+        <alias name="" field="FOTOGRAFIJA_IME" index="25"/>
+        <alias name="" field="FOTOGRAFIJA_VIR" index="26"/>
+        <alias name="" field="FOTOGRAFIJA_OPIS" index="27"/>
+        <alias name="" field="FOTOGRAFIJA_KRAJ" index="28"/>
+        <alias name="" field="FOTOGRAFIJA_LETO" index="29"/>
+        <alias name="" field="FOTOGRAFIJA_AVTOR" index="30"/>
+        <alias name="" field="DATUM_VPISA" index="31"/>
+        <alias name="" field="DATUM_ZADNJE_SPREMEMBE" index="32"/>
+        <alias name="" field="DATUM_IZBRISA" index="33"/>
+        <alias name="" field="STATUS_ENOTE" index="34"/>
+        <alias name="" field="MATERIALI_STENE" index="35"/>
+        <alias name="" field="MATERIALI_STREHA" index="36"/>
+        <alias name="" field="MATERIALI_OSTALO" index="37"/>
+        <alias name="" field="TEHNIKE" index="38"/>
+        <alias name="" field="ENOTA_ID" index="39"/>
+        <alias name="" field="OSNOVNIPOD" index="40"/>
+        <alias name="" field="ISKALNO_POLJE" index="41"/>
+        <alias name="" field="STEVILKA_OT_O1" index="42"/>
+        <alias name="" field="PRIKAZ_SPLET_L" index="43"/>
+        <alias name="" field="SE_ANNO_CAD_DATA" index="44"/>
+        <alias name="" field="VARSTVO" index="45"/>
+        <alias name="" field="KF" index="46"/>
+        <alias name="" field="RKD_EID_LINK" index="47"/>
       </aliases>
+      <splitPolicies>
+        <policy field="ESD" policy="Duplicate"/>
+        <policy field="OBJECTID" policy="Duplicate"/>
+        <policy field="EID" policy="Duplicate"/>
+        <policy field="IME" policy="Duplicate"/>
+        <policy field="SINONIMI" policy="Duplicate"/>
+        <policy field="ZVRST" policy="Duplicate"/>
+        <policy field="PODZVRSTI" policy="Duplicate"/>
+        <policy field="TIP" policy="Duplicate"/>
+        <policy field="OBSEG" policy="Duplicate"/>
+        <policy field="STROKOVNA_PODROCJA" policy="Duplicate"/>
+        <policy field="PRISTOJNE_OE" policy="Duplicate"/>
+        <policy field="TIPOLOSKA_GESLA" policy="Duplicate"/>
+        <policy field="KRATEK_OPIS" policy="Duplicate"/>
+        <policy field="DOLG_OPIS" policy="Duplicate"/>
+        <policy field="AVTORJI" policy="Duplicate"/>
+        <policy field="DATACIJE" policy="Duplicate"/>
+        <policy field="NASELJE" policy="Duplicate"/>
+        <policy field="OBCINA" policy="Duplicate"/>
+        <policy field="KOORDINATE" policy="Duplicate"/>
+        <policy field="POVRSINA" policy="Duplicate"/>
+        <policy field="MEJA" policy="Duplicate"/>
+        <policy field="OPIS_LOKACIJE" policy="Duplicate"/>
+        <policy field="KATEGORIJA_REZIMA" policy="Duplicate"/>
+        <policy field="VARSTVENE_USMERITVE" policy="Duplicate"/>
+        <policy field="MEDNARODNO_VARSTVO" policy="Duplicate"/>
+        <policy field="FOTOGRAFIJA_IME" policy="Duplicate"/>
+        <policy field="FOTOGRAFIJA_VIR" policy="Duplicate"/>
+        <policy field="FOTOGRAFIJA_OPIS" policy="Duplicate"/>
+        <policy field="FOTOGRAFIJA_KRAJ" policy="Duplicate"/>
+        <policy field="FOTOGRAFIJA_LETO" policy="Duplicate"/>
+        <policy field="FOTOGRAFIJA_AVTOR" policy="Duplicate"/>
+        <policy field="DATUM_VPISA" policy="Duplicate"/>
+        <policy field="DATUM_ZADNJE_SPREMEMBE" policy="Duplicate"/>
+        <policy field="DATUM_IZBRISA" policy="Duplicate"/>
+        <policy field="STATUS_ENOTE" policy="Duplicate"/>
+        <policy field="MATERIALI_STENE" policy="Duplicate"/>
+        <policy field="MATERIALI_STREHA" policy="Duplicate"/>
+        <policy field="MATERIALI_OSTALO" policy="Duplicate"/>
+        <policy field="TEHNIKE" policy="Duplicate"/>
+        <policy field="ENOTA_ID" policy="Duplicate"/>
+        <policy field="OSNOVNIPOD" policy="Duplicate"/>
+        <policy field="ISKALNO_POLJE" policy="Duplicate"/>
+        <policy field="STEVILKA_OT_O1" policy="Duplicate"/>
+        <policy field="PRIKAZ_SPLET_L" policy="Duplicate"/>
+        <policy field="SE_ANNO_CAD_DATA" policy="Duplicate"/>
+        <policy field="VARSTVO" policy="Duplicate"/>
+        <policy field="KF" policy="Duplicate"/>
+        <policy field="RKD_EID_LINK" policy="Duplicate"/>
+      </splitPolicies>
       <defaults>
-        <default expression="" field="ESD" applyOnUpdate="0"/>
-        <default expression="" field="OBJECTID" applyOnUpdate="0"/>
-        <default expression="" field="EID" applyOnUpdate="0"/>
-        <default expression="" field="IME" applyOnUpdate="0"/>
-        <default expression="" field="SINONIMI" applyOnUpdate="0"/>
-        <default expression="" field="ZVRST" applyOnUpdate="0"/>
-        <default expression="" field="PODZVRSTI" applyOnUpdate="0"/>
-        <default expression="" field="TIP" applyOnUpdate="0"/>
-        <default expression="" field="OBSEG" applyOnUpdate="0"/>
-        <default expression="" field="STROKOVNA_PODROCJA" applyOnUpdate="0"/>
-        <default expression="" field="PRISTOJNE_OE" applyOnUpdate="0"/>
-        <default expression="" field="TIPOLOSKA_GESLA" applyOnUpdate="0"/>
-        <default expression="" field="KRATEK_OPIS" applyOnUpdate="0"/>
-        <default expression="" field="DOLG_OPIS" applyOnUpdate="0"/>
-        <default expression="" field="AVTORJI" applyOnUpdate="0"/>
-        <default expression="" field="DATACIJE" applyOnUpdate="0"/>
-        <default expression="" field="NASELJE" applyOnUpdate="0"/>
-        <default expression="" field="OBCINA" applyOnUpdate="0"/>
-        <default expression="" field="KOORDINATE" applyOnUpdate="0"/>
-        <default expression="" field="POVRSINA" applyOnUpdate="0"/>
-        <default expression="" field="MEJA" applyOnUpdate="0"/>
-        <default expression="" field="OPIS_LOKACIJE" applyOnUpdate="0"/>
-        <default expression="" field="KATEGORIJA_REZIMA" applyOnUpdate="0"/>
-        <default expression="" field="VARSTVENE_USMERITVE" applyOnUpdate="0"/>
-        <default expression="" field="MEDNARODNO_VARSTVO" applyOnUpdate="0"/>
-        <default expression="" field="FOTOGRAFIJA_IME" applyOnUpdate="0"/>
-        <default expression="" field="FOTOGRAFIJA_VIR" applyOnUpdate="0"/>
-        <default expression="" field="FOTOGRAFIJA_OPIS" applyOnUpdate="0"/>
-        <default expression="" field="FOTOGRAFIJA_KRAJ" applyOnUpdate="0"/>
-        <default expression="" field="FOTOGRAFIJA_LETO" applyOnUpdate="0"/>
-        <default expression="" field="FOTOGRAFIJA_AVTOR" applyOnUpdate="0"/>
-        <default expression="" field="DATUM_VPISA" applyOnUpdate="0"/>
-        <default expression="" field="DATUM_ZADNJE_SPREMEMBE" applyOnUpdate="0"/>
-        <default expression="" field="DATUM_IZBRISA" applyOnUpdate="0"/>
-        <default expression="" field="STATUS_ENOTE" applyOnUpdate="0"/>
-        <default expression="" field="MATERIALI_STENE" applyOnUpdate="0"/>
-        <default expression="" field="MATERIALI_STREHA" applyOnUpdate="0"/>
-        <default expression="" field="MATERIALI_OSTALO" applyOnUpdate="0"/>
-        <default expression="" field="TEHNIKE" applyOnUpdate="0"/>
-        <default expression="" field="ENOTA_ID" applyOnUpdate="0"/>
-        <default expression="" field="OSNOVNIPOD" applyOnUpdate="0"/>
-        <default expression="" field="ISKALNO_POLJE" applyOnUpdate="0"/>
-        <default expression="" field="STEVILKA_OT_O1" applyOnUpdate="0"/>
-        <default expression="" field="PRIKAZ_SPLET_L" applyOnUpdate="0"/>
-        <default expression="" field="SE_ANNO_CAD_DATA" applyOnUpdate="0"/>
-        <default expression="" field="VARSTVO" applyOnUpdate="0"/>
-        <default expression="" field="KF" applyOnUpdate="0"/>
-        <default expression="" field="RKD_EID_LINK" applyOnUpdate="0"/>
+        <default applyOnUpdate="0" field="ESD" expression=""/>
+        <default applyOnUpdate="0" field="OBJECTID" expression=""/>
+        <default applyOnUpdate="0" field="EID" expression=""/>
+        <default applyOnUpdate="0" field="IME" expression=""/>
+        <default applyOnUpdate="0" field="SINONIMI" expression=""/>
+        <default applyOnUpdate="0" field="ZVRST" expression=""/>
+        <default applyOnUpdate="0" field="PODZVRSTI" expression=""/>
+        <default applyOnUpdate="0" field="TIP" expression=""/>
+        <default applyOnUpdate="0" field="OBSEG" expression=""/>
+        <default applyOnUpdate="0" field="STROKOVNA_PODROCJA" expression=""/>
+        <default applyOnUpdate="0" field="PRISTOJNE_OE" expression=""/>
+        <default applyOnUpdate="0" field="TIPOLOSKA_GESLA" expression=""/>
+        <default applyOnUpdate="0" field="KRATEK_OPIS" expression=""/>
+        <default applyOnUpdate="0" field="DOLG_OPIS" expression=""/>
+        <default applyOnUpdate="0" field="AVTORJI" expression=""/>
+        <default applyOnUpdate="0" field="DATACIJE" expression=""/>
+        <default applyOnUpdate="0" field="NASELJE" expression=""/>
+        <default applyOnUpdate="0" field="OBCINA" expression=""/>
+        <default applyOnUpdate="0" field="KOORDINATE" expression=""/>
+        <default applyOnUpdate="0" field="POVRSINA" expression=""/>
+        <default applyOnUpdate="0" field="MEJA" expression=""/>
+        <default applyOnUpdate="0" field="OPIS_LOKACIJE" expression=""/>
+        <default applyOnUpdate="0" field="KATEGORIJA_REZIMA" expression=""/>
+        <default applyOnUpdate="0" field="VARSTVENE_USMERITVE" expression=""/>
+        <default applyOnUpdate="0" field="MEDNARODNO_VARSTVO" expression=""/>
+        <default applyOnUpdate="0" field="FOTOGRAFIJA_IME" expression=""/>
+        <default applyOnUpdate="0" field="FOTOGRAFIJA_VIR" expression=""/>
+        <default applyOnUpdate="0" field="FOTOGRAFIJA_OPIS" expression=""/>
+        <default applyOnUpdate="0" field="FOTOGRAFIJA_KRAJ" expression=""/>
+        <default applyOnUpdate="0" field="FOTOGRAFIJA_LETO" expression=""/>
+        <default applyOnUpdate="0" field="FOTOGRAFIJA_AVTOR" expression=""/>
+        <default applyOnUpdate="0" field="DATUM_VPISA" expression=""/>
+        <default applyOnUpdate="0" field="DATUM_ZADNJE_SPREMEMBE" expression=""/>
+        <default applyOnUpdate="0" field="DATUM_IZBRISA" expression=""/>
+        <default applyOnUpdate="0" field="STATUS_ENOTE" expression=""/>
+        <default applyOnUpdate="0" field="MATERIALI_STENE" expression=""/>
+        <default applyOnUpdate="0" field="MATERIALI_STREHA" expression=""/>
+        <default applyOnUpdate="0" field="MATERIALI_OSTALO" expression=""/>
+        <default applyOnUpdate="0" field="TEHNIKE" expression=""/>
+        <default applyOnUpdate="0" field="ENOTA_ID" expression=""/>
+        <default applyOnUpdate="0" field="OSNOVNIPOD" expression=""/>
+        <default applyOnUpdate="0" field="ISKALNO_POLJE" expression=""/>
+        <default applyOnUpdate="0" field="STEVILKA_OT_O1" expression=""/>
+        <default applyOnUpdate="0" field="PRIKAZ_SPLET_L" expression=""/>
+        <default applyOnUpdate="0" field="SE_ANNO_CAD_DATA" expression=""/>
+        <default applyOnUpdate="0" field="VARSTVO" expression=""/>
+        <default applyOnUpdate="0" field="KF" expression=""/>
+        <default applyOnUpdate="0" field="RKD_EID_LINK" expression=""/>
       </defaults>
       <constraints>
-        <constraint exp_strength="0" field="ESD" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="OBJECTID" unique_strength="1" notnull_strength="1" constraints="3"/>
-        <constraint exp_strength="0" field="EID" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="IME" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="SINONIMI" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="ZVRST" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="PODZVRSTI" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="TIP" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="OBSEG" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="STROKOVNA_PODROCJA" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="PRISTOJNE_OE" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="TIPOLOSKA_GESLA" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="KRATEK_OPIS" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="DOLG_OPIS" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="AVTORJI" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="DATACIJE" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="NASELJE" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="OBCINA" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="KOORDINATE" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="POVRSINA" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="MEJA" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="OPIS_LOKACIJE" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="KATEGORIJA_REZIMA" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="VARSTVENE_USMERITVE" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="MEDNARODNO_VARSTVO" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="FOTOGRAFIJA_IME" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="FOTOGRAFIJA_VIR" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="FOTOGRAFIJA_OPIS" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="FOTOGRAFIJA_KRAJ" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="FOTOGRAFIJA_LETO" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="FOTOGRAFIJA_AVTOR" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="DATUM_VPISA" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="DATUM_ZADNJE_SPREMEMBE" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="DATUM_IZBRISA" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="STATUS_ENOTE" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="MATERIALI_STENE" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="MATERIALI_STREHA" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="MATERIALI_OSTALO" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="TEHNIKE" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="ENOTA_ID" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="OSNOVNIPOD" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="ISKALNO_POLJE" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="STEVILKA_OT_O1" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="PRIKAZ_SPLET_L" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="SE_ANNO_CAD_DATA" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="VARSTVO" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="KF" unique_strength="0" notnull_strength="0" constraints="0"/>
-        <constraint exp_strength="0" field="RKD_EID_LINK" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="ESD" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="OBJECTID" notnull_strength="1" exp_strength="0" constraints="3" unique_strength="1"/>
+        <constraint field="EID" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="IME" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="SINONIMI" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="ZVRST" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="PODZVRSTI" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="TIP" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="OBSEG" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="STROKOVNA_PODROCJA" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="PRISTOJNE_OE" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="TIPOLOSKA_GESLA" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="KRATEK_OPIS" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="DOLG_OPIS" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="AVTORJI" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="DATACIJE" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="NASELJE" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="OBCINA" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="KOORDINATE" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="POVRSINA" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="MEJA" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="OPIS_LOKACIJE" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="KATEGORIJA_REZIMA" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="VARSTVENE_USMERITVE" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="MEDNARODNO_VARSTVO" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="FOTOGRAFIJA_IME" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="FOTOGRAFIJA_VIR" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="FOTOGRAFIJA_OPIS" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="FOTOGRAFIJA_KRAJ" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="FOTOGRAFIJA_LETO" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="FOTOGRAFIJA_AVTOR" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="DATUM_VPISA" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="DATUM_ZADNJE_SPREMEMBE" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="DATUM_IZBRISA" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="STATUS_ENOTE" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="MATERIALI_STENE" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="MATERIALI_STREHA" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="MATERIALI_OSTALO" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="TEHNIKE" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="ENOTA_ID" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="OSNOVNIPOD" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="ISKALNO_POLJE" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="STEVILKA_OT_O1" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="PRIKAZ_SPLET_L" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="SE_ANNO_CAD_DATA" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="VARSTVO" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="KF" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
+        <constraint field="RKD_EID_LINK" notnull_strength="0" exp_strength="0" constraints="0" unique_strength="0"/>
       </constraints>
       <constraintExpressions>
-        <constraint field="ESD" desc="" exp=""/>
-        <constraint field="OBJECTID" desc="" exp=""/>
-        <constraint field="EID" desc="" exp=""/>
-        <constraint field="IME" desc="" exp=""/>
-        <constraint field="SINONIMI" desc="" exp=""/>
-        <constraint field="ZVRST" desc="" exp=""/>
-        <constraint field="PODZVRSTI" desc="" exp=""/>
-        <constraint field="TIP" desc="" exp=""/>
-        <constraint field="OBSEG" desc="" exp=""/>
-        <constraint field="STROKOVNA_PODROCJA" desc="" exp=""/>
-        <constraint field="PRISTOJNE_OE" desc="" exp=""/>
-        <constraint field="TIPOLOSKA_GESLA" desc="" exp=""/>
-        <constraint field="KRATEK_OPIS" desc="" exp=""/>
-        <constraint field="DOLG_OPIS" desc="" exp=""/>
-        <constraint field="AVTORJI" desc="" exp=""/>
-        <constraint field="DATACIJE" desc="" exp=""/>
-        <constraint field="NASELJE" desc="" exp=""/>
-        <constraint field="OBCINA" desc="" exp=""/>
-        <constraint field="KOORDINATE" desc="" exp=""/>
-        <constraint field="POVRSINA" desc="" exp=""/>
-        <constraint field="MEJA" desc="" exp=""/>
-        <constraint field="OPIS_LOKACIJE" desc="" exp=""/>
-        <constraint field="KATEGORIJA_REZIMA" desc="" exp=""/>
-        <constraint field="VARSTVENE_USMERITVE" desc="" exp=""/>
-        <constraint field="MEDNARODNO_VARSTVO" desc="" exp=""/>
-        <constraint field="FOTOGRAFIJA_IME" desc="" exp=""/>
-        <constraint field="FOTOGRAFIJA_VIR" desc="" exp=""/>
-        <constraint field="FOTOGRAFIJA_OPIS" desc="" exp=""/>
-        <constraint field="FOTOGRAFIJA_KRAJ" desc="" exp=""/>
-        <constraint field="FOTOGRAFIJA_LETO" desc="" exp=""/>
-        <constraint field="FOTOGRAFIJA_AVTOR" desc="" exp=""/>
-        <constraint field="DATUM_VPISA" desc="" exp=""/>
-        <constraint field="DATUM_ZADNJE_SPREMEMBE" desc="" exp=""/>
-        <constraint field="DATUM_IZBRISA" desc="" exp=""/>
-        <constraint field="STATUS_ENOTE" desc="" exp=""/>
-        <constraint field="MATERIALI_STENE" desc="" exp=""/>
-        <constraint field="MATERIALI_STREHA" desc="" exp=""/>
-        <constraint field="MATERIALI_OSTALO" desc="" exp=""/>
-        <constraint field="TEHNIKE" desc="" exp=""/>
-        <constraint field="ENOTA_ID" desc="" exp=""/>
-        <constraint field="OSNOVNIPOD" desc="" exp=""/>
-        <constraint field="ISKALNO_POLJE" desc="" exp=""/>
-        <constraint field="STEVILKA_OT_O1" desc="" exp=""/>
-        <constraint field="PRIKAZ_SPLET_L" desc="" exp=""/>
-        <constraint field="SE_ANNO_CAD_DATA" desc="" exp=""/>
-        <constraint field="VARSTVO" desc="" exp=""/>
-        <constraint field="KF" desc="" exp=""/>
-        <constraint field="RKD_EID_LINK" desc="" exp=""/>
+        <constraint exp="" desc="" field="ESD"/>
+        <constraint exp="" desc="" field="OBJECTID"/>
+        <constraint exp="" desc="" field="EID"/>
+        <constraint exp="" desc="" field="IME"/>
+        <constraint exp="" desc="" field="SINONIMI"/>
+        <constraint exp="" desc="" field="ZVRST"/>
+        <constraint exp="" desc="" field="PODZVRSTI"/>
+        <constraint exp="" desc="" field="TIP"/>
+        <constraint exp="" desc="" field="OBSEG"/>
+        <constraint exp="" desc="" field="STROKOVNA_PODROCJA"/>
+        <constraint exp="" desc="" field="PRISTOJNE_OE"/>
+        <constraint exp="" desc="" field="TIPOLOSKA_GESLA"/>
+        <constraint exp="" desc="" field="KRATEK_OPIS"/>
+        <constraint exp="" desc="" field="DOLG_OPIS"/>
+        <constraint exp="" desc="" field="AVTORJI"/>
+        <constraint exp="" desc="" field="DATACIJE"/>
+        <constraint exp="" desc="" field="NASELJE"/>
+        <constraint exp="" desc="" field="OBCINA"/>
+        <constraint exp="" desc="" field="KOORDINATE"/>
+        <constraint exp="" desc="" field="POVRSINA"/>
+        <constraint exp="" desc="" field="MEJA"/>
+        <constraint exp="" desc="" field="OPIS_LOKACIJE"/>
+        <constraint exp="" desc="" field="KATEGORIJA_REZIMA"/>
+        <constraint exp="" desc="" field="VARSTVENE_USMERITVE"/>
+        <constraint exp="" desc="" field="MEDNARODNO_VARSTVO"/>
+        <constraint exp="" desc="" field="FOTOGRAFIJA_IME"/>
+        <constraint exp="" desc="" field="FOTOGRAFIJA_VIR"/>
+        <constraint exp="" desc="" field="FOTOGRAFIJA_OPIS"/>
+        <constraint exp="" desc="" field="FOTOGRAFIJA_KRAJ"/>
+        <constraint exp="" desc="" field="FOTOGRAFIJA_LETO"/>
+        <constraint exp="" desc="" field="FOTOGRAFIJA_AVTOR"/>
+        <constraint exp="" desc="" field="DATUM_VPISA"/>
+        <constraint exp="" desc="" field="DATUM_ZADNJE_SPREMEMBE"/>
+        <constraint exp="" desc="" field="DATUM_IZBRISA"/>
+        <constraint exp="" desc="" field="STATUS_ENOTE"/>
+        <constraint exp="" desc="" field="MATERIALI_STENE"/>
+        <constraint exp="" desc="" field="MATERIALI_STREHA"/>
+        <constraint exp="" desc="" field="MATERIALI_OSTALO"/>
+        <constraint exp="" desc="" field="TEHNIKE"/>
+        <constraint exp="" desc="" field="ENOTA_ID"/>
+        <constraint exp="" desc="" field="OSNOVNIPOD"/>
+        <constraint exp="" desc="" field="ISKALNO_POLJE"/>
+        <constraint exp="" desc="" field="STEVILKA_OT_O1"/>
+        <constraint exp="" desc="" field="PRIKAZ_SPLET_L"/>
+        <constraint exp="" desc="" field="SE_ANNO_CAD_DATA"/>
+        <constraint exp="" desc="" field="VARSTVO"/>
+        <constraint exp="" desc="" field="KF"/>
+        <constraint exp="" desc="" field="RKD_EID_LINK"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
         <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
       </attributeactions>
-      <attributetableconfig actionWidgetStyle="dropDown" sortOrder="1" sortExpression="&quot;EID&quot;">
+      <attributetableconfig sortOrder="1" sortExpression="&quot;EID&quot;" actionWidgetStyle="dropDown">
         <columns>
-          <column type="actions" hidden="1" width="-1"/>
-          <column type="field" hidden="0" width="-1" name="OBJECTID"/>
-          <column type="field" hidden="0" width="-1" name="ESD"/>
-          <column type="field" hidden="0" width="-1" name="IME"/>
-          <column type="field" hidden="0" width="-1" name="SINONIMI"/>
-          <column type="field" hidden="0" width="105" name="EID"/>
-          <column type="field" hidden="0" width="238" name="ZVRST"/>
-          <column type="field" hidden="0" width="212" name="TIP"/>
-          <column type="field" hidden="0" width="167" name="OBSEG"/>
-          <column type="field" hidden="0" width="-1" name="AVTORJI"/>
-          <column type="field" hidden="0" width="-1" name="NASELJE"/>
-          <column type="field" hidden="0" width="-1" name="OBCINA"/>
-          <column type="field" hidden="0" width="283" name="VARSTVO"/>
-          <column type="field" hidden="0" width="-1" name="PODZVRSTI"/>
-          <column type="field" hidden="0" width="-1" name="STROKOVNA_PODROCJA"/>
-          <column type="field" hidden="0" width="-1" name="PRISTOJNE_OE"/>
-          <column type="field" hidden="0" width="-1" name="TIPOLOSKA_GESLA"/>
-          <column type="field" hidden="0" width="-1" name="KRATEK_OPIS"/>
-          <column type="field" hidden="0" width="-1" name="DOLG_OPIS"/>
-          <column type="field" hidden="0" width="-1" name="DATACIJE"/>
-          <column type="field" hidden="0" width="-1" name="KOORDINATE"/>
-          <column type="field" hidden="0" width="-1" name="POVRSINA"/>
-          <column type="field" hidden="0" width="-1" name="OPIS_LOKACIJE"/>
-          <column type="field" hidden="0" width="-1" name="KATEGORIJA_REZIMA"/>
-          <column type="field" hidden="0" width="-1" name="VARSTVENE_USMERITVE"/>
-          <column type="field" hidden="0" width="-1" name="MEDNARODNO_VARSTVO"/>
-          <column type="field" hidden="0" width="-1" name="FOTOGRAFIJA_IME"/>
-          <column type="field" hidden="0" width="-1" name="FOTOGRAFIJA_VIR"/>
-          <column type="field" hidden="0" width="-1" name="FOTOGRAFIJA_OPIS"/>
-          <column type="field" hidden="0" width="-1" name="FOTOGRAFIJA_KRAJ"/>
-          <column type="field" hidden="0" width="-1" name="FOTOGRAFIJA_LETO"/>
-          <column type="field" hidden="0" width="-1" name="FOTOGRAFIJA_AVTOR"/>
-          <column type="field" hidden="0" width="-1" name="DATUM_VPISA"/>
-          <column type="field" hidden="0" width="-1" name="DATUM_ZADNJE_SPREMEMBE"/>
-          <column type="field" hidden="0" width="-1" name="DATUM_IZBRISA"/>
-          <column type="field" hidden="0" width="-1" name="STATUS_ENOTE"/>
-          <column type="field" hidden="0" width="-1" name="MATERIALI_STENE"/>
-          <column type="field" hidden="0" width="-1" name="MATERIALI_STREHA"/>
-          <column type="field" hidden="0" width="-1" name="MATERIALI_OSTALO"/>
-          <column type="field" hidden="0" width="-1" name="TEHNIKE"/>
-          <column type="field" hidden="0" width="-1" name="ENOTA_ID"/>
-          <column type="field" hidden="0" width="-1" name="OSNOVNIPOD"/>
-          <column type="field" hidden="0" width="-1" name="ISKALNO_POLJE"/>
-          <column type="field" hidden="0" width="-1" name="STEVILKA_OT_O1"/>
-          <column type="field" hidden="0" width="-1" name="PRIKAZ_SPLET_L"/>
-          <column type="field" hidden="0" width="-1" name="SE_ANNO_CAD_DATA"/>
-          <column type="field" hidden="0" width="-1" name="KF"/>
-          <column type="field" hidden="0" width="-1" name="RKD_EID_LINK"/>
-          <column type="field" hidden="0" width="-1" name="MEJA"/>
+          <column width="-1" type="actions" hidden="1"/>
+          <column width="-1" type="field" name="OBJECTID" hidden="0"/>
+          <column width="-1" type="field" name="ESD" hidden="0"/>
+          <column width="-1" type="field" name="IME" hidden="0"/>
+          <column width="-1" type="field" name="SINONIMI" hidden="0"/>
+          <column width="105" type="field" name="EID" hidden="0"/>
+          <column width="238" type="field" name="ZVRST" hidden="0"/>
+          <column width="212" type="field" name="TIP" hidden="0"/>
+          <column width="167" type="field" name="OBSEG" hidden="0"/>
+          <column width="-1" type="field" name="AVTORJI" hidden="0"/>
+          <column width="-1" type="field" name="NASELJE" hidden="0"/>
+          <column width="-1" type="field" name="OBCINA" hidden="0"/>
+          <column width="283" type="field" name="VARSTVO" hidden="0"/>
+          <column width="-1" type="field" name="PODZVRSTI" hidden="0"/>
+          <column width="-1" type="field" name="STROKOVNA_PODROCJA" hidden="0"/>
+          <column width="-1" type="field" name="PRISTOJNE_OE" hidden="0"/>
+          <column width="-1" type="field" name="TIPOLOSKA_GESLA" hidden="0"/>
+          <column width="-1" type="field" name="KRATEK_OPIS" hidden="0"/>
+          <column width="-1" type="field" name="DOLG_OPIS" hidden="0"/>
+          <column width="-1" type="field" name="DATACIJE" hidden="0"/>
+          <column width="-1" type="field" name="KOORDINATE" hidden="0"/>
+          <column width="-1" type="field" name="POVRSINA" hidden="0"/>
+          <column width="-1" type="field" name="OPIS_LOKACIJE" hidden="0"/>
+          <column width="-1" type="field" name="KATEGORIJA_REZIMA" hidden="0"/>
+          <column width="-1" type="field" name="VARSTVENE_USMERITVE" hidden="0"/>
+          <column width="-1" type="field" name="MEDNARODNO_VARSTVO" hidden="0"/>
+          <column width="-1" type="field" name="FOTOGRAFIJA_IME" hidden="0"/>
+          <column width="-1" type="field" name="FOTOGRAFIJA_VIR" hidden="0"/>
+          <column width="-1" type="field" name="FOTOGRAFIJA_OPIS" hidden="0"/>
+          <column width="-1" type="field" name="FOTOGRAFIJA_KRAJ" hidden="0"/>
+          <column width="-1" type="field" name="FOTOGRAFIJA_LETO" hidden="0"/>
+          <column width="-1" type="field" name="FOTOGRAFIJA_AVTOR" hidden="0"/>
+          <column width="-1" type="field" name="DATUM_VPISA" hidden="0"/>
+          <column width="-1" type="field" name="DATUM_ZADNJE_SPREMEMBE" hidden="0"/>
+          <column width="-1" type="field" name="DATUM_IZBRISA" hidden="0"/>
+          <column width="-1" type="field" name="STATUS_ENOTE" hidden="0"/>
+          <column width="-1" type="field" name="MATERIALI_STENE" hidden="0"/>
+          <column width="-1" type="field" name="MATERIALI_STREHA" hidden="0"/>
+          <column width="-1" type="field" name="MATERIALI_OSTALO" hidden="0"/>
+          <column width="-1" type="field" name="TEHNIKE" hidden="0"/>
+          <column width="-1" type="field" name="ENOTA_ID" hidden="0"/>
+          <column width="-1" type="field" name="OSNOVNIPOD" hidden="0"/>
+          <column width="-1" type="field" name="ISKALNO_POLJE" hidden="0"/>
+          <column width="-1" type="field" name="STEVILKA_OT_O1" hidden="0"/>
+          <column width="-1" type="field" name="PRIKAZ_SPLET_L" hidden="0"/>
+          <column width="-1" type="field" name="SE_ANNO_CAD_DATA" hidden="0"/>
+          <column width="-1" type="field" name="KF" hidden="0"/>
+          <column width="-1" type="field" name="RKD_EID_LINK" hidden="0"/>
+          <column width="-1" type="field" name="MEJA" hidden="0"/>
         </columns>
       </attributetableconfig>
       <conditionalstyles>
@@ -1584,349 +1635,349 @@ def my_form_open(dialog, layer, feature):
       <featformsuppress>0</featformsuppress>
       <editorlayout>tablayout</editorlayout>
       <attributeEditorForm>
-        <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-          <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+        <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+          <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
         </labelStyle>
-        <attributeEditorContainer collapsedExpression="" showLabel="1" columnCount="1" collapsed="0" groupBox="0" visibilityExpression="" visibilityExpressionEnabled="0" collapsedExpressionEnabled="0" name="Osnovne informacije">
-          <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-            <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+        <attributeEditorContainer columnCount="1" name="Osnovne informacije" showLabel="1" collapsedExpression="" visibilityExpressionEnabled="0" visibilityExpression="" groupBox="0" collapsedExpressionEnabled="0" collapsed="0">
+          <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+            <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
           </labelStyle>
-          <attributeEditorField showLabel="1" name="EID" index="2">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="EID" showLabel="1" index="2">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="ESD" index="0">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="ESD" showLabel="1" index="0">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="IME" index="3">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="IME" showLabel="1" index="3">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="ZVRST" index="5">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="ZVRST" showLabel="1" index="5">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="TIP" index="7">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="TIP" showLabel="1" index="7">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="TIPOLOSKA_GESLA" index="11">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="TIPOLOSKA_GESLA" showLabel="1" index="11">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="KRATEK_OPIS" index="12">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="KRATEK_OPIS" showLabel="1" index="12">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="OPIS_LOKACIJE" index="21">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="OPIS_LOKACIJE" showLabel="1" index="21">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="DATACIJE" index="15">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="DATACIJE" showLabel="1" index="15">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="KATEGORIJA_REZIMA" index="22">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="KATEGORIJA_REZIMA" showLabel="1" index="22">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="VARSTVENE_USMERITVE" index="23">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="VARSTVENE_USMERITVE" showLabel="1" index="23">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="DATUM_ZADNJE_SPREMEMBE" index="32">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="DATUM_ZADNJE_SPREMEMBE" showLabel="1" index="32">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
         </attributeEditorContainer>
-        <attributeEditorContainer collapsedExpression="" showLabel="1" columnCount="1" collapsed="0" groupBox="0" visibilityExpression="" visibilityExpressionEnabled="0" collapsedExpressionEnabled="0" name="Ostale informacije">
-          <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-            <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+        <attributeEditorContainer columnCount="1" name="Ostale informacije" showLabel="1" collapsedExpression="" visibilityExpressionEnabled="0" visibilityExpression="" groupBox="0" collapsedExpressionEnabled="0" collapsed="0">
+          <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+            <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
           </labelStyle>
-          <attributeEditorField showLabel="1" name="DOLG_OPIS" index="13">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="DOLG_OPIS" showLabel="1" index="13">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="KOORDINATE" index="18">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="KOORDINATE" showLabel="1" index="18">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="PODZVRSTI" index="6">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="PODZVRSTI" showLabel="1" index="6">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="NASELJE" index="16">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="NASELJE" showLabel="1" index="16">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="OBSEG" index="8">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="OBSEG" showLabel="1" index="8">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="PRISTOJNE_OE" index="10">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="PRISTOJNE_OE" showLabel="1" index="10">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="POVRSINA" index="19">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="POVRSINA" showLabel="1" index="19">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="MEDNARODNO_VARSTVO" index="24">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="MEDNARODNO_VARSTVO" showLabel="1" index="24">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="FOTOGRAFIJA_IME" index="25">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="FOTOGRAFIJA_IME" showLabel="1" index="25">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="SINONIMI" index="4">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="SINONIMI" showLabel="1" index="4">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="TIP" index="7">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="TIP" showLabel="1" index="7">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="STROKOVNA_PODROCJA" index="9">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="STROKOVNA_PODROCJA" showLabel="1" index="9">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="OBCINA" index="17">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="OBCINA" showLabel="1" index="17">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="FOTOGRAFIJA_VIR" index="26">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="FOTOGRAFIJA_VIR" showLabel="1" index="26">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="AVTORJI" index="14">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="AVTORJI" showLabel="1" index="14">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="MEJA" index="20">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="MEJA" showLabel="1" index="20">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="OBJECTID" index="1">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="OBJECTID" showLabel="1" index="1">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="OSNOVNIPOD" index="40">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="OSNOVNIPOD" showLabel="1" index="40">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="ISKALNO_POLJE" index="41">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="ISKALNO_POLJE" showLabel="1" index="41">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="VARSTVO" index="45">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="VARSTVO" showLabel="1" index="45">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="FOTOGRAFIJA_LETO" index="29">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="FOTOGRAFIJA_LETO" showLabel="1" index="29">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="STATUS_ENOTE" index="34">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="STATUS_ENOTE" showLabel="1" index="34">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="MATERIALI_STENE" index="35">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="MATERIALI_STENE" showLabel="1" index="35">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="ENOTA_ID" index="39">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="ENOTA_ID" showLabel="1" index="39">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="PRIKAZ_SPLET_L" index="43">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="PRIKAZ_SPLET_L" showLabel="1" index="43">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="MATERIALI_STREHA" index="36">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="MATERIALI_STREHA" showLabel="1" index="36">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="KF" index="46">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="KF" showLabel="1" index="46">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="DATUM_IZBRISA" index="33">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="DATUM_IZBRISA" showLabel="1" index="33">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="SE_ANNO_CAD_DATA" index="44">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="SE_ANNO_CAD_DATA" showLabel="1" index="44">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="TEHNIKE" index="38">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="TEHNIKE" showLabel="1" index="38">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="STEVILKA_OT_O1" index="42">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="STEVILKA_OT_O1" showLabel="1" index="42">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="MATERIALI_OSTALO" index="37">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="MATERIALI_OSTALO" showLabel="1" index="37">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="FOTOGRAFIJA_KRAJ" index="28">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="FOTOGRAFIJA_KRAJ" showLabel="1" index="28">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="FOTOGRAFIJA_OPIS" index="27">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="FOTOGRAFIJA_OPIS" showLabel="1" index="27">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="DATUM_VPISA" index="31">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="DATUM_VPISA" showLabel="1" index="31">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="FOTOGRAFIJA_AVTOR" index="30">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="FOTOGRAFIJA_AVTOR" showLabel="1" index="30">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
-          <attributeEditorField showLabel="1" name="RKD_EID_LINK" index="47">
-            <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
-              <labelFont description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" underline="0" strikethrough="0" bold="0" style="" italic="0"/>
+          <attributeEditorField name="RKD_EID_LINK" showLabel="1" index="47">
+            <labelStyle overrideLabelColor="0" overrideLabelFont="0" labelColor="0,0,0,255">
+              <labelFont italic="0" strikethrough="0" description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" bold="0" underline="0" style=""/>
             </labelStyle>
           </attributeEditorField>
         </attributeEditorContainer>
       </attributeEditorForm>
       <editable>
-        <field editable="1" name="AVTORJI"/>
-        <field editable="1" name="DATACIJA"/>
-        <field editable="1" name="DATACIJE"/>
-        <field editable="1" name="DATUM_IZBRISA"/>
-        <field editable="1" name="DATUM_VPISA"/>
-        <field editable="1" name="DATUM_ZADNJE_SPREMEMBE"/>
-        <field editable="1" name="DOLG_OPIS"/>
-        <field editable="1" name="EID"/>
-        <field editable="1" name="ENOTA_ID"/>
-        <field editable="1" name="ESD"/>
-        <field editable="1" name="ESD - Ime"/>
-        <field editable="1" name="FOTOAVTOR"/>
-        <field editable="1" name="FOTODAT"/>
-        <field editable="1" name="FOTOGRAFIJA_AVTOR"/>
-        <field editable="1" name="FOTOGRAFIJA_IME"/>
-        <field editable="1" name="FOTOGRAFIJA_KRAJ"/>
-        <field editable="1" name="FOTOGRAFIJA_LETO"/>
-        <field editable="1" name="FOTOGRAFIJA_OPIS"/>
-        <field editable="1" name="FOTOGRAFIJA_VIR"/>
-        <field editable="1" name="FOTOPOVEZA"/>
-        <field editable="1" name="GESLA"/>
-        <field editable="1" name="IME"/>
-        <field editable="1" name="ISKALNO_POLJE"/>
-        <field editable="1" name="KATEGORIJA_REZIMA"/>
-        <field editable="1" name="KF"/>
-        <field editable="1" name="KOORDINATE"/>
-        <field editable="1" name="KRATEK_OPIS"/>
-        <field editable="1" name="LOKACIJA"/>
-        <field editable="1" name="LOKACIJAOP"/>
-        <field editable="1" name="MATERIALI_OSTALO"/>
-        <field editable="1" name="MATERIALI_STENE"/>
-        <field editable="1" name="MATERIALI_STREHA"/>
-        <field editable="1" name="MEDNARODNO_VARSTVO"/>
-        <field editable="1" name="MEJA"/>
-        <field editable="1" name="NASELJE"/>
-        <field editable="1" name="OBCINA"/>
-        <field editable="1" name="OBJECTID"/>
-        <field editable="1" name="OBMOCJEDNE"/>
-        <field editable="1" name="OBSEG"/>
-        <field editable="1" name="OPIS"/>
-        <field editable="1" name="OPIS_LOKACIJE"/>
-        <field editable="1" name="OPOMBE"/>
-        <field editable="1" name="OPOMBEPOVE"/>
-        <field editable="1" name="OSNOVNIPOD"/>
-        <field editable="1" name="OSTALO"/>
-        <field editable="1" name="PODREZIM"/>
-        <field editable="1" name="PODREZIMPO"/>
-        <field editable="1" name="PODROCJA"/>
-        <field editable="1" name="PODZRSTI"/>
-        <field editable="1" name="PODZVRSTI"/>
-        <field editable="1" name="POV"/>
-        <field editable="1" name="POVRSINA"/>
-        <field editable="1" name="PREDPIS"/>
-        <field editable="1" name="PREDPISOBJ"/>
-        <field editable="1" name="PREDPISPOV"/>
-        <field editable="1" name="PRIKAZ_SPLET_L"/>
-        <field editable="1" name="PRISTOJNE_OE"/>
-        <field editable="1" name="REZIM"/>
-        <field editable="1" name="REZIMPOVEZ"/>
-        <field editable="1" name="RKD_EID_LINK"/>
-        <field editable="1" name="RZGLOBDOBJ"/>
-        <field editable="1" name="RZGLOPOMBE"/>
-        <field editable="1" name="RZGLVRSTA"/>
-        <field editable="1" name="SE_ANNO_CAD_DATA"/>
-        <field editable="1" name="SHAPE.AREA"/>
-        <field editable="1" name="SHAPE.LEN"/>
-        <field editable="1" name="SINONIMI"/>
-        <field editable="1" name="SPOMENIKVR"/>
-        <field editable="1" name="SPREMEMDNE"/>
-        <field editable="1" name="STANJE_POD"/>
-        <field editable="1" name="STATUS_ENOTE"/>
-        <field editable="1" name="STEVILKA_OT_O1"/>
-        <field editable="1" name="STROKOVNA_PODROCJA"/>
-        <field editable="1" name="TEHNIKE"/>
-        <field editable="1" name="TIP"/>
-        <field editable="1" name="TIPOLOSKA_GESLA"/>
-        <field editable="1" name="USMERITVE"/>
-        <field editable="1" name="VARSTVENE_USMERITVE"/>
-        <field editable="1" name="VARSTVO"/>
-        <field editable="1" name="VPISDNE"/>
-        <field editable="1" name="ZAVOD"/>
-        <field editable="1" name="ZVRST"/>
-        <field editable="1" name="id"/>
+        <field name="AVTORJI" editable="1"/>
+        <field name="DATACIJA" editable="1"/>
+        <field name="DATACIJE" editable="1"/>
+        <field name="DATUM_IZBRISA" editable="1"/>
+        <field name="DATUM_VPISA" editable="1"/>
+        <field name="DATUM_ZADNJE_SPREMEMBE" editable="1"/>
+        <field name="DOLG_OPIS" editable="1"/>
+        <field name="EID" editable="1"/>
+        <field name="ENOTA_ID" editable="1"/>
+        <field name="ESD" editable="1"/>
+        <field name="ESD - Ime" editable="1"/>
+        <field name="FOTOAVTOR" editable="1"/>
+        <field name="FOTODAT" editable="1"/>
+        <field name="FOTOGRAFIJA_AVTOR" editable="1"/>
+        <field name="FOTOGRAFIJA_IME" editable="1"/>
+        <field name="FOTOGRAFIJA_KRAJ" editable="1"/>
+        <field name="FOTOGRAFIJA_LETO" editable="1"/>
+        <field name="FOTOGRAFIJA_OPIS" editable="1"/>
+        <field name="FOTOGRAFIJA_VIR" editable="1"/>
+        <field name="FOTOPOVEZA" editable="1"/>
+        <field name="GESLA" editable="1"/>
+        <field name="IME" editable="1"/>
+        <field name="ISKALNO_POLJE" editable="1"/>
+        <field name="KATEGORIJA_REZIMA" editable="1"/>
+        <field name="KF" editable="1"/>
+        <field name="KOORDINATE" editable="1"/>
+        <field name="KRATEK_OPIS" editable="1"/>
+        <field name="LOKACIJA" editable="1"/>
+        <field name="LOKACIJAOP" editable="1"/>
+        <field name="MATERIALI_OSTALO" editable="1"/>
+        <field name="MATERIALI_STENE" editable="1"/>
+        <field name="MATERIALI_STREHA" editable="1"/>
+        <field name="MEDNARODNO_VARSTVO" editable="1"/>
+        <field name="MEJA" editable="1"/>
+        <field name="NASELJE" editable="1"/>
+        <field name="OBCINA" editable="1"/>
+        <field name="OBJECTID" editable="1"/>
+        <field name="OBMOCJEDNE" editable="1"/>
+        <field name="OBSEG" editable="1"/>
+        <field name="OPIS" editable="1"/>
+        <field name="OPIS_LOKACIJE" editable="1"/>
+        <field name="OPOMBE" editable="1"/>
+        <field name="OPOMBEPOVE" editable="1"/>
+        <field name="OSNOVNIPOD" editable="1"/>
+        <field name="OSTALO" editable="1"/>
+        <field name="PODREZIM" editable="1"/>
+        <field name="PODREZIMPO" editable="1"/>
+        <field name="PODROCJA" editable="1"/>
+        <field name="PODZRSTI" editable="1"/>
+        <field name="PODZVRSTI" editable="1"/>
+        <field name="POV" editable="1"/>
+        <field name="POVRSINA" editable="1"/>
+        <field name="PREDPIS" editable="1"/>
+        <field name="PREDPISOBJ" editable="1"/>
+        <field name="PREDPISPOV" editable="1"/>
+        <field name="PRIKAZ_SPLET_L" editable="1"/>
+        <field name="PRISTOJNE_OE" editable="1"/>
+        <field name="REZIM" editable="1"/>
+        <field name="REZIMPOVEZ" editable="1"/>
+        <field name="RKD_EID_LINK" editable="1"/>
+        <field name="RZGLOBDOBJ" editable="1"/>
+        <field name="RZGLOPOMBE" editable="1"/>
+        <field name="RZGLVRSTA" editable="1"/>
+        <field name="SE_ANNO_CAD_DATA" editable="1"/>
+        <field name="SHAPE.AREA" editable="1"/>
+        <field name="SHAPE.LEN" editable="1"/>
+        <field name="SINONIMI" editable="1"/>
+        <field name="SPOMENIKVR" editable="1"/>
+        <field name="SPREMEMDNE" editable="1"/>
+        <field name="STANJE_POD" editable="1"/>
+        <field name="STATUS_ENOTE" editable="1"/>
+        <field name="STEVILKA_OT_O1" editable="1"/>
+        <field name="STROKOVNA_PODROCJA" editable="1"/>
+        <field name="TEHNIKE" editable="1"/>
+        <field name="TIP" editable="1"/>
+        <field name="TIPOLOSKA_GESLA" editable="1"/>
+        <field name="USMERITVE" editable="1"/>
+        <field name="VARSTVENE_USMERITVE" editable="1"/>
+        <field name="VARSTVO" editable="1"/>
+        <field name="VPISDNE" editable="1"/>
+        <field name="ZAVOD" editable="1"/>
+        <field name="ZVRST" editable="1"/>
+        <field name="id" editable="1"/>
       </editable>
       <labelOnTop>
         <field name="AVTORJI" labelOnTop="0"/>
