@@ -6,7 +6,7 @@
 name=AGIS
 qgisMinimumVersion=3.0
 description=Archaeological GIS, toolbox for Slovenian Archaeologists.
-version=1.4.3
+version=1.4.4
 author=Matjaž Mori
 email=matjaz.mori@gmail.com
 
@@ -26,7 +26,8 @@ repository=https://github.com/matjash/AGIS
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-changelog= v1.4.3 updated cadastre layer for faster response, added historic maps (1930, 1950) by Ministry of Culture, updated TTN5 source
+changelog= v1.4.4: Added DOF25, ZLS shaded relief, fixed ZLS SFV layer link
+    v1.4.3: updated cadastre layer for faster response, added historic maps (1930, 1950) by Ministry of Culture, updated TTN5 source
     v1.4.2: Updated RNPD and eVRD layer sources, added eArheologija, updated cadastre layer;
     v1.4.1: Updated RKD and eVRD layer source, added TTN5;
     v1.4.0: Added Arcanum toolbar button and historical map IGM25. Updated layer sources for Public Infrastructure Cadastre
@@ -37,7 +38,7 @@ changelog= v1.4.3 updated cadastre layer for faster response, added historic map
     v1.0: First realease
 
 # Tags are comma separated with spaces allowed
-tags=python, archaeology, Slovenia, geology, cadastre
+tags=python, archaeology, Slovenia, geology, cadastre, lidar
 
 homepage=https://github.com/matjash/AGIS
 category=AGIS
