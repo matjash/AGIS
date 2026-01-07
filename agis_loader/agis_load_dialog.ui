@@ -78,7 +78,7 @@
        <item>
         <widget class="QCheckBox" name="dediscina">
          <property name="text">
-          <string>Dediščina (eVRD, RKD)</string>
+          <string>Dediščina (eVRD, RNPD, eArheologija)</string>
          </property>
          <property name="checked">
           <bool>true</bool>
