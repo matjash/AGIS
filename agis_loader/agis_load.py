@@ -240,7 +240,7 @@ class ArheoloskiGisLoad:
             else:
                 arheo_group = root.findGroup(self.tr("Arheologija"))
             
-            vlayer = postgis_connect(self, "public", "Katalog najdišč", "geom", "kid")
+            vlayer = postgis_connect(self, "public", "Katalog najdišč", "geomd96", "kid")
             QgsProject.instance().addMapLayer(vlayer, False)  
             arheo_group.insertChildNode(0, QgsLayerTreeLayer(vlayer))
 
@@ -256,7 +256,7 @@ class ArheoloskiGisLoad:
             
             arch_layers = ['SMAP', 'ZLS interpretacija']
             for layer in arch_layers:
-                vlayer = postgis_connect(self, "public", layer, "geom", "gid")
+                vlayer = postgis_connect(self, "public", layer, "geomd96", "gid")
                 QgsProject.instance().addMapLayer(vlayer, False) 
                 arheo_group.insertChildNode(7, QgsLayerTreeLayer(vlayer))  
 
