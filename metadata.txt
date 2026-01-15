@@ -26,7 +26,7 @@ repository=https://github.com/matjash/AGIS
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-changelog= v1.4.5 minor fixes loading internal layers 
+changelog= v1.4.5 minor fixes loading internal and external layers 
     v1.4.4: Added DOF25, ZLS shaded relief, fixed ZLS SFV layer link
     v1.4.3: updated cadastre layer for faster response, added historic maps (1930, 1950) by Ministry of Culture, updated TTN5 source
     v1.4.2: Updated RNPD and eVRD layer sources, added eArheologija, updated cadastre layer;
