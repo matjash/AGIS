@@ -104,7 +104,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Historične podlage (Franciscejski kataster, AO topo)</string>
+          <string>Historične podlage (Zgodovinski DOF)</string>
          </property>
          <property name="checked">
           <bool>true</bool>
