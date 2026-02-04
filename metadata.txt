@@ -4,9 +4,9 @@
 
 [general]
 name=AGIS
-qgisMinimumVersion=3.0
+qgisMinimumVersion=3.10
 description=Archaeological GIS, toolbox for Slovenian Archaeologists.
-version=1.4.5
+version=1.9.9
 author=Matjaž Mori
 email=matjaz.mori@gmail.com
 
@@ -26,7 +26,8 @@ repository=https://github.com/matjash/AGIS
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-changelog= v1.4.5 minor fixes loading internal layers 
+changelog= v1.9.9 major rebuild, QGIS4 compatibility
+    v1.4.5 minor fixes loading internal layers 
     v1.4.4: Added DOF25, ZLS shaded relief, fixed ZLS SFV layer link
     v1.4.3: updated cadastre layer for faster response, added historic maps (1930, 1950) by Ministry of Culture, updated TTN5 source
     v1.4.2: Updated RNPD and eVRD layer sources, added eArheologija, updated cadastre layer;
@@ -39,7 +40,7 @@ changelog= v1.4.5 minor fixes loading internal layers
     v1.0: First realease
 
 # Tags are comma separated with spaces allowed
-tags=python, archaeology, Slovenia, geology, cadastre, lidar
+tags=python, archaeology, Slovenia, cadastre, lidar
 
 homepage=https://github.com/matjash/AGIS
 category=AGIS

@@ -21,234 +21,127 @@
  *                                                                         *
  ***************************************************************************/
 """
-from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
+from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, pyqtSignal, Qt
 from qgis.PyQt.QtGui import QIcon
-from qgis.PyQt.QtWidgets import QAction, QMenu
-from qgis.core import QgsProcessingAlgorithm, QgsApplication
+from qgis.PyQt.QtWidgets import QAction, QDockWidget, QTabWidget, QWidget, QVBoxLayout
+from qgis.core import (QgsProject, QgsCoordinateReferenceSystem, QgsCoordinateTransform)
+   
 import os.path
-from pathlib import Path
 
-
-# Initialize Qt resources from file resources.py
-from .resources import *
 
 from .externals import path, access
-
-#import processing provider
-#from .processing_provider.provider import Provider
+import webbrowser
 
 # Import the code for the dialog
-from .agis_loader.agis_load import ArheoloskiGisLoad
-from .agis_links.agis_links import ArheoloskiGisLinks
-from .about.agis_about import ArheoloskiGisAbout
 from .agis_work_loader.agis_work_loader import ArheoloskiGisWorkLoader
+from .tab_nalozi_sloje import TabNaloziSloje
+from .tab_iskalnik import TabIskalnik
+
 
 class ArheoloskiGis:
     """QGIS Plugin Implementation."""
-    def __init__(self, iface):
-        """Constructor.
-        :param iface: An interface instance that will be passed to this class
-            which provides the hook by which you can manipulate the QGIS
-            application at run time.
-        :type iface: QgsInterface
-        """
-        # Save reference to the QGIS interface
-        self.iface = iface
-        # initialize plugin directory
-        self.plugin_dir = os.path.dirname(__file__)
-        # initialize locale
-        locale = QSettings().value('locale/userLocale')[0:2]
-        locale_path = os.path.join(
-            self.plugin_dir,
-            'i18n',
-            'ArheoloskiGis_{}.qm'.format(locale))
 
+    def __init__(self, iface):
+        self.iface = iface
+        self.plugin_dir = os.path.dirname(__file__)
+        locale = QSettings().value('locale/userLocale')[0:2]
+        locale_path = os.path.join(self.plugin_dir, 'i18n', f'ArheoloskiGis_{locale}.qm')
         if os.path.exists(locale_path):
             self.translator = QTranslator()
             self.translator.load(locale_path)
             QCoreApplication.installTranslator(self.translator)
-
-        # Declare instance attributes
         self.actions = []
         self.menu = self.tr('AGIS')
+        self.toolbar = self.iface.addToolBar('AGIS')
+        self.toolbar.setObjectName('AGIS')
+        self.pluginIsActive = False
+        self.dockwidget = None
 
-        #self.provider = Provider()
-
-		#Create custom menu
-        self.AGIS_Menu = QMenu(self.menu)
-
-		#Create sub menus
-        #self.Sub_Menu = QMenu("Pre-Processor")
-        #self.AGIS_Menu.addMenu(self.Sub_Menu)
-
-        #Add tools to menus, actions..
-        self.load_icon = str(path('icons')/'icon_load.png')
-        self.Load_agis = QAction(QIcon(self.load_icon),self.tr("Naloži sloje"), self.iface.mainWindow())
-        self.AGIS_Menu.addAction(self.Load_agis)
-        self.Load_agis.triggered.connect(self.Loadagis)
-
-        self.links_icon = str(path('icons')/'icon_links.png')
-        self.Links_agis = QAction(QIcon(self.links_icon),self.tr("Uporabne povezave"), self.iface.mainWindow())
-        self.AGIS_Menu.addAction(self.Links_agis)
-        self.Links_agis.triggered.connect(self.link)
-
+        
         if access(self):
             self.work_loader_icon = str(path('icons')/'icon_work_loader.png')
-            self.Work_loader = QAction(QIcon(self.work_loader_icon),self.tr("Naloži delovne sloje"), self.iface.mainWindow())
-            self.AGIS_Menu.addAction(self.Work_loader)
+            self.Work_loader = QAction(QIcon(self.work_loader_icon), self.tr("Naloži delovne sloje"), self.iface.mainWindow())
             self.Work_loader.triggered.connect(self.work_loader)
-
+            self.toolbar.addAction(self.Work_loader)
+            self.actions.append(self.Work_loader)
 
         self.arcanum_loader_icon = str(path('icons')/'icon_arcanum_loader.png')
-        self.Arcanum = QAction(QIcon(self.arcanum_loader_icon),self.tr("Arcanum"), self.iface.mainWindow())
-        #self.AGIS_Menu.addAction(self.Arcanum)
+        self.Arcanum = QAction(QIcon(self.arcanum_loader_icon), self.tr("Arcanum"), self.iface.mainWindow())
         self.Arcanum.triggered.connect(self.arcanum)
-
-
-
-        self.about_icon = str(path('icons')/'agis_logo.png')
-        self.About_agis = QAction(QIcon(self.about_icon),self.tr('O vtičniku'), self.iface.mainWindow())
-        self.AGIS_Menu.addAction(self.About_agis)
-        self.About_agis.triggered.connect(self.about)
-
-        self.iface.mainWindow().menuBar().insertMenu(self.iface.firstRightStandardMenu().menuAction(), self.AGIS_Menu)
+        self.toolbar.addAction(self.Arcanum)
+        self.actions.append(self.Arcanum)
 
 
 
 
-        # Check if plugin was started the first time in current QGIS session
-        # Must be set in initGui() to survive plugin reloads
-        self.first_start = None
-
-    # noinspection PyMethodMayBeStatic
     def tr(self, message):
-        """Get the translation for a string using Qt translation API.
-
-        We implement this ourselves since we do not inherit QObject.
-
-        :param message: String for translation.
-        :type message: str, QString
-
-        :returns: Translated version of message.
-        :rtype: QString
-        """
-        # noinspection PyTypeChecker,PyArgumentList,PyCallByClass
         return QCoreApplication.translate('ArheoloskiGis', message)
 
-
-    def add_action(
-        self,
-        icon_path,
-        text,
-        callback,
-        enabled_flag=True,
-        add_to_menu=True,
-        add_to_toolbar=True,
-        status_tip=None,
-        whats_this='aaa',
-        parent=None):
-
+    def add_action(self, icon_path, text, callback, parent=None):
         icon = QIcon(icon_path)
         action = QAction(icon, text, parent)
         action.triggered.connect(callback)
-        action.setEnabled(enabled_flag)
-
-        if status_tip is not None:
-            action.setStatusTip(status_tip)
-
-        if whats_this is not None:
-            action.setWhatsThis(whats_this)
-
-        if add_to_toolbar:
-            # Adds plugin icon to Plugins toolbar
-            self.iface.addToolBarIcon(action)
-        """
-        if add_to_menu:
-            self.iface.addPluginToMenu(
-                self.menu,
-                action)
-        """
+        self.toolbar.addAction(action)
+        self.iface.addPluginToWebMenu(self.menu, action)
         self.actions.append(action)
         return action
 
-
     def initGui(self):
-        """Create the menu entries and toolbar icons inside the QGIS GUI."""
-
-        #QgsApplication.processingRegistry().addProvider(self.provider)
-
-
-        # will be set False in run()
-        self.first_start = True
-
-        self.add_action(
-            self.load_icon,
-            text=self.tr('Naloži sloje'),
-            callback=self.Loadagis,
-            parent=self.iface.mainWindow())
-
-
-        if access(self):
-            self.add_action(
-                self.work_loader_icon,
-                text=self.tr('Naloži delovne sloje'),
-                callback=self.work_loader,
-                parent=self.iface.mainWindow())
-
-        self.add_action(
-            self.arcanum_loader_icon,
-            text=self.tr('Arcanum'),
-            callback=self.arcanum,
-            parent=self.iface.mainWindow())
+        # Add AGIS icon to toolbar, clicking it opens the AGIS dock widget
+        icon_path = str(path('icons')/'icon_load.png')
+        self.agis_toolbar_action = QAction(QIcon(icon_path), self.tr('AGIS'), self.iface.mainWindow())
+        self.agis_toolbar_action.triggered.connect(self.run)
+        self.toolbar.addAction(self.agis_toolbar_action)
+        self.iface.addPluginToWebMenu(self.menu, self.agis_toolbar_action)
+        self.actions.append(self.agis_toolbar_action)
+        # Automatically open the AGIS panel on plugin load
+        self.run()
 
     def unload(self):
-        """Removes the plugin menu item and icon from QGIS GUI."""
-  
-        #QgsApplication.processingRegistry().removeProvider(self.provider)
-        
         for action in self.actions:
-            self.iface.removePluginMenu(
-                self.tr('AGIS'),
-                action)
-            self.iface.removeToolBarIcon(action)
-            self.iface.removePluginMenu(
-                self.tr('Naloži sloje'),
-                action)
-            self.iface.removePluginMenu(
-                self.tr('O vtičniku'),
-                action)
-            if access(self):
-                self.iface.removePluginMenu(
-                self.tr('Naloži delovne sloje'),
-                action)
-            if access(self):
-                self.iface.removePluginMenu(
-                self.tr('Arcanum'),
-                action)
-
+            self.iface.removePluginWebMenu(self.menu, action)
+            self.toolbar.removeAction(action)
+        # Remove the toolbar itself
+        if self.toolbar:
+            self.iface.mainWindow().removeToolBar(self.toolbar)
+            self.toolbar = None
 
     def run(self):
-        """Run method that performs all the real work"""
-        # Create the dialog with elements (after translation) and keep reference
-        # Only create GUI ONCE in callback, so that it will only load when the plugin is started
-        if self.first_start == True:
-            self.first_start = False
+        if not self.pluginIsActive:
+            self.pluginIsActive = True
+            if self.dockwidget is None:
+                self.dockwidget = AgisDockWidget(self.iface.mainWindow())
+            self.dockwidget.closingPlugin.connect(self.onClosePlugin)
+            self.dockwidget.show()
+
+    def onClosePlugin(self):
+        self.dockwidget.closingPlugin.disconnect(self.onClosePlugin)
+        self.pluginIsActive = False
+
+
 
 
     def arcanum(self):
-        ArheoloskiGisLinks.arcanum(self)
+        #Get bounding box and transform to WGS84 pseudo
+        crsSrc = self.iface.mapCanvas().mapSettings().destinationCrs().authid()
+        crsSrc = QgsCoordinateReferenceSystem(crsSrc)
+        crsDest = QgsCoordinateReferenceSystem("EPSG:3857")
+        transform = QgsCoordinateTransform(crsSrc, crsDest, QgsProject.instance())
+        bbox = self.iface.mapCanvas().extent()
+        e = transform.transformBoundingBox(bbox)
+        xmin = e.xMinimum()
+        ymin = e.yMinimum()
+        xmax = e.xMaximum()
+        ymax = e.yMaximum()
+ 
+ 
+        part_one = 'https://mapire.eu/en/map/cadastral/?bbox='
+        sep = '%2C'
+        part_three = '&map-list=1&layers=here-aerial%2C3%2C4'
+        link = '%s%s%s%s%s%s%s%s%s' %(part_one, xmin, sep, ymin, sep, xmax, sep, ymax,part_three) 
+        webbrowser.open(link)
+        pass
 
-    def link(self):
-        ld = ArheoloskiGisLinks(self.iface)
-        ld.run()
-
-    def Loadagis(self):
-        ld = ArheoloskiGisLoad(self.iface)
-        ld.run()
-
-    def about(self):
-        ld = ArheoloskiGisAbout(self.iface)
-        ld.run()
     
     def work_loader(self):
         ld = ArheoloskiGisWorkLoader(self.iface)
@@ -256,3 +149,28 @@ class ArheoloskiGis:
 
 
 
+class AgisDockWidget(QDockWidget):
+    closingPlugin = pyqtSignal()
+
+    def __init__(self, iface, parent=None):
+        super().__init__(parent)
+        self.iface = iface
+        self.setWindowTitle("AGIS")
+        self.main_widget = QWidget()
+        self.setWidget(self.main_widget)
+
+ 
+        layout = QVBoxLayout(self.main_widget)
+        layout.setContentsMargins(0, 0, 0, 0)
+        
+        # Create tab widget
+        self.tabs = QTabWidget()
+        layout.addWidget(self.tabs)
+
+        # Add main tabs
+        self.tabs.addTab(TabNaloziSloje(iface), "Naloži sloje")
+        self.iface.addDockWidget(Qt.RightDockWidgetArea, self)
+
+    def closeEvent(self, event):
+        self.closingPlugin.emit()
+        event.accept()

@@ -48,15 +48,13 @@ import shutil
 import psycopg2
 import re
 
-# Initialize Qt resources from file resources.py
-from ..resources import *
+
 # Import the code for the dialog
 from .agis_work_loader_dialog import ArheoloskiGisWorkLoaderDialog
 import os.path
 from pathlib import Path
 from ..externals import (path,
                         data_access,
-                        access,
                         postgis_connect,
                         parameters,
                         get_work_layers

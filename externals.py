@@ -1,14 +1,11 @@
 import os
 from pathlib import Path
-from qgis.core import (QgsProject,
-                       QgsRasterLayer,
+from qgis.core import (
                        QgsVectorLayer,
-                       QgsLayerDefinition,
                        QgsDataSourceUri
                        )
-import psycopg2
 import base64
-
+import socket
 def path(item):
     path = {}
     plugin_dir = os.path.dirname(__file__)
@@ -18,10 +15,10 @@ def path(item):
     path['icons'] = path['plugin']/"icons"
     path['dependencies'] = path['plugin']/"dependencies"
 
-
     path = path[item]
     return path
 
+#to be changed with secure method later
 def parameters(self):
     in_params = ['bWFqYWRi','Q1BBX0FuYWxpemE=','Y3Bh','Y3Bh','NTQzMg==']
     params = []
@@ -31,19 +28,16 @@ def parameters(self):
     return params
 
 # Checks if connected to CPA, ZVKDS network
-def access(self):
+def access(self, timeout=1):
     self.host = parameters(self)[0]
-    self.database =  parameters(self)[1]
-    self.user =  parameters(self)[2]
-    self.password =  parameters(self)[3]
     self.port =  parameters(self)[4]
     try:
-        conn = psycopg2.connect(host=self.host,port=self.port, database=self.database, user=self.user, password=self.password, connect_timeout=1)
-        conn.close()
-        return True
+        with socket.create_connection((self.host, int(self.port)), timeout=timeout):
+            return True
     except:
-        return False   
+        return False
 
+# Check if data path is accessible
 def data_access(self):
     data_path = Path('V:/01 CPA - PODATKOVNE ZBIRKE/03 GIS CPA')
     if data_path.exists():
