@@ -6,12 +6,13 @@ from qgis.core import (
                        )
 import base64
 import socket
-def path(item):
+def pn_path(item):
     path = {}
     plugin_dir = os.path.dirname(__file__)
 
     path['plugin'] = Path(plugin_dir)
     path['qlrs'] = path['plugin']/"qlrs"
+    path['qml'] = path['plugin']/"qml"
     path['icons'] = path['plugin']/"icons"
     path['dependencies'] = path['plugin']/"dependencies"
 
@@ -63,3 +64,12 @@ def get_work_layers(self):
         if not table.isValid():
             self.iface.messageBar().pushMessage(self.tr('Težave z dostopom.'))
         return table
+    
+def load_cpa_sources_list(self):
+    uri = QgsDataSourceUri()
+    uri.setConnection(self.host, self.port, self.database, self.user, self.user)  
+    uri.setDataSource("Delovno", "layer_sources", None, "", "id")
+    table = QgsVectorLayer(uri.uri(), self.tr("layer_sources"), "postgres")
+    if not table.isValid():
+        self.iface.messageBar().pushMessage(self.tr('Težave z dostopom.'))
+    return table

@@ -23,7 +23,7 @@ class AgisPanel(QDockWidget):
         # Tabs
         self.tabs = QTabWidget()
         self.tabs.addTab(QWidget(), 'Naloži sloje')
-        self.tabs.addTab(QWidget(), 'Iskalnik')
+        self.tabs.addTab(QWidget(), 'eArheologija')
         self.tabs.addTab(QWidget(), 'O vtičniku')
         main_widget = QWidget()
         main_layout = QVBoxLayout()
@@ -33,6 +33,6 @@ class AgisPanel(QDockWidget):
         # For later: expose tab widgets for module logic
         self.tab_widgets = {
             'Naloži sloje': self.tabs.widget(0),
-            'Iskalnik': self.tabs.widget(1),
+            'eArheologija': self.tabs.widget(1),
             'O vtičniku': self.tabs.widget(2)
         }

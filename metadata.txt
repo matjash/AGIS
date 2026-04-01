@@ -4,9 +4,11 @@
 
 [general]
 name=AGIS
-qgisMinimumVersion=3.10
+qgisMinimumVersion=3.1
+qgisMaximumVersion=4.99
+supportsQt6=True
 description=Archaeological GIS, toolbox for Slovenian Archaeologists.
-version=1.9.9
+version=2.0.0
 author=Matjaž Mori
 email=matjaz.mori@gmail.com
 
@@ -26,7 +28,7 @@ repository=https://github.com/matjash/AGIS
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-changelog= v1.9.9 major rebuild, QGIS4 compatibility
+changelog= v2.0.0 major rebuild, QGIS4 compatibility
     v1.4.5 minor fixes loading internal layers 
     v1.4.4: Added DOF25, ZLS shaded relief, fixed ZLS SFV layer link
     v1.4.3: updated cadastre layer for faster response, added historic maps (1930, 1950) by Ministry of Culture, updated TTN5 source
@@ -61,3 +63,4 @@ Category of the plugin: Raster, Vector, Database or Web
 
 # If the plugin can run on QGIS Server.
 server=False
+

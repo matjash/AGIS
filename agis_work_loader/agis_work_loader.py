@@ -53,7 +53,7 @@ import re
 from .agis_work_loader_dialog import ArheoloskiGisWorkLoaderDialog
 import os.path
 from pathlib import Path
-from ..externals import (path,
+from ..externals import (pn_path,
                         data_access,
                         postgis_connect,
                         parameters,
@@ -97,7 +97,7 @@ class ArheoloskiGisWorkLoader:
 
         self.dlg.remove_layers.clicked.connect(self.remove_layers)
     
-        logo_path = path('icons')/"CPA_logo_small.png"
+        logo_path = pn_path('icons')/"CPA_logo_small.png"
         self.dlg.label_2.setPixmap(QPixmap(str(logo_path)))
         # Declare instance attributes
         self.actions = []

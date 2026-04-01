@@ -1,6 +1,6 @@
 from qgis.PyQt.QtWidgets import QWidget
 
 class TabOVticniku(QWidget):
-    def __init__(self, parent=None):
+    def __init__(self, iface=None, parent=None):
         super().__init__(parent)
-        # TODO: Add UI and logic for 'O vtičniku' tab
+        self.iface = iface

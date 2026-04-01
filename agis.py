@@ -29,13 +29,14 @@ from qgis.core import (QgsProject, QgsCoordinateReferenceSystem, QgsCoordinateTr
 import os.path
 
 
-from .externals import path, access
+from .externals import pn_path, access
 import webbrowser
 
 # Import the code for the dialog
 from .agis_work_loader.agis_work_loader import ArheoloskiGisWorkLoader
 from .tab_nalozi_sloje import TabNaloziSloje
 from .tab_iskalnik import TabIskalnik
+from .tab_o_vticniku import TabOVticniku
 
 
 class ArheoloskiGis:
@@ -59,13 +60,13 @@ class ArheoloskiGis:
 
         
         if access(self):
-            self.work_loader_icon = str(path('icons')/'icon_work_loader.png')
+            self.work_loader_icon = str(pn_path('icons')/'icon_work_loader.png')
             self.Work_loader = QAction(QIcon(self.work_loader_icon), self.tr("Naloži delovne sloje"), self.iface.mainWindow())
             self.Work_loader.triggered.connect(self.work_loader)
             self.toolbar.addAction(self.Work_loader)
             self.actions.append(self.Work_loader)
 
-        self.arcanum_loader_icon = str(path('icons')/'icon_arcanum_loader.png')
+        self.arcanum_loader_icon = str(pn_path('icons')/'icon_arcanum_loader.png')
         self.Arcanum = QAction(QIcon(self.arcanum_loader_icon), self.tr("Arcanum"), self.iface.mainWindow())
         self.Arcanum.triggered.connect(self.arcanum)
         self.toolbar.addAction(self.Arcanum)
@@ -88,7 +89,7 @@ class ArheoloskiGis:
 
     def initGui(self):
         # Add AGIS icon to toolbar, clicking it opens the AGIS dock widget
-        icon_path = str(path('icons')/'icon_load.png')
+        icon_path = str(pn_path('icons')/'icon_load.png')
         self.agis_toolbar_action = QAction(QIcon(icon_path), self.tr('AGIS'), self.iface.mainWindow())
         self.agis_toolbar_action.triggered.connect(self.run)
         self.toolbar.addAction(self.agis_toolbar_action)
@@ -101,16 +102,25 @@ class ArheoloskiGis:
         for action in self.actions:
             self.iface.removePluginWebMenu(self.menu, action)
             self.toolbar.removeAction(action)
-        # Remove the toolbar itself
+
         if self.toolbar:
             self.iface.mainWindow().removeToolBar(self.toolbar)
             self.toolbar = None
+
+        # ⭐ IMPORTANT PART
+        if self.dockwidget:
+            self.iface.removeDockWidget(self.dockwidget)
+            self.dockwidget.deleteLater()
+            self.dockwidget = None
+            self.pluginIsActive = False
+
+
 
     def run(self):
         if not self.pluginIsActive:
             self.pluginIsActive = True
             if self.dockwidget is None:
-                self.dockwidget = AgisDockWidget(self.iface.mainWindow())
+                self.dockwidget = AgisDockWidget(self.iface, self.iface.mainWindow())
             self.dockwidget.closingPlugin.connect(self.onClosePlugin)
             self.dockwidget.show()
 
@@ -168,8 +178,13 @@ class AgisDockWidget(QDockWidget):
         layout.addWidget(self.tabs)
 
         # Add main tabs
-        self.tabs.addTab(TabNaloziSloje(iface), "Naloži sloje")
-        self.iface.addDockWidget(Qt.RightDockWidgetArea, self)
+
+        self.tabs.addTab(TabNaloziSloje(iface), self.tr("Naloži sloje"))
+        self.tabs.addTab(TabIskalnik(iface), self.tr("eArheologija"))
+        self.tabs.addTab(TabOVticniku(iface), self.tr("O vtičniku"))
+
+        self.iface.addDockWidget(Qt.DockWidgetArea.RightDockWidgetArea, self)
+
 
     def closeEvent(self, event):
         self.closingPlugin.emit()
