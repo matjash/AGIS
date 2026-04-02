@@ -2,7 +2,7 @@ from qgis.PyQt.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout,
     QLineEdit, QToolButton, QTableWidget,
     QTableWidgetItem, QHeaderView, QMenu,
-    QAction, QAbstractItemView, QProgressBar
+    QAction, QAbstractItemView, QProgressBar, QLabel
 )
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtCore import Qt, QTimer
@@ -27,7 +27,16 @@ LOG_TAG = "TabNaloziSloje"
 def log(msg, level=Qgis.Info):
     QgsMessageLog.logMessage(msg, LOG_TAG, level)
 
+class SortableIconItem(QTableWidgetItem):
+    def __init__(self, sort_key):
+        super().__init__()
+        self._sort_key = sort_key
 
+    def __lt__(self, other):
+        if isinstance(other, SortableIconItem):
+            return self._sort_key < other._sort_key
+        return super().__lt__(other)
+    
 class TabNaloziSloje(QWidget):
 
     ICON_BY_TYPE = {
@@ -51,6 +60,14 @@ class TabNaloziSloje(QWidget):
         self.resources = []
 
         main_layout = QVBoxLayout(self)
+
+
+        self._status_bar = QLabel()
+        self._status_bar.setFixedHeight(4)
+        self._status_bar.setStyleSheet("background: #eee;")  # grey = unknown
+        main_layout.addWidget(self._status_bar)
+
+
 
         # SEARCH
         top_layout = QHBoxLayout()
@@ -105,6 +122,7 @@ class TabNaloziSloje(QWidget):
         self.table.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.table.setSortingEnabled(True)
 
+
         header = self.table.horizontalHeader()
         header.setSectionResizeMode(0, QHeaderView.ResizeMode.ResizeToContents)
         header.setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
@@ -115,8 +133,18 @@ class TabNaloziSloje(QWidget):
 
         main_layout.addWidget(self.table)
 
+        # Preload icons
+        self._icons = {
+            k: QIcon(str(pn_path("icons") / v))
+            for k, v in self.ICON_BY_TYPE.items()
+        }
+        self._icon_default = QIcon(str(pn_path("icons") / "layer.png"))
+
         self.load_resources()
         self.table.cellDoubleClicked.connect(self.handle_double_click)
+
+        self._update_status_bar()
+
 
         # STATE
         self._layer_queue = []
@@ -125,7 +153,21 @@ class TabNaloziSloje(QWidget):
         self._loaded_count = 0
         self._canvas = None
 
+
+
+
+
+
     # -----------------------------------------------------------------------
+
+
+    def _update_status_bar(self):
+        if access(self):
+            self._status_bar.setStyleSheet("background: #4caf50;")  # green = connected
+            self._status_bar.setToolTip(self.tr("Povezan z bazo CPA"))
+        else:
+            self._status_bar.setStyleSheet("background: #eee;")  # grey = not connected
+            self._status_bar.setToolTip(self.tr("Ni povezave z bazo CPA"))
 
     def get_resources_from_db(self):
         if access(self):
@@ -138,22 +180,24 @@ class TabNaloziSloje(QWidget):
                     "uri": f["uri"],
                     "url": f["url"],
                     "authority": f["authority"],
-                    "qml": f["qml"]
+                    "qml": f["qml"],
+                    "qlr_xml": f["qlr_xml"], 
+                    "order": f["order"]
                 } for f in table.getFeatures()]
 
         conn = sqlite3.connect(self.resources_db)
         c = conn.cursor()
         c.execute("""
-            SELECT name, source_type, uri, url, description, authority, qml
+            SELECT name, source_type, uri, url, description, authority, qml, qlr_xml, "order"
             FROM layer_sources
             WHERE enabled=1
-            ORDER BY "order", id
+            ORDER BY "order" ASC
         """)
         rows = c.fetchall()
         conn.close()
 
         resources = []
-        for name, source_type, uri, url, description, authority, qml in rows:
+        for name, source_type, uri, url, description, authority, qml, qlr_xml, order in rows:
             if uri:
                 uri = uri.replace("{qlrs}", str(pn_path("qlrs")))
             if qml:
@@ -165,38 +209,65 @@ class TabNaloziSloje(QWidget):
                 "uri": uri,
                 "url": url,
                 "authority": authority or "",
-                "qml": qml or ""
+                "qml": qml or "",
+                "qlr_xml": qlr_xml or "",
+                "order": order
             })
         return resources
 
     # -----------------------------------------------------------------------
 
+
     def load_resources(self):
         self.resources = self.get_resources_from_db()
-        self.table.setRowCount(len(self.resources))
+        self._populate_table()
+
+
+
+    def _populate_table(self):
+        t = self.table
+        t.setUpdatesEnabled(False)
+        t.setSortingEnabled(False)
+        t.clearContents()
+        t.setRowCount(len(self.resources))
 
         for row, res in enumerate(self.resources):
-            icon = QTableWidgetItem()
-            icon.setIcon(QIcon(str(pn_path("icons") / self.ICON_BY_TYPE.get(res["type"], "layer.png"))))
-            self.table.setItem(row, 0, icon)
+            icon_item = SortableIconItem(res.get("order", row))
+            icon_item.setIcon(self._icons.get(res["type"], self._icon_default))
+            icon_item.setFlags(Qt.ItemFlag.ItemIsEnabled)
 
+                
             tooltip = (
                 f"Name: {res['naziv']}\n"
-                f"Type: {res['type']}\n"
                 f"URI: {res['uri']}\n"
                 f"Description: {res['opis']}\n"
                 f"Authority: {res.get('authority', 'N/A')}"
-            )
+            )  # keep it short
 
-            
             name_item = QTableWidgetItem(res["naziv"])
             name_item.setData(Qt.ItemDataRole.UserRole, res)
             name_item.setToolTip(tooltip)
-            opis_item = QTableWidgetItem(res["opis"])
-            opis_item.setToolTip(tooltip)
 
-            self.table.setItem(row, 1, name_item)
-            self.table.setItem(row, 2, opis_item)
+            desc_item = QTableWidgetItem(res["opis"])
+            desc_item.setToolTip(tooltip)
+            
+            t.setItem(row, 0, icon_item)
+            t.setItem(row, 1, name_item)
+            t.setItem(row, 2, desc_item)
+
+        t.setUpdatesEnabled(True)
+        t.setSortingEnabled(True)
+        t.sortItems(t.horizontalHeader().sortIndicatorSection(),
+                t.horizontalHeader().sortIndicatorOrder())
+
+
+
+    def refresh_table(self):
+        self.table.horizontalHeader().setSortIndicator(0, Qt.SortOrder.AscendingOrder)
+        self.load_resources()
+        self._update_status_bar()
+
+
 
     # -----------------------------------------------------------------------
 
@@ -258,23 +329,60 @@ class TabNaloziSloje(QWidget):
 
 
 
+
+
+    def _load_qlr_from_string(self, qlr_xml, name):
+        doc = QDomDocument()
+        ok, err, line, col = doc.setContent(qlr_xml)
+        if not ok:
+            log(f"QLR XML parse error at line {line}: {err}", Qgis.Critical)
+            return
+
+        QgsLayerDefinition.loadLayerDefinition(
+            doc,
+            QgsProject.instance(),
+            QgsProject.instance().layerTreeRoot(),
+            QgsReadWriteContext()
+        )
+
+
+
+
     def _load_single_layer(self, res):
         name = res["naziv"]
         uri = res.get("uri") or res.get("url")
         t = res.get("type")
         provider = res.get("type", "ogr")
         style_path = res.get("qml")
-       
+        qlr_xml = res.get("qlr_xml")
 
         try:
             if t in ("qlr", "definition"):
-                QgsLayerDefinition.loadLayerDefinition(uri, QgsProject.instance(), QgsProject.instance().layerTreeRoot())
-
+                if qlr_xml:
+                    self._load_qlr_from_string(qlr_xml, name)
+                    log(f"QLR load from db: {name}", Qgis.Info)
+                else:
+                    self.iface.mapCanvas().setMapTool(None)
+                    QgsLayerDefinition.loadLayerDefinition(
+                        uri,
+                        QgsProject.instance(),
+                        QgsProject.instance().layerTreeRoot()
+                    )
+                    log(f"QLR load from file: {name}", Qgis.Info)
+          
+                    
             elif t == "wms":
                 layer = QgsRasterLayer(uri, name, "wms")
-                if layer.isValid():
-                    QgsProject.instance().addMapLayer(layer)
 
+                if not layer or layer.dataProvider() is None:
+                    log(f"Invalid WMTS/WMS provider: {name}", Qgis.Critical)
+                    return
+
+                if not layer.isValid():
+                    log(f"Invalid raster layer: {name}", Qgis.Critical)
+                    return
+
+                QgsProject.instance().addMapLayer(layer)
             else:
                 layer = QgsVectorLayer(uri, name, provider)
                 if layer.isValid():
@@ -326,8 +434,6 @@ class TabNaloziSloje(QWidget):
         self.progress.setValue(0)
     # -----------------------------------------------------------------------
 
-    def refresh_table(self):
-        self.load_resources()
 
     def show_context_menu(self, pos):
         menu = QMenu(self)

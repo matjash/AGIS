@@ -20,18 +20,19 @@ def pn_path(item):
     return path
 
 #to be changed with secure method later
-def parameters(self):
-    in_params = ['bWFqYWRi','Q1BBX0FuYWxpemE=','Y3Bh','Y3Bh','NTQzMg==']
-    params = []
-    for par in in_params:
-        par = base64.b64decode(par).decode('utf')
-        params.append(par) 
-    return params
+_cached_params = None
 
-# Checks if connected to CPA, ZVKDS network
-def access(self, timeout=1):
-    self.host = parameters(self)[0]
-    self.port =  parameters(self)[4]
+def parameters(self):
+    global _cached_params
+    if _cached_params is None:
+        in_params = ['bWFqYWRi','Q1BBX0FuYWxpemE=','Y3Bh','Y3Bh','NTQzMg==']
+        _cached_params = [base64.b64decode(p).decode('utf-8') for p in in_params]
+    return _cached_params
+
+def access(self, timeout=0.1):
+    params = parameters(self)  # now a single cached call
+    self.host = params[0]
+    self.port = params[4]
     try:
         with socket.create_connection((self.host, int(self.port)), timeout=timeout):
             return True
@@ -48,8 +49,9 @@ def data_access(self):
 
 # Get layer from CPA, ZVKDS database
 def postgis_connect(self, shema, tablename, geometry, id):
+    params = parameters(self) 
     uri = QgsDataSourceUri()
-    uri.setConnection(self.host, self.port, self.database, self.user, self.user)  
+    uri.setConnection( params[0], params[4], params[1], params[2], params[3])  
     uri.setDataSource(shema, tablename, geometry)
     uri.setKeyColumn(id)
     vlayer=QgsVectorLayer (uri.uri(False), tablename, "postgres")
@@ -66,10 +68,5 @@ def get_work_layers(self):
         return table
     
 def load_cpa_sources_list(self):
-    uri = QgsDataSourceUri()
-    uri.setConnection(self.host, self.port, self.database, self.user, self.user)  
-    uri.setDataSource("Delovno", "layer_sources", None, "", "id")
-    table = QgsVectorLayer(uri.uri(), self.tr("layer_sources"), "postgres")
-    if not table.isValid():
-        self.iface.messageBar().pushMessage(self.tr('Težave z dostopom.'))
+    table = postgis_connect(self, "cpa", "agis_layer_sources", None, "id")
     return table
