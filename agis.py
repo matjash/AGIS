@@ -181,7 +181,7 @@ class AgisDockWidget(QDockWidget):
 
         self.tabs.addTab(TabNaloziSloje(iface), self.tr("Naloži sloje"))
         self.tabs.addTab(TabIskalnik(iface), self.tr("eArheologija"))
-        self.tabs.addTab(TabOVticniku(iface), self.tr("O vtičniku"))
+        self.tabs.addTab(TabOVticniku(iface), self.tr("Pomoč"))
 
         self.iface.addDockWidget(Qt.DockWidgetArea.RightDockWidgetArea, self)
 
