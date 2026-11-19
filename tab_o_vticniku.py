@@ -25,9 +25,8 @@ class TabOVticniku(QWidget):
 
         tabs = QTabWidget()
 
-        tabs.addTab(self._build_pomoc(), "Navodila za uporabo")
         tabs.addTab(self._build_o_vticniku(), "O vtičniku")
-        
+        tabs.addTab(self._build_pomoc(), "Navodila za uporabo")
         
         layout.addWidget(tabs)
 
@@ -94,7 +93,7 @@ class TabOVticniku(QWidget):
         layout.addWidget(viri)
 
 
-        layout.addWidget(self._section_label("Razvoj"))
+        layout.addWidget(self._section_label("Vzdrževanje"))
         vzdrzevanje = QLabel(
             "Vtičnik je razvit v okviru <b>Centra za preventivno arheologijo (CPA), ZVKDS</b>."
         )
@@ -180,6 +179,14 @@ class TabOVticniku(QWidget):
             "<b>Dvojni klik</b> približa na zapis, <b>desni klik</b>: več informacij, prikaz geometrije in "
             "(pri zaključenih raziskavah) odpiranje poročil. <b>Le v obsegu karte</b> pokaže samo zapise "
             "na trenutnem izseku karte. Sloja za karto sta v zavihku <b>Naloži sloje</b>."))
+
+        layout.addWidget(self._section_label("Delovni sloji (omrežje CPA)"))
+        layout.addWidget(self._text(
+            "Gumb <b>Naloži delovne sloje</b> v orodni vrstici (viden le v omrežju CPA): enkrat na sejo se "
+            "prijavite s svojim uporabnikom, nato se odpre seznam delovnih slojev. Naložite jih z dvojnim "
+            "klikom, s povleci-spusti v panel Sloji ali z <b>Naloži vse</b>. Sivi sloji za vašo prijavo niso "
+            "dostopni. Slogi in spustni seznami so shranjeni v bazi; tabele, iz katerih berejo spustni seznami, "
+            "se naložijo same."))
 
         layout.addWidget(self._section_label("Nastavitve"))
         layout.addWidget(self._text(

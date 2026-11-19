@@ -66,12 +66,17 @@ Ročno testiranje v pravem QGIS (3.28+ in QGIS 4) z lokalno kopijo baze CPA, GUR
 - [ ] Projekt v drugem CRS (npr. EPSG:3857) – približanje in obseg delujeta.
 - [ ] Nastavitve → Spletni viri: spremeni naslov eVRD na FeatureServer (`…/MK_EVRD/FeatureServer/0`, če obstaja) → po ponovnem zagonu QGIS deluje; ↺ vrne privzeto. Oznaka DEV se ne pojavi.
 
-## E. Delovni sloji
-- [ ] Tvoja prijava → skupina »Delovni sloji«, brez slojev »admin«; v Upravitelju prijav (Nastavitve → Overjanje) ni ostala začasna prijava.
-- [ ] Napačno geslo → »Napačno uporabniško ime ali geslo.«, okno ostane odprto.
-- [ ] Shranjena prijava (izbira v oknu) → naloži, prijava ostane shranjena.
-- [ ] »Odstrani delovne sloje« → skupina in sloji izginejo.
-
+## E. Delovni sloji (2.0.1)
+- [ ] Gumb »Naloži delovne sloje« → prijava (uporabniško ime je izpolnjeno od zadnjič). Napačno geslo → eno sporočilo, brez ponavljajočih oken za geslo.
+- [ ] Po prijavi se odpre okno »AGIS – delovni sloji«: seznam brez vrstic »admin«; sloji brez pravic so sivi (nasvet pove zakaj). Ponoven klik na gumb odpre okno brez nove prijave.
+- [ ] Dvojni klik / desni klik → Naloži: nad izbrani sloj oz. v izbrano skupino, brez izbire na vrh. Povleci-spusti v panel Sloji. Sloj, ki je že v projektu, se ne naloži dvakrat.
+- [ ] »Naloži vse« → skupina »Delovni sloji« na vrhu, vsi berljivi sloji.
+- [ ] Slog iz baze (privzeti slog v `layer_styles`) se uporabi.
+- [ ] **ZLS Interpretacija_delovno**: polje Vrsta je spustni seznam iz `ZLS interpretacija_kategorije`, samo vrste za izbrani Sloj; tabela kategorij se naloži sama, poleg sloja.
+- [ ] Gumb z uporabnikom (👤) → prijava z drugim uporabnikom, seznam se osveži.
+- [ ] Shrani projekt z delovnimi sloji, zapri QGIS, odpri projekt (QGIS lahko vpraša za geslo – Prekliči), nato »Naloži delovne sloje« in prijava → »Ponovno povezanih delovnih slojev …«, sloji spet delujejo.
+- [ ] Sloji ostanejo berljivi čez nekaj minut (premik karte, tabela atributov, urejanje). Po zaprtju QGIS v Nastavitve → Možnosti → Overjanje ni več prijave »AGIS začasno (…)«.
+- [ ] »Odstrani delovne sloje« → skupina in delovni sloji (tudi tabela kategorij) izginejo.
 ## F. QGIS 4
 - [ ] Vsi zavihki, okna (+ obrazec, prijava, izvoz, seznam parcel, delovni sloji) se odprejo brez napak (Vtičniki → Python konzola za morebitne napake, Dnevnik sporočil → AGIS).
 

@@ -18,8 +18,11 @@
 """
 
 from qgis.PyQt.QtCore import QCoreApplication, Qt
-from qgis.PyQt.QtGui import QIcon
-from qgis.PyQt.QtWidgets import QAction, QDialog, QDockWidget, QLabel, QTabWidget, QVBoxLayout, QWidget
+from qgis.PyQt.QtGui import QIcon, QPixmap
+from qgis.PyQt.QtWidgets import (
+    QAction, QDialog, QDockWidget, QFrame, QHBoxLayout, QLabel, QStyle, QTabWidget, QToolButton, QVBoxLayout,
+    QWidget,
+)
 from qgis.core import QgsSettings
 
 from . import config
@@ -45,6 +48,7 @@ class ArheoloskiGis:
         self.actions = []
         self.work_action = None
         self.quick = None
+        self.work = None
         self.menu = tr("AGIS")
 
     # ------------------------------------------------------------------ GUI
@@ -77,6 +81,10 @@ class ArheoloskiGis:
             self.work_action.setVisible(reachable)
 
     def unload(self):
+        if self.work is not None:
+            self.work.close()
+            self.work = None
+        self._remove_temporary_logins()
         for action, in_menu in self.actions:
             if in_menu:
                 self.iface.removePluginWebMenu(self.menu, action)
@@ -117,9 +125,66 @@ class ArheoloskiGis:
         self.quick.activateWindow()
         self.quick.list.search.setFocus()
 
+    @staticmethod
+    def _remove_temporary_logins():
+        """Temporary logins of work layers live only while QGIS runs."""
+        from .agis_work_loader.agis_work_loader import remove_temporary_logins
+        try:
+            remove_temporary_logins()
+        except Exception as e:          # never block loading/unloading the plugin
+            from .externals import log
+            log(f"Začasnih prijav ni bilo mogoče odstraniti: {e}")
+
     def work_loader(self):
         from .agis_work_loader.agis_work_loader import ArheoloskiGisWorkLoader  # only when used
-        ArheoloskiGisWorkLoader(self.iface).run()
+        if self.work is None:
+            self.work = ArheoloskiGisWorkLoader(self.iface)
+        self.work.run()
+
+
+CPA_GREEN = "#2e7d32"
+
+
+class DockTitleBar(QWidget):
+    """Title bar of the AGIS panel: logo, name, float and close buttons, and a thin
+    green line along the whole width while the CPA database is reachable.
+    Unhandled mouse events go to the dock, so dragging and double-click still work."""
+
+    def __init__(self, dock):
+        super().__init__(dock)
+        self.dock = dock
+        outer = QVBoxLayout(self)
+        outer.setContentsMargins(0, 0, 0, 0)
+        outer.setSpacing(0)
+        row = QHBoxLayout()
+        row.setContentsMargins(4, 2, 2, 2)
+        row.setSpacing(4)
+        logo = QLabel()
+        h = max(14, self.fontMetrics().height())
+        logo.setPixmap(QPixmap(str(pn_path("icons") / "agis_small.png")).scaled(
+            h, h, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation))
+        row.addWidget(logo)
+        title = QLabel("AGIS")
+        title.setStyleSheet("font-weight: bold;")
+        row.addWidget(title)
+        row.addStretch()
+        for pixmap, tip, slot in (
+                (QStyle.StandardPixmap.SP_TitleBarNormalButton, tr("Odklopi / priklopi panel"),
+                 lambda: dock.setFloating(not dock.isFloating())),
+                (QStyle.StandardPixmap.SP_TitleBarCloseButton, tr("Zapri"), dock.close)):
+            b = QToolButton()
+            b.setAutoRaise(True)
+            b.setIcon(self.style().standardIcon(pixmap))
+            b.setToolTip(tip)
+            b.setFixedSize(h + 4, h + 4)
+            b.clicked.connect(slot)
+            row.addWidget(b)
+        outer.addLayout(row)
+        self.cpa_line = QFrame()
+        self.cpa_line.setFixedHeight(2)
+        self.cpa_line.setStyleSheet(f"background: {CPA_GREEN}; border: none;")
+        self.cpa_line.setToolTip(tr("Povezano z bazo CPA"))
+        outer.addWidget(self.cpa_line)
 
 
 class AgisDockWidget(QDockWidget):
@@ -129,6 +194,8 @@ class AgisDockWidget(QDockWidget):
         self.iface = iface
         self.setWindowTitle("AGIS")
         self.setObjectName("AgisDock")
+        self.title_bar = DockTitleBar(self)
+        self.setTitleBarWidget(self.title_bar)
 
         main = QWidget()
         layout = QVBoxLayout(main)
@@ -145,7 +212,7 @@ class AgisDockWidget(QDockWidget):
         self.tabs.addTab(TabParcele(iface), tr("Parcele"))
         self.tabs.addTab(TabEarheologija(iface), tr("eArheologija"))
         self.tabs.addTab(TabEvrd(iface), tr("eVRD"))
-        self.settings = TabNastavitve(on_changed=self._settings_changed)
+        self.settings = TabNastavitve(on_changed=self._settings_changed, on_status=self.update_cpa_line)
         self.tabs.addTab(self.settings, tr("Nastavitve"))
         self.tabs.addTab(TabOVticniku(iface), tr("Pomoč"))
         layout.addWidget(self.tabs)
@@ -153,9 +220,15 @@ class AgisDockWidget(QDockWidget):
         self.setWidget(main)
         self._on_refresh = on_refresh
         self.update_dev_label()
+        self.update_cpa_line()
+
+    def update_cpa_line(self):
+        """Green line under the title while the CPA database is reachable (last known state)."""
+        self.title_bar.cpa_line.setVisible(cpa_available())
 
     def _refreshed(self):
         self.update_dev_label()
+        self.update_cpa_line()
         if self._on_refresh:
             self._on_refresh()
 

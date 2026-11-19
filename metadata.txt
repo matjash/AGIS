@@ -8,16 +8,16 @@ qgisMinimumVersion=3.28
 qgisMaximumVersion=4.99
 supportsQt6=True
 description=Archaeological GIS, toolbox for Slovenian Archaeologists.
-version=2.0.0
+version=2.0.1
 author=Matjaž Mori
 email=matjaz.mori@gmail.com
 
 about=EN: Plugin helps setting up GIS project for archaeologists or anyone else that needs same layers for the area of Republic of Slovenia.
-         Data is provided by Slovenian Ministry of Culture, Surveying and Mapping Authority... 
+         Data is provided by Slovenian Ministry of Culture, Surveying and Mapping Authority and Geological Survey of Slovenia. 
          Plugin is developed within the Centre for Preventive Archaeology (CPA), IPCH Slovenia.
          
          SI: Vtičnik je v pomoč ob vzpostavitvi GIS projekta za arheologe ali kogarkoli, ki potrebuje iste sloje za območje Republike Slovenije.
-         Dostop do podatkov omogočajo Ministrstvo za kulturo, Geodetska uprava RS... Vtičnik je razvit v okviru Centra za preventivno arheologijo (CPA), ZVKDS.
+         Dostop do podatkov omogočajo Ministrstvo za kulturo, Geodetska uprava RS in Geološki zavod Slovenije. Vtičnik je razvit v okviru Centra za preventivno arheologijo (CPA), ZVKDS.
          
 
 tracker=https://github.com/matjash/AGIS/issues
@@ -28,7 +28,9 @@ repository=https://github.com/matjash/AGIS
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-changelog= v2.0.0 Rebuilt for QGIS 3.28+ and QGIS 4; layer catalogues (AGIS, CPA, own) with search, keywords and drag and drop; new Parcele tab (search, parcels under a layer, text list); eArheologija and new eVRD tab; Nastavitve tab; quick load window;  v1.4.5 minor fixes loading internal layers 
+changelog= v2.0.1 Work layers: one login per session, then a list window (search, double-click, drag into the Layers panel, Naloži vse); unreadable layers greyed out; tables used by drop-downs load automatically; layers of an earlier session reconnect after login
+    v2.0.0 Rebuilt for QGIS 3.28+ and QGIS 4; layer catalogues (AGIS, CPA, own) with search, keywords and drag and drop; new Parcele tab (search, parcels under a layer, text list); eArheologija and new eVRD tab; Nastavitve tab; quick load window
+    v1.4.5 minor fixes loading internal layers 
     v1.4.4: Added DOF25, ZLS shaded relief, fixed ZLS SFV layer link
     v1.4.3: updated cadastre layer for faster response, added historic maps (1930, 1950) by Ministry of Culture, updated TTN5 source
     v1.4.2: Updated RNPD and eVRD layer sources, added eArheologija, updated cadastre layer;

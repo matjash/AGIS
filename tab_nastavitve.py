@@ -30,9 +30,10 @@ def official_catalogue_enabled():
 
 class TabNastavitve(QScrollArea):
 
-    def __init__(self, on_changed=None, parent=None):
+    def __init__(self, on_changed=None, on_status=None, parent=None):
         super().__init__(parent)
         self._on_changed = on_changed       # called after a change that needs a refresh elsewhere
+        self._on_status = on_status         # called after the CPA connection was checked
         self.setWidgetResizable(True)
         self.setFrameShape(QFrame.Shape.NoFrame)
         inner = QWidget()
@@ -164,6 +165,8 @@ class TabNastavitve(QScrollArea):
         self._check_task = None
         try:
             self.update_status(refresh=False)
+            if self._on_status:
+                self._on_status()
         except RuntimeError:            # tab already deleted
             pass
 

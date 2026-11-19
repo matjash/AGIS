@@ -86,14 +86,20 @@ def get_work_layers(*_ignored):
 
 
 # --- SQL on the CPA database (no psycopg2: QGIS's own connection API) -------
-def cpa_connection(user=None, password=None):
-    """QGIS database connection to CPA; the shared cpa account unless a login is given.
+def cpa_connection(user=None, password=None, authcfg=None):
+    """QGIS database connection to CPA: the shared cpa account, a login (user/password)
+    or a QGIS auth config (exactly as layers using it will connect).
     Raises QgsProviderConnectionException (message without the password)."""
     from qgis.core import QgsProviderConnectionException, QgsProviderRegistry
     uri = QgsDataSourceUri()
-    uri.setConnection(config.get("cpa_host"), config.get("cpa_port"), config.get("cpa_database"),
-                      user if user is not None else config.get("cpa_user"),
-                      password if password is not None else config.get("cpa_password"))
+    host, port, db = config.get("cpa_host"), config.get("cpa_port"), config.get("cpa_database")
+    if authcfg:
+        uri.setConnection(host, port, db, "", "")
+        uri.setAuthConfigId(authcfg)
+    else:
+        uri.setConnection(host, port, db,
+                          user if user is not None else config.get("cpa_user"),
+                          password if password is not None else config.get("cpa_password"))
     md = QgsProviderRegistry.instance().providerMetadata("postgres")
     try:
         conn = md.createConnection(uri.uri(False), {})
