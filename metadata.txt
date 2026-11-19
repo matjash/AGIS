@@ -4,7 +4,7 @@
 
 [general]
 name=AGIS
-qgisMinimumVersion=3.1
+qgisMinimumVersion=3.28
 qgisMaximumVersion=4.99
 supportsQt6=True
 description=Archaeological GIS, toolbox for Slovenian Archaeologists.
@@ -12,12 +12,12 @@ version=2.0.0
 author=Matjaž Mori
 email=matjaz.mori@gmail.com
 
-about=EN: Plugin helps seting up GIS project for archaeologists or anyone else that needs same layers for the area of Republic of Slovenia.
-         Data is provided by Slovenian Ministry of Culture, Surveying and Mapping Authority and Geological Survey of Slovenia. 
-         Plugin was partially developed within my work at Centre for Preventive Archeology, IPCH Slovenia. It continues to be maintained on a voluntary basis.
+about=EN: Plugin helps setting up GIS project for archaeologists or anyone else that needs same layers for the area of Republic of Slovenia.
+         Data is provided by Slovenian Ministry of Culture, Surveying and Mapping Authority... 
+         Plugin is developed within the Centre for Preventive Archaeology (CPA), IPCH Slovenia.
          
          SI: Vtičnik je v pomoč ob vzpostavitvi GIS projekta za arheologe ali kogarkoli, ki potrebuje iste sloje za območje Republike Slovenije.
-         Dostop do podatkov omogočata Ministrstvo za kulturo, Geodetska uprava RS in Geologški zavod Slovenije. Sprva razvit v okviru Centra za preventivno arheologijo, ZVKDS, se vtičnik še naprej vzdržuje kot prostovoljni projekt.
+         Dostop do podatkov omogočajo Ministrstvo za kulturo, Geodetska uprava RS... Vtičnik je razvit v okviru Centra za preventivno arheologijo (CPA), ZVKDS.
          
 
 tracker=https://github.com/matjash/AGIS/issues
@@ -28,8 +28,7 @@ repository=https://github.com/matjash/AGIS
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-changelog= v2.0.0 major rebuild, QGIS4 compatibility
-    v1.4.5 minor fixes loading internal layers 
+changelog= v2.0.0 Rebuilt for QGIS 3.28+ and QGIS 4; layer catalogues (AGIS, CPA, own) with search, keywords and drag and drop; new Parcele tab (search, parcels under a layer, text list); eArheologija and new eVRD tab; Nastavitve tab; quick load window;  v1.4.5 minor fixes loading internal layers 
     v1.4.4: Added DOF25, ZLS shaded relief, fixed ZLS SFV layer link
     v1.4.3: updated cadastre layer for faster response, added historic maps (1930, 1950) by Ministry of Culture, updated TTN5 source
     v1.4.2: Updated RNPD and eVRD layer sources, added eArheologija, updated cadastre layer;
@@ -45,7 +44,7 @@ changelog= v2.0.0 major rebuild, QGIS4 compatibility
 tags=python, archaeology, Slovenia, cadastre, lidar
 
 homepage=https://github.com/matjash/AGIS
-category=AGIS
+category=Web
 icon=icons/agis_logo.png
 # experimental flag
 experimental=False
@@ -58,7 +57,7 @@ deprecated=False
 # Check the documentation for more information.
 # plugin_dependencies=
 
-Category of the plugin: Raster, Vector, Database or Web
+# Category of the plugin: Raster, Vector, Database or Web
 # category=
 
 # If the plugin can run on QGIS Server.

@@ -1,443 +1,501 @@
+"""'Naloži sloje' tab: one merged list of the CPA, official and own layer catalogues."""
+from qgis.PyQt.QtCore import QEvent, QMimeData, QObject, Qt, QTimer
+from qgis.PyQt.QtGui import QBrush, QColor, QDrag, QFont, QIcon, QPainter, QPixmap
 from qgis.PyQt.QtWidgets import (
-    QWidget, QVBoxLayout, QHBoxLayout,
-    QLineEdit, QToolButton, QTableWidget,
-    QTableWidgetItem, QHeaderView, QMenu,
-    QAction, QAbstractItemView, QProgressBar, QLabel
+    QAbstractItemView, QHBoxLayout, QHeaderView, QLabel, QLineEdit, QMenu, QMessageBox, QProgressBar,
+    QTableWidget, QTableWidgetItem, QToolButton, QVBoxLayout, QWidget,
 )
-from qgis.PyQt.QtGui import QIcon
-from qgis.PyQt.QtCore import Qt, QTimer
-from qgis.PyQt.QtXml import QDomDocument
-from qgis.core import (
-    QgsVectorLayer,
-    QgsRasterLayer,
-    QgsProject,
-    QgsLayerDefinition,
-    Qgis,
-    QgsMessageLog,
-    QgsReadWriteContext
-)
+from qgis.core import Qgis, QgsApplication, QgsTask
 
-import sqlite3
-import os
-from .externals import pn_path, access, load_cpa_sources_list
+from .catalogue import Catalogues, CatalogueError, download_official, export_catalogue, new_entry
+from .catalogue_dialogs import EntryDialog, ExportDialog, LoginDialog
+from .externals import cpa_available, log, pn_path
+from .qlr_tools import QlrError, check_qlr, describe, drop_position, export_nodes, load_qlr, tree_position
+from .tab_nastavitve import official_catalogue_enabled
 
-LOG_TAG = "TabNaloziSloje"
+COLORS = {"cpa": "#2e7d32", "uradni": "#1565c0", "moji": "#ef6c00"}
+TITLES = {"cpa": "Katalog CPA", "uradni": "Katalog AGIS", "moji": "Moji viri"}
+ORDER = {"uradni": 0, "cpa": 1, "moji": 2}         # AGIS catalogue always on top
+AGIS_ICON = "agis_small.png"                       # three dots: the AGIS catalogue
+ROLE = Qt.ItemDataRole.UserRole
+DRAG_MIME = "application/x-agis-catalogue"
 
 
-def log(msg, level=Qgis.Info):
-    QgsMessageLog.logMessage(msg, LOG_TAG, level)
+def dot_icon(color):
+    pix = QPixmap(14, 14)
+    pix.fill(Qt.GlobalColor.transparent)
+    p = QPainter(pix)
+    p.setRenderHint(QPainter.RenderHint.Antialiasing)
+    p.setBrush(QColor(color))
+    p.setPen(Qt.PenStyle.NoPen)
+    p.drawEllipse(2, 2, 10, 10)
+    p.end()
+    return QIcon(pix)
 
-class SortableIconItem(QTableWidgetItem):
-    def __init__(self, sort_key):
+
+class SortItem(QTableWidgetItem):
+    def __init__(self, key):
         super().__init__()
-        self._sort_key = sort_key
+        self.key = key
 
     def __lt__(self, other):
-        if isinstance(other, SortableIconItem):
-            return self._sort_key < other._sort_key
-        return super().__lt__(other)
-    
+        return self.key < other.key if isinstance(other, SortItem) else super().__lt__(other)
+
+
+class CatalogueTable(QTableWidget):
+    """Catalogue list; rows can be dragged into the QGIS Layers panel."""
+
+    def __init__(self, tab):
+        super().__init__(0, 3)
+        self.tab = tab
+        self.setDragEnabled(True)
+        self.setDragDropMode(QAbstractItemView.DragDropMode.DragOnly)
+
+    def startDrag(self, actions):
+        entries = self.tab.selected_entries()
+        if not entries:
+            return
+        self.tab.dragged = entries
+        mime = QMimeData()
+        mime.setData(DRAG_MIME, b"1")
+        mime.setText("\n".join(e["naziv"] or "" for e in entries))
+        drag = QDrag(self)
+        drag.setMimeData(mime)
+        drag.exec(Qt.DropAction.CopyAction)
+        self.tab.dragged = []
+
+
+class LayerTreeDrop(QObject):
+    """Event filter on the Layers panel: accepts catalogue rows and loads them where dropped."""
+
+    def __init__(self, tab, view):
+        super().__init__(tab)
+        self.tab = tab
+        self.view = view
+
+    def eventFilter(self, obj, event):
+        t = event.type()
+        if t in (QEvent.Type.DragEnter, QEvent.Type.DragMove, QEvent.Type.Drop):
+            mime = event.mimeData()
+            if mime is None or not mime.hasFormat(DRAG_MIME) or not self.tab.dragged:
+                return False
+            event.setDropAction(Qt.DropAction.CopyAction)
+            event.accept()
+            if t == QEvent.Type.Drop:
+                pos = event.position().toPoint() if hasattr(event, "position") else event.pos()
+                entries = list(self.tab.dragged)
+                position = drop_position(self.view, pos)
+                QTimer.singleShot(0, lambda: self.tab.load(entries, position))
+            return True
+        return False
+
+
 class TabNaloziSloje(QWidget):
 
-    ICON_BY_TYPE = {
-        "layer": "layer.png",
-        "group": "group.png",
-        "definition": "sourcetype_qlr.png",
-        "qlr": "sourcetype_qlr.png",
-        "service": "server.png",
-        "wms": "sourcetype_wms.png",
-        "wfs": "sourcetype_wfs.png",
-        "arcgisfeatureserver": "sourcetype_arcgis.png",
-        "arcgismapserver": "sourcetype_arcgis.png",
-        "default": "default.png"
-    }
-
-    def __init__(self, iface=None, parent=None):
+    def __init__(self, iface=None, on_refresh=None, compact=False, parent=None):
+        """compact=True: only search and load (the quick window from the toolbar)."""
         super().__init__(parent)
-
-        self.resources_db = pn_path('plugin') / "sources.db"
         self.iface = iface
-        self.resources = []
+        self.compact = compact
+        self._on_refresh = on_refresh
+        self.catalogues = Catalogues()
+        self.show_hidden = False
+        self._queue, self._total, self._done, self._loading = [], 0, 0, False
+        self._target = None             # [group, index] where the next layer goes
+        self.dragged = []
+        self._download_task = None
+        self._icons = {k: dot_icon(c) for k, c in COLORS.items()}
+        self._icons["uradni"] = QIcon(str(pn_path("icons") / AGIS_ICON))
 
-        main_layout = QVBoxLayout(self)
+        layout = QVBoxLayout(self)
 
-
-        self._status_bar = QLabel()
-        self._status_bar.setFixedHeight(4)
-        self._status_bar.setStyleSheet("background: #eee;")  # grey = unknown
-        main_layout.addWidget(self._status_bar)
-
-
-
-        # SEARCH
-        top_layout = QHBoxLayout()
+        top = QHBoxLayout()
         self.search = QLineEdit()
         self.search.setPlaceholderText(self.tr("Išči vire..."))
         self.search.textChanged.connect(self.filter_table)
+        top.addWidget(self.search)
 
-        self.settings_btn = QToolButton()
-        self.settings_btn.setIcon(QIcon(str(pn_path("icons") / "refresh.png")))
-        self.settings_btn.clicked.connect(self.refresh_table)
+        self.add_btn = QToolButton()
+        self.add_btn.setText("+")
+        self.add_btn.setToolTip(self.tr("Dodaj izbrane sloje/skupine iz panela Sloji v katalog"))
+        self.add_btn.clicked.connect(self.add_selected)
+        top.addWidget(self.add_btn)
 
+        self.refresh_btn = QToolButton()
+        self.refresh_btn.setIcon(QIcon(str(pn_path("icons") / "refresh.png")))
+        self.refresh_btn.setToolTip(self.tr("Osveži kataloge in ponovno preveri povezavo z bazo CPA"))
+        self.refresh_btn.clicked.connect(self.refresh_all)
+        top.addWidget(self.refresh_btn)
 
         self.cancel_btn = QToolButton()
         self.cancel_btn.setText("✕")
-        self.cancel_btn.clicked.connect(self.cancel_loading)
+        self.cancel_btn.setToolTip(self.tr("Prekini nalaganje"))
         self.cancel_btn.setEnabled(False)
+        self.cancel_btn.clicked.connect(self.cancel_loading)
+        top.addWidget(self.cancel_btn)
 
+        self.more_btn = QToolButton()
+        self.more_btn.setText("⋯")
+        self.more_btn.setPopupMode(QToolButton.ToolButtonPopupMode.InstantPopup)
+        more = QMenu(self.more_btn)
+        self.hidden_action = more.addAction(self.tr("Pokaži skrite vire"))
+        self.hidden_action.setCheckable(True)
+        self.hidden_action.toggled.connect(self._toggle_hidden)
+        more.addAction(self.tr("Izvozi kot katalog…")).triggered.connect(self.export_dialog)
+        self.more_btn.setMenu(more)
+        top.addWidget(self.more_btn)
+        layout.addLayout(top)
+        if compact:
+            self.add_btn.hide()
+            self.more_btn.hide()
 
-        top_layout.addWidget(self.search)
-        top_layout.addWidget(self.settings_btn)
-        top_layout.addWidget(self.cancel_btn)
-        main_layout.addLayout(top_layout)
-
- 
         self.progress = QProgressBar()
-        self.progress.setFixedHeight(4)  # thin
-        self.progress.setMaximumHeight(3)
+        self.progress.setFixedHeight(3)
         self.progress.setTextVisible(False)
-        self.progress.setRange(0, 100)
-        self.progress.setValue(0)
+        self.progress.setStyleSheet("QProgressBar {border: none; background: #eee;}"
+                                    "QProgressBar::chunk {background-color: #4caf50;}")
+        layout.addWidget(self.progress)
 
-
-        # style (thin + green)
-        self.progress.setStyleSheet("""
-        QProgressBar {
-            border: none;
-            background: #eee;
-        }
-        QProgressBar::chunk {
-            background-color: #4caf50;
-        }
-        """)
-
-        main_layout.addWidget(self.progress)
-
-
-        # TABLE
-        self.table = QTableWidget()
-        self.table.setColumnCount(3)
-        self.table.setHorizontalHeaderLabels(["", "Naziv", "Opis"])
+        self.table = CatalogueTable(self)
+        self.table.setHorizontalHeaderLabels(["", self.tr("Naziv"), self.tr("Opis")])
         self.table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.table.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.table.setSortingEnabled(True)
-
-
+        self.table.verticalHeader().setVisible(False)
         header = self.table.horizontalHeader()
         header.setSectionResizeMode(0, QHeaderView.ResizeMode.ResizeToContents)
         header.setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
         header.setSectionResizeMode(2, QHeaderView.ResizeMode.Stretch)
-
         self.table.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
         self.table.customContextMenuRequested.connect(self.show_context_menu)
+        self.table.cellDoubleClicked.connect(lambda row, _c: self.load([self.entry(row)]))
+        layout.addWidget(self.table)
 
-        main_layout.addWidget(self.table)
+        self.status = QLabel()
+        self.status.setStyleSheet("color: #666;")
+        layout.addWidget(self.status)
 
-        # Preload icons
-        self._icons = {
-            k: QIcon(str(pn_path("icons") / v))
-            for k, v in self.ICON_BY_TYPE.items()
-        }
-        self._icon_default = QIcon(str(pn_path("icons") / "layer.png"))
+        self.reload(recheck=False)
+        if not compact:
+            self.start_official_download()
 
-        self.load_resources()
-        self.table.cellDoubleClicked.connect(self.handle_double_click)
+        # Drag and drop into the Layers panel
+        self._drop_filter = None
+        view = self.iface.layerTreeView() if self.iface is not None else None
+        if view is not None and hasattr(view, "viewport"):
+            try:
+                self._drop_filter = LayerTreeDrop(self, view)
+                view.viewport().installEventFilter(self._drop_filter)
+                view.viewport().setAcceptDrops(True)
+            except TypeError:           # test doubles
+                self._drop_filter = None
 
-        self._update_status_bar()
+    # ------------------------------------------------------------------ data
 
+    def reload(self, recheck=True):
+        if recheck:
+            cpa_available(refresh=True)
+        entries = self.catalogues.entries(official_catalogue_enabled(), include_hidden=self.show_hidden)
 
-        # STATE
-        self._layer_queue = []
-        self._loading_active = False
-        self._total_layers = 0
-        self._loaded_count = 0
-        self._canvas = None
-
-
-
-
-
-
-    # -----------------------------------------------------------------------
-
-
-    def _update_status_bar(self):
-        if access(self):
-            self._status_bar.setStyleSheet("background: #4caf50;")  # green = connected
-            self._status_bar.setToolTip(self.tr("Povezan z bazo CPA"))
-        else:
-            self._status_bar.setStyleSheet("background: #eee;")  # grey = not connected
-            self._status_bar.setToolTip(self.tr("Ni povezave z bazo CPA"))
-
-    def get_resources_from_db(self):
-        if access(self):
-            table = load_cpa_sources_list(self)
-            if table and table.isValid():
-                return [{
-                    "type": f["source_type"],
-                    "naziv": f["name"],
-                    "opis": f["description"] or "",
-                    "uri": f["uri"],
-                    "url": f["url"],
-                    "authority": f["authority"],
-                    "qml": f["qml"],
-                    "qlr_xml": f["qlr_xml"], 
-                    "order": f["order"]
-                } for f in table.getFeatures()]
-
-        conn = sqlite3.connect(self.resources_db)
-        c = conn.cursor()
-        c.execute("""
-            SELECT name, source_type, uri, url, description, authority, qml, qlr_xml, "order"
-            FROM layer_sources
-            WHERE enabled=1
-            ORDER BY "order" ASC
-        """)
-        rows = c.fetchall()
-        conn.close()
-
-        resources = []
-        for name, source_type, uri, url, description, authority, qml, qlr_xml, order in rows:
-            if uri:
-                uri = uri.replace("{qlrs}", str(pn_path("qlrs")))
-            if qml:
-                qml = qml.replace("{qml}", str(pn_path("qml")))
-            resources.append({
-                "type": source_type,
-                "naziv": name,
-                "opis": description or "",
-                "uri": uri,
-                "url": url,
-                "authority": authority or "",
-                "qml": qml or "",
-                "qlr_xml": qlr_xml or "",
-                "order": order
-            })
-        return resources
-
-    # -----------------------------------------------------------------------
-
-
-    def load_resources(self):
-        self.resources = self.get_resources_from_db()
-        self._populate_table()
-
-
-
-    def _populate_table(self):
         t = self.table
-        t.setUpdatesEnabled(False)
         t.setSortingEnabled(False)
         t.clearContents()
-        t.setRowCount(len(self.resources))
-
-        for row, res in enumerate(self.resources):
-            icon_item = SortableIconItem(res.get("order", row))
-            icon_item.setIcon(self._icons.get(res["type"], self._icon_default))
-            icon_item.setFlags(Qt.ItemFlag.ItemIsEnabled)
-
-                
-            tooltip = (
-                f"Name: {res['naziv']}\n"
-                f"URI: {res['uri']}\n"
-                f"Description: {res['opis']}\n"
-                f"Authority: {res.get('authority', 'N/A')}"
-            )  # keep it short
-
-            name_item = QTableWidgetItem(res["naziv"])
-            name_item.setData(Qt.ItemDataRole.UserRole, res)
-            name_item.setToolTip(tooltip)
-
-            desc_item = QTableWidgetItem(res["opis"])
-            desc_item.setToolTip(tooltip)
-            
+        t.setRowCount(len(entries))
+        bold = QFont()
+        for row, e in enumerate(entries):
+            kind, n_layers = describe(e["qlr"] or "")
+            icon_item = SortItem((ORDER[e["katalog"]], e.get("vrstni_red") or 0, (e["naziv"] or "").lower()))
+            icon_item.setIcon(self._icons[e["katalog"]])
+            icon_item.setFlags(Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable)
+            name = QTableWidgetItem(e["naziv"] or "")
+            name.setData(ROLE, e)
+            desc = QTableWidgetItem(e.get("opis") or "")
+            tip = "\n".join(filter(None, [
+                f"{e['naziv']}",
+                f"Katalog: {TITLES[e['katalog']]}",
+                f"Izvor: {e['izvor']}" if e.get("izvor") else "",
+                f"Oznake: {e['oznake']}" if e.get("oznake") else "",
+                f"Vsebina: skupina, {n_layers} slojev" if kind == "skupina" else "",
+                "SKRIT" if not e["omogocen"] else "",
+                "",
+                e.get("opis") or "",
+            ]))
+            for item in (icon_item, name, desc):
+                item.setToolTip(tip)
+                if not e["omogocen"]:
+                    item.setForeground(QBrush(QColor("#999")))
+                    f = QFont(bold)
+                    f.setItalic(True)
+                    item.setFont(f)
             t.setItem(row, 0, icon_item)
-            t.setItem(row, 1, name_item)
-            t.setItem(row, 2, desc_item)
-
-        t.setUpdatesEnabled(True)
+            t.setItem(row, 1, name)
+            t.setItem(row, 2, desc)
         t.setSortingEnabled(True)
-        t.sortItems(t.horizontalHeader().sortIndicatorSection(),
-                t.horizontalHeader().sortIndicatorOrder())
+        t.sortItems(0, Qt.SortOrder.AscendingOrder)
+        self.filter_table(self.search.text())
 
+        counts = {k: sum(1 for e in entries if e["katalog"] == k) for k in ORDER}
+        parts = []
+        for k in ORDER:
+            if k == "cpa" and not cpa_available():
+                continue
+            if k == "uradni" and not official_catalogue_enabled():
+                parts.append(self.tr("katalog AGIS izklopljen"))
+                continue
+            if k == "uradni":
+                mark = f'<img src="{(pn_path("icons") / AGIS_ICON).as_posix()}" width="11" height="11">'
+            else:
+                mark = f'<span style="color:{COLORS[k]}">●</span>'
+            parts.append(f'{mark} {TITLES[k]}: {counts[k]}')
+        self.status.setText(" · ".join(parts))
 
+        if recheck and self._on_refresh:
+            self._on_refresh()
 
-    def refresh_table(self):
-        self.table.horizontalHeader().setSortIndicator(0, Qt.SortOrder.AscendingOrder)
-        self.load_resources()
-        self._update_status_bar()
+    def refresh_all(self):
+        self.reload(recheck=True)
+        self.start_official_download()
 
+    # kept for the dock's ↺ wiring and older callers
+    def refresh_table(self, recheck=True):
+        self.reload(recheck=recheck)
 
+    def start_official_download(self):
+        if not official_catalogue_enabled() or self._download_task is not None:
+            return
+        self._download_task = QgsTask.fromFunction("AGIS: uradni katalog", download_official,
+                                                   on_finished=self._downloaded)
+        QgsApplication.taskManager().addTask(self._download_task)
 
-    # -----------------------------------------------------------------------
+    def _downloaded(self, exception, result=None):
+        self._download_task = None
+        if exception is not None:
+            log(f"Uradnega kataloga ni bilo mogoče prenesti (uporabljam zadnjo kopijo): {exception}", Qgis.MessageLevel.Info)
+            return
+        try:
+            self.reload(recheck=False)
+        except RuntimeError:          # widget already deleted
+            pass
+
+    def _toggle_hidden(self, on):
+        self.show_hidden = on
+        self.reload(recheck=False)
+
+    def entry(self, row):
+        item = self.table.item(row, 1)
+        return item.data(ROLE) if item else None
+
+    def selected_entries(self):
+        return [self.entry(i.row()) for i in self.table.selectionModel().selectedRows()]
 
     def filter_table(self, text):
         text = text.lower()
-        for row, res in enumerate(self.resources):
-            self.table.setRowHidden(row, not (
-                text in res["naziv"].lower() or text in res["opis"].lower()
-            ))
+        for row in range(self.table.rowCount()):
+            e = self.entry(row)
+            hay = " ".join(str(e.get(k) or "") for k in ("naziv", "opis", "izvor", "oznake")).lower()
+            self.table.setRowHidden(row, text not in hay)
 
-    # -----------------------------------------------------------------------
+    # --------------------------------------------------------------- loading
 
-    def _res_from_visual_row(self, row):
-        return self.table.item(row, 1).data(Qt.ItemDataRole.UserRole)
-
-    def handle_double_click(self, row, col):
-        res = self._res_from_visual_row(row)
-        if res:
-            self.load_layers_queue([res])
-
-    def load_selected_layers(self):
-        rows = self.table.selectionModel().selectedRows()
-        resources = [self._res_from_visual_row(r.row()) for r in rows]
-        self.load_layers_queue(resources)
-
-    # -----------------------------------------------------------------------
-    # QUEUE LOADING
-    # -----------------------------------------------------------------------
-
-    def load_layers_queue(self, resources):
-        self.progress.setValue(10)
-        if not resources or self._loading_active:
+    def load(self, entries, position=None):
+        """Load entries one after another; position = (group, index) in the layer tree,
+        default: above the selected layer / at the top of the selected group / at the top."""
+        entries = [e for e in entries if e]
+        if not entries or self._loading:
             return
-
-        self._layer_queue = list(resources)
-        self._total_layers = len(resources)
-        self._loaded_count = 0
-        self._loading_active = True
-
+        if position is None:
+            try:
+                position = tree_position(self.iface.layerTreeView())
+            except Exception:
+                position = (None, 0)
+        self._target = list(position)
+        self._queue = list(entries)
+        self._total, self._done = len(entries), 0
+        self._loading = True
         self.cancel_btn.setEnabled(True)
+        self.progress.setValue(5)
+        self.iface.mapCanvas().freeze(True)
+        self._next()
 
-        
-        from qgis.utils import iface
-        self._canvas = iface.mapCanvas()
-        self._canvas.freeze(True)
-
-        self._load_next_layer()
-
-    def _load_next_layer(self):
-        if not self._loading_active:
+    def _next(self):
+        if not self._loading:
             return
-
-        if not self._layer_queue:
-            self._finish_loading()
+        if not self._queue:
+            self._finish()
             return
+        e = self._queue.pop(0)
+        QTimer.singleShot(30, lambda e=e: self._load_one(e))
 
-        res = self._layer_queue.pop(0)
-        QTimer.singleShot(50, lambda r=res: self._load_single_layer(r))
-
-
-
-
-
-    def _load_qlr_from_string(self, qlr_xml, name):
-        doc = QDomDocument()
-        ok, err, line, col = doc.setContent(qlr_xml)
-        if not ok:
-            log(f"QLR XML parse error at line {line}: {err}", Qgis.Critical)
-            return
-
-        QgsLayerDefinition.loadLayerDefinition(
-            doc,
-            QgsProject.instance(),
-            QgsProject.instance().layerTreeRoot(),
-            QgsReadWriteContext()
-        )
-
-
-
-
-    def _load_single_layer(self, res):
-        name = res["naziv"]
-        uri = res.get("uri") or res.get("url")
-        t = res.get("type")
-        provider = res.get("type", "ogr")
-        style_path = res.get("qml")
-        qlr_xml = res.get("qlr_xml")
-
+    def _load_one(self, e):
         try:
-            if t in ("qlr", "definition"):
-                if qlr_xml:
-                    self._load_qlr_from_string(qlr_xml, name)
-                    log(f"QLR load from db: {name}", Qgis.Info)
-                else:
-                    self.iface.mapCanvas().setMapTool(None)
-                    QgsLayerDefinition.loadLayerDefinition(
-                        uri,
-                        QgsProject.instance(),
-                        QgsProject.instance().layerTreeRoot()
-                    )
-                    log(f"QLR load from file: {name}", Qgis.Info)
-          
-                    
-            elif t == "wms":
-                layer = QgsRasterLayer(uri, name, "wms")
+            group, index = self._target
+            self._target[1] = index + load_qlr(e["qlr"], group=group, index=index)
+        except Exception as ex:
+            log(f"{e['naziv']}: {ex}", Qgis.MessageLevel.Critical)
+            self._message(f"»{e['naziv']}« ni bilo mogoče naložiti: {ex}", Qgis.MessageLevel.Warning)
+        finally:
+            self._done += 1
+            self.progress.setValue(int(self._done / self._total * 100))
+            self._next()
 
-                if not layer or layer.dataProvider() is None:
-                    log(f"Invalid WMTS/WMS provider: {name}", Qgis.Critical)
-                    return
-
-                if not layer.isValid():
-                    log(f"Invalid raster layer: {name}", Qgis.Critical)
-                    return
-
-                QgsProject.instance().addMapLayer(layer)
-            else:
-                layer = QgsVectorLayer(uri, name, provider)
-                if layer.isValid():
-                    if style_path:
-                        log(f"Path: {style_path}", Qgis.Warning)
-                        ok = layer.loadNamedStyle(style_path)
-
-                        if ok:
-                            layer.triggerRepaint()
-                        else:
-                            log(f"Failed to load QML: {style_path}", Qgis.Warning)
-
-          
-                if layer.isValid():
-                    QgsProject.instance().addMapLayer(layer)
-
-        except Exception as e:
-            log(f"Error: {e}", Qgis.Critical)
-
-     
-        self._loaded_count += 1
-
-        progress = int((self._loaded_count / self._total_layers) * 100)
-        self.progress.setValue(progress)
-
-
-        self._load_next_layer()
-
-    def _finish_loading(self):
-        
-        self._loading_active = False
-        self.cancel_btn.setEnabled(False)
-
-
-        if self._canvas:
-            self._canvas.freeze(False)
-            self._canvas.refresh()
+    def _finish(self):
+        self._stop()
         self.progress.setValue(100)
         QTimer.singleShot(500, lambda: self.progress.setValue(0))
 
     def cancel_loading(self):
-        self._layer_queue = []
-        self._loading_active = False
-        self.cancel_btn.setEnabled(False)
-
-        if self._canvas:
-            self._canvas.freeze(False)
-            self._canvas.refresh()
+        self._queue = []
+        self._stop()
         self.progress.setValue(0)
-    # -----------------------------------------------------------------------
 
+    def _stop(self):
+        self._loading = False
+        self.cancel_btn.setEnabled(False)
+        canvas = self.iface.mapCanvas()
+        canvas.freeze(False)
+        canvas.refresh()
+
+    # --------------------------------------------------------- catalogue work
+    # Each action has a dialog-free core (used by the tests) and a dialog wrapper.
+
+    def _message(self, text, level=Qgis.MessageLevel.Info):
+        try:
+            self.iface.messageBar().pushMessage("AGIS", text, level, 6)
+        except Exception:
+            log(text, level)
+
+    def selected_layer_nodes(self):
+        return list(self.iface.layerTreeView().selectedNodes(True))
+
+    def ensure_login(self, cat):
+        """Ask for the CPA login if needed. True if writing is possible."""
+        if not cat.needs_login or cat.logged_in():
+            return True
+        dlg = LoginDialog(self)
+        while dlg.exec():
+            try:
+                cat.login(*dlg.credentials())
+                return True
+            except CatalogueError as e:
+                dlg.show_error(str(e))
+        return False
+
+    def prepare_qlr(self, nodes):
+        """QLR for the selected nodes, checked. Returns (qlr, warnings); raises QlrError on errors."""
+        clean, warnings, errors = check_qlr(export_nodes(nodes))
+        if errors:
+            raise QlrError("\n".join(errors))
+        return clean, warnings
+
+    def add_entry(self, target_key, values, qlr):
+        cat = self.catalogues.by_key(target_key)
+        entry = new_entry(qlr=qlr, **values)
+        cat.add(entry)
+        self.reload(recheck=False)
+        return entry
+
+    def add_selected(self):
+        nodes = self.selected_layer_nodes()
+        if not nodes:
+            QMessageBox.information(self, "AGIS", self.tr("V panelu Sloji najprej izberite sloj ali skupino."))
+            return
+        try:
+            qlr, warnings = self.prepare_qlr(nodes)
+        except QlrError as e:
+            QMessageBox.warning(self, "AGIS", self.tr("Tega ni mogoče dodati v katalog:\n\n") + str(e))
+            return
+        targets = [("moji", TITLES["moji"])]
+        if cpa_available():
+            targets.append(("cpa", TITLES["cpa"]))
+        default = {"naziv": nodes[0].name() if len(nodes) == 1 else ""}
+        dlg = EntryDialog(default, targets=targets, warnings=warnings, title=self.tr("Dodaj v katalog"), parent=self)
+        if not dlg.exec():
+            return
+        cat = self.catalogues.by_key(dlg.target_key())
+        if not self.ensure_login(cat):
+            return
+        try:
+            self.add_entry(dlg.target_key(), dlg.values(), qlr)
+            self._message(self.tr("Dodano v {}: {}").format(TITLES[cat.key], dlg.values()["naziv"]), Qgis.MessageLevel.Success)
+        except CatalogueError as e:
+            QMessageBox.warning(self, "AGIS", str(e))
+
+    def _run(self, e, action, *args, confirm=None, **kwargs):
+        """Run a write action on the entry's catalogue, with login and error handling."""
+        cat = self.catalogues.by_key(e["katalog"])
+        if confirm and QMessageBox.question(self, "AGIS", confirm) != QMessageBox.StandardButton.Yes:
+            return False
+        if not self.ensure_login(cat):
+            return False
+        try:
+            getattr(cat, action)(e["id"], *args, **kwargs)
+        except CatalogueError as ex:
+            QMessageBox.warning(self, "AGIS", str(ex))
+            return False
+        self.reload(recheck=False)
+        return True
+
+    def edit_entry(self, e):
+        dlg = EntryDialog(e, title=self.tr("Uredi podatke vira"), parent=self)
+        if dlg.exec():
+            self._run(e, "update", **dlg.values())
+
+    def replace_entry(self, e):
+        nodes = self.selected_layer_nodes()
+        if not nodes:
+            QMessageBox.information(self, "AGIS", self.tr("V panelu Sloji najprej izberite nov sloj ali skupino."))
+            return
+        try:
+            qlr, warnings = self.prepare_qlr(nodes)
+        except QlrError as ex:
+            QMessageBox.warning(self, "AGIS", str(ex))
+            return
+        text = self.tr("Zamenjam vsebino vira »{}« z izbranimi sloji? Prejšnjo različico lahko obnovite.").format(e["naziv"])
+        if warnings:
+            text += "\n\n" + "\n".join("• " + w for w in warnings)
+        self._run(e, "replace_qlr", qlr, confirm=text)
+
+    def copy_to_own(self, e):
+        values = {k: e.get(k) for k in ("naziv", "opis", "izvor", "vidnost", "kategorija", "oznake", "vrstni_red")}
+        return self.add_entry("moji", values, e["qlr"])
+
+    def export_dialog(self):
+        entries = self.catalogues.entries(official_catalogue_enabled(), include_hidden=True)
+        dlg = ExportDialog(entries, self)
+        if not dlg.exec():
+            return
+        selected = dlg.selected()
+        path = ExportDialog.ask_path(self)
+        if selected and path:
+            export_catalogue(selected, path)
+            self._message(self.tr("Izvoženih virov: {} → {}").format(len(selected), path), Qgis.MessageLevel.Success)
+
+    # ------------------------------------------------------------------ menu
 
     def show_context_menu(self, pos):
+        """Actions for the clicked source (showing hidden sources and export are in the ⋯ button)."""
+        row = self.table.rowAt(pos.y())
+        e = self.entry(row) if row >= 0 else None
+        if not e:
+            return
         menu = QMenu(self)
-        action = QAction("Naloži izbrane sloje", self)
-        action.triggered.connect(self.load_selected_layers)
-        menu.addAction(action)
+        menu.addAction(self.tr("Naloži")).triggered.connect(lambda: self.load(self.selected_entries() or [e]))
+        if not self.compact:
+            cat = self.catalogues.by_key(e["katalog"])
+            menu.addSeparator()
+            if cat.writable:
+                menu.addAction(self.tr("Uredi podatke…")).triggered.connect(lambda: self.edit_entry(e))
+                menu.addAction(self.tr("Zamenjaj z izbranim")).triggered.connect(lambda: self.replace_entry(e))
+                undo = menu.addAction(self.tr("Razveljavi zadnjo zamenjavo"))
+                undo.setEnabled(bool(e.get("ima_prejsnji")))
+                undo.triggered.connect(lambda: self._run(e, "undo"))
+                if e["omogocen"]:
+                    menu.addAction(self.tr("Skrij")).triggered.connect(lambda: self._run(e, "set_enabled", False))
+                else:
+                    menu.addAction(self.tr("Prikaži")).triggered.connect(lambda: self._run(e, "set_enabled", True))
+                if e["katalog"] == "moji":
+                    menu.addAction(self.tr("Izbriši")).triggered.connect(
+                        lambda: self._run(e, "delete", confirm=self.tr("Izbrišem vir »{}«?").format(e["naziv"])))
+            if e["katalog"] != "moji":
+                menu.addAction(self.tr("Kopiraj v Moji viri")).triggered.connect(lambda: self.copy_to_own(e))
         menu.exec(self.table.viewport().mapToGlobal(pos))

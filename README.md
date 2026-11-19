@@ -1,10 +1,35 @@
+![AGIS](https://user-images.githubusercontent.com/32578708/75514424-bfed1000-59f7-11ea-92fd-25bd466aed83.png)
 
+## AGIS – Arheološki GIS
 
+Vtičnik za QGIS (3.28 ali novejši, tudi QGIS 4), ki arheologom in drugim pomaga hitro postaviti GIS projekt
+za območje Republike Slovenije. Razvit je v okviru Centra za preventivno arheologijo (CPA), ZVKDS.
 
- ![agis_logo_small](https://user-images.githubusercontent.com/32578708/75514424-bfed1000-59f7-11ea-92fd-25bd466aed83.png) 
-## Arheološki GIS
+### Kaj omogoča
 
-Vtičnih za QGIS vsebuje orodja, ki so v pomoč pri delu arhelogov. Orodja, ki so že na voljo:
+- **Naloži sloje** – seznam pripravljenih virov (ortofoto, kataster, lidar, evidence dediščine …) z enakim
+  slogom za vse. Iskanje po nazivu, opisu in oznakah; nalaganje z dvojnim klikom ali s povleci-spusti v panel
+  Sloji. Viri so v treh katalogih:
+  - **Katalog AGIS** – skupni seznam, objavljen v tem repozitoriju (`catalogue/agis_viri.db`),
+  - **Katalog CPA** – viri CPA, vidni v omrežju CPA,
+  - **Moji viri** – vaši lastni viri.
+- **Parcele** – iskanje parcele po K.O. in številki, parcele pod slojem (z odmikom) in seznam parcel kot
+  besedilo. Vir: kopija katastra v bazi CPA, GURS WFS ali lasten sloj.
+- **eArheologija** in **eVRD** – iskanje po arheoloških raziskavah in registru nepremične kulturne dediščine
+  (kopija v bazi CPA ali geohub.gov.si).
+- Ikona s tremi pikami v orodni vrstici odpre majhno okno samo za nalaganje slojev.
 
-    * Naloži sloje: V GIS projekt naloži sloje za območje Republike Slovenije.
-    * Uporabne povezave: Povezave do uporabnih spletnih virov.
+Navodila so v vtičniku, zavihek **Pomoč**.
+
+### Namestitev
+
+QGIS → Vtičniki → Upravljanje in namestitev vtičnikov → poiščite **AGIS**.
+
+### Za razvijalce
+
+- `dev/make_zip.py` – zip za plugins.qgis.org (brez mape `dev/`).
+- `dev/agis_dev.py` – preklop na lokalno kopijo baze CPA (`use_local()`, `use_production()`).
+- `dev/cpa_catalogue.sql` – tabela kataloga v bazi CPA.
+- `dev/TESTIRANJE.md` – kontrolni seznam za ročno testiranje.
+
+Napake in predlogi: [Issues](https://github.com/matjash/AGIS/issues).

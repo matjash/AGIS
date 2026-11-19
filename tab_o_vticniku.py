@@ -1,10 +1,18 @@
 from qgis.PyQt.QtWidgets import (
     QWidget, QVBoxLayout, QTabWidget, QLabel,
-    QScrollArea, QFrame, QGridLayout
+    QScrollArea, QFrame
 )
 from qgis.PyQt.QtCore import Qt
-from qgis.PyQt.QtGui import QIcon, QFont, QPixmap
+from qgis.PyQt.QtGui import QFont
+import configparser
+
 from .externals import pn_path
+
+
+def plugin_version():
+    cp = configparser.ConfigParser(interpolation=None)
+    cp.read(pn_path("plugin") / "metadata.txt", encoding="utf-8")
+    return cp.get("general", "version", fallback="?")
 
 
 class TabOVticniku(QWidget):
@@ -17,8 +25,9 @@ class TabOVticniku(QWidget):
 
         tabs = QTabWidget()
 
-        tabs.addTab(self._build_o_vticniku(), "O vtičniku")
         tabs.addTab(self._build_pomoc(), "Navodila za uporabo")
+        tabs.addTab(self._build_o_vticniku(), "O vtičniku")
+        
         
         layout.addWidget(tabs)
 
@@ -60,7 +69,7 @@ class TabOVticniku(QWidget):
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(title)
 
-        version = QLabel("<i>različica 2.0.0</i>")
+        version = QLabel(f"<i>različica {plugin_version()}</i>")
         version.setAlignment(Qt.AlignmentFlag.AlignCenter)
         version.setStyleSheet("color: grey;")
         layout.addWidget(version)
@@ -85,16 +94,16 @@ class TabOVticniku(QWidget):
         layout.addWidget(viri)
 
 
-        layout.addWidget(self._section_label("Vzdrževanje"))
+        layout.addWidget(self._section_label("Razvoj"))
         vzdrzevanje = QLabel(
-            "Vtičnik vzdržuje <b>Center za preventivno arheologijo (CPA), ZVKDS</b>. "
+            "Vtičnik je razvit v okviru <b>Centra za preventivno arheologijo (CPA), ZVKDS</b>."
         )
         vzdrzevanje.setWordWrap(True)
         layout.addWidget(vzdrzevanje)
 
 
         layout.addWidget(self._section_label("Avtor"))
-        avtor = QLabel("Matjaž Mori, ZUM d. o. o. — <a href='mailto:matjaz.mori@gmail.com'>matjaz.mori@gmail.com</a>")
+        avtor = QLabel("Matjaž Mori — <a href='mailto:matjaz.mori@gmail.com'>matjaz.mori@gmail.com</a>")
         avtor.setOpenExternalLinks(True)
         layout.addWidget(avtor)
 
@@ -109,6 +118,12 @@ class TabOVticniku(QWidget):
 
     # ------------------------------------------------------------------
 
+    def _text(self, html):
+        label = QLabel(html)
+        label.setTextFormat(Qt.TextFormat.RichText)
+        label.setWordWrap(True)
+        return label
+
     def _build_pomoc(self):
         w = QWidget()
         layout = QVBoxLayout(w)
@@ -116,73 +131,60 @@ class TabOVticniku(QWidget):
         layout.setSpacing(6)
 
         layout.addWidget(self._section_label("Nalaganje slojev"))
-        navodila = QLabel(
-            "1. V zavihku <b>Naloži sloje</b> poiščite željeni sloj v seznamu.<br>"
-            "2. Sloj naložite z <b>dvojnim klikom</b> na vrstico.<br>"
-            "3. Za nalaganje več slojev hkrati izberite vrstice (Ctrl+klik) "
-            "in uporabite <b>desni klik → Naloži izbrane sloje</b>.<br>"
-            "4. Med nalaganjem se prikaže zelena vrstica napredka. "
-            "Nalaganje lahko prekinete z gumbom <b>✕</b>.<br>"
-            "5. Gumb <b>↺</b> osveži seznam slojev iz baze."
-        )
-        navodila.setTextFormat(Qt.TextFormat.RichText)
-        navodila.setWordWrap(True)
-        layout.addWidget(navodila)
+        layout.addWidget(self._text(
+            "1. V zavihku <b>Naloži sloje</b> poiščite vir (polje <b>Išči vire...</b> filtrira sproti).<br>"
+            "2. Vir naložite z <b>dvojnim klikom</b> – doda se nad izbrani sloj v panelu <b>Sloji</b> "
+            "(oz. na vrh izbrane skupine), brez izbire pa na vrh.<br>"
+            "3. Vir lahko tudi <b>povlečete</b> v panel <b>Sloji</b> točno tja, kamor ga želite.<br>"
+            "4. Več virov hkrati: izberite vrstice (Ctrl+klik) in <b>desni klik → Naloži</b> ali jih povlecite.<br>"
+            "5. Nalaganje lahko prekinete z gumbom <b>✕</b>.<br>"
+            "6. Gumb <b>↺</b> osveži kataloge in ponovno preveri povezavo z bazo CPA.<br>"
+            "7. Iskanje upošteva naziv, opis, izvor in <b>oznake</b> (ključne besede vira).<br>"
+            "Hitro okno samo s seznamom virov odpre ikona s tremi pikami v orodni vrstici AGIS."))
 
-        layout.addWidget(self._section_label("Iskanje"))
-        iskanje = QLabel(
-            "V polje <b>Išči vire...</b> vpišite del naziva ali opisa sloja. "
-            "Seznam se filtrira sproti med tipkanjem."
-        )
-        iskanje.setTextFormat(Qt.TextFormat.RichText)
-        iskanje.setWordWrap(True)
-        layout.addWidget(iskanje)
+        layout.addWidget(self._section_label("Katalogi"))
+        layout.addWidget(self._text(
+            "<span style='color:#2e7d32'>●</span> <b>Katalog CPA</b> — viri CPA, vidni samo v omrežju CPA.<br>"
+            "<b>∴ Katalog AGIS</b> — skupni seznam virov (vedno na vrhu), "
+            "ki se ob zagonu prenese z GitHuba (izklop v zavihku <b>Nastavitve</b>).<br>"
+            "<span style='color:#ef6c00'>●</span> <b>Moji viri</b> — vaši viri, shranjeni samo v vašem QGIS-u.<br>"
+            "Skriti viri so prikazani sivo, ko vklopite <b>⋯ → Pokaži skrite vire</b>."))
 
-        layout.addWidget(self._section_label("Pomen ikon"))
+        layout.addWidget(self._section_label("Dodajanje in urejanje virov"))
+        layout.addWidget(self._text(
+            "1. Sloj ali skupino pripravite v QGIS-u (slog, oznake, merila) in jo izberite v panelu <b>Sloji</b>.<br>"
+            "2. V AGIS kliknite <b>+</b>, izpolnite naziv in opis ter izberite katalog.<br>"
+            "AGIS pred shranjevanjem odstrani osebna gesla, opozori na lokalne datoteke "
+            "in lokalne slike (SVG) vdela v slog, da vir deluje vsem enako.<br><br>"
+            "Desni klik na vir: <b>Uredi podatke</b>, <b>Zamenjaj z izbranim</b> (npr. ko se spremeni naslov storitve), "
+            "<b>Razveljavi zadnjo zamenjavo</b>, <b>Skrij</b> / <b>Prikaži</b>, <b>Kopiraj v Moji viri</b>. "
+            "Katalog CPA lahko ureja le skrbnik s svojo prijavo v bazo CPA."))
 
-        icons_data = [
-            ("sourcetype_wms.png",    "WMS",              "Spletna kartografska storitev (rasterski sloj)"),
-            ("sourcetype_wfs.png",    "WFS",              "Spletna vektorska storitev"),
-            ("sourcetype_qlr.png",    "QLR / Definicija", "Predpripravljeni paket slojev (skupina)"),
-            ("sourcetype_arcgis.png", "ArcGIS strežnik",  "Sloj s strežnika ArcGIS REST")
+        layout.addWidget(self._section_label("Parcele"))
+        layout.addWidget(self._text(
+            "<b>Iskanje parcele</b>: vpišite K.O. (šifro ali ime) in številko parcele, nato <b>Poišči</b> "
+            "(približa in označi) ali <b>Naloži kot sloj</b>.<br>"
+            "<b>Parcele pod slojem</b>: <b>Naloži parcele</b> naloži vse parcele pod izbranim slojem "
+            "(po želji samo pod izbranimi objekti in z odmikom – negativen odmik območje zmanjša). "
+            "<b>Izpiši seznam parcel</b> jih izpiše kot besedilo za kopiranje, npr. "
+            "<i>123/1, 125 in 130/4, vse k. o. TRNOVSKO PREDMESTJE (1722)</i>.<br>"
+            "Vir: najprej lokalna kopija katastra v bazi CPA, nato GURS WFS; če parcele v kopiji ni, "
+            "AGIS preveri še GURS. Brez obojega uporabi vaš sloj, ki ga izberete v zavihku <b>Nastavitve</b> "
+            "(AGIS si zapomni njegov vir, zato deluje v vsakem projektu). "
+            "Pod gumbi je vedno zapisano, iz katerega vira je rezultat."))
 
-        ]
+        layout.addWidget(self._section_label("eArheologija in eVRD"))
+        layout.addWidget(self._text(
+            "Iskanje po arheoloških raziskavah (zaključene in v teku) in po registru nepremične kulturne "
+            "dediščine. Podatki so iz kopije v bazi CPA, sicer z geohub.gov.si – vir je zapisan nad tabelo.<br>"
+            "<b>Dvojni klik</b> približa na zapis, <b>desni klik</b>: več informacij, prikaz geometrije in "
+            "(pri zaključenih raziskavah) odpiranje poročil. <b>Le v obsegu karte</b> pokaže samo zapise "
+            "na trenutnem izseku karte. Sloja za karto sta v zavihku <b>Naloži sloje</b>."))
 
-        grid_widget = QWidget()
-        grid = QGridLayout(grid_widget)
-        grid.setContentsMargins(0, 4, 0, 4)
-        grid.setHorizontalSpacing(10)
-        grid.setVerticalSpacing(6)
-        grid.setColumnStretch(2, 1)
-
-        for i, (icon_file, name, desc) in enumerate(icons_data):
-            icon_lbl = QLabel()
-            px = QPixmap(str(pn_path("icons") / icon_file))
-            if not px.isNull():
-                icon_lbl.setPixmap(px.scaledToWidth(20, Qt.TransformationMode.SmoothTransformation))
-            icon_lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-            name_lbl = QLabel(f"<b>{name}</b>")
-            name_lbl.setTextFormat(Qt.TextFormat.RichText)
-
-            desc_lbl = QLabel(desc)
-            desc_lbl.setWordWrap(True)
-
-            grid.addWidget(icon_lbl, i, 0)
-            grid.addWidget(name_lbl, i, 1)
-            grid.addWidget(desc_lbl, i, 2)
-
-        layout.addWidget(grid_widget)
-
-        layout.addWidget(self._section_label("Statusna vrstica"))
-        status = QLabel(
-            "Tanka barvna črta na vrhu zavihka <b>Naloži sloje</b> prikazuje stanje povezave z bazo CPA:<br>"
-            "• <span style='color:#4caf50'><b>Zelena</b></span> — povezava z bazo CPA vzpostavljena<br>"
-            "• <b>Siva</b> — ni povezave z bazo CPA, uporabljeni so lokalni viri"
-        )
-        status.setTextFormat(Qt.TextFormat.RichText)
-        status.setWordWrap(True)
-        layout.addWidget(status)
+        layout.addWidget(self._section_label("Nastavitve"))
+        layout.addWidget(self._text(
+            "Vklop kataloga AGIS, lasten sloj parcel in naslovi spletnih storitev (GURS WFS, "
+            "eArheologija, eVRD) – vsak z gumbom <b>↺</b> za privzeti naslov. Spremembe se shranijo takoj."))
 
         layout.addStretch()
         return self._scrollable(w)               
