@@ -76,10 +76,66 @@ class EntryDialog(QDialog):
         return self.target.currentData() if self.target else None
 
 
+class DetailsDialog(QDialog):
+    """Read-only view of a catalogue entry: data, layers and their sources, check result."""
+
+    def __init__(self, entry, catalogue_title, layers, backup_name=None, note="", parent=None):
+        super().__init__(parent)
+        self.setWindowTitle(self.tr("Podrobnosti vira"))
+        self.setMinimumWidth(480)
+        layout = QVBoxLayout(self)
+        form = QFormLayout()
+
+        def text(value):
+            label = QLabel(value or "–")
+            label.setWordWrap(True)
+            label.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
+            return label
+
+        hidden = []
+        if not entry.get("omogocen", True):
+            hidden.append(self.tr("za vse"))
+        if entry.get("skrit_zame"):
+            hidden.append(self.tr("samo zame"))
+        form.addRow(self.tr("Naziv:"), text(entry.get("naziv")))
+        form.addRow(self.tr("Katalog:"), text(catalogue_title))
+        form.addRow(self.tr("Opis:"), text(entry.get("opis")))
+        form.addRow(self.tr("Izvor podatkov:"), text(entry.get("izvor")))
+        form.addRow(self.tr("Kategorija:"), text(entry.get("kategorija")))
+        form.addRow(self.tr("Oznake:"), text(entry.get("oznake")))
+        form.addRow(self.tr("Nadomestni vir:"), text(backup_name))
+        if hidden:
+            form.addRow(self.tr("Skrit:"), text(", ".join(hidden)))
+        form.addRow(self.tr("Dosegljivost:"), text(note or self.tr("v redu ali še ni preverjeno")))
+        layout.addLayout(form)
+
+        layout.addWidget(QLabel("<b>" + self.tr("Sloji in njihovi viri") + "</b>"))
+        self.sources = QPlainTextEdit()
+        self.sources.setReadOnly(True)
+        self.sources.setPlainText("\n\n".join(f"{name or '(sloj)'} [{provider}]\n{source}"
+                                               for name, provider, source in layers) or "–")
+        self.sources.setMinimumHeight(110)
+        self._paths = "\n".join(source for _n, _p, source in layers)
+        layout.addWidget(self.sources)
+
+        buttons = QDialogButtonBox(QDialogButtonBox.StandardButton.Close)
+        copy = buttons.addButton(self.tr("Kopiraj pot"), QDialogButtonBox.ButtonRole.ActionRole)
+        copy.setToolTip(self.tr("Kopiraj vire slojev v odložišče"))
+        copy.clicked.connect(self.copy_sources)
+        buttons.rejected.connect(self.reject)
+        layout.addWidget(buttons)
+
+    def copy_sources(self):
+        from qgis.PyQt.QtWidgets import QApplication
+        QApplication.clipboard().setText(self._paths)
+
+
 class LoginDialog(QDialog):
     """Curator login for the CPA catalogue. The password is kept only for this QGIS session."""
 
-    def __init__(self, parent=None):
+    OWN_ONLY = 2          # exec() result of "Samo Moji viri"
+
+    def __init__(self, parent=None, own_only=False):
         super().__init__(parent)
         self.setWindowTitle(self.tr("Prijava v bazo CPA"))
         layout = QVBoxLayout(self)
@@ -97,6 +153,11 @@ class LoginDialog(QDialog):
         self.error.hide()
         layout.addWidget(self.error)
         buttons = QDialogButtonBox(OK_CANCEL)
+        buttons.button(QDialogButtonBox.StandardButton.Ok).setText(self.tr("Prijava"))
+        if own_only:
+            mine = buttons.addButton(self.tr("Samo Moji viri"), QDialogButtonBox.ButtonRole.ActionRole)
+            mine.setToolTip(self.tr("Urejanje brez prijave: samo vaši viri"))
+            mine.clicked.connect(lambda: self.done(self.OWN_ONLY))
         buttons.accepted.connect(self.accept)
         buttons.rejected.connect(self.reject)
         layout.addWidget(buttons)
@@ -113,17 +174,16 @@ class LoginDialog(QDialog):
 
 
 class ExportDialog(QDialog):
-    """Pick entries for a new official catalogue file."""
+    """Pick entries for a catalogue file (same format as all AGIS catalogues)."""
 
     TITLES = {"cpa": "CPA", "uradni": "AGIS", "moji": "Moji"}
 
     def __init__(self, entries, parent=None):
         super().__init__(parent)
-        self.setWindowTitle(self.tr("Izvozi kot katalog"))
+        self.setWindowTitle(self.tr("Izvozi katalog"))
         self.resize(480, 520)
         layout = QVBoxLayout(self)
-        layout.addWidget(QLabel(self.tr("Izberite vire za datoteko kataloga AGIS\n"
-                                        "(nato jo naložite na GitHub kot catalogue/agis_viri.db).")))
+        layout.addWidget(QLabel(self.tr("Izberite vire, ki jih želite izvoziti v datoteko kataloga.")))
         self.list = QListWidget()
         for e in entries:
             item = QListWidgetItem(f"[{self.TITLES.get(e['katalog'], e['katalog'])}] {e['naziv']}")
@@ -162,5 +222,5 @@ class ExportDialog(QDialog):
 
     @staticmethod
     def ask_path(parent):
-        path, _ = QFileDialog.getSaveFileName(parent, "Shrani katalog", "agis_viri.db", "Katalog AGIS (*.db)")
+        path, _ = QFileDialog.getSaveFileName(parent, "Shrani katalog", "agis_katalog_izvoz.db", "Katalog (*.db)")
         return path

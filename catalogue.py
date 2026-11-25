@@ -16,11 +16,11 @@ from . import config
 from .externals import (cpa_available, cpa_connection, http_get, log, pg_ident, pg_literal,
                         pn_path, profile_path, sql_value)
 
-FIELDS = ("id", "naziv", "opis", "izvor", "vidnost", "kategorija", "oznake", "vrstni_red", "omogocen",
+FIELDS = ("id", "naziv", "opis", "izvor", "vidnost", "kategorija", "oznake", "nadomestni_id", "vrstni_red", "omogocen",
           "qlr", "qlr_prejsnji", "posodobljeno")
-EDITABLE = ("naziv", "opis", "izvor", "vidnost", "kategorija", "oznake", "vrstni_red")
+EDITABLE = ("naziv", "opis", "izvor", "vidnost", "kategorija", "oznake", "nadomestni_id", "vrstni_red")
 # columns added after the first version: older files / tables may not have them yet
-NEWER_COLUMNS = ("oznake",)
+NEWER_COLUMNS = ("oznake", "nadomestni_id")
 
 SQLITE_SCHEMA = """
 CREATE TABLE IF NOT EXISTS viri (
@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS viri (
     vidnost       TEXT NOT NULL DEFAULT 'javno',
     kategorija    TEXT,
     oznake        TEXT,
+    nadomestni_id TEXT,
     vrstni_red    INTEGER DEFAULT 0,
     omogocen      INTEGER NOT NULL DEFAULT 1,
     qlr           TEXT NOT NULL,
@@ -38,7 +39,7 @@ CREATE TABLE IF NOT EXISTS viri (
     posodobljeno  TEXT
 )"""
 
-BUNDLED_OFFICIAL = pn_path("catalogue") / "agis_viri.db"
+BUNDLED_OFFICIAL = pn_path("catalogue") / "agis_katalog.db"
 
 
 def new_entry(**values):
@@ -164,6 +165,7 @@ class PostgresCatalogue:
         self.writable = True
         self.needs_login = True
         self._login = None          # (user, password) for this QGIS session only
+        self.can_delete = False
 
     @property
     def table(self):
@@ -177,9 +179,9 @@ class PostgresCatalogue:
             return []
         try:
             conn = cpa_connection()
-            self._has_tags = self._column_exists(conn, "oznake")
-            tags = "oznake" if self._has_tags else "NULL"
-            sql = (f"SELECT id::text, naziv, opis, izvor, vidnost, kategorija, {tags}, vrstni_red, omogocen, qlr, "
+            self._missing = {c for c in NEWER_COLUMNS if not self._column_exists(conn, c)}
+            newer = ", ".join(f"{c}::text" if c not in self._missing else "NULL" for c in NEWER_COLUMNS)
+            sql = (f"SELECT id::text, naziv, opis, izvor, vidnost, kategorija, {newer}, vrstni_red, omogocen, qlr, "
                    f"qlr_prejsnji IS NOT NULL, posodobljeno::text FROM {self.table} ORDER BY vrstni_red, naziv")
             rows = conn.executeSql(sql)
         except QgsProviderConnectionException as e:
@@ -188,7 +190,7 @@ class PostgresCatalogue:
         result = []
         for row in rows:
             row = [sql_value(v) for v in row]
-            entry = dict(zip(("id", "naziv", "opis", "izvor", "vidnost", "kategorija", "oznake", "vrstni_red",
+            entry = dict(zip(("id", "naziv", "opis", "izvor", "vidnost", "kategorija", *NEWER_COLUMNS, "vrstni_red",
                               "omogocen", "qlr", "ima_prejsnji", "posodobljeno"), row))
             entry["qlr_prejsnji"] = None
             result.append(entry)
@@ -202,9 +204,8 @@ class PostgresCatalogue:
 
     def _writable_fields(self, fields):
         """Leave out columns the CPA table does not have yet (run dev/cpa_catalogue.sql again to add them)."""
-        if getattr(self, "_has_tags", True) is False:
-            fields = [f for f in fields if f != "oznake"]
-        return fields
+        missing = getattr(self, "_missing", set())
+        return [f for f in fields if f not in missing]
 
     # --- login -------------------------------------------------------------
     def logged_in(self):
@@ -214,16 +215,23 @@ class PostgresCatalogue:
         """Check the login and the right to write; remember it for this session."""
         try:
             conn = cpa_connection(user, password)
-            rows = conn.executeSql(f"SELECT has_table_privilege(current_user, "
-                                   f"{pg_literal(self.table)}, 'INSERT,UPDATE')")
+            table = pg_literal(self.table)
+            rows = conn.executeSql(f"SELECT has_table_privilege(current_user, {table}, 'INSERT,UPDATE'), "
+                                   f"has_table_privilege(current_user, {table}, 'DELETE')")
         except QgsProviderConnectionException as e:
             raise CatalogueError(f"Prijava ni uspela: {e}")
         if not (rows and sql_value(rows[0][0])):
-            raise CatalogueError("Ta uporabnik nima pravice urejati kataloga CPA.")
+            raise CatalogueError("Ta prijava nima pravic za urejanje kataloga CPA.")
         self._login = (user, password)
+        self.can_delete = bool(sql_value(rows[0][1]))
+
+    @property
+    def user(self):
+        return self._login[0] if self._login else None
 
     def logout(self):
         self._login = None
+        self.can_delete = False
 
     def _execute(self, sql):
         if not self._login:
@@ -265,19 +273,51 @@ class PostgresCatalogue:
                       f"WHERE id = {self._id(entry_id)}")
 
     def delete(self, entry_id):
-        raise CatalogueError("Vnosov v katalogu CPA ni mogoče brisati – lahko jih skrijete.")
+        if not self.can_delete:
+            raise CatalogueError("Ta prijava nima pravice brisati iz kataloga CPA – vir lahko skrijete za vse.")
+        self._execute(f"DELETE FROM {self.table} WHERE id = {self._id(entry_id)}")
 
 
 # ---------------------------------------------------------------------------
 # Official catalogue: download, cache, fallback to the bundled copy
 # ---------------------------------------------------------------------------
 def official_cache_path():
-    return profile_path("uradni_katalog.db")
+    """Downloaded copy of Katalog AGIS in the QGIS profile (agis_katalog.db).
+    A copy under the old name (uradni_katalog.db, before 1.9.1) is renamed once."""
+    path = profile_path("agis_katalog.db")
+    old = profile_path("uradni_katalog.db")
+    if old.exists():
+        try:
+            if path.exists():
+                old.unlink()
+            else:
+                old.replace(path)
+        except OSError:
+            pass
+    return path
+
+
+def _last_change(path):
+    """Newest 'posodobljeno' in a catalogue file ('' if none or unreadable)."""
+    try:
+        con = sqlite3.connect(f"file:{path}?mode=ro", uri=True)
+        try:
+            return con.execute("SELECT coalesce(max(posodobljeno), '') FROM viri").fetchone()[0] or ""
+        finally:
+            con.close()
+    except sqlite3.Error:
+        return ""
 
 
 def official_path():
+    """The downloaded copy, unless the copy bundled with the plugin is newer
+    (e.g. a plugin update that comes before the file on GitHub is updated)."""
     cache = official_cache_path()
-    return cache if cache.exists() else BUNDLED_OFFICIAL
+    if not cache.exists():
+        return BUNDLED_OFFICIAL
+    if BUNDLED_OFFICIAL.exists() and _last_change(BUNDLED_OFFICIAL) > _last_change(cache):
+        return BUNDLED_OFFICIAL
+    return cache
 
 
 def _is_catalogue(path):
@@ -318,8 +358,10 @@ def export_catalogue(entries, path):
     try:
         with con:
             con.execute(SQLITE_SCHEMA)
+            from .qlr_tools import without_cpa_login
             for e in entries:
                 values = [e.get(f) for f in FIELDS]
+                values[FIELDS.index("qlr")] = without_cpa_login(e.get("qlr") or "")
                 values[FIELDS.index("qlr_prejsnji")] = None
                 values[FIELDS.index("omogocen")] = 1 if e.get("omogocen", True) else 0
                 values[FIELDS.index("posodobljeno")] = e.get("posodobljeno") or _now()
@@ -350,13 +392,15 @@ class Catalogues:
         return {"cpa": self.cpa, "uradni": self.official, "moji": self.own}[key]
 
     def entries(self, official_enabled=True, include_hidden=False):
-        """Merged list; an id that appears in several catalogues is shown once (first wins)."""
+        """Merged list; an id that appears in several catalogues is shown once (first wins).
+        include_hidden: True, False or the keys of the catalogues whose hidden entries are included."""
         seen, result = set(), []
         for cat in self.all(official_enabled):
+            with_hidden = include_hidden if isinstance(include_hidden, bool) else cat.key in include_hidden
             for e in cat.entries():
                 if e["id"] in seen:
                     continue
-                if not e["omogocen"] and not include_hidden:
+                if not e["omogocen"] and not with_hidden:
                     continue
                 seen.add(e["id"])
                 e["katalog"] = cat.key

@@ -9,6 +9,13 @@ import configparser
 from .externals import pn_path
 
 
+TH = ":/images/themes/default/"
+REFRESH = f'<img src="{TH}mActionRefresh.svg" width="16" height="16">'
+ADD = f'<img src="{TH}symbologyAdd.svg" width="16" height="16">'
+EDIT = f'<img src="{TH}mActionToggleEditing.svg" width="16" height="16">'
+STOP = '<img src="' + str(pn_path("icons") / "stop.png").replace("\\", "/") + '" width="16" height="16">'
+
+
 def plugin_version():
     cp = configparser.ConfigParser(interpolation=None)
     cp.read(pn_path("plugin") / "metadata.txt", encoding="utf-8")
@@ -35,6 +42,10 @@ class TabOVticniku(QWidget):
     def _scrollable(self, widget):
         scroll = QScrollArea()
         scroll.setWidgetResizable(True)
+        # Always show the scroll bar: with wrapping text, a scroll bar that appears and disappears
+        # changes the width, which changes the wrapping, … - Qt can loop forever (QGIS freezes).
+        scroll.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
+        scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         scroll.setFrameShape(QFrame.Shape.NoFrame)
         scroll.setWidget(widget)
         return scroll
@@ -136,9 +147,17 @@ class TabOVticniku(QWidget):
             "(oz. na vrh izbrane skupine), brez izbire pa na vrh.<br>"
             "3. Vir lahko tudi <b>povlečete</b> v panel <b>Sloji</b> točno tja, kamor ga želite.<br>"
             "4. Več virov hkrati: izberite vrstice (Ctrl+klik) in <b>desni klik → Naloži</b> ali jih povlecite.<br>"
-            "5. Nalaganje lahko prekinete z gumbom <b>✕</b>.<br>"
-            "6. Gumb <b>↺</b> osveži kataloge in ponovno preveri povezavo z bazo CPA.<br>"
+            "5. Nalaganje ustavite z rdečim gumbom " + STOP + ".<br>"
+            "6. Gumb " + REFRESH + " osveži kataloge ter ponovno preveri povezavo z bazo CPA in dosegljivost virov.<br>"
             "7. Iskanje upošteva naziv, opis, izvor in <b>oznake</b> (ključne besede vira).<br>"
+            "8. Rdeč <b>!</b> pomeni, da del vira s tega računalnika ni dosegljiv (npr. omrežni pogon ali spletna storitev, ki zahteva prijavo); "
+            "podrobnosti so v nasvetu in v <b>desni klik → Podrobnosti</b>. Sivi viri niso dosegljivi, a jih lahko vseeno naložite. "
+            "Vir ima lahko <b>nadomestni vir</b>, ki se naloži, ko glavni ni dosegljiv.<br>"
+            "9. Vire, ki jih ne potrebujete, skrijete z desnim klikom → <b>Skrij (samo zame)</b>; "
+            "vrnete jih prek ⋯ → Pokaži skrite vire.<br>"
+            "10. Gumbi katalogov pod seznamom (npr. <b>Katalog AGIS [25]</b>) s klikom skrijejo ali prikažejo vse vire "
+            "iz tega kataloga. Izbira se zapomni.<br>"
+            "11. <b>⋯ → Izvozi katalog…</b> shrani izbrane vire v datoteko kataloga (privzeto agis_katalog_izvoz.db).<br>"
             "Hitro okno samo s seznamom virov odpre ikona s tremi pikami v orodni vrstici AGIS."))
 
         layout.addWidget(self._section_label("Katalogi"))
@@ -147,17 +166,25 @@ class TabOVticniku(QWidget):
             "<b>∴ Katalog AGIS</b> — skupni seznam virov (vedno na vrhu), "
             "ki se ob zagonu prenese z GitHuba (izklop v zavihku <b>Nastavitve</b>).<br>"
             "<span style='color:#ef6c00'>●</span> <b>Moji viri</b> — vaši viri, shranjeni samo v vašem QGIS-u.<br>"
-            "Skriti viri so prikazani sivo, ko vklopite <b>⋯ → Pokaži skrite vire</b>."))
+            "Skriti viri so prikazani sivo, ko vklopite <b>⋯ → Pokaži skrite vire</b>. "
+            "Katalog AGIS se v vtičniku ne ureja, vzdržuje se na GitHubu."))
 
         layout.addWidget(self._section_label("Dodajanje in urejanje virov"))
         layout.addWidget(self._text(
-            "1. Sloj ali skupino pripravite v QGIS-u (slog, oznake, merila) in jo izberite v panelu <b>Sloji</b>.<br>"
-            "2. V AGIS kliknite <b>+</b>, izpolnite naziv in opis ter izberite katalog.<br>"
+            "Urejanje vklopite z gumbom " + EDIT + " <b>Urejanje</b>. Dokler je vklopljeno, je pod iskalnim poljem "
+            "<span style='color:#c62828'><b>rdeča črta</b></span>, katalogi, ki jih lahko urejate, pa imajo na gumbu ✎.<br>"
+            "• V omrežju CPA vas AGIS ob vklopu enkrat na sejo vpraša za prijavo v bazo CPA. Prijava s pravico "
+            "urejanja omogoči urejanje <b>Kataloga CPA</b> (kurator); <b>Samo Moji viri</b> ali prijava brez pravic "
+            "omogoči urejanje samo vaših virov. Geslo ni shranjeno; odjava: ⋯ → Odjava iz kataloga CPA.<br>"
+            "• Zunaj omrežja CPA se urejanje vklopi takoj, samo za Moji viri.<br><br>"
+            "<b>Dodajanje:</b> sloj ali skupino pripravite v QGIS-u (slog, oznake, merila), jo izberite v panelu "
+            "<b>Sloji</b>, kliknite " + ADD + ", izpolnite naziv in opis ter izberite katalog. "
             "AGIS pred shranjevanjem odstrani osebna gesla, opozori na lokalne datoteke "
-            "in lokalne slike (SVG) vdela v slog, da vir deluje vsem enako.<br><br>"
-            "Desni klik na vir: <b>Uredi podatke</b>, <b>Zamenjaj z izbranim</b> (npr. ko se spremeni naslov storitve), "
-            "<b>Razveljavi zadnjo zamenjavo</b>, <b>Skrij</b> / <b>Prikaži</b>, <b>Kopiraj v Moji viri</b>. "
-            "Katalog CPA lahko ureja le skrbnik s svojo prijavo v bazo CPA."))
+            "in lokalne slike (SVG) vdela v slog, da vir deluje vsem enako.<br>"
+            "<b>Desni klik</b> na vir v katalogu, ki ga urejate: <b>Uredi podatke</b>, <b>Zamenjaj z izbranim</b> "
+            "(npr. ko se spremeni naslov storitve), <b>Nadomestni vir</b>, <b>Razveljavi zadnjo zamenjavo</b>, "
+            "<b>Skrij za vse</b> / <b>Prikaži za vse</b>, <b>Izbriši</b>. Viri, skriti za vse, so med urejanjem "
+            "prikazani sivo, da jih lahko spet prikažete."))
 
         layout.addWidget(self._section_label("Parcele"))
         layout.addWidget(self._text(
@@ -192,6 +219,16 @@ class TabOVticniku(QWidget):
         layout.addWidget(self._text(
             "Vklop kataloga AGIS, lasten sloj parcel in naslovi spletnih storitev (GURS WFS, "
             "eArheologija, eVRD) – vsak z gumbom <b>↺</b> za privzeti naslov. Spremembe se shranijo takoj."))
+        layout.addWidget(self._section_label("Delo od doma (VPN)"))
+        layout.addWidget(self._text(
+            "AGIS prebere nastavitve CPA z omrežnega diska – privzeto z diska <b>V:</b>, kot v pisarni. "
+            "Če diska V: doma nimate, v <b>Nastavitve → Povezave</b> vnesite omrežno pot do datoteke "
+            "z nastavitvami (\\\\strežnik\\mapa\\…; dobite jo pri skrbniku AGIS na CPA) ali pa si disk V: "
+            "povežite. Če ste prek VPN povezani, a vas Windows še ni "
+            "prijavil v omrežni disk (domači računalnik, drug uporabnik), AGIS to pokaže in ponudi gumb "
+            "<b>Prijava v omrežni disk</b> (tudi v Nastavitve → Povezave). Odpre se mapa in Windows vpraša "
+            "za uporabniško ime in geslo – označite <b>»Zapomni si moje poverilnice«</b>. AGIS nato sam "
+            "prebere nastavitve; naslednjič to ni več potrebno. Brez VPN AGIS deluje kot doma, brez baze CPA."))
 
         layout.addStretch()
         return self._scrollable(w)               

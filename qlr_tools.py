@@ -35,13 +35,14 @@ def export_nodes(nodes):
     return doc.toString()
 
 
-def load_qlr(qlr_text, project=None, group=None, index=None):
+def load_qlr(qlr_text, project=None, group=None, index=None, skip_invalid=False, skipped=None):
     """Load a QLR into ``group`` (default: the project root) at position ``index``
-    (None = at the end). Returns the number of top-level nodes added."""
+    (None = at the end). Returns the number of top-level nodes added.
+    skip_invalid: layers whose source cannot be opened are left out (names added to ``skipped``)."""
     project = project or QgsProject.instance()
     group = group or project.layerTreeRoot()
     doc = QDomDocument()
-    parsed = doc.setContent(qlr_text)
+    parsed = doc.setContent(with_cpa_login(qlr_text))
     ok = parsed[0] if isinstance(parsed, tuple) else bool(parsed)
     if not ok:
         raise QlrError("Neveljaven QLR.")
@@ -50,6 +51,15 @@ def load_qlr(qlr_text, project=None, group=None, index=None):
     ok, err = QgsLayerDefinition.loadLayerDefinition(doc, project, staging, QgsReadWriteContext())
     if not ok:
         raise QlrError(err or "Nalaganje QLR ni uspelo.")
+    if skip_invalid:
+        for node in staging.findLayers():
+            layer = node.layer()
+            if layer is None or not layer.isValid():
+                if skipped is not None:
+                    skipped.append(node.name())
+                node.parent().removeChildNode(node)
+                if layer is not None:
+                    project.removeMapLayer(layer.id())
     nodes = [child.clone() for child in staging.children()]
     if index is None or index < 0 or index > len(group.children()):
         index = len(group.children())
@@ -123,10 +133,12 @@ def _check_source(provider, ds, name, warnings, errors):
     if provider in DB_PROVIDERS:
         uri = QgsDataSourceUri(ds)
         if uri.username() or uri.password():
-            if uri.host() == config.get("cpa_host"):
-                uri.setUsername(config.get("cpa_user"))
-                uri.setPassword(config.get("cpa_password"))
-                warnings.append(f"»{name}«: osebna prijava zamenjana z javnim računom CPA.")
+            if is_cpa_host(uri):
+                if uri.username() not in (config.get("cpa_user"), "cpa"):
+                    warnings.append(f"»{name}«: osebna prijava odstranjena – ob nalaganju AGIS uporabi "
+                                    "račun iz nastavitev organizacije.")
+                uri.setUsername("")
+                uri.setPassword("")
             else:
                 uri.setUsername("")
                 uri.setPassword("")
@@ -155,6 +167,56 @@ def _check_source(provider, ds, name, warnings, errors):
         elif re.match(r"^([A-Za-z]:[\\/]|/)", path):
             warnings.append(f"»{name}«: lokalna datoteka ({path}) – drugi uporabniki je ne bodo imeli.")
     return ds
+
+
+def is_cpa_host(uri):
+    host = config.get("cpa_host")
+    return bool(host) and uri.host() == host
+
+
+def _map_cpa_login(qlr_text, fill):
+    """Set (fill=True) or remove (fill=False) the shared login on CPA database layers of a QLR.
+    Catalogues keep CPA layers without a login; it is added at load time from the
+    organisation settings, so a changed password never breaks a catalogue entry.
+    Personal logins and auth configs are left alone."""
+    if "postgres" not in qlr_text or not config.get("cpa_host"):
+        return qlr_text
+    doc = QDomDocument()
+    parsed = doc.setContent(qlr_text)
+    if not (parsed[0] if isinstance(parsed, tuple) else bool(parsed)):
+        return qlr_text
+    shared = ("", config.get("cpa_user"), "cpa")
+    changed = False
+    layers = doc.elementsByTagName("maplayer")
+    for i in range(layers.count()):
+        el = layers.at(i).toElement()
+        if el.firstChildElement("provider").text() not in ("postgres", "postgresraster"):
+            continue
+        ds_el = el.firstChildElement("datasource")
+        uri = QgsDataSourceUri(ds_el.text())
+        if not is_cpa_host(uri) or uri.authConfigId() or uri.username() not in shared:
+            continue
+        user, password = (config.get("cpa_user"), config.get("cpa_password")) if fill else ("", "")
+        if (uri.username(), uri.password()) == (user, password):
+            continue
+        uri.setUsername(user)
+        uri.setPassword(password)
+        node = ds_el.firstChild()
+        while not node.isNull():            # replace the text of <datasource>
+            nxt = node.nextSibling()
+            ds_el.removeChild(node)
+            node = nxt
+        ds_el.appendChild(doc.createTextNode(uri.uri(False)))
+        changed = True
+    return doc.toString() if changed else qlr_text
+
+
+def with_cpa_login(qlr_text):
+    return _map_cpa_login(qlr_text, True)
+
+
+def without_cpa_login(qlr_text):
+    return _map_cpa_login(qlr_text, False)
 
 
 def _image_attrs(root):

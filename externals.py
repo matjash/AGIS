@@ -51,9 +51,15 @@ _cpa_state = None
 
 
 def cpa_available(refresh=False, timeout=0.3):
-    """True if the CPA database answers. Checked once and remembered; refresh=True checks again."""
+    """True if the CPA database answers. Checked once and remembered; refresh=True checks again
+    (and reads the organisation settings file again)."""
     global _cpa_state
     if _cpa_state is None or refresh:
+        if refresh:
+            config.org_settings(refresh=True)
+        if not config.get("cpa_host"):
+            _cpa_state = False          # no settings file reachable: work without CPA
+            return _cpa_state
         try:
             with socket.create_connection((config.get("cpa_host"), int(config.get("cpa_port"))), timeout=timeout):
                 _cpa_state = True
@@ -174,11 +180,59 @@ def pg_literal(value):
 
 
 # ---------------------------------------------------------------------------
-# Web requests - through QGIS network settings (proxy, certificates),
-# with a timeout; safe to call from a background QgsTask.
+# Web requests - with a timeout; safe to call from background threads.
+#
+# In background threads QgsBlockingNetworkRequest can deadlock QGIS (several
+# requests from Python worker threads at start-up froze the whole program), so
+# outside the main thread plain urllib is used, with the proxy from the QGIS
+# settings (or the system proxy) and the system certificates.
 # ---------------------------------------------------------------------------
+def _is_main_thread():
+    from qgis.PyQt.QtCore import QCoreApplication, QThread
+    app = QCoreApplication.instance()
+    return app is None or QThread.currentThread() == app.thread()
+
+
+def _qgis_proxies():
+    """urllib proxies from QGIS → Nastavitve → Omrežje (None = system proxy)."""
+    from qgis.core import QgsSettings
+    s = QgsSettings()
+    if str(s.value("proxy/proxyEnabled", False)).lower() not in ("true", "1"):
+        return {}
+    kind = str(s.value("proxy/proxyType", "DefaultProxy"))
+    if kind == "DefaultProxy":
+        return None
+    host, port = s.value("proxy/proxyHost", ""), s.value("proxy/proxyPort", "")
+    if not host:
+        return None
+    from urllib.parse import quote
+    user, password = s.value("proxy/proxyUser", ""), s.value("proxy/proxyPassword", "")
+    login = f"{quote(str(user))}:{quote(str(password))}@" if user else ""
+    scheme = "socks5h" if kind == "Socks5Proxy" else "http"
+    address = f"{scheme}://{login}{host}" + (f":{port}" if port else "")
+    return {"http": address, "https": address}
+
+
+def _urllib_get(url, timeout_ms):
+    import urllib.error
+    import urllib.request
+    proxies = _qgis_proxies()
+    handlers = [] if proxies is None else [urllib.request.ProxyHandler(proxies)]
+    opener = urllib.request.build_opener(*handlers)
+    request = urllib.request.Request(url, headers={"User-Agent": "QGIS AGIS"})
+    try:
+        with opener.open(request, timeout=timeout_ms / 1000) as reply:
+            return reply.read()
+    except urllib.error.HTTPError as e:
+        raise IOError(f"{e.code} {e.reason} – {url}")
+    except (urllib.error.URLError, OSError, ValueError) as e:
+        raise IOError(f"Napaka pri dostopu do {url}: {getattr(e, 'reason', e)}")
+
+
 def http_get(url, params=None, timeout_ms=20000):
     full = url + ("?" + urlencode(params) if params else "")
+    if not _is_main_thread():
+        return _urllib_get(full, timeout_ms)
     request = QNetworkRequest(QUrl(full))
     if hasattr(request, "setTransferTimeout"):
         request.setTransferTimeout(timeout_ms)

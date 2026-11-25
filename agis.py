@@ -23,10 +23,11 @@ from qgis.PyQt.QtWidgets import (
     QAction, QDialog, QDockWidget, QFrame, QHBoxLayout, QLabel, QStyle, QTabWidget, QToolButton, QVBoxLayout,
     QWidget,
 )
-from qgis.core import QgsSettings
+from qgis.core import QgsApplication, QgsSettings, QgsTask
 
 from . import config
 from .externals import cpa_available, pn_path
+from .share_login import ShareLogin
 from .tab_nalozi_sloje import TabNaloziSloje
 from .tab_nastavitve import TabNastavitve
 from .tab_o_vticniku import TabOVticniku
@@ -49,6 +50,8 @@ class ArheoloskiGis:
         self.work_action = None
         self.quick = None
         self.work = None
+        self.share_login = None
+        self._org_task = None
         self.menu = tr("AGIS")
 
     # ------------------------------------------------------------------ GUI
@@ -56,12 +59,33 @@ class ArheoloskiGis:
     def initGui(self):
         self.toolbar = self.iface.addToolBar("AGIS")
         self.toolbar.setObjectName("AGIS")
+        self.share_login = ShareLogin(self.iface, on_success=self._org_ready)
+        # the settings file (on a network share) is read in the background: QGIS never waits for it
+        config.defer_org_settings()
 
         self._add_action("icon_load.png", tr("AGIS"), self.show_dock, in_menu=True)
         self._add_action("agis_small.png", tr("AGIS – naloži sloje"), self.show_quick)
         self.update_work_action()   # only shown if the CPA database is reachable
 
         self.show_dock()
+        self._org_task = QgsTask.fromFunction("AGIS: nastavitve organizacije",
+                                              lambda task: cpa_available(refresh=True),
+                                              on_finished=self._org_read)
+        QgsApplication.taskManager().addTask(self._org_task)
+
+    def _org_read(self, exception, result=None):
+        self._org_task = None
+        if self.toolbar is None:          # plugin unloaded meanwhile
+            return
+        self._org_ready()
+
+    def _org_ready(self):
+        """Settings file read (at start, or after the login to the network share): update the UI."""
+        if self.dock:
+            self.dock.nalozi.reload(recheck=False)
+            self.dock.settings.update_status(refresh=False)
+            self.dock.update_cpa_line()
+        self.update_work_action()
 
     def _add_action(self, icon, text, callback, in_menu=False):
         action = QAction(QIcon(str(pn_path("icons") / icon)), text, self.iface.mainWindow())
@@ -79,8 +103,18 @@ class ArheoloskiGis:
             self.work_action = self._add_action("icon_work_loader.png", tr("Naloži delovne sloje"), self.work_loader)
         if self.work_action is not None:
             self.work_action.setVisible(reachable)
+        if self.share_login:
+            self.share_login.notify_if_needed()      # e.g. VPN connected later, then ↺
 
     def unload(self):
+        if self._org_task is not None:
+            try:
+                self._org_task.cancel()
+            except RuntimeError:
+                pass
+            self._org_task = None
+        if self.share_login:
+            self.share_login.stop()
         if self.work is not None:
             self.work.close()
             self.work = None
@@ -108,6 +142,7 @@ class ArheoloskiGis:
     def show_dock(self):
         if self.dock is None:
             self.dock = AgisDockWidget(self.iface, on_refresh=self.update_work_action,
+                                       on_share_login=self.share_login.start if self.share_login else None,
                                        parent=self.iface.mainWindow())
             self.iface.addDockWidget(Qt.DockWidgetArea.RightDockWidgetArea, self.dock)
         self.dock.show()
@@ -189,9 +224,10 @@ class DockTitleBar(QWidget):
 
 class AgisDockWidget(QDockWidget):
 
-    def __init__(self, iface, on_refresh=None, parent=None):
+    def __init__(self, iface, on_refresh=None, on_share_login=None, parent=None):
         super().__init__(parent)
         self.iface = iface
+        self._on_refresh = on_refresh
         self.setWindowTitle("AGIS")
         self.setObjectName("AgisDock")
         self.title_bar = DockTitleBar(self)
@@ -212,19 +248,26 @@ class AgisDockWidget(QDockWidget):
         self.tabs.addTab(TabParcele(iface), tr("Parcele"))
         self.tabs.addTab(TabEarheologija(iface), tr("eArheologija"))
         self.tabs.addTab(TabEvrd(iface), tr("eVRD"))
-        self.settings = TabNastavitve(on_changed=self._settings_changed, on_status=self.update_cpa_line)
+        self.settings = TabNastavitve(on_changed=self._settings_changed, on_status=self._status_checked,
+                                      on_share_login=on_share_login,
+                                      on_settings_file=lambda: self.nalozi.reload(recheck=False))
         self.tabs.addTab(self.settings, tr("Nastavitve"))
         self.tabs.addTab(TabOVticniku(iface), tr("Pomoč"))
         layout.addWidget(self.tabs)
 
         self.setWidget(main)
-        self._on_refresh = on_refresh
         self.update_dev_label()
         self.update_cpa_line()
 
     def update_cpa_line(self):
         """Green line under the title while the CPA database is reachable (last known state)."""
         self.title_bar.cpa_line.setVisible(cpa_available())
+
+    def _status_checked(self):
+        """Nastavitve checked the connection (and read the settings file again)."""
+        self.update_cpa_line()
+        if self._on_refresh:
+            self._on_refresh()
 
     def _refreshed(self):
         self.update_dev_label()

@@ -1,5 +1,6 @@
 """'Nastavitve' tab: catalogue, own parcel layer, web service addresses, connections.
 Every change is saved at once."""
+from qgis.PyQt.QtCore import Qt
 from qgis.PyQt.QtWidgets import (
     QCheckBox, QFormLayout, QFrame, QGroupBox, QHBoxLayout, QLabel, QLineEdit, QPushButton, QScrollArea,
     QToolButton, QVBoxLayout, QWidget,
@@ -30,11 +31,20 @@ def official_catalogue_enabled():
 
 class TabNastavitve(QScrollArea):
 
-    def __init__(self, on_changed=None, on_status=None, parent=None):
+    def __init__(self, on_changed=None, on_status=None, on_share_login=None, on_settings_file=None,
+                 parent=None):
         super().__init__(parent)
+        self._on_settings_file = on_settings_file   # called after another settings file was read
+        self._file_changed = False
+        self._check_again = False
+        self._check_task = None
+        self._on_share_login = on_share_login   # opens the network share so Windows asks for the login
         self._on_changed = on_changed       # called after a change that needs a refresh elsewhere
         self._on_status = on_status         # called after the CPA connection was checked
         self.setWidgetResizable(True)
+        # see tab_o_vticniku._scrollable: a toggling scroll bar + wrapping text can freeze Qt
+        self.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
+        self.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.setFrameShape(QFrame.Shape.NoFrame)
         inner = QWidget()
         layout = QVBoxLayout(inner)
@@ -125,6 +135,34 @@ class TabNastavitve(QScrollArea):
         # --- Connections ----------------------------------------------------------
         status = QGroupBox(self.tr("Povezave"))
         self.status_layout = QVBoxLayout(status)
+        self.status_layout.addWidget(QLabel(self.tr("Datoteka z nastavitvami CPA:")))
+        self.settings_edit = QLineEdit(config.user_settings_file())
+        self.settings_edit.setPlaceholderText(config.default("settings_file"))
+        self.settings_edit.setToolTip(self.tr("Prazno = privzeta pot: {}").format(config.default("settings_file")))
+        self.settings_edit.setCursorPosition(0)
+        self.settings_edit.editingFinished.connect(self._settings_file_edited)
+        settings_reset = QToolButton()
+        settings_reset.setText("↺")
+        settings_reset.setToolTip(self.tr("Ponastavi na privzeto pot"))
+        settings_reset.clicked.connect(self._settings_file_reset)
+        line = QHBoxLayout()
+        line.addWidget(self.settings_edit)
+        line.addWidget(settings_reset)
+        self.status_layout.addLayout(line)
+        self.status_layout.addWidget(self._hint(self.tr(
+            "Pot do datoteke z nastavitvami agis_nastavitve.ini. Če disk V: ni mapiran ali je pod drugo črko, "
+            "se lahko vpiše omrežna pot do datoteke ali njene mape (\\\\strežnik\\mapa\\…). "
+            "Prazno polje pomeni privzeto pot.")))
+        self.org_status = QLabel()
+        self.org_status.setWordWrap(True)
+        self.org_status.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
+        self.status_layout.addWidget(self.org_status)
+        self.share_btn = QPushButton(self.tr("Prijava v omrežni disk"))
+        self.share_btn.setToolTip(self.tr("Odpre mapo z nastavitvami v Raziskovalcu; Windows vpraša za prijavo. "
+                                          "Označite »Zapomni si moje poverilnice«."))
+        self.share_btn.clicked.connect(lambda: self._on_share_login and self._on_share_login())
+        self.share_btn.hide()
+        self.status_layout.addWidget(self.share_btn, 0, Qt.AlignmentFlag.AlignLeft)
         self.cpa_status = QLabel()
         self.status_layout.addWidget(self.cpa_status)
         self.dev_info = QLabel()
@@ -154,7 +192,8 @@ class TabNastavitve(QScrollArea):
 
     def check_connection(self):
         """Check the CPA database in the background (a slow name lookup must not block the tab)."""
-        if getattr(self, "_check_task", None) is not None:
+        if self._check_task is not None:
+            self._check_again = self._file_changed      # another path was entered meanwhile
             return
         self.cpa_status.setText(self.tr("Baza CPA: preverjam…"))
         self._check_task = QgsTask.fromFunction("AGIS: povezava CPA", lambda task: cpa_available(refresh=True),
@@ -164,7 +203,15 @@ class TabNastavitve(QScrollArea):
     def _checked(self, exception, result=None):
         self._check_task = None
         try:
+            if self._check_again:       # read the path entered while the check was running
+                self._check_again = False
+                self.check_connection()
+                return
             self.update_status(refresh=False)
+            if self._file_changed:
+                self._file_changed = False
+                if self._on_settings_file:
+                    self._on_settings_file()
             if self._on_status:
                 self._on_status()
         except RuntimeError:            # tab already deleted
@@ -241,10 +288,35 @@ class TabNastavitve(QScrollArea):
 
     # ------------------------------------------------------------- connections
 
+    def _settings_file_edited(self):
+        """Another path of the settings file: save it and read the file in the background."""
+        before = config.get("settings_file")
+        config.set_settings_file(self.settings_edit.text())
+        self.settings_edit.setText(config.user_settings_file())
+        self.settings_edit.setCursorPosition(0)
+        if config.get("settings_file") != before:
+            self._file_changed = True
+            self.org_status.setText(self.tr("Nastavitve organizacije: berem…"))
+            self.check_connection()
+
+    def _settings_file_reset(self):
+        self.settings_edit.clear()
+        self._settings_file_edited()
+
     def update_status(self, refresh=True):
         reachable = cpa_available(refresh=refresh)
         self.cpa_status.setText(self.tr("Baza CPA: ") + (self.tr("dosegljiva") if reachable
                                                           else self.tr("ni dosegljiva")))
+        path, state = config.org_settings_info()
+        primary = config.get("settings_file")
+        if path:
+            text = self.tr("Nastavitve organizacije: {}").format(path)
+            if primary and path != primary:
+                text += "<br>" + self.tr("(datoteka {} ni najdena – uporabljena razvojna kopija)").format(primary)
+        else:
+            text = self.tr("Nastavitve organizacije: {}").format(primary) + f" – {state}"
+        self.org_status.setText(text)
+        self.share_btn.setVisible(bool(self._on_share_login) and config.org_needs_login())
         overrides = config.overrides()
         lines = "<br>".join(f"{k} = {'***' if 'password' in k else v}" for k, v in overrides.items())
         self.dev_info.setText(f"<b>{self.tr('Razvojni način')}</b><br>{lines}" if overrides else "")
